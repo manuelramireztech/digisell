@@ -123,7 +123,7 @@ $autoload['model'] = array();
 |
 */
 
-$autoload['sparks'] = array('ci_authentication/1.3.4');
+$autoload['sparks'] = array('ci_authentication/1.3.4','codeigniter-template/1.0.2');
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */
