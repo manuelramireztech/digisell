@@ -28,6 +28,11 @@ class Welcome extends CI_Controller {
 		$this->template->add_meta_tag("og:title", "Test Title", 'property');
 		$this->template->render("welcome_message");
 	}
+	public function vijay()
+	{
+		$this->template->add_meta_tag("og:title", "Test Title", 'property');
+		$this->template->render("welcome_message");
+	}
 }
 
 /* End of file welcome.php */

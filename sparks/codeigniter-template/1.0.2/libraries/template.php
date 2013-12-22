@@ -255,7 +255,7 @@ class Template
     private function script_tag($src = NULL)
     {
         if (isset($src) and !empty($src)) {
-            return '<script src="' . $src . '" type="text/javascript"></script>';
+            return '<script src="'. $src . '" type="text/javascript"></script>';
         }
 
         return "";
