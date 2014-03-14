@@ -1,0 +1,93 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,300,100,600);
+body {
+  background: #2f4051;
+}
+.reg-box {
+  background: #FFFFFF;
+  min-height: 400px;
+  width: 400px;
+  margin: 0px auto;
+  margin-top: 200px;
+}
+.reg-box a {
+  padding-left: 5px;
+  text-decoration: none;
+  color: #2f4051;
+}
+.reg-box h1 {
+  color: #2f4051;
+  font-size: 25px;
+  padding-top: 10px;
+  font-family: 'Raleway', Helvetica, Arial;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 20px;
+}
+.reg-box hr {
+  border-width: 1px;
+  border-color: #0b1d30;
+  opacity: 0.3;
+}
+.reg-box h5 {
+  text-align: center;
+  font-family: 'Raleway';
+  font-weight: 600;
+  color: #2f4051;
+  font-size: 13px;
+}
+.reg-box h5 strong {
+  color: #dd636d;
+}
+.reg-box .reg-submit-box {
+  margin-top: 20px;
+}
+.reg-box .reg-submit-box .input-group-addon {
+  background: #2f4051;
+  border: 0px;
+  color: #FFFFFF;
+  border-radius: 0px;
+}
+.reg-box .reg-submit-box input {
+  background: #4f5c6c;
+  border-radius: 0px;
+  border: none;
+  color: #FFFFFF !important;
+}
+.reg-box .reg-submit-box .form-control:-moz-placeholder {
+  color: #FFFFFF;
+}
+.reg-box .reg-submit-box .form-control::-moz-placeholder {
+  color: #FFFFFF;
+}
+.reg-box .reg-submit-box .form-control:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+.reg-box .reg-submit-box .form-control::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+.reg-box .reg-submit-box .form-control:focus {
+  box-shadow: none;
+}
+.reg-box .reg-submit-box .btn {
+  background: #dd636d;
+  color: #FFFFFF;
+  border-radius: 0px;
+  outline: none !important;
+}
+.reg-box .reg-submit-box h6 {
+  font-family: 'Raleway';
+  font-weight: 600;
+  font-size: 13px;
+}
+.reg-box .reg-submit-box h6 a {
+  color: #cccccc;
+}
+.reg-box .reg-submit-box h6 a:hover {
+  color: #2f4051;
+  text-decoration: underline;
+}
+@media (max-width: 400px) {
+  .reg-box {
+    width: 260px;
+  }
+}

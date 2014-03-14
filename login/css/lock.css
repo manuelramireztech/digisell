@@ -1,0 +1,101 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,300,100,600);
+body {
+  background: #2f4051;
+}
+.lock-box {
+  background: #FFFFFF;
+  min-height: 400px;
+  width: 350px;
+  margin: 0px auto;
+  margin-top: 200px;
+}
+.lock-box h1 {
+  color: #2f4051;
+  font-size: 25px;
+  padding-top: 10px;
+  font-family: 'Raleway', Helvetica, Arial;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 20px;
+}
+.lock-box hr {
+  border-width: 1px;
+  border-color: #0b1d30;
+  opacity: 0.3;
+}
+.lock-box .user-avatar {
+  width: 100px;
+  margin: 0px auto;
+  border: 6px solid #2f4051;
+  border-radius: 50%;
+}
+.lock-box .user-avatar img {
+  border-radius: 50%;
+  width: 100%;
+  background: #cececc;
+}
+.lock-box h5 {
+  text-align: center;
+  font-family: 'Raleway';
+  font-weight: 600;
+  color: #2f4051;
+  font-size: 13px;
+}
+.lock-box h5 strong {
+  color: #dd636d;
+}
+.lock-box .lock-submit-box {
+  margin-top: 20px;
+}
+.lock-box .lock-submit-box .input-group-addon {
+  background: #2f4051;
+  border: 0px;
+  color: #FFFFFF;
+  border-radius: 0px;
+}
+.lock-box .lock-submit-box input {
+  background: #4f5c6c;
+  border-radius: 0px;
+  border: none;
+  color: #FFFFFF !important;
+}
+.lock-box .lock-submit-box .form-control:-moz-placeholder {
+  color: #FFFFFF;
+}
+.lock-box .lock-submit-box .form-control::-moz-placeholder {
+  color: #FFFFFF;
+}
+.lock-box .lock-submit-box .form-control:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+.lock-box .lock-submit-box .form-control::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+.lock-box .lock-submit-box .form-control:focus {
+  box-shadow: none;
+}
+.lock-box .lock-submit-box .btn {
+  background: #dd636d;
+  color: #FFFFFF;
+  border-radius: 0px;
+}
+.lock-box .lock-submit-box h6 {
+  margin-top: 60px;
+  text-align: center;
+  font-family: 'Raleway';
+  font-weight: 600;
+  color: #2f4051;
+  font-size: 13px;
+}
+.lock-box .lock-submit-box h5 {
+  text-align: center;
+  font-family: 'Raleway';
+  font-weight: 600;
+  color: #2f4051;
+  font-size: 10px;
+}
+@media (max-width: 400px) {
+  .lock-box {
+    width: 260px;
+  }
+}

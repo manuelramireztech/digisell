@@ -24,7 +24,6 @@
 | 4. Custom config files
 | 5. Language files
 | 6. Models
-| 6. Sparks
 |
 */
 
@@ -53,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('');
+$autoload['libraries'] = array('table','database','session','ion_auth');
 
 
 /*
@@ -65,7 +64,7 @@ $autoload['libraries'] = array('');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('menu','breadcrumb','url','form');
+$autoload['helper'] = array('url','form','html','number','text');
 
 
 /*
@@ -112,18 +111,6 @@ $autoload['language'] = array();
 
 $autoload['model'] = array();
 
-
-/*
-| -------------------------------------------------------------------
-|  Auto-load Sparks
-| -------------------------------------------------------------------
-| Prototype:
-|
-|	$autoload['sparks'] = array('spark1', 'spark2');
-|
-*/
-
-$autoload['sparks'] = array('ci_authentication/1.3.4','codeigniter-template/1.0.2');
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

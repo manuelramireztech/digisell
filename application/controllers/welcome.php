@@ -2,12 +2,6 @@
 
 class Welcome extends CI_Controller {
 
-	function _contstruct()
-	{
-		$this->load->spark('codeigniter-template/1.0.2');
-
-	}
-
 	/**
 	 * Index Page for this controller.
 	 *
@@ -25,13 +19,7 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->template->add_meta_tag("og:title", "Test Title", 'property');
-		$this->template->render("welcome_message");
-	}
-	public function vijay()
-	{
-		$this->template->add_meta_tag("og:title", "Test Title", 'property');
-		$this->template->render("welcome_message");
+		$this->load->view('welcome_message');
 	}
 }
 

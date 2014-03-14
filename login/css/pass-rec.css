@@ -1,0 +1,75 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200,300,100,600);
+body {
+  background: #2f4051;
+}
+.pass-box {
+  background: #FFFFFF;
+  min-height: 250px;
+  width: 350px;
+  margin: 0px auto;
+  margin-top: 200px;
+}
+.pass-box h1 {
+  color: #2f4051;
+  font-size: 25px;
+  padding-top: 10px;
+  font-family: 'Raleway', Helvetica, Arial;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 20px;
+}
+.pass-box hr {
+  border-width: 1px;
+  border-color: #0b1d30;
+  opacity: 0.3;
+}
+.pass-box h5 {
+  text-align: center;
+  font-family: 'Raleway';
+  font-weight: 600;
+  color: #2f4051;
+  font-size: 13px;
+}
+.pass-box h5 strong {
+  color: #dd636d;
+}
+.pass-box .pass-rec-box {
+  margin-top: 20px;
+}
+.pass-box .pass-rec-box .input-group-addon {
+  background: #2f4051;
+  border: 0px;
+  color: #FFFFFF;
+  border-radius: 0px;
+}
+.pass-box .pass-rec-box input {
+  background: #4f5c6c;
+  border-radius: 0px;
+  border: none;
+  color: #FFFFFF !important;
+}
+.pass-box .pass-rec-box .form-control:-moz-placeholder {
+  color: #FFFFFF;
+}
+.pass-box .pass-rec-box .form-control::-moz-placeholder {
+  color: #FFFFFF;
+}
+.pass-box .pass-rec-box .form-control:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+.pass-box .pass-rec-box .form-control::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+.pass-box .pass-rec-box .form-control:focus {
+  box-shadow: none;
+}
+.pass-box .pass-rec-box .btn {
+  background: #dd636d;
+  color: #FFFFFF;
+  border-radius: 0px;
+}
+@media (max-width: 400px) {
+  .pass-box {
+    width: 260px;
+  }
+}
