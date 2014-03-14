@@ -64,7 +64,7 @@ $autoload['libraries'] = array('table','database','session','ion_auth');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','form','html','number','text');
+$autoload['helper'] = array('url','form','html','number','text','menubuilder');
 
 
 /*
