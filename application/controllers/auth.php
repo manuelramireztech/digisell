@@ -95,7 +95,7 @@ class Auth extends CI_Controller {
 				'id' => 'identity',
 				'type' => 'text',
 				'class' => 'form-control',
-				'placeholder' => 'Email/Username',
+				'placeholder' => 'E-mail/Username',
 				'value' => $this->form_validation->set_value('identity'),
 			);
 			$this->data['password'] = array('name' => 'password',
@@ -205,7 +205,7 @@ class Auth extends CI_Controller {
 			//setup the input
 			$this->data['email'] = array('name' => 'email',
 				'id' => 'email','class' => 'form-control',
-				'placeholder' => 'enter email address',
+				'placeholder' => 'E-mail',
 			);
 
 			if ( $this->config->item('identity', 'ion_auth') == 'username' ){
@@ -452,7 +452,7 @@ class Auth extends CI_Controller {
 				'id'    => 'first_name',
 				'type'  => 'text',
 				'class' => 'form-control',
-				'placeholder' => 'first name',
+				'placeholder' => 'First Name',
 				'value' => $this->form_validation->set_value('first_name'),
 			);
 			$this->data['last_name'] = array(
@@ -460,7 +460,7 @@ class Auth extends CI_Controller {
 				'id'    => 'last_name',
 				'type'  => 'text',
 				'class' => 'form-control',
-				'placeholder' => 'last name',
+				'placeholder' => 'Last Name',
 				'value' => $this->form_validation->set_value('last_name'),
 			);
 			$this->data['email'] = array(
@@ -468,7 +468,7 @@ class Auth extends CI_Controller {
 				'id'    => 'email',
 				'type'  => 'text',
 				'class' => 'form-control',
-				'placeholder' => 'email address',
+				'placeholder' => 'E-mail',
 				'value' => $this->form_validation->set_value('email'),
 			);
 			$this->data['company'] = array(
@@ -476,7 +476,7 @@ class Auth extends CI_Controller {
 				'id'    => 'company',
 				'type'  => 'text',
 				'class' => 'form-control',
-				'placeholder' => 'company name',
+				'placeholder' => 'Company',
 				'value' => $this->form_validation->set_value('company'),
 			);
 			$this->data['phone'] = array(
@@ -484,7 +484,7 @@ class Auth extends CI_Controller {
 				'id'    => 'phone',
 				'type'  => 'text',
 				'class' => 'form-control',
-				'placeholder' => 'phone number',
+				'placeholder' => 'Phone',
 				'value' => $this->form_validation->set_value('phone'),
 			);
 			$this->data['password'] = array(
@@ -492,7 +492,7 @@ class Auth extends CI_Controller {
 				'id'    => 'password',
 				'type'  => 'password',
 				'class' => 'form-control',
-				'placeholder' => 'password',
+				'placeholder' => 'Password',
 				'value' => $this->form_validation->set_value('password'),
 			);
 			$this->data['password_confirm'] = array(
@@ -500,7 +500,7 @@ class Auth extends CI_Controller {
 				'id'    => 'password_confirm',
 				'type'  => 'password',
 				'class' => 'form-control',
-				'placeholder' => 'confirm password',
+				'placeholder' => 'Confirm Password',
 				'value' => $this->form_validation->set_value('password_confirm'),
 			);
 

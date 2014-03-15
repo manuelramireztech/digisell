@@ -91,3 +91,11 @@ body {
     width: 260px;
   }
 }
+.reg-box .fa-user
+{
+  font-size: 18px !important;
+}
+.reg-box .fa-phone
+{
+  font-size: 18px !important;
+}
