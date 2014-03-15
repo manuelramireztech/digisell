@@ -58,7 +58,7 @@ class Auth extends CI_Controller {
 		//validate form input
 		if ($this->ion_auth->logged_in())
 		{
-			redirect('/auth', 'refresh');
+			redirect('auth', 'refresh');
 		}
 
 		$this->form_validation->set_rules('identity', 'Identity', 'required');

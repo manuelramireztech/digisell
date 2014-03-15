@@ -39,7 +39,7 @@ if(strpos($page,"extended-modals") !== false ) { ?>
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <a class="navbar-brand" href="#"><i class="fa fa-list btn-nav-toggle-responsive text-white"></i> <span class="logo">Cas<strong>ca</strong>de <i class="fa fa-bookmark"></i></span></a>
+          <a class="navbar-brand" href="#"><i class="fa fa-list btn-nav-toggle-responsive text-white"></i> <span class="logo">Digi<strong>se</strong>ll <i class="fa fa-bookmark"></i></span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -203,7 +203,7 @@ if(strpos($page,"extended-modals") !== false ) { ?>
 $menuList = Array(
     0 => Array(
         'title' => 'Dashboard',
-        'link' => 'index.php',
+        'link' => 'auth',
         'icon' => 'dashboard',
         'children' => Array()
     ),
