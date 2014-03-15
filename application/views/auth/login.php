@@ -65,7 +65,7 @@
 
           <div class="form-group">
 
-            <?php $data = array('name' => 'submit','onclick' => 'myFunction()','value' => lang('login_submit_btn'),'id' => 'btnSubmit','class' => 'btn  btn-block  btn-submit pull-right');  echo form_submit($data);?>
+            <?php $data = array('name' => 'submit','onclick' => 'myFunction()','value' => lang('login_submit_btn'),'id' => 'btnSubmit','class' => 'btn  btn-block  btn-submit pull-right');  echo form_submit($data).br(2);?>
 
           </div>
           <?php echo form_close();?>

@@ -75,7 +75,7 @@ class Auth extends CI_Controller {
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/template', 'refresh');
+				redirect('/auth', 'refresh');
 			}
 			else
 			{
@@ -640,10 +640,7 @@ class Auth extends CI_Controller {
 		if (isset($_POST) && !empty($_POST))
 		{
 			// do we have a valid request?
-			if ($this->_valid_csrf_nonce() === FALSE || $id != $this->input->post('id'))
-			{
-				show_error($this->lang->line('error_csrf'));
-			}
+			
 
 			$data = array(
 				'first_name' => $this->input->post('first_name'),
