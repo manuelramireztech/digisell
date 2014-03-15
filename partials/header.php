@@ -19,7 +19,6 @@ if(strpos($page,"extended-modals") !== false ) { ?>
    <link href="css/bootstrap-modal-bs3fix.css" rel="stylesheet" type="text/css"> 
    <?php } ?>
 
-  <link href="<?php echo base_url(); ?>less/style.less" rel="stylesheet"  title="lessCss" id="lessCss">
   
   <!-- Loading Custom Stylesheets -->    
   <link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
@@ -91,7 +90,7 @@ if(strpos($page,"extended-modals") !== false ) { ?>
                   </li>
                   <li>
                     <a href="inbox.php">     
-                      <img src="images/profiles/six.png" alt="" class="avatar">
+                      <img src="<?php echo base_url(); ?>images/profiles/six.png" alt="" class="avatar">
                       <div class="message">
                         <span class="username">Miss Deo</span> 
                         <span class="mini-details">(6) <i class="fa fa-paper-clip"></i></span>

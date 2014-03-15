@@ -1,4 +1,3 @@
-
 <!-- Load JS here for Faster site load =============================-->
 <script src="<?php echo base_url(); ?>js/jquery-1.10.2.min.js"></script>
 <script src="<?php echo base_url(); ?>js/jquery-ui-1.10.3.custom.min.js"></script>
@@ -21,9 +20,10 @@
 <script src="<?php echo base_url(); ?>js/jquery.noty.js"></script>
 <script src="<?php echo base_url(); ?>js/bic_calendar.js"></script>
 <script src="<?php echo base_url(); ?>js/jquery.accordion.js"></script>
-<script src="<?php echo base_url(); ?>js/theme-options.js"></script>
 <script src="<?php echo base_url(); ?>js/core.js"></script>
 <script src="<?php echo base_url(); ?>js/bootstrap-progressbar.js"></script>
 <script src="<?php echo base_url(); ?>js/bootstrap-progressbar-custom.js"></script>
 <script src="<?php echo base_url(); ?>js/bootstrap-colorpicker.min.js"></script>
 <script src="<?php echo base_url(); ?>js/bootstrap-colorpicker-custom.js"></script>
+</body>
+  		</html>
