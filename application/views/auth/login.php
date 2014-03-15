@@ -7,6 +7,7 @@
   echo link_tag('login/css/login.css');
   ?>
 </head>
+<title>Digisell: Login</title>
 <body>
   <div class="login-box">
     <h1><i class='fa fa-bookmark'></i>&nbsp;Welcome To Digisell </h1><hr>

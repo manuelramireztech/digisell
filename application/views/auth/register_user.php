@@ -10,6 +10,7 @@ echo doctype('html5');
   echo link_tag('login/css/reg.css');
   ?>
 </head>
+<title>Digisell: Register User</title>
 <body>
   <div class="reg-box">
     <h1><i class='fa fa-bookmark'></i>&nbsp;Welcome To Digisell </h1><hr>

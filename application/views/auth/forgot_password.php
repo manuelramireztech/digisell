@@ -10,6 +10,7 @@ echo doctype('html5');
   echo link_tag('login/css/pass-rec.css');
   ?>
 </head>
+<title>Digisell: Forgot Password</title>
 <body>
   <div class="pass-box">
     <h1><i class='fa fa-bookmark'></i>&nbsp;Welcome To Digisell </h1><hr>
