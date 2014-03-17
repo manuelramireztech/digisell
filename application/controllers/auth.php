@@ -450,10 +450,37 @@ class Auth extends CI_Controller {
 		}
 		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email, $additional_data))
 		{
+			//sending email to registered user
+			$config = Array(
+				'protocol' => 'smtp',
+				'smtp_host' => 'smtp.gmail.com',
+				'smtp_port' => 465,
+				'smtp_user' => 'kleelanagapraveen@gmail.com',
+				'smtp_pass' => 'Praveen0526#',
+				'mailtype'  => 'html', 
+				'charset'   => 'iso-8859-1'
+				);
+			$this->load->library('email', $config);
+			$this->email->set_newline("\r\n");
+
+			// Set to, from, message, etc.
+			$this->email->from('kleelanagapraveen@gmail.com','Admin');
+			$this->email->to('kleelanagapraveen@gmail.com');
+			$this->email->subject('Email Test');
+			$this->email->message('Testing the email class.');
+			if($this->email->send())
+			{
+				echo 'success';
+				$this->session->set_flashdata('message', $this->ion_auth->messages());
+				redirect("auth", 'refresh');	
+			}
+			else
+			{
+				echo 'failed';
+			}
 			//check to see if we are creating the user
 			//redirect them back to the admin page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			
 		}
 		else
 		{
