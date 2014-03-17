@@ -761,7 +761,7 @@ $menuList = Array(
     ),
    12 => Array(
         'title' => 'Icons',
-        'link' => 'icons.php',
+        'link' => site_url("icon"),
         'icon' => 'truck',
         'children' => Array()
     ),
