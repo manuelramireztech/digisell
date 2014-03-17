@@ -41,7 +41,7 @@
 
 					$config['base_url'] = site_url("auth/index");
 					$config['total_rows'] = $count;
-					$config['per_page'] = 2;
+					$config['per_page'] = 3;
 					$config["uri_segment"] = 3;
 
 					$this->pagination->initialize($config); 
