@@ -19,7 +19,7 @@
 
     <blockquote class="page-information hidden">
       <p>
-        <b>Template Page</b> is the basic page where you can add more pages according to your requirements easily within this division.
+        <b>Create Group</b> allows you to create new group.
       </p>
     </blockquote>
 
@@ -72,7 +72,7 @@
 
       </div>
       <div class="panel-body panel-border">
-        This is a basic template page to quick start your project.
+        This is where you can create new group.
                     </div> <!-- /panel body 
                   </div>  
                 </div>

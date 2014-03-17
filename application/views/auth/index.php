@@ -19,7 +19,7 @@
 
 		<blockquote class="page-information hidden">
 			<p>
-				<b>Admin Control Panel</b> is the basic page where you can add more pages according to your requirements easily within this division.
+				<b>Admin Control Panel</b> allows you to change the user permissions. 
 			</p>
 		</blockquote>
 

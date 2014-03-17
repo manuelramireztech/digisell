@@ -19,7 +19,7 @@
 
     <blockquote class="page-information hidden">
       <p>
-        <b>Template Page</b> is the basic page where you can add more pages according to your requirements easily within this division.
+        <b>Deactivate User</b> allows you to activate/deactivate user.
       </p>
     </blockquote>
 
@@ -65,7 +65,7 @@
 
       </div>
       <div class="panel-body panel-border">
-        This is a basic template page to quick start your project.
+        This is where you can activaet/deactivate user.
                     </div> <!-- /panel body 
                   </div>  
                 </div>

@@ -19,7 +19,7 @@
 
     <blockquote class="page-information hidden">
       <p>
-        <b>Template Page</b> is the basic page where you can add more pages according to your requirements easily within this division.
+        <b>Create User</b> allows you to create new user.
       </p>
     </blockquote>
 
@@ -118,7 +118,7 @@
 
       </div>
       <div class="panel-body panel-border">
-        This is a basic template page to quick start your project.
+        This is where yo ucan create new user.
                     </div> <!-- /panel body 
                   </div>  
                 </div>

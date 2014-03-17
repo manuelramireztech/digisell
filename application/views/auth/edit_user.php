@@ -19,7 +19,7 @@
 
     <blockquote class="page-information hidden">
       <p>
-        <b>Template Page</b> is the basic page where you can add more pages according to your requirements easily within this division.
+        <b>Edit User</b> allows you to edit the user details.
       </p>
     </blockquote>
 
@@ -144,7 +144,7 @@
 
       </div>
       <div class="panel-body panel-border">
-        This is a basic template page to quick start your project.
+        This is where you can edit user details.
                     </div> <!-- /panel body 
                   </div>  
                 </div>
