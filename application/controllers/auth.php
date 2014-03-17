@@ -44,6 +44,7 @@ class Auth extends CI_Controller {
 
 			//list the users
 			$this->data['users'] = $this->ion_auth->users()->result();
+			$this->data['count'] = $this->ion_auth_model->count_all();
 			foreach ($this->data['users'] as $k => $user)
 			{
 				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
@@ -84,7 +85,7 @@ class Auth extends CI_Controller {
 				else
 				{
 					$this->session->set_flashdata('message', $this->ion_auth->messages());
-					redirect('/auth/edit_user', 'refresh');
+					redirect('/auth/edit_user/'.$this->ion_auth->user()->row()->id, 'refresh');
 				}
 			}
 			else

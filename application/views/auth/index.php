@@ -36,7 +36,19 @@
 				<p><?php echo lang('index_subheading');?></p>
 
 				<div id="infoMessage"><?php echo $message;?></div>
+				<div class="pull-right btn-xs">	
+					<?php
 
+					$config['base_url'] = site_url("auth/index");
+					$config['total_rows'] = $count;
+					$config['per_page'] = 2;
+					$config["uri_segment"] = 3;
+
+					$this->pagination->initialize($config); 
+
+					echo $this->pagination->create_links();
+					?>
+				</div>
 				<table class="table table-striped">
 					<tr>
 						<th><?php echo lang('index_fname_th');?></th>

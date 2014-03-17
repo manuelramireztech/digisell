@@ -1130,7 +1130,11 @@ class Ion_auth_model extends CI_Model
 
 		return $row;
 	}
-
+	public function count_all()
+	{
+		$this->db->from('users');
+		return $this->db->count_all_results();
+	}
 	public function row_array()
 	{
 		$this->trigger_events(array('row', 'row_array'));
