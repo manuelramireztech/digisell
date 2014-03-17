@@ -4,7 +4,7 @@
   <div class="col-mod-12">
 
     <ul class="breadcrumb">
-      <li><a href="auth">Dashboard</a></li>
+      <li><a href="<?php echo base_url(); ?>index.php/auth">Dashboard</a></li>
       <li><a href="template.php">Basic Template</a></li>
       <li class="active">BreadCrumb</li>
     </ul>

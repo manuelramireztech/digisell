@@ -33,7 +33,9 @@ class Auth extends CI_Controller {
 		elseif (!$this->ion_auth->is_admin()) //remove this elseif if you want to enable this for non-admins
 		{
 			//redirect them to the home page because they must be an administrator to view this
-			return show_error('You must be an administrator to view this page.');
+			// return show_error('You must be an administrator to view this page.');
+
+					redirect('/auth/edit_user/'.$this->ion_auth->user()->row()->id, 'refresh');
 		}
 		else
 		{
@@ -74,8 +76,16 @@ class Auth extends CI_Controller {
 			{
 				//if the login is successful
 				//redirect them back to the home page
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/auth', 'refresh');
+				if($this->ion_auth->is_admin())
+				{
+					$this->session->set_flashdata('message', $this->ion_auth->messages());
+					redirect('/auth', 'refresh');	
+				}
+				else
+				{
+					$this->session->set_flashdata('message', $this->ion_auth->messages());
+					redirect('/auth/edit_user', 'refresh');
+				}
 			}
 			else
 			{
