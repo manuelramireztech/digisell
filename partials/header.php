@@ -47,7 +47,7 @@ if(strpos($page,"extended-modals") !== false ) { ?>
 
             <li><a href="#" class="user dropdown-toggle" data-toggle="dropdown"><span class="username"><img src="<?php echo base_url(); ?>images/profiles/eleven.png" class="user-avatar" alt="">  <?php echo $this->ion_auth->user()->row()->username; ?> </span></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                <li><a href="<?php echo base_url('index.php/auth/edit_user'); ?>/<?php echo $this->ion_auth->user()->row()->id; ?>"><i class="fa fa-user"></i> My Profile</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i> Inbox</a></li>
                 <li><a href="<?php echo base_url('index.php/auth'); ?>"><i class="fa fa-cogs"></i> Settings</a></li>
                 <li class="divider"></li>
@@ -202,7 +202,7 @@ if(strpos($page,"extended-modals") !== false ) { ?>
 $menuList = Array(
     0 => Array(
         'title' => 'Dashboard',
-        'link' => 'auth',
+        'link' => site_url("auth"),
         'icon' => 'dashboard',
         'children' => Array()
     ),
