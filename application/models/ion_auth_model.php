@@ -830,8 +830,8 @@ class Ion_auth_model extends CI_Model
 		    'password'   => $password,
 		    'email'      => $email,
 		    'ip_address' => $ip_address,
-		    'created_on' => time(),
-		    'last_login' => time(),
+		    'created_on' => date('d-m-Y H:i:s A'),
+		    'last_login' => date('d-m-Y H:i:s A'),
 		    'active'     => ($manual_activation === false ? 1 : 0)
 		);
 

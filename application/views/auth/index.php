@@ -41,7 +41,7 @@
 
 					$config['base_url'] = site_url("auth/index");
 					$config['total_rows'] = $count;
-					$config['per_page'] = 3;
+					$config['per_page'] = 2;
 					$config["uri_segment"] = 3;
 
 					$this->pagination->initialize($config); 
@@ -53,7 +53,7 @@
 					<tr>
 						<th><?php echo lang('index_fname_th');?></th>
 						<th><?php echo lang('index_lname_th');?></th>
-						<th><?php echo lang('index_email_th');?></th>
+						<th><?php echo lang('index_created_th');?></th>
 						<th><?php echo lang('index_groups_th');?></th>
 						<th><?php echo lang('index_status_th');?></th>
 						<th><?php echo lang('index_action_th');?></th>
@@ -62,7 +62,7 @@
 						<tr>
 							<td><?php echo $user->first_name;?></td>
 							<td><?php echo $user->last_name;?></td>
-							<td><?php echo $user->email;?></td>
+							<td><?php echo $user->created_on;?></td>
 							<td>
 								<?php foreach ($user->groups as $group):?>
 									<?php echo anchor("auth/edit_group/".$group->id, $group->name) ;?><br />
@@ -77,15 +77,6 @@
 			<p><?php echo anchor('auth/create_user', lang('index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('index_create_group_link'))?></p>
 
 			<p><?php echo anchor("auth/change_password/".$user->id, lang('reset_password_heading'))?></p>
-
-
-			
-
-
-
-
-
-
 
 		</div>
 		<div class="panel-body panel-border">
