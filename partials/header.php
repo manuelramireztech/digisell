@@ -207,18 +207,41 @@ $menuList = Array(
         'children' => Array()
     ),
     1 => Array(
-        'title' => 'Top Navbar',
-        'link' => 'top-navbar.php',
-        'icon' => 'indent',
+        'title' => 'Client Page',
+        'link' => site_url("client"),
+        'icon' => 'user',
         'children' => Array()
-            
     ),
     2 => Array(
-        'title' => 'Front End ',
-        'link' => 'frontend/index.html',
-        'icon' => 'file',
-        'children' => Array()
-            
+        'title' => 'Email Templates',
+        'link' => '#',
+        'icon' => 'envelope',
+        'children' => Array(
+            0 => Array(
+                'title' => 'Template #1',
+                'link' => 'mail-templates/template-one.html',
+                'icon' => 'envelope',
+                'children' => Array(),
+            ),
+                1 => Array(
+                'title' => 'Template #2',
+                'link' => 'mail-templates/template-two.php',
+                'icon' => 'envelope',
+                'children' => Array(),
+            ),
+                2 => Array(
+                'title' => 'Template #3',
+                'link' => 'mail-templates/template-three.php',
+                'icon' => 'envelope',
+                'children' => Array(),
+            ),
+                3 => Array(
+                'title' => 'Template #4',
+                'link' => 'mail-templates/template-four.php',
+                'icon' => 'envelope',
+                'children' => Array(),
+            ),
+        )
     ),
     3 => Array(
         'title' => 'Email Templates',
