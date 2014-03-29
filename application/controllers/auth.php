@@ -53,6 +53,37 @@ class Auth extends CI_Controller {
 			$this->_render_page('auth/index', $this->data);
 		}
 	}
+	//delete user account
+	function delete_user($user_id=false)
+	{
+		if ($this->ion_auth->is_admin())
+		{
+
+			if($user_id)
+		{
+					$this->db->where('id',$user_id);
+  					$this->db->delete('users');
+			
+			
+		}
+		else
+		{
+			$cc = $this->input->post('clt');
+			
+			print_r($this->input->post('clt'));
+			foreach($cc as $clt)
+			{
+					$this->db->where('id',$clt);
+  					$this->db->delete('users');
+					echo $clt;
+				
+			}
+		}
+			
+			
+			redirect('auth/index');
+		}
+	}
 	//log the user in
 	function login()
 	{

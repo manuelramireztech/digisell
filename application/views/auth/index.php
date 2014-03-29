@@ -34,7 +34,12 @@
 				
 				<h1><?php echo lang('index_heading');?></h1>
 				<p><?php echo lang('index_subheading');?></p>
-
+<?php
+    if(isset($_POST['clt'])){
+        $clt = $_POST['clt'];
+        print_r($clt);
+    }
+?>
 				<!-- <div id="infoMessage"><?php echo $message;?></div> -->
 				<div class="pull-right btn-xs">	
 					<?php
@@ -49,10 +54,12 @@
 					echo $this->pagination->create_links();
 					?>
 				</div>
-				
+				<form method="post" action="<?php echo base_url('index.php');?>/auth/delete_user">
 				<table class="table table-striped">
 					<tr>
-						<th><?php echo anchor('#', '<i class="fa fa-trash-o"></i>')?></th>
+					
+						<th><?php echo form_submit('Submit', "delete")?></th>
+					
 						<th><?php echo lang('index_fname_th');?></th>
 						<th><?php echo lang('index_lname_th');?></th>
 						<th><?php echo lang('index_created_th');?></th>
@@ -66,8 +73,8 @@
 								<?php
 									$data = array(
     														'name'        => 'clt[]',
-    														'id'          => "<?php echo $user->id; ?>",
-    														'value'       => 'accept',
+    														'id'		  => 'clt[]',
+    														'value'       => $user->id,
     														'checked'     => false,
     														'class'       => 'checkbox-inline',
     											 );
@@ -83,11 +90,11 @@
 								<?php endforeach?>
 							</td>
 							<td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, lang('index_active_link')) : anchor("auth/activate/". $user->id, lang('index_inactive_link'));?></td>
-							<td><?php echo anchor("auth/edit_user/".$user->id, 'Edit') ;?></td>
+							<td><?php echo anchor("auth/edit_user/".$user->id, '<i class="fa fa-edit"></i>') ;?><?php echo anchor("auth/delete_user/".$user->id, '<i class="fa fa-trash-o"></i>') ;?></td>
 						</tr>
 					<?php endforeach;?>
 				</table>
-				
+				</form>
 			</br>
 			<p><?php echo anchor('auth/create_user', lang('index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('index_create_group_link'))?></p>
 
@@ -107,7 +114,7 @@
 
   				</div> <!-- /.box-holder -->
   			</div><!-- /.site-holder -->
-
+			
 
 
   			<?php include('partials/footer.php') ?>
