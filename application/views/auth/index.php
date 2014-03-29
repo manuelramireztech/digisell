@@ -58,7 +58,7 @@
 				<table class="table table-striped">
 					<tr>
 					
-						<th><?php echo form_submit('Submit', "delete")?></th>
+						<th><?php echo form_submit('Submit', "delete", 'class="btn btn-primary"')?></th>
 					
 						<th><?php echo lang('index_fname_th');?></th>
 						<th><?php echo lang('index_lname_th');?></th>
@@ -98,7 +98,7 @@
 			</br>
 			<p><?php echo anchor('auth/create_user', lang('index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('index_create_group_link'))?></p>
 
-			<p><?php echo anchor("auth/change_password/".$user->id, lang('reset_password_heading'))?></p>
+			<p><?php echo anchor("auth/change_password/".$user->id, lang('reset_password_heading'), 'class="btn"')?></p>
 
 		</div>
 		<div class="panel-body panel-border">
