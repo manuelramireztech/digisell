@@ -33,9 +33,11 @@
       <div class="panel-heading">
         
         
-        
+        <?php if($message)
+            { ?>
+        <div id="infoMessage" class="alert alert-danger"><?php echo $message;?></div>
+        <?php } ?>
 
-        <div id="infoMessage"><?php echo $message;?></div>
 
         <?php 
         $attributes = array('class' => 'form-horizontal');
@@ -109,6 +111,7 @@
             <?php echo form_submit('submit', 'Register User', 'class="btn btn-primary"');?>
           </div>
         </div>
+        
         <?php echo form_close();?>
 
 

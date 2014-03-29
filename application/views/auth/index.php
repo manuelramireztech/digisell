@@ -31,7 +31,10 @@
 	<div class="col-md-12">
 		<div class="panel panel-cascade">
 			<div class="panel-heading">
-				
+				<?php if($message)
+            { ?>
+        <div id="infoMessage" class="alert alert-success"><?php echo $message;?></div>
+        <?php } ?>
 				<h1><?php echo lang('index_heading');?></h1>
 				<p><?php echo lang('index_subheading');?></p>
 <?php

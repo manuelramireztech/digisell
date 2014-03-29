@@ -34,7 +34,10 @@
         
         
         
-        <div id="infoMessage"><?php echo $message;?></div>
+        <?php if($message)
+            { ?>
+        <div id="infoMessage" class="alert alert-danger"><?php echo $message;?></div>
+        <?php } ?>
         <?php 
         $attributes = array('class' => 'form-horizontal');
         echo form_open("auth/create_group",$attributes);
