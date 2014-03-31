@@ -5,8 +5,7 @@
 
 		<ul class="breadcrumb">
 			<li><a href="<?php echo base_url(); ?>index.php/auth">Dashboard</a></li>
-			<li><a href="template.php">Basic Template</a></li>
-			<li class="active">BreadCrumb</li>
+			<li class="active">Dashboard</li>
 		</ul>
 
 		<div class="form-group hidden-minibar pull-right">

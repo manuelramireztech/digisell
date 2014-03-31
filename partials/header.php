@@ -50,7 +50,7 @@ if(strpos($page,"extended-modals") !== false ) { ?>
                 <li><a href="<?php echo base_url('index.php/auth/edit_user'); ?>/<?php echo $this->ion_auth->user()->row()->id; ?>"><i class="fa fa-pencil"></i> My Profile</a></li>
                 <li><?php echo anchor('auth/create_user', '<i class="fa fa-user"></i> '.lang('index_create_user_link'))?></li>
                 <li><?php echo anchor('auth/create_group', '<i class="fa fa-group"></i> '.lang('index_create_group_link'))?></li>
-                <li><?php echo anchor('auth/change_password/'.$this->ion_auth->user()->row()->id, '<i class="fa fa-user"></i> '.lang('reset_password_heading'))?></li>
+                <li><?php echo anchor('auth/change_password/'.$this->ion_auth->user()->row()->id, '<i class="fa fa-pencil-square-o"></i> '.lang('reset_password_heading'))?></li>
                 <li class="divider"></li>
                 <li><a href="<?php echo base_url('index.php/auth/logout/'); ?>" class="text-danger"><i class="fa fa-lock"></i> Logout</a></li>
               </ul>
