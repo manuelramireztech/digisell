@@ -49,10 +49,10 @@
 					echo $this->pagination->create_links();
 					?>
 				</div>
-				
+				<form method="post" action="<?php echo base_url('index.php');?>/auth/delete_user">
 				<table class="table table-striped">
 					<tr>
-						<th><?php echo anchor('#', '<i class="fa fa-trash-o"></i>')?></th>
+						<th><?php echo form_submit('Submit', "delete", 'class="btn btn-danger"')?></th>
 						<th><?php echo lang('index_fname_th');?></th>
 						<th><?php echo lang('index_lname_th');?></th>
 						<th><?php echo lang('index_created_th');?></th>
@@ -67,7 +67,7 @@
 									$data = array(
     														'name'        => 'clt[]',
     														'id'		  => 'clt',
-    														'value'       => 'accept',
+    														'value'       => $user['id'],
     														'checked'     => false,
     														'class'       => 'checkbox-inline',
     											 );
@@ -78,11 +78,11 @@
 							<td><?php echo $user['last_name']?></td>
 							<td><?php echo $user['created_on']?></td>
 							<td><?php echo ($user['active']) ? anchor("auth/deactivate/".$user['id'], lang('index_active_link')) : anchor("auth/activate/". $user['id'], lang('index_inactive_link'));?></td>
-							<td><?php echo anchor("auth/edit_user/".$user['id'], 'Edit') ;?></td>
+							<td><?php echo anchor("auth/edit_user/".$user['id'], '<i class="fa fa-edit"></i>') ;?><?php echo anchor("auth/delete_user/".$user['id'], '<i class="fa fa-trash-o"></i>') ;?></td>
 						</tr>
 					<?php endforeach;?>
 				</table>
-				
+				</form>
 			</br>
 			
 

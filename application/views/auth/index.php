@@ -40,7 +40,7 @@
 <?php
     if(isset($_POST['clt'])){
         $clt = $_POST['clt'];
-        print_r($clt);
+        //print_r($clt);
     }
 ?>
 				<!-- <div id="infoMessage"><?php echo $message;?></div> -->
@@ -76,7 +76,7 @@
 								<?php
 									$data = array(
     														'name'        => 'clt[]',
-    														'id'		  => 'clt[]',
+    														'id'		  => 'clt',
     														'value'       => $user->id,
     														'checked'     => false,
     														'class'       => 'checkbox-inline',
@@ -98,10 +98,9 @@
 					<?php endforeach;?>
 				</table>
 				</form>
-			</br>
-			<p><?php echo anchor('auth/create_user', lang('index_create_user_link'))?> | <?php echo anchor('auth/create_group', lang('index_create_group_link'))?></p>
+			
 
-			<p><?php echo anchor("auth/change_password/".$user->id, lang('reset_password_heading'), 'class="btn"')?></p>
+			
 
 		</div>
 		<div class="panel-body panel-border">
