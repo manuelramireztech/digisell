@@ -9,7 +9,7 @@
 			<li class="active">BreadCrumb</li>
 		</ul>
 
-		<div class="form-group hiddn-minibar pull-right">
+		<div class="form-group hidden-minibar pull-right">
 			<input type="text" class="form-control form-cascade-control nav-input-search" size="20" placeholder="Search through site" />
 
 			<span class="input-icon fui-search"></span>

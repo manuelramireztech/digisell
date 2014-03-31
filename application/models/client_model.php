@@ -9,7 +9,6 @@ class Client_model extends CI_Model
 
 		$this->db->where('role', 0 );
 
-
 		$query = $this->db->get();
 
 		if ( $query->num_rows() > 0 )
@@ -17,6 +16,23 @@ class Client_model extends CI_Model
 			return $query;
 		}
 
+	}
+	public function search_client($uname)
+	{
+		$this->db->select('*');
+
+		
+
+		
+		$this->db->like('username',$uname);
+
+		$query = $this->db->get('users');
+
+		if ( $query->num_rows() > 0 )
+		{
+			return $query;
+		}
+		
 	}
 }
 ?>

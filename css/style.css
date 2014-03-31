@@ -93,7 +93,7 @@
     left: 0px;
   }
   .nav-input-search {
-    width: 120px;
+    width: 120px !important;
   }
   .btn-nav-toggle {
     display: none;

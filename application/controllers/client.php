@@ -55,15 +55,27 @@ class Client extends CI_Controller {
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 			//list the users
-			$this->data['users'] = $this->client_model->client();
+			$this->data['users'] = $this->client_model->client()->result();
 			$this->data['count'] = $this->ion_auth_model->count_all();
-			// foreach ($this->data['users'] as $k => $user)
-			// {
-			// 	$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
-			// }
+			foreach ($this->data['users'] as $k => $user)
+			{
+				$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+			}
 
 			$this->_render_page('client', $this->data);
 		}
+	}
+	public function search()
+	{
+		$uname = $this->input->post('txtSearch');
+		$this->data['users'] = $this->client_model->search_client($uname)->result();
+		$this->data['count'] = $this->ion_auth_model->count_all();
+		foreach ($this->data['users'] as $k => $user)
+		{
+			$this->data['users'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
+		}
+
+		$this->_render_page('client', $this->data);
 	}
 	function _render_page($view, $data=null, $render=false)
 	{
