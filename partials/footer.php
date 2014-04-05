@@ -25,5 +25,8 @@
 <script src="<?php echo base_url(); ?>js/bootstrap-progressbar-custom.js"></script>
 <script src="<?php echo base_url(); ?>js/bootstrap-colorpicker.min.js"></script>
 <script src="<?php echo base_url(); ?>js/bootstrap-colorpicker-custom.js"></script>
+<!--icheck-->
+<script src="<?php echo base_url(); ?>js/icheck/icheck.js"></script>
+
 </body>
   		</html>

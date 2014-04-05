@@ -316,9 +316,9 @@ class Auth extends CI_Controller {
 				$this->data['new_password'] = array(
 					'name' => 'new',
 					'id'   => 'new',
-				'type' => 'password',
-				'class' => 'form-control',
-				'placeholder' => 'New Password',
+					'type' => 'password',
+					'class' => 'form-control',
+					'placeholder' => 'New Password',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 				);
 				$this->data['new_password_confirm'] = array(
@@ -326,7 +326,7 @@ class Auth extends CI_Controller {
 					'id'   => 'new_confirm',
 					'type' => 'password',
 					'class' => 'form-control',
-				'placeholder' => 'Confirm New Password',
+					'placeholder' => 'Confirm New Password',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 				);
 				$this->data['user_id'] = array(

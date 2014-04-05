@@ -50,6 +50,26 @@
 					$config['total_rows'] = $count;
 					$config['per_page'] = 2;
 					$config["uri_segment"] = 3;
+					$config['full_tag_open'] = '<ul class="pagination">';
+					$config['full_tag_close'] = '</ul>';
+					$config['prev_link'] = '&lt;';
+					$config['prev_tag_open'] = '<li>';
+					$config['prev_tag_close'] = '</li>';
+					$config['next_link'] = '&gt;';
+					$config['next_tag_open'] = '<li>';
+					$config['next_tag_close'] = '</li>';
+					$config['cur_tag_open'] = '<li class="current"><a href="#">';
+					$config['cur_tag_close'] = '</a></li>';
+					$config['num_tag_open'] = '<li>';
+					$config['num_tag_close'] = '</li>';
+					 
+					$config['first_tag_open'] = '<li>';
+					$config['first_tag_close'] = '</li>';
+					$config['last_tag_open'] = '<li>';
+					$config['last_tag_close'] = '</li>';
+					 
+					$config['first_link'] = '&lt;&lt;';
+					$config['last_link'] = '&gt;&gt;';
 
 					$this->pagination->initialize($config); 
 
@@ -71,17 +91,19 @@
 					</tr>
 					<?php foreach ($users as $user):?>
 						<tr>
-							<td>
+							<td class="icheck-buttons list-unstyled">
+							
 								<?php
 									$data = array(
     														'name'        => 'clt[]',
     														'id'		  => 'clt',
     														'value'       => $user->id,
     														'checked'     => false,
-    														'class'       => 'checkbox-inline',
+    														'class'       => 'flat-input',
     											 );
 									echo form_checkbox($data); 
 								?>
+							
 							</td>
 							<td><?php echo $user->first_name;?></td>
 							<td><?php echo $user->last_name;?></td>
@@ -116,8 +138,16 @@
   				</div> <!-- /.box-holder -->
   			</div><!-- /.site-holder -->
 			
-
+	
 
   			<?php include('partials/footer.php') ?>
+<script type="text/javascript">
+		$(document).ready(function(){
+				$('.flat-input').iCheck({
+			checkboxClass: 'icheckbox_flat-blue',
+			radioClass: 'iradio_flat-blue'
+		});
+	});
 
+	</script>
   		
