@@ -90,7 +90,7 @@
 						<th><?php echo lang('index_action_th');?></th>
 					</tr>
 					<?php foreach ($users as $user):?>
-						<tr>
+						<tr class="user-row">
 							<td class="icheck-buttons list-unstyled">
 							
 								<?php
@@ -143,10 +143,24 @@
   			<?php include('partials/footer.php') ?>
 <script type="text/javascript">
 		$(document).ready(function(){
-				$('.flat-input').iCheck({
-			checkboxClass: 'icheckbox_flat-blue',
-			radioClass: 'iradio_flat-blue'
-		});
+				
+				$('.user-row').on('click',function(){
+						if($(this).find('.flat-input').attr('checked'))
+						{
+							$(this).find('.flat-input').removeAttr('checked','checked');
+						}
+						else
+						{
+							$(this).find('.flat-input').attr('checked','checked');	
+						}
+						
+				});
+
+		// 		$('.flat-input').iCheck({
+		// 	checkboxClass: 'icheckbox_flat-blue',
+		// 	radioClass: 'iradio_flat-blue'
+		// });
+
 	});
 
 	</script>

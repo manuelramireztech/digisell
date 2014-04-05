@@ -69,7 +69,7 @@
 						<th><?php echo lang('index_action_th');?></th>
 					</tr>
 					<?php foreach ($users as $user):?>
-						<tr>
+						<tr class="user-row">
 							<td>
 								<?php
 									$data = array(
@@ -120,4 +120,26 @@
 
   			<?php include('partials/footer.php') ?>
 
-  		
+  		<script type="text/javascript">
+		$(document).ready(function(){
+				
+				$('.user-row').on('click',function(){
+						if($(this).find('.checkbox-inline').attr('checked'))
+						{
+							$(this).find('.checkbox-inline').removeAttr('checked','checked');
+						}
+						else
+						{
+							$(this).find('.checkbox-inline').attr('checked','checked');	
+						}
+						
+				});
+
+				$('.flat-input').iCheck({
+			checkboxClass: 'icheckbox_flat-blue',
+			radioClass: 'iradio_flat-blue'
+		});
+
+	});
+
+	</script>
