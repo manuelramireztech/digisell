@@ -1,0 +1,76 @@
+
+/**************************
+ * specific als elements
+ * styling for #lista1
+ **************************/
+
+#lista1 {
+	margin: 60px auto 80px auto;
+}
+
+#lista1 .als-item {
+	margin: 0px 30px;
+	min-height: 140px;
+	min-width: 128px;
+}
+
+#lista1 .als-item img {
+	position: relative;
+	display: block;
+	vertical-align: middle;
+	margin-bottom: 8px;
+}
+
+#lista1 .als-prev, #lista1 .als-next {
+	top: 58px;
+	width: 15px;
+	height: 22px;
+}
+
+#lista1 .als-prev {
+	left: 90px;
+}
+
+#lista1 .als-next {
+	right: 100px;
+}
+
+/************************
+ * specific als element
+ * styling for #lista2
+ ***********************/
+
+#lista2 {
+	margin-bottom: 80px;
+}
+
+#lista2 .als-item {
+	margin: 10px 0px;
+	min-height: 140px;
+	min-width: 128px;
+}
+
+#lista2 .als-item img {
+	position: relative;
+	display: block;
+	vertical-align: middle;
+	margin-bottom: 8px;
+}
+
+#lista2 .als-prev, #lista2 .als-next {
+	left: 470px;
+	width: 22px;
+	height: 15px;
+}
+
+#lista2 .als-prev {
+	top: -25px;
+}
+
+#lista2 .als-next {
+	bottom: -20px;
+}
+
+#lista2 .als-item {
+	vertical-align: middle;
+}

@@ -1,0 +1,22 @@
+
+
+#vertical-ticker{
+	height:400px;
+	overflow:hidden;
+	margin:0; padding:0;
+	border: 1px solid #95a1b5;
+	padding: 0px 20px;
+	
+}
+
+	#vertical-ticker li{
+		padding:35px 20px;
+		display:block;
+		background:#efefef;
+		color:#333;
+		border-bottom:1px solid #95a1b5;
+		text-align:center;
+		font-size:25px;
+		font-weight:bold;
+		font-family: Helvetica Neue, times, serif;
+	}

@@ -1,4 +1,4 @@
-digisell
-========
+goCart
+======
 
-Sell and manage digital goods
+shopping cart digisell
