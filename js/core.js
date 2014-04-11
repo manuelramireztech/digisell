@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
       //set false for non-ajax version
-      ajax_version=true;
+      ajax_version=false;
 
 	$.ajaxSetup({
 		cache: false

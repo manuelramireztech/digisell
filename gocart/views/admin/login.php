@@ -1,40 +1,65 @@
-<?php include('header.php'); ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css">
+    <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-page">
+        <div class="header-section">
+            <a href="#"><img src="<?php echo base_url(); ?>images/loginlogo.png" alt=""></a>
+            
+        </div><!--end of header -section-->
+        <div class="form-section">
+            <div class="container">
 
-<style type="text/css">
-    body {
-        margin-top:50px;
-    }
-</style>
+            <?php echo form_open($this->config->item('admin_folder').'/login') ?>
+                <div class="form-inputs">
+                    <h4>Admin Login</h4>
+                    <div class="input-group">
+                        <input type="text" name="username" class="form-control" placeholder="Username">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    </div>
 
-<div class="row">
-    
-    <div class="span4 offset4">
-        <div style="text-align:center; margin-bottom:15px;">
-            <img src="<?php echo base_url('assets/img/logo.svg');?>"/>
+                    <input class="polaris-input" type="checkbox" name="remember" value="true" /> <span class="check-text">Remember me</span> 
+                    <input class="btn btn-info pull-right" name="submit" type="submit" value="Sign In"/>
+                    
+                </div>
+                                    
+                
+                    
+                    <input type="hidden" value="<?php echo $redirect; ?>" name="redirect"/>
+                <input type="hidden" value="submitted" name="submitted"/>
+            <?php echo  form_close(); ?>    
+                        
+            </div>
+        </div><!--emd of form-section-->
+        <div class="footer">
+            <p>Copyrights &copy; <a href="#"><strong>Bootstrapguru</strong></a> - All Rights Reserved</p>
+            <ul class="pull-right">
+                <li><a href="#">Privacy & Terms</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
         </div>
+    </div><!--cnd of login-page-->
     
-    <?php echo form_open($this->config->item('admin_folder').'/login') ?>
-    <fieldset>
-        <label for="username"><?php echo lang('username');?></label>
-        <?php echo form_input(array('name'=>'username', 'class'=>'span4')); ?>
-        
-        <label for="password"><?php echo lang('password');?></label>
-        <?php echo form_password(array('name'=>'password', 'class'=>'span4')); ?>
-        
-        <label class="checkbox">
-            <?php echo form_checkbox(array('name'=>'remember', 'value'=>'true'))?>
-            <?php echo lang('stay_logged_in');?>
-        </label>
-        
-            <input class="btn btn-primary" type="submit" value="<?php echo lang('login');?>"/>
-        
-        
-        <input type="hidden" value="<?php echo $redirect; ?>" name="redirect"/>
-        <input type="hidden" value="submitted" name="submitted"/>
-        
-    </fieldset>
-    <?php echo  form_close(); ?>
-    </div>
-</div>
-
-<?php include('footer.php'); ?>
+</body>
+<script src="<?php echo base_url(); ?>js/jquery/jquery.js"></script>
+<script src="<?php echo base_url(); ?>js/icheck/icheck.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+  $('.polaris-input').iCheck({
+         checkboxClass: 'icheckbox_polaris',
+    radioClass: 'iradio_polaris',
+        increaseArea: '20%' // optional
+      });
+});
+</script>
+</html>
