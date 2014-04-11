@@ -131,26 +131,3 @@ img.responsiveImage
 	display:inline;
 	margin:auto;
 }
-.navbar-inner
-{
-	background: #23bab5 !important;
-	padding: 10px;
-}
-
-.nav a
-{
-	color: #ffffff !important;
-}
-.navbar input
-{
-	border: 0px solid #ffffff !important;
-	background: #fafafa !important;
-}
-.nav .dropdown-menu li a
-{
-	color: #000000 !important;
-}
-.nav .dropdown-menu ul li
-{
-	border:0px !important;
-}

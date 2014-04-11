@@ -1,17 +1,16 @@
-
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Register Page</title>
 	
-	<link href="css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
+	<link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css">
 </head>
 <body>
 	<div class="login-page">
 		<div class="header-section">
-			<a href="#"><img src="images/loginlogo.png" alt=""></a>
+			<a href="#"><img src="<?php echo base_url(); ?>images/loginlogo.png" alt=""></a>
 			<ul class="menu">
 				<li><a href="#">Already a member ?</a></li>
 				<li><a href="login.html" class="sign-in">Sign In</a></li>
@@ -22,6 +21,10 @@
 
 				<div class="form-inputs">
 					<h4>Register Here</h4>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Company">
+						<span class="input-group-addon"><i class="fa fa-briefcase"></i></span>
+					</div>
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="User Name">
 						<span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -35,7 +38,7 @@
 						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 					</div>
 
-					<input class="polaris-input" type="checkbox" id="inlineCheckbox1" value="option1"> <span class="check-text">Terms & Conditions</span> <button type="button" class="btn btn-info pull-right register-btn">Sign Up</button>
+					<input class="polaris-input" type="checkbox" id="inlineCheckbox1" value="option1"> <span class="check-text">Subscribe To oue Email List</span> <button type="button" class="btn btn-info pull-right register-btn">Sign Up</button>
 				</div>				
 			</div>
 		</div><!--emd of form-section-->
