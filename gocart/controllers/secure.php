@@ -168,7 +168,10 @@ class Secure extends Front_Controller {
 		redirect('secure/login_customer');
 	}
 	
-	
+	function register_customer()
+	{
+		$this->load->view('register_cust');
+	}
 
 	function register()
 	{
