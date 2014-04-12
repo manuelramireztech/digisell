@@ -209,6 +209,7 @@ class Secure extends Front_Controller {
 		$data['city']		= '';
 		$data['state']		= '';
 		$data['zip']		= '';
+		$data['default_billing_address']		= '';
 
 
 
@@ -255,6 +256,8 @@ class Secure extends Front_Controller {
 			$save['email_subscribe']	= intval((bool)$this->input->post('email_subscribe'));
 			
 			$save['password']			= $this->input->post('password');
+			$save['default_billing_address']			= "1";
+			$save['default_shipping_address']			= "1";
 			
 			$redirect					= $this->input->post('redirect');
 			

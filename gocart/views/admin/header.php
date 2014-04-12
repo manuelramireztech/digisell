@@ -612,11 +612,14 @@
 
             </div>
 
+
             <?php if (!empty($message)): ?>
-                <div class="alert alert-success">
-                    <a class="close" data-dismiss="alert">×</a>
-                    <?php echo $message; ?>
-                </div>
+            
+            <div class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <strong>Warning!</strong> <?php echo $message; ?>
+            </div>
+
             <?php endif; ?>
 
             <?php if (!empty($error)): ?>
@@ -625,7 +628,6 @@
                     <?php echo $error; ?>
                 </div>
             <?php endif; ?>
-        <div class="col-md-12">     
 
 
 
