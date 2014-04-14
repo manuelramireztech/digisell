@@ -16,7 +16,7 @@ $lang['ship_to']					= 'Ship To';
 $lang['ordered_on']					= 'Ordered On';
 $lang['from'	]					= 'From';
 $lang['to']							= 'To';
-$lang['term']						= 'Search Term';
+$lang['term']						= 'Search Order';
 $lang['xml_export']					= 'XML Export';
 
 $lang['no_orders']					= 'There are currently no orders.';

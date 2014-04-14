@@ -57,17 +57,19 @@ if ($term):?>
 			
 			
 				<?php echo form_open($this->config->item('admin_folder').'/orders/index', 'class="form-inline" style="float:right"');?>
-					<fieldset>
-						<input id="start_top"  value="" class="span2" type="text" placeholder="Start Date"/>
+					<div class="form-group">
+						<input id="start_top"  value="" class="form-control" type="text" placeholder="Start Date"/>
 						<input id="start_top_alt" type="hidden" name="start_date" />
-						<input id="end_top" value="" class="span2" type="text"  placeholder="End Date"/>
+					</div>
+					<div class="form-group">
+						<input id="end_top" value="" class="form-control" type="text"  placeholder="End Date"/>
 						<input id="end_top_alt" type="hidden" name="end_date" />
-				
-						<input id="top" type="text" class="span2" name="term" placeholder="<?php echo lang('term')?>" /> 
-
-						<button class="btn btn-success" name="submit" value="search"><?php echo lang('search')?></button>
-						<button class="btn btn-success" name="submit" value="export"><?php echo lang('xml_export')?></button>
-					</fieldset>
+					</div>
+					<div class="form-group">
+						<input id="top" type="text" class="form-control" name="term" placeholder="<?php echo lang('term')?>" /> 
+					</div>	
+					<button class="btn btn-success" name="submit" value="search"><?php echo lang('search')?></button>
+					<button class="btn btn-success" name="submit" value="export"><?php echo lang('xml_export')?></button>			
 				</form>
 			
 		
@@ -95,6 +97,7 @@ if ($term):?>
 				</h3>
 			</div>
 			<div class="panel-body">
+				<div class="table-responsive">
 				<table class="table table-striped">
 				    <thead>
 						<tr>
@@ -133,7 +136,7 @@ if ($term):?>
 					    <?php endforeach; ?>
     						</tbody>
 				</table>
-				
+				</div>
 			</div>
 			<!-- /panel body -->
 		</div>
