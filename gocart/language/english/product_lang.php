@@ -5,7 +5,7 @@ Admin Product Language
 ******************************************/
 
 $lang['products']					= 'Products';
-$lang['search_term']				= 'Search Term';
+$lang['search_term']				= 'Search Products';
 $lang['product_form']				= 'Product Form';
 $lang['sku']						= 'SKU';
 $lang['value']						= 'Value';

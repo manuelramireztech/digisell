@@ -7,6 +7,8 @@
     <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
     <!-- Styles -->
     <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
+    
+    
 
     <!-- Custom Styles -->
     <link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
@@ -623,8 +625,8 @@
             <?php endif; ?>
 
             <?php if (!empty($error)): ?>
-                <div class="alert alert-error">
-                    <a class="close" data-dismiss="alert">×</a>
+                <div class="alert alert-warning alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <?php echo $error; ?>
                 </div>
             <?php endif; ?>
