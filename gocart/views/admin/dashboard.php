@@ -24,12 +24,6 @@
 				<h3 class="panel-title ">
 					<?php echo lang('recent_orders') ?>
 					<span class="panel-options">
-						<a href="#" class="panel-settings">
-							<i class="fa fa-cogs"></i>
-						</a>
-						<a href="#" class="panel-refresh">
-							<i class="fa fa-refresh"></i>
-						</a>
 						<a href="#" class="panel-minimize">
 							<i class="fa fa-chevron-up"></i>
 						</a>
@@ -78,47 +72,64 @@
 
 
 
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title ">
+					<?php echo lang('recent_customers') ?>
+					<span class="panel-options">
+						<a href="#" class="panel-minimize">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a href="#" class="panel-close">
+							<i class="fa fa-times"></i>
+						</a>
+					</span>
+				</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+				    <thead>
+						<tr>
+							<th class="gc_cell_left"><?php echo lang('firstname') ?></th>
+							<th><?php echo lang('lastname') ?></th>
+							<th><?php echo lang('email') ?></th>
+							<th class="gc_cell_right"><?php echo lang('active') ?></th>
+					    </tr>
+					</thead>
 
-<h2><?php echo lang('recent_customers') ?></h2>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<?php /*<th>ID</th> uncomment this if you want it*/ ?>
-			<th class="gc_cell_left"><?php echo lang('firstname') ?></th>
-			<th><?php echo lang('lastname') ?></th>
-			<th><?php echo lang('email') ?></th>
-			<th class="gc_cell_right"><?php echo lang('active') ?></th>
-		</tr>
-	</thead>
-	<tbody>
-<?php foreach ($customers as $customer):?>
-		<tr>
-			<?php /*<td style="width:16px;"><?php echo  $customer->id; ?></td>*/?>
-			<td class="gc_cell_left"><?php echo  $customer->firstname; ?></td>
-			<td><?php echo  $customer->lastname; ?></td>
-			<td><a href="mailto:<?php echo  $customer->email;?>"><?php echo  $customer->email; ?></a></td>
-			<td>
-				<?php if($customer->active == 1)
-				{
-					echo lang('yes');
-				}
-				else
-				{
-					echo lang('no');
-				}
-				?>
-			</td>
+				    <tbody>
+						<?php foreach ($customers as $customer):?>
+						<tr>
+								<?php /*<td style="width:16px;"><?php echo  $customer->id; ?></td>*/?>
+								<td class="gc_cell_left"><?php echo  $customer->firstname; ?></td>
+								<td><?php echo  $customer->lastname; ?></td>
+								<td><a href="mailto:<?php echo  $customer->email;?>"><?php echo  $customer->email; ?></a></td>
+								<td>
+									<?php if($customer->active == 1)
+									{
+										echo lang('yes');
+									}
+									else
+									{
+										echo lang('no');
+									}
+									?>
+								</td>
 		
-		</tr>
-<?php endforeach; ?>
-	</tbody>
-</table>
+						</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+				<div class="text-right">
+					<a class="btn btn-large btn-success" href="<?php echo site_url(config_item('admin_folder').'/customers');?>"><?php echo lang('view_all_customers');?></a>
+				</div>
+			</div>
+			<!-- /panel body -->
+		</div>
 
 
-<div class="row">
-	<div class="span12" style="text-align:center;">
-		<a class="btn btn-large" href="<?php echo site_url(config_item('admin_folder').'/customers');?>"><?php echo lang('view_all_customers');?></a>
-	</div>
-</div>
+
+
+
 	</div>
 </div>
