@@ -135,7 +135,7 @@
 							</td>
 							<td><div class="MainTableNotes"><?php echo format_currency($order->total); ?></div></td>
 							<td>
-								<a class="btn btn-small" style="float:right;"href="<?php echo site_url($this->config->item('admin_folder').'/orders/order/'.$order->id);?>"><i class="icon-search"></i> <?php echo lang('form_view')?></a>
+								<a class="btn btn-small" style="float:right;"href="<?php echo site_url($this->config->item('admin_folder').'/orders/order/'.$order->id);?>"><i class="fa fa-search"></i> <?php echo lang('form_view')?></a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
