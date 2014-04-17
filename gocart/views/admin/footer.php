@@ -29,7 +29,7 @@
 
 <script src="<?php echo base_url(); ?>js/jquery.loadmask.min.js"></script>    
 
-<script  src="<?php echo base_url(); ?>js/galaxy/hovermenu.js" charset="utf-8"></script>
+
 <script src="<?php echo base_url(); ?>js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="<?php echo base_url(); ?>js/jquery.easy-pie-chart.js"></script>
 
