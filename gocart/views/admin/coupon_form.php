@@ -30,84 +30,78 @@
 				<div class="row">
 					<div class="col-md-6">
 						
-								<div class="form-group">
-									<label for="code"><?php echo lang('coupon_code');?></label>
-									<?php
-									$data	= array('name'=>'code', 'value'=>set_value('code', $code), 'class'=>'form-control');
-									echo form_input($data);
-									?>
-								</div>
-								<div class="form-group">
-									<label for="max_uses"><?php echo lang('max_uses');?></label>
-									<?php
-									$data	= array('name'=>'max_uses', 'value'=>set_value('max_uses', $max_uses), 'class'=>'form-control');
-									echo form_input($data);
-									?>
-								</div>
-								<div class="form-group">
-									<label for="max_product_instances"><?php echo lang('limit_per_order')?></label>
-									<?php
-									$data	= array('name'=>'max_product_instances', 'value'=>set_value('max_product_instances', $max_product_instances), 'class'=>'form-control');
-									echo form_input($data);
-									?>
-								</div>
-								<div class="form-group">
-									<label for="start_date" class="col-sm-3 control-label"><?php echo lang('enable_on');?></label>
-									<div class="col-sm-3">
-									<?php
-									$data	= array('id'=>'datepicker1', 'value'=>set_value('start_date', reverse_format($start_date)), 'class'=>'form-control');
-									echo form_input($data);
-									?>
-									</div>
-									<input type="button" value="Clear" class="btn" onclick="$('#datepicker1_alt').val('');$('#datepicker1').val('');" />
-									<input type="hidden" name="start_date" value="<?php echo set_value('start_date', $start_date) ?>" id="datepicker1_alt" readonly />
-								</div>
-								<div class="form-group">
-									<label for="end_date" class="col-sm-3 control-label"><?php echo lang('disable_on');?></label>
-									<div class="col-sm-3">
-									<?php
-									$data	= array('id'=>'datepicker2', 'value'=>set_value('end_date', reverse_format($end_date)), 'class'=>'form-control');
-									echo form_input($data);
-									?>
-									</div>
-									<input type="button" value="Clear"  class="btn" onclick="$('#datepicker2_alt').val('');$('#datepicker2').val('');" />
-									<input type="hidden" name="end_date" value="<?php echo set_value('end_date', $end_date) ?>" id="datepicker2_alt" readonly />
-								</div>	
-								<div class="form-group">
-									<label for="reduction_target" class="col-sm-3 control-label"><?php echo lang('coupon_type');?></label>
-									<div class="col-sm-3">
-									<?php
-									$options = array(
-										'price'  => lang('price_discount'),
-										'shipping' => lang('free_shipping')
-										);
-									echo form_dropdown('reduction_target', $options,  $reduction_target, 'id="gc_coupon_type" class="input-sm"');
-									?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="reduction_amount" class="col-sm-3 control-label"><?php echo lang('reduction_amount')?></label>
-									<div class="col-sm-3">
-										
-											<?php	$options = array(
-												'percent'  => lang('percentage'),
-												'fixed' => lang('fixed')
-												);
-											echo ' '.form_dropdown('reduction_type', $options,  $reduction_type, 'class="span2"');
-											?>
-										
-											<?php
-											$data	= array('id'=>'reduction_amount', 'name'=>'reduction_amount', 'value'=>set_value('reduction_amount', $reduction_amount), 'class'=>'span1');
-											echo form_input($data);?>
-										
-									</div>
-								</div>	
+						<div class="form-group">
+							<label for="code"><?php echo lang('coupon_code');?></label>
+							<?php
+							$data	= array('name'=>'code', 'value'=>set_value('code', $code), 'class'=>'form-control');
+							echo form_input($data);
+							?>
+						</div>
+						<div class="form-group">
+							<label for="max_uses"><?php echo lang('max_uses');?></label>
+							<?php
+							$data	= array('name'=>'max_uses', 'value'=>set_value('max_uses', $max_uses), 'class'=>'form-control');
+							echo form_input($data);
+							?>
+						</div>
+						<div class="form-group">
+							<label for="max_product_instances"><?php echo lang('limit_per_order')?></label>
+							<?php
+							$data	= array('name'=>'max_product_instances', 'value'=>set_value('max_product_instances', $max_product_instances), 'class'=>'form-control');
+							echo form_input($data);
+							?>
+						</div>
+						<div class="form-group">
+							<label for="start_date" class="col-sm-3 control-label"><?php echo lang('enable_on');?></label>
+							<div class="col-sm-3">
+								<?php
+								$data	= array('id'=>'datepicker1', 'value'=>set_value('start_date', reverse_format($start_date)), 'class'=>'form-control');
+								echo form_input($data);
+								?>
+							</div>
+							<input type="button" value="Clear" class="btn" onclick="$('#datepicker1_alt').val('');$('#datepicker1').val('');" />
+							<input type="hidden" name="start_date" value="<?php echo set_value('start_date', $start_date) ?>" id="datepicker1_alt" readonly />
+						</div>
+						<div class="form-group">
+							<label for="end_date" class="col-sm-3 control-label"><?php echo lang('disable_on');?></label>
+							<div class="col-sm-3">
+								<?php
+								$data	= array('id'=>'datepicker2', 'value'=>set_value('end_date', reverse_format($end_date)), 'class'=>'form-control');
+								echo form_input($data);
+								?>
+							</div>
+							<input type="button" value="Clear"  class="btn" onclick="$('#datepicker2_alt').val('');$('#datepicker2').val('');" />
+							<input type="hidden" name="end_date" value="<?php echo set_value('end_date', $end_date) ?>" id="datepicker2_alt" readonly />
+						</div>	
+						<div class="form-group">
+							<label for="reduction_target" class="col-sm-3 control-label"><?php echo lang('coupon_type');?></label>
+							<div class="col-sm-3">
+								<?php
+								$options = array(
+									'price'  => lang('price_discount'),
+									'shipping' => lang('free_shipping')
+									);
+								echo form_dropdown('reduction_target', $options,  $reduction_target, 'id="gc_coupon_type" class="input-sm"');
+								?>
+							</div>
+						</div>
+						<div class="col-md-12"></div>
+						<div class="form-group col-md-12 nopadding">
 
-									
-									
-								
-							
-
+							<label for="reduction_amount" class="col-sm-3 control-label"><?php echo lang('reduction_amount')?></label>
+						
+							<div class="col-sm-3">
+								<?php	$options = array(
+									'percent'  => lang('percentage'),
+									'fixed' => lang('fixed')
+									);
+								echo ' '.form_dropdown('reduction_type', $options,  $reduction_type, 'class="input-sm"');
+								?>
+								<?php
+								$data	= array('id'=>'reduction_amount', 'name'=>'reduction_amount', 'value'=>set_value('reduction_amount', $reduction_amount), 'class'=>'form-control');
+								echo form_input($data);?>
+							</div>
+						</div>	
 						<div class="form-actions">
 							<button type="submit" class="btn btn-primary"><?php echo lang('save');?></button>
 						</div>
@@ -122,7 +116,7 @@
 							echo form_dropdown('whole_order_coupon', $options,  set_value(0, $whole_order_coupon), 'id="gc_coupon_appliesto_fields"');
 							?>
 							<div id="gc_coupon_products">
-								<table width="100%" border="0" style="margin-top:10px;" cellspacing="5" cellpadding="0">
+								<table width="100%" class="table" border="0" style="margin-top:10px;" cellspacing="5" cellpadding="0">
 									<?php echo $product_rows; ?>
 								</table>
 							</div>

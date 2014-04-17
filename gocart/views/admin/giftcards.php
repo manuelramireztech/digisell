@@ -12,9 +12,9 @@
 
 				<?php if ($gift_cards['enabled']):?>
 
-					<a class="btn" href="<?php echo site_url($this->config->item('admin_folder').'/giftcards/form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_giftcard')?></a>
+					<a class="btn btn-info" href="<?php echo site_url($this->config->item('admin_folder').'/giftcards/form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_giftcard')?></a>
 
-					<a class="btn" href="<?php echo site_url($this->config->item('admin_folder').'/giftcards/settings'); ?>"><i class="icon-cog"></i> <?php echo lang('settings');?></a>
+					<a class="btn btn-warning" href="<?php echo site_url($this->config->item('admin_folder').'/giftcards/settings'); ?>"><i class="icon-cog"></i> <?php echo lang('settings');?></a>
 
 					<a class="btn btn-danger" href="<?php echo site_url($this->config->item('admin_folder').'/giftcards/disable'); ?>"><i class="icon-ban-circle icon-white"></i> <?php echo lang('disable_giftcards');?></a>
 
