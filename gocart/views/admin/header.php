@@ -94,31 +94,31 @@
                                         <ul class="animated fadeInDown">
                                             <li class=' '>
                                                 <a href="<?php echo $admin_url;?>orders" data-original-title='Tasks'>
-                                                    <i class='fa fa-calendar'></i>
+                                                    <i class='fa fa-truck'></i>
                                                     <span class='hidden-minibar'>Orders</span>
                                                 </a>
                                             </li>
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>customers' data-original-title='Inbox'>
-                                                    <i class='fa fa-th'></i>
+                                                    <i class='fa fa-user'></i>
                                                     <span class='hidden-minibar'>Customers</span>
                                                 </a>
                                             </li>
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>customers/groups' data-original-title='Profile'>
-                                                    <i class='fa fa-picture-o'></i>
+                                                    <i class='fa fa-group'></i>
                                                     <span class='hidden-minibar'>Groups</span>
                                                 </a>
                                             </li>
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>reports' data-original-title='Invoice'>
-                                                    <i class='fa fa-bookmark'></i>
+                                                    <i class='fa fa-list-alt'></i>
                                                     <span class='hidden-minibar'>Reports</span>
                                                 </a>
                                             </li>
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>coupons' data-original-title='Timeline'>
-                                                    <i class='fa fa-envelope'></i>
+                                                    <i class='fa fa-star'></i>
                                                     <span class='hidden-minibar'>Coupons</span>
                                                 </a>
                                             </li>
@@ -140,19 +140,19 @@
                                         <ul  class="animated fadeInDown">
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>categories' data-original-title='General-Elements'>
-                                                    <i class='fa fa-exclamation-triangle'></i>
+                                                    <i class='fa fa-list'></i>
                                                     <span class='hidden-minibar'>Categories</span>
                                                 </a>
                                             </li>
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>products' data-original-title='Buttons'>
-                                                    <i class='fa fa-font'></i>
+                                                    <i class='fa fa-tags'></i>
                                                     <span class='hidden-minibar'>Products</span>
                                                 </a>
                                             </li>
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>digital_products' data-original-title='Tree-View'>
-                                                    <i class='fa fa-chain'></i>
+                                                    <i class='fa fa-desktop'></i>
                                                     <span class='hidden-minibar'>Digital Products</span>
                                                 </a>
                                             </li>
@@ -168,13 +168,13 @@
                                         <ul  class="animated fadeInDown">
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>banners' data-original-title=' Login'>
-                                                    <i class="fa fa-laptop"></i>
+                                                    <i class="fa fa-film"></i>
                                                     <span class='hidden-minibar'>Banners</span>
                                                 </a>
                                             </li>
                                             <li class=' '>
                                                 <a href='<?php echo $admin_url;?>pages' data-original-title='Register'>
-                                                    <i class="fa fa-keyboard-o"></i>
+                                                    <i class="fa fa-files-o"></i>
                                                     <span class='hidden-minibar'>Pages</span>
                                                 </a>
                                             </li>
@@ -182,8 +182,8 @@
                                     </li><!-- delighted pages -->
                                     <li class='submenu'>
                                         <a class='dropdown' onClick='return false;' href='#' data-original-title='Components'>
-                                            <i class="fa fa-hdd-o"></i>
-                                            <span class='hidden-minibar'>Administrative
+                                            <i class="fa fa-cogs"></i>
+                                            <span class='hidden-minibar'>Settings
                                                 <i class='fa fa-chevron-right  pull-right'></i>
                                             </span>
                                         </a>
@@ -192,38 +192,38 @@
 
                                            <li class=' '>
                                             <a href='<?php echo $admin_url;?>settings' data-original-title='Drop Zone'>
-                                                <i class="fa fa-dropbox"></i>
+                                                <i class="fa fa-wrench"></i>
                                                 <span class='hidden-minibar'>DigiSell Configuration</span>
                                             </a>
                                         </li>
                                         <li class=' '>
                                             <a href='<?php echo $admin_url;?>shipping' data-original-title='image-crop'>
-                                                <i class='fa fa-picture-o'></i>
+                                                <i class='fa fa-truck'></i>
                                                 <span class='hidden-minibar'>Shipping Modules</span>
                                             </a>
                                         </li>
                                         <li class=' '>
                                             <a href='<?php echo $admin_url;?>payment' data-original-title='File-Manager'>
-                                                <i class="fa fa-folder-open"></i>
+                                                <i class="fa fa-money"></i>
                                                 <span class='hidden-minibar'>Payment Modules</span>
                                             </a>
                                         </li>
 
                                         <li class=' '>
                                             <a href='<?php echo $admin_url;?>settings/canned_messages' data-original-title='Grid'>
-                                             <i class="fa fa-th-large"></i>
+                                             <i class="fa fa-filter"></i>
                                              <span class='hidden-minibar'>Canned Messages</span>
                                          </a>
                                      </li> 
                                      <li class=' '>
                                         <a href='<?php echo $admin_url;?>locations' data-original-title='Info-Boxes'>
-                                            <i class="fa fa-info-circle"></i>
+                                            <i class="fa fa-globe"></i>
                                             <span class='hidden-minibar'>Locations</span>
                                         </a>
                                     </li>    
                                     <li class=' '>
                                         <a href='<?php echo $admin_url;?>admin' data-original-title='Wysiwyg'>
-                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-user-md"></i>
                                             <span class='hidden-minibar'>Administrators</span>
                                         </a>
                                     </li>  
