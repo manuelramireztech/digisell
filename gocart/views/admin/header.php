@@ -79,14 +79,14 @@
                                 <ul class="nav  nav-list">
                                     <li class=''>
                                         <a href="<?php echo $admin_url; ?>" data-original-title='Dashboard'>
-                                            <i class='icon ion-home'></i>
+                                            <i class='fa fa-dashboard'></i>
 
                                             <span class='hidden-minibar'>Dashboard</span>
                                         </a>
                                     </li>
                                     <li class='submenu'>
                                         <a class='dropdown' onClick='return false;' href='#' data-original-title='Delighted-Gold'>
-                                            <i class='icon ion-heart'></i>
+                                            <i class='fa fa-shopping-cart'></i>
                                             <span class='hidden-minibar'>Sales
                                                 <i class='fa fa-chevron-right  pull-right'></i>
                                             </span>
@@ -132,7 +132,7 @@
                                     </li>
                                     <li class='submenu'>
                                         <a class='dropdown' onClick='return false;' href='#' data-original-title='UI-KITS'>
-                                            <i class='fa fa-user'></i>
+                                            <i class='fa fa-book'></i>
                                             <span class='hidden-minibar'>Catalog
                                                 <i class='fa fa-chevron-right  pull-right'></i>
                                             </span>
@@ -160,7 +160,7 @@
                                     </li>
                                     <li class='submenu'>
                                         <a class='dropdown' onClick='return false;' href='#' data-original-title='Delighted-Pages'>
-                                            <i class="fa fa-plus"></i>
+                                            <i class="fa fa-folder"></i>
                                             <span class='hidden-minibar'>Content
                                                 <i class='fa fa-chevron-right  pull-right'></i>
                                             </span>
@@ -231,7 +231,7 @@
                             </li><!-- components -->
                             <li class=' '>
                                 <a href='<?php echo site_url();?>' data-original-title='Documentation' target="_blank">
-                                    <i class="fa fa-file-text"></i>
+                                    <i class="fa fa-location-arrow"></i>
                                     <span class='hidden-minibar'>Front End
                                     </span>
                                 </a>
@@ -330,7 +330,7 @@
                   <div class="panel-body no-padding">
                     <div class="list-group contact-list">
                         <a class="list-group-item">
-                            <img src="images/profiles/one.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/one.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">Available</span>
@@ -338,7 +338,7 @@
                             </div>
                         </a>
                         <a class="list-group-item contact">
-                            <img src="images/profiles/two.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/two.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">Available</span>
@@ -346,7 +346,7 @@
                             </div>
                         </a>
                         <a class="list-group-item contact">
-                            <img src="images/profiles/three.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/three.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">busy</span>
@@ -354,7 +354,7 @@
                             </div>
                         </a>
                         <a class="list-group-item">
-                            <img src="images/profiles/four.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/four.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">offline</span>
@@ -362,7 +362,7 @@
                             </div>
                         </a>
                         <a class="list-group-item contact">
-                            <img src="images/profiles/five.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/five.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">Unavailable</span>
@@ -370,7 +370,7 @@
                             </div>
                         </a>
                         <a class="list-group-item contact">
-                            <img src="images/profiles/six.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/six.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">Unavailable</span>
@@ -378,7 +378,7 @@
                             </div>
                         </a>
                         <a class="list-group-item">
-                            <img src="images/profiles/seven.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/seven.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">Offline</span>
@@ -386,7 +386,7 @@
                             </div>
                         </a>
                         <a class="list-group-item contact">
-                            <img src="images/profiles/eight.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/eight.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">busy</span>
@@ -394,7 +394,7 @@
                             </div>
                         </a>
                         <a class="list-group-item contact">
-                            <img src="images/profiles/nine.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/nine.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">offline</span>
@@ -402,7 +402,7 @@
                             </div>
                         </a>
                         <a class="list-group-item">
-                            <img src="images/profiles/ten.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/ten.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">online</span>
@@ -410,7 +410,7 @@
                             </div>
                         </a>
                         <a class="list-group-item contact">
-                            <img src="images/profiles/eleven.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/eleven.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">unvailable</span>
@@ -418,7 +418,7 @@
                             </div>
                         </a>
                         <a class="list-group-item contact">
-                            <img src="images/profiles/twelve.png" class="chat-user-avatar" alt="">
+                            <img src="<?php echo base_url(); ?>images/profiles/twelve.png" class="chat-user-avatar" alt="">
                             <div class="contact-info">
                                 <span class="name">John Deo</span>
                                 <span class="status">unavailable</span>
