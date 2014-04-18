@@ -1,16 +1,30 @@
 <div class="row">
-	<div class="span12">
-		<select name="enabled" class="span3">
-			<option value="1"<?php echo((bool)$enabled)?' selected="selected"':'';?>><?php echo lang('enabled');?></option>
-			<option value="0"<?php echo((bool)$enabled)?'':' selected="selected"';?>><?php echo lang('disabled');?></option>
-		</select>
-		<div class="control-group">
-			<div class="controls">
-				<div class="input-append">
-					<input type="text" id="add_name_input" class="span3" placeholder="<?php echo lang('table_name');?>"/><button class="btn" type="button" onclick='add_new_table()'><?php echo lang('add_table');?></button>
-				</div>
+	<div class="col-md-12">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label"></label>
+			<div class="col-sm-10">
+				<select name="enabled" class="input-sm drp">
+					<option value="1"<?php echo((bool)$enabled)?' selected="selected"':'';?>><?php echo lang('enabled');?></option>
+					<option value="0"<?php echo((bool)$enabled)?'':' selected="selected"';?>><?php echo lang('disabled');?></option>
+				</select>
 			</div>
 		</div>
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label"></label>
+			<div class="col-sm-10">
+				<div class="col-lg-6">
+				<div class="input-group" style="margin-left:-15px;">
+						<input type="text" id="add_name_input" class="form-control" placeholder="<?php echo lang('table_name');?>"/>
+						<span class="input-group-btn">
+							<button class="btn btn-info inpgrp" type="button" onclick='add_new_table()'><?php echo lang('add_table');?></button>
+						</span>
+					</div><!-- /input-group -->
+				</div><!-- /.col-lg-6 -->
+				
+			</div>
+		</div>
+		
+		
 	</div>
 </div>
 <ul id="tables" class="nav nav-pills nav-stacked">
@@ -57,11 +71,11 @@
 	function add_rate(table, from, rate)
 	{
 		var rate_row = $('#rate_form_template').html().split('var_count').join(rate_count).split('var_table_count').join(table);
-	
+
 		$('#rates_'+table).append(rate_row);
 		$('#from_line_'+rate_count).val(from);
 		$('#rate_line_'+rate_count).val(rate);
-	
+
 		rate_count++;
 	}
 	
@@ -91,7 +105,7 @@
 
 <div id="kill_on_save">
 	<div id="table_form_template" style="display:none">
-	
+
 		<li class="active"id="table_var_count">
 			<button onclick="delete_table(var_count);" type="button" class="btn btn-danger pull-right" style="margin-top:3px; margin-right:3px;"><i class="icon-trash icon-white"></i></button>
 			<a href="#" onclick="toggle_table(var_count); return false;">var_name</a>
@@ -99,21 +113,21 @@
 				<li class="span12">
 					<div class="row">
 						<div class="span12">
-		
+
 							<div class="row">
 								<div class="span3" style="margin-top:5px;">
 									<label><?php echo lang('table_name');?></label>
 									<?php echo form_input(array('name'=>'rate[var_count][name]', 'class'=>'span3', 'id'=>'name_var_count'));?>
-					
+
 									<label><?php echo lang('method');?></label>
 									<?php
 									$options = array('price'=>lang('price'),'weight'=>lang('weight'));
 									echo form_dropdown('rate[var_count][method]', $options, '', 'class="span3" id="method_var_count"');
 									?>
-					
+
 									<label><?php echo lang('country');?></label>
 									<?php
-										echo form_multiselect('rate[var_count][country][]', $countries, '', 'class="span3" id="country_var_count"');
+									echo form_multiselect('rate[var_count][country][]', $countries, '', 'class="span3" id="country_var_count"');
 									?>
 								</div>
 								<div class="span9">
@@ -132,13 +146,13 @@
 									</table>
 								</div>
 							</div>
-		
+
 						</div>
 					</div>
 				</li>
 			</ul>
 		</li>
-	
+
 	</div>
 
 	<table style="display:none;">

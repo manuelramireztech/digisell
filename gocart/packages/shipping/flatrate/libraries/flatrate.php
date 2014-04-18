@@ -56,14 +56,23 @@ class flatrate
 		}
 		ob_start();
 		?>
-		<label><?php echo lang('rate');?></label>
-		<?php echo form_input(array('name'=>'rate', 'value'=>$rate, 'class'=>'span3'));?>
-		
-		<label><?php echo lang('enabled');?></label>
-		<select name="enabled" class="span3">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('rate');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input(array('name'=>'rate', 'value'=>$rate, 'class'=>'form-control'));?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('enabled');?></label>
+			<div class="col-sm-10">
+				<select name="enabled" class="input-sm drp">
 			<option value="1"<?php echo((bool)$settings['enabled'])?' selected="selected"':'';?>><?php echo lang('enabled');?></option>
 			<option value="0"<?php echo((bool)$settings['enabled'])?'':' selected="selected"';?>><?php echo lang('disabled');?></option>
 		</select>
+			</div>
+		</div>
+		
+		
 		<?php
 		$form =ob_get_contents();
 		ob_end_clean();

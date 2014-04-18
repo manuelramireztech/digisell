@@ -4,7 +4,7 @@
 		<div class="panel">
 			<div class="panel-heading">
 				<h3 class="panel-title ">
-					<?php echo lang('shipping_settings') ?>
+					<?php echo lang('shipping_settings_title') ?>
 					<span class="panel-options">
 						<a href="#" class="panel-minimize">
 							<i class="fa fa-chevron-up"></i>
@@ -19,8 +19,13 @@
 				<?php
 				echo $form;
 				?>
+				<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input class="btn btn-primary" type="submit" value="<?php echo lang('save');?>"/>
+    </div>
+  </div>
 				<div class="form-actions">
-					<input class="btn btn-primary" type="submit" value="<?php echo lang('save');?>"/>
+					
 				</div>
 				
 			</div>
