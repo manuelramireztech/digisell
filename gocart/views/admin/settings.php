@@ -29,7 +29,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label"><?php echo lang('theme');?></label>
                     <div class="col-sm-4">
-                       <?php echo form_dropdown('theme', $themes, set_value('theme', $theme), 'class="input-sm col-sm-6"');?>
+                       <?php echo form_dropdown('theme', $themes, set_value('theme', $theme), 'class="input-sm col-sm-6 drp"');?>
                    </div>
                </div>
                <div class="form-group">
@@ -64,13 +64,13 @@
 <div class="form-group">
    <label class="col-sm-2 control-label"><?php echo lang('country');?></label>
    <div class="col-sm-4">
-      <?php echo form_dropdown('country_id', $countries_menu, set_value('country_id', $country_id), 'id="country_id" class="input-sm"');?>
+      <?php echo form_dropdown('country_id', $countries_menu, set_value('country_id', $country_id), 'id="country_id" class="input-sm drp"');?>
   </div>
 </div>
 <div class="form-group">
    <label class="col-sm-2 control-label"><?php echo lang('state');?></label>
    <div class="col-sm-4">
-      <?php echo form_dropdown('zone_id', $zones_menu, set_value('zone_id', $zone_id), 'id="zone_id" class="input-sm"');?>
+      <?php echo form_dropdown('zone_id', $zones_menu, set_value('zone_id', $zone_id), 'id="zone_id" class="input-sm drp"');?>
   </div>
 </div>
 <div class="form-group">
@@ -86,13 +86,13 @@
 <div class="form-group">
    <label class="col-sm-2 control-label"><?php echo lang('locale');?></label>
    <div class="col-sm-4">
-      <?php echo form_dropdown('locale', $locales, set_value('locale', $locale), 'class="input-sm"');?>
+      <?php echo form_dropdown('locale', $locales, set_value('locale', $locale), 'class="input-sm drp"');?>
   </div>
 </div>
 <div class="form-group">
    <label class="col-sm-2 control-label"><?php echo lang('currency');?></label>
    <div class="col-sm-4">
-      <?php echo form_dropdown('currency_iso', $iso_4217, set_value('currency_iso', $currency_iso), 'class="input-sm"');?>
+      <?php echo form_dropdown('currency_iso', $iso_4217, set_value('currency_iso', $currency_iso), 'class="input-sm drp"');?>
   </div>
 </div>
 
