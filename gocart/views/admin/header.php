@@ -10,6 +10,7 @@
     
     <!-- Custom Styles -->
     <link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
 
     <link href="<?php echo base_url(); ?>less/style.less" rel="stylesheet"  title="lessCss" id="lessCss">
 
@@ -67,7 +68,7 @@
                                     <img src="<?php echo base_url(); ?>images/avatar.png" alt="" class="avatar">
                                     <div class="user-info">
                                         <div class="welcome">Welcome,</div>
-                                        <div class="username">Admin</div>
+                                        <div class="username"><?php echo "Admin"; ?></div>
                                     </div>
                                     <div class="user-status">
                                         <i class="fa fa-circle "></i>

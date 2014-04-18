@@ -7,8 +7,7 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/redactor.min.js');?>"></script>
+
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="<?php echo base_url(); ?>js/jquery-ui-1.10.3.custom.min.js"></script>
@@ -48,7 +47,20 @@
 <script src="<?php echo base_url(); ?>js/theme-options.js"></script>
 
 <script src="<?php echo base_url(); ?>js/core.js"></script>
+<script src="<?php echo base_url(); ?>js/glDatePicker.min.js"></script>
+<!-- Gl date picker start -->
+    <script type="text/javascript">
+        $(window).load(function()
+        {
+            $('#start_top').glDatePicker();
+            $('#end_top').glDatePicker();
+            $('#best_sellers_start').glDatePicker();
+            $('#best_sellers_end').glDatePicker();
+            
+        });
 
+    </script>
+<!-- Gl date picker end -->
 
 
 </body>

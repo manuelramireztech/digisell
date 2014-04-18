@@ -54,10 +54,10 @@
 		}
 	</style>
 	<div class="row">
-		<div class="col-md-12" style="border-bottom:1px solid #f5f5f5;">
+		<div class="col-md-12 pull-right">
 
 			
-			<div class="panel panel-default">
+			<div class="panel">
 				<div class="panel-body">
 					<?php echo form_open($this->config->item('admin_folder').'/orders/index', 'class="form-inline" style="float:right"');?>
 					
@@ -219,6 +219,8 @@
 		$('#saving_container').fadeOut();
 	}
 	
+        
+    
 </script>
 
 <div id="saving_container" style="display:none;">

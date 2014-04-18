@@ -6,14 +6,7 @@
 				return confirm('<?php echo lang('confirm_delete_customer');?>');
 			}
 		</script>
-		<div class="row">
-			<div class="col-md-12 pull-right">
-				<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/export_xml');?>"><i class="icon-download"></i> <?php echo lang('xml_download');?></a>
-				<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/get_subscriber_list');?>"><i class="icon-download"></i> <?php echo lang('subscriber_download');?></a>
-				<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_customer');?></a>
-			</div>
-		</div>
-		</br>
+		
 		<div class="panel">
 			<div class="panel-heading">
 				<h3 class="panel-title ">
@@ -29,6 +22,13 @@
 				</h3>
 			</div>
 			<div class="panel-body">
+				<div class="row pull-right">
+					<div class="col-md-12">
+						<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/export_xml');?>"><i class="icon-download"></i> <?php echo lang('xml_download');?></a>
+						<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/get_subscriber_list');?>"><i class="icon-download"></i> <?php echo lang('subscriber_download');?></a>
+						<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_customer');?></a>
+					</div>
+				</div>
 				<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>

@@ -27,6 +27,7 @@ class Login extends Base_Controller {
 		if ($submitted)
 		{
 			$username	= $this->input->post('username');
+			$data['uname'] = $this->input->post('username');
 			$password	= $this->input->post('password');
 			$remember   = $this->input->post('remember');
 			$redirect	= $this->input->post('redirect');
