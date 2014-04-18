@@ -35,11 +35,11 @@
 						<td><?php echo $banner_collection->name;?></td>
 						<td>
 							<div class="btn-group" style="float:right">
-								<a class="btn btn-info" href="<?php echo base_url(config_item('admin_folder').'/banners/banner_collection/'.$banner_collection->banner_collection_id);?>"><i class="icon-picture"></i> <?php echo lang('banners');?></a>
+								<a class="btn btn-info" href="<?php echo site_url(config_item('admin_folder').'/banners/banner_collection/'.$banner_collection->banner_collection_id);?>"><i class="fa fa-camera"></i> <?php echo lang('banners');?></a>
 
-								<a class="btn btn-success" href="<?php echo site_url(config_item('admin_folder').'/banners/banner_collection_form/'.$banner_collection->banner_collection_id);?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
+								<a class="btn btn-success" href="<?php echo site_url(config_item('admin_folder').'/banners/banner_collection_form/'.$banner_collection->banner_collection_id);?>"><i class="fa fa-pencil"></i> <?php echo lang('edit');?></a>
 
-								<a class="btn btn-danger" href="<?php echo site_url(config_item('admin_folder').'/banners/delete_banner_collection/'.$banner_collection->banner_collection_id);?>" onclick="return areyousure();"><i class="icon-trash icon-white"></i> <?php echo lang('delete');?></a>
+								<a class="btn btn-danger" href="<?php echo site_url(config_item('admin_folder').'/banners/delete_banner_collection/'.$banner_collection->banner_collection_id);?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 							</div>
 						</td>
 					</tr>

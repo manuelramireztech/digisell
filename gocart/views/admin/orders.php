@@ -1,3 +1,5 @@
+
+
 <div class="row">
 	<div class="col-md-12">
 		<?php
@@ -58,6 +60,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<?php echo form_open($this->config->item('admin_folder').'/orders/index', 'class="form-inline" style="float:right"');?>
+					
 					<div class="form-group">
 						<input id="start_top"  value="" class="form-control" type="text" placeholder="Start Date"/>
 						<input id="start_top_alt" type="hidden" name="start_date" />
@@ -215,6 +218,7 @@
 	{
 		$('#saving_container').fadeOut();
 	}
+	
 </script>
 
 <div id="saving_container" style="display:none;">

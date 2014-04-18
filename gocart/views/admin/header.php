@@ -8,8 +8,6 @@
     <!-- Styles -->
     <link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
     
-    
-
     <!-- Custom Styles -->
     <link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
 
