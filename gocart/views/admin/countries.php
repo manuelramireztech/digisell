@@ -63,8 +63,8 @@ function areyousure()
 	</div>
 	<div class="panel-body">
 		<div class="btn-group" style="float:right;">
-			<a class="btn btn-warning" href="<?php echo site_url($this->config->item('admin_folder').'/locations/country_form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_country');?></a>
-			<a class="btn btn-info" href="<?php echo site_url($this->config->item('admin_folder').'/locations/zone_form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_zone');?></a>
+			<a class="btn btn-warning" href="<?php echo site_url($this->config->item('admin_folder').'/locations/country_form'); ?>"><i class="fa fa-plus"></i> <?php echo lang('add_new_country');?></a>
+			<a class="btn btn-info" href="<?php echo site_url($this->config->item('admin_folder').'/locations/zone_form'); ?>"><i class="fa fa-plus"></i> <?php echo lang('add_new_zone');?></a>
 		</div>
 		<div class="table-responsive">
 			<table class="table table-striped" cellspacing="0" cellpadding="0">
@@ -82,7 +82,7 @@ function areyousure()
 				<tbody id="countries">
 					<?php foreach ($locations as $location):?>
 						<tr id="country-<?php echo $location->id;?>">
-							<td class="handle"><a class="btn" style="cursor:move"><span class="icon-align-justify"></span></a></td>
+							<td class="handle"><a class="btn" style="cursor:move"><span class="fa fa-bars"></span></a></td>
 							<td><?php echo  $location->name; ?></td>
 							<td><?php echo $location->iso_code_2;?></td>
 							<td><?php echo $location->iso_code_3;?></td>
