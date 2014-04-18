@@ -73,7 +73,7 @@
 							<input type="button" value="Clear"  class="btn" onclick="$('#datepicker2_alt').val('');$('#datepicker2').val('');" />
 							<input type="hidden" name="end_date" value="<?php echo set_value('end_date', $end_date) ?>" id="datepicker2_alt" readonly />
 						</div>	
-						<div class="form-group">
+						<div class="form-group col-md-12">
 							<label for="reduction_target" class="col-sm-3 control-label"><?php echo lang('coupon_type');?></label>
 							<div class="col-sm-3">
 								<?php
@@ -85,29 +85,35 @@
 								?>
 							</div>
 						</div>
-						<div class="col-md-12"></div>
-						<div class="form-group col-md-12 nopadding">
+						
+						<div class="form-group">
 
 							<label for="reduction_amount" class="col-sm-3 control-label"><?php echo lang('reduction_amount')?></label>
-						
-							<div class="col-sm-3">
-								<?php	$options = array(
-									'percent'  => lang('percentage'),
-									'fixed' => lang('fixed')
-									);
-								echo ' '.form_dropdown('reduction_type', $options,  $reduction_type, 'class="input-sm"');
-								?>
+							
+							<div class="input-group">
+								<span class="input-group-addon" style="padding-bottom:0px;padding-top:1px;">
+									<?php	$options = array(
+										'percent'  => lang('percentage'),
+										'fixed' => lang('fixed')
+										);
+									echo ' '.form_dropdown('reduction_type', $options,  $reduction_type, 'class=""');
+									?>
+								</span>
 								<?php
-								$data	= array('id'=>'reduction_amount', 'name'=>'reduction_amount', 'value'=>set_value('reduction_amount', $reduction_amount), 'class'=>'form-control');
+								$data	= array('id'=>'reduction_amount', 'style'=>'margin-left:-10px;', 'name'=>'reduction_amount', 'value'=>set_value('reduction_amount', $reduction_amount), 'class'=>'form-control inpgrp');
 								echo form_input($data);?>
 							</div>
-						</div>	
-						<div class="form-actions">
-							<button type="submit" class="btn btn-primary"><?php echo lang('save');?></button>
+							
 						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-primary"><?php echo lang('save');?></button>
+							</div>
+						</div>	
+						
 					</div>
 					<div class="col-md-6 pull-left">
-						<div class="offset1 well">
+						<div class="offset1 well ">
 							<?php
 							$options = array(
 								'1' => lang('apply_to_whole_order'),
@@ -116,7 +122,7 @@
 							echo form_dropdown('whole_order_coupon', $options,  set_value(0, $whole_order_coupon), 'id="gc_coupon_appliesto_fields"');
 							?>
 							<div id="gc_coupon_products">
-								<table width="100%" class="table" border="0" style="margin-top:10px;" cellspacing="5" cellpadding="0">
+								<table  class="table" border="0" style="margin-top:10px;" cellspacing="5" cellpadding="0">
 									<?php echo $product_rows; ?>
 								</table>
 							</div>

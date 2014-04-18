@@ -58,6 +58,8 @@
             $('#best_sellers_end').glDatePicker();
             $('#enable_date').glDatePicker();
             $('#disable_date').glDatePicker();
+            $('#datepicker1').glDatePicker();
+            $('#datepicker2').glDatePicker();
 
         });
 

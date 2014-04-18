@@ -101,7 +101,7 @@ class Coupons extends Admin_Controller {
 			{
 				$checked = "checked='checked'";
 			}
-			$data['product_rows']  .=  "<tr><td><input type='checkbox' name='product[]' value='". $products[$x]->id ."' $checked></td><td> ". $products[$x]->name ."</td>";
+			$data['product_rows']  .=  "<tr><td width='5%'><input type='checkbox' name='product[]' value='". $products[$x]->id ."' $checked></td><td> ". $products[$x]->name ."</td>";
 			
 			$x++;
 			
