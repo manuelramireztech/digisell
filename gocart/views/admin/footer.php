@@ -56,7 +56,9 @@
             $('#end_top').glDatePicker();
             $('#best_sellers_start').glDatePicker();
             $('#best_sellers_end').glDatePicker();
-            
+            $('#enable_date').glDatePicker();
+            $('#disable_date').glDatePicker();
+
         });
 
     </script>

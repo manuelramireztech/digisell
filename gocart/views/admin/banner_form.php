@@ -39,13 +39,14 @@
 				</div>
 				<div class="form-group">
 					<label for="enable_date" class="col-sm-2 control-label"><?php echo lang('enable_date');?></label>
-					<div class="col-sm-10">
+					<div class="col-sm-2">
 						<?php echo form_input($enable_date); ?>
+						
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="disable_date" class="col-sm-2 control-label"><?php echo lang('disable_date');?></label>
-					<div class="col-sm-10">
+					<div class="col-sm-2">
 						<?php echo form_input($disable_date); ?>
 					</div>
 				</div>
