@@ -206,26 +206,26 @@ class United_parcel_service
 		ob_start();
 		?>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('account');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('account');?></label>
+			<div class="">
 				<?php echo form_input('ups_account_username', $username, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('password');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('password');?></label>
+			<div class="">
 				<?php echo form_input('ups_account_password', $password, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('key');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('key');?></label>
+			<div class="">
 				<?php echo form_input('access_key', $access_key, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('services');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('services');?></label>
+			<div class="">
 				<?php  foreach($this->ups_services as $id=>$opt):?>
 			<label class="checkbox">
 				<input type="checkbox" class="" name="services[]" value="<?php echo $id;?>" <?php echo (in_array($id, $services))?'checked="checked"':'';?> />
@@ -238,8 +238,8 @@ class United_parcel_service
 
 		<div class="form-group">
 
-			<label for="reduction_amount" class="col-sm-2 control-label"><?php echo lang('fee');?></label>
-			<div class="col-sm-10">
+			<label for="reduction_amount" class=""><?php echo lang('fee');?></label>
+			<div class="">
 				<div class="input-group drp col-sm-2">
 					<span class="input-group-addon" style="padding-bottom:0px;padding-top:1px;">
 						<?php echo form_dropdown('handling_method', array('$'=>'$', '%'=>'%'), $handling_method, 'class=""');?>
@@ -249,8 +249,8 @@ class United_parcel_service
 			</div>			
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('enabled');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('enabled');?></label>
+			<div class="">
 				<?php echo form_dropdown('enabled', array(lang('disabled'), lang('enabled')), $enabled, 'class="input-sm drp"');?>
 			</div>
 		</div>

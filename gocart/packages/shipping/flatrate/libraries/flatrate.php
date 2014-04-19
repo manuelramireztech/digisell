@@ -57,14 +57,14 @@ class flatrate
 		ob_start();
 		?>
 		<div class="form-group">
-			<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('rate');?></label>
-			<div class="col-sm-10">
+			<label for="inputEmail3" class=""><?php echo lang('rate');?></label>
+			<div class="">
 				<?php echo form_input(array('name'=>'rate', 'value'=>$rate, 'class'=>'form-control'));?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('enabled');?></label>
-			<div class="col-sm-10">
+			<label for="inputEmail3" class=""><?php echo lang('enabled');?></label>
+			<div class="">
 				<select name="enabled" class="input-sm drp">
 			<option value="1"<?php echo((bool)$settings['enabled'])?' selected="selected"':'';?>><?php echo lang('enabled');?></option>
 			<option value="0"<?php echo((bool)$settings['enabled'])?'':' selected="selected"';?>><?php echo lang('disabled');?></option>

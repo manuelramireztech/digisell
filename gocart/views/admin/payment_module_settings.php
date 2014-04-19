@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
+					<div class="col-sm-offset-4 col-sm-10">
 						<input class="btn btn-primary" type="submit" value="<?php echo lang('save');?>"/>
 					</div>
 				</div>

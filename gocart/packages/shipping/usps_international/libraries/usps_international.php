@@ -236,15 +236,16 @@ function rates()
 	 	}
 	 	ob_start();
 	 	?>
-	 	<div class="form-group">
-	 		<label class="col-sm-2 control-label"><?php echo lang('username');?></label>
-	 		<div class="col-sm-10">
+	 	<div class="col-md-6">
+	 		<div class="form-group">
+	 		<label class=""><?php echo lang('username');?></label>
+	 		<div class="">
 	 			<?php echo form_input('username', $username, 'class="form-control"');?>
 	 		</div>
 	 	</div>
 	 	<div class="form-group">
-	 		<label class="col-sm-2 control-label"><?php echo lang('method')?></label>
-	 		<div class="col-sm-10">
+	 		<label class=""><?php echo lang('method')?></label>
+	 		<div class="">
 	 			<?php foreach($this->service_list as $id=>$opt):
 	 			$opt = str_replace(array('&lt;', '&gt;'), array('<', '>'), $opt);?>
 	 			<label class="checkbox">
@@ -254,8 +255,8 @@ function rates()
 	 	</div>
 	 </div>
 	 <div class="form-group">
-	 	<label class="col-sm-2 control-label"><?php echo lang('mail_type');?></label>
-	 	<div class="col-sm-10">
+	 	<label class=""><?php echo lang('mail_type');?></label>
+	 	<div class="">
 	 		<?php
 	 		$opts	= array('ALL'		=>lang('all'),
 	 			'PACKAGE'	=>lang('package'),
@@ -266,8 +267,8 @@ function rates()
 	 		</div>
 	 	</div>
 	 	<div class="form-group">
-	 		<label class="col-sm-2 control-label"><?php echo lang('container');?></label>
-	 		<div class="col-sm-10">
+	 		<label class=""><?php echo lang('container');?></label>
+	 		<div class="">
 	 			<?php
 	 			$opts = array(
 	 				'RECTANGULAR'=>lang('rectangular'),
@@ -277,8 +278,8 @@ function rates()
 	 			</div>
 	 		</div>
 	 		<div class="form-group">
- 			<label class="col-sm-2 control-label"><?php echo lang('size');?></label>
- 			<div class="col-sm-10">
+ 			<label class=""><?php echo lang('size');?></label>
+ 			<div class="">
  				<?php
  				$opts	= array('REGULAR'=>lang('regular'),
  					'LARGE'=>lang('large'),
@@ -287,40 +288,43 @@ function rates()
  					echo form_dropdown('size', $opts, $size, 'class="input-sm drp"');?>
  				</div>
  			</div>
- 			<label for="" class="label-info"><h3><?php echo lang('size_message');?></h3></label>
+	 	</div>
+ 		<div class="col-md-6">
+ 			<h3><span class="label label-primary"><?php echo lang('size_message');?></span></h3>
+ 			
 			<div class="form-group">
-				<label class="col-sm-2 control-label"><?php echo lang('package_length');?></label>
-				<div class="col-sm-10">
+				<label class=""><?php echo lang('package_length');?></label>
+				<div class="">
 					<?php echo form_input('length', $length, 'class="form-control"');?>
 				</div>
 			</div>	
 			<div class="form-group">
-				<label class="col-sm-2 control-label"><?php echo lang('package_width');?></label>
-				<div class="col-sm-10">
+				<label class=""><?php echo lang('package_width');?></label>
+				<div class="">
 					<?php echo form_input('width', $width, 'class="form-control"');?>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label"><?php echo lang('package_height');?></label>
-				<div class="col-sm-10">
+				<label class=""><?php echo lang('package_height');?></label>
+				<div class="">
 					<?php echo form_input('height', $height, 'class="form-control"');?>
 				</div>
 			</div>
 	 		<div class="form-group">
-				<label class="col-sm-2 control-label"><?php echo lang('package_girth');?></label>
-				<div class="col-sm-10">
+				<label class=""><?php echo lang('package_girth');?></label>
+				<div class="">
 					<?php echo form_input('girth', $girth, 'class="form-control"');?>
 				</div>
 			</div>
 	 		<div class="form-group">
-				<label class="col-sm-2 control-label"><?php echo lang('machinable');?></label>
-				<div class="col-sm-10">
+				<label class=""><?php echo lang('machinable');?></label>
+				<div class="">
 					<?php echo form_dropdown('machinable', array('TRUE'=>lang('yes'), 'FALSE'=>lang('no')), $machinable, 'class="input-sm drp"');?>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="reduction_amount" class="col-sm-2 control-label"><?php echo lang('handling_fee');?></label>
-				<div class="col-sm-10">
+				<label for="reduction_amount" class=""><?php echo lang('handling_fee');?></label>
+				<div class="">
 					<div class="input-group drp col-sm-2">
 						<span class="input-group-addon" style="padding-bottom:0px;padding-top:1px;">
 							<?php echo form_dropdown('handling_method', array('$'=>'$', '%'=>'%'), $handling_method, 'class=""');?>
@@ -330,11 +334,12 @@ function rates()
 				</div>			
 			</div>
 	 		<div class="form-group">
-				<label class="col-sm-2 control-label"><?php echo lang('enabled');?></label>
-				<div class="col-sm-10">
+				<label class=""><?php echo lang('enabled');?></label>
+				<div class="">
 					<?php echo form_dropdown('enabled', array(lang('disabled'), lang('enabled')), $enabled, 'class="input-sm drp"');?>
 				</div>
 			</div>
+ 		</div>	
 	 			
 	 			<?php
 	 			$form =ob_get_contents();

@@ -293,27 +293,28 @@ class usps_domestic
 		
 		ob_start();
 		?>
-		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('username');?></label>
-			<div class="col-sm-10">
+		<div class="col-md-6">
+			<div class="form-group">
+			<label class=""><?php echo lang('username');?></label>
+			<div class="">
 				<?php echo form_input('username', $username, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('password');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('password');?></label>
+			<div class="">
 				<?php echo form_input('password', $username, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('mode');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('mode');?></label>
+			<div class="">
 				<?php echo form_dropdown('mode', array('test'=>lang('test'), 'live'=>lang('live')), $mode, 'class="input-sm drp"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('method')?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('method')?></label>
+			<div class="">
 				<?php foreach($this->service_list as $id=>$opt):
 					$opt = str_replace(array('&lt;', '&gt;'), array('<', '>'), $opt);
 					?>
@@ -324,8 +325,8 @@ class usps_domestic
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('container')?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('container')?></label>
+			<div class="">
 				<?php
 				$opts	= array('VARIABLE'=>lang('variable'),
 								'FLAT RATE BOX'=>lang('flat_rate_box'),
@@ -340,8 +341,8 @@ class usps_domestic
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('size');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('size');?></label>
+			<div class="">
 				<?php
 				$opts	= array('REGULAR'=>lang('regular'),
 								'LARGE'=>lang('large'),
@@ -350,40 +351,43 @@ class usps_domestic
 				echo form_dropdown('size', $opts, $size, 'class="input-sm drp"');?>
 			</div>
 		</div>
-		<label for="" class="label-info"><h3><?php echo lang('size_message');?></h3></label>
+		</div>
+		<div class="col-md-6">
+			<h3><span class="label label-primary label-lg"><?php echo lang('size_message');?></span></h3>
+		
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('package_length');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('package_length');?></label>
+			<div class="">
 				<?php echo form_input('length', $length, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('package_width');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('package_width');?></label>
+			<div class="">
 				<?php echo form_input('width', $width, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('package_height');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('package_height');?></label>
+			<div class="">
 				<?php echo form_input('height', $height, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('package_girth');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('package_girth');?></label>
+			<div class="">
 				<?php echo form_input('girth', $girth, 'class="form-control"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('machinable');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('machinable');?></label>
+			<div class="">
 				<?php echo form_dropdown('machinable', array('TRUE'=>lang('yes'), 'FALSE'=>lang('no')), $machinable, 'class="input-sm drp"');?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="" class="col-sm-2 control-label"><?php echo lang('handling_fee');?></label>
-			<div class="col-sm-10">
+			<label for="" class=""><?php echo lang('handling_fee');?></label>
+			<div class="">
 				<div class="input-group drp col-sm-2">
 					<span class="input-group-addon" style="padding-bottom:0px;padding-top:1px;">
 						<?php echo form_dropdown('handling_method', array('$'=>'$', '%'=>'%'), $handling_method, 'class=""');?>
@@ -393,10 +397,11 @@ class usps_domestic
 			</div>			
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo lang('enabled');?></label>
-			<div class="col-sm-10">
+			<label class=""><?php echo lang('enabled');?></label>
+			<div class="">
 				<?php echo form_dropdown('enabled', array(lang('disabled'), lang('enabled')), $enabled, 'class="input-sm drp"');?>
 			</div>
+		</div>
 		</div>
 
 

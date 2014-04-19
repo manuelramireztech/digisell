@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-		<?php echo form_open($this->config->item('admin_folder').'/shipping/settings/'. $module, 'class="form-horizontal"');?>
+		<?php echo form_open($this->config->item('admin_folder').'/shipping/settings/'. $module, 'class="form"');?>
 		<div class="panel">
 			<div class="panel-heading">
 				<h3 class="panel-title ">
@@ -19,14 +19,12 @@
 				<?php
 				echo $form;
 				?>
-				<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <input class="btn btn-primary" type="submit" value="<?php echo lang('save');?>"/>
-    </div>
-  </div>
-				<div class="form-actions">
-					
-				</div>
+				<div class="form-group ">
+				    <div class="col-sm-12 ">
+				      <input class="btn btn-primary " type="submit" value="<?php echo lang('save');?>"/>
+				    </div>
+				  </div>
+				
 				
 			</div>
 

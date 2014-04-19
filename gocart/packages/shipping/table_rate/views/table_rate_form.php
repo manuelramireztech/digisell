@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="form-group">
-			<label for="inputEmail3" class="col-sm-2 control-label"></label>
-			<div class="col-sm-10">
+			<label for="inputEmail3" class=""></label>
+			<div class="">
 				<select name="enabled" class="input-sm drp">
 					<option value="1"<?php echo((bool)$enabled)?' selected="selected"':'';?>><?php echo lang('enabled');?></option>
 					<option value="0"<?php echo((bool)$enabled)?'':' selected="selected"';?>><?php echo lang('disabled');?></option>
@@ -10,8 +10,8 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputEmail3" class="col-sm-2 control-label"></label>
-			<div class="col-sm-10">
+			<label for="inputEmail3" class=""></label>
+			<div class="">
 				<div class="col-lg-6">
 				<div class="input-group" style="margin-left:-15px;">
 						<input type="text" id="add_name_input" class="form-control" placeholder="<?php echo lang('table_name');?>"/>
@@ -20,7 +20,7 @@
 						</span>
 					</div><!-- /input-group -->
 				</div><!-- /.col-lg-6 -->
-				
+				<br><br>
 			</div>
 		</div>
 		
