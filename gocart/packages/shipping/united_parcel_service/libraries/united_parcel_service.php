@@ -205,32 +205,57 @@ class United_parcel_service
 
 		ob_start();
 		?>
-
-		<label><?php echo lang('account');?></label>
-		<?php echo form_input('ups_account_username', $username, 'class="span3"');?>
-
-		<label><?php echo lang('password');?></label>
-		<?php echo form_input('ups_account_password', $password, 'class="span3"');?>
-
-		<label><?php echo lang('key');?></label>
-		<?php echo form_input('access_key', $access_key, 'class="span3"');?>
-
-
-		<label><?php echo lang('services');?></label>
-
-		<?php  foreach($this->ups_services as $id=>$opt):?>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('account');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('ups_account_username', $username, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('password');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('ups_account_password', $password, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('key');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('access_key', $access_key, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('services');?></label>
+			<div class="col-sm-10">
+				<?php  foreach($this->ups_services as $id=>$opt):?>
 			<label class="checkbox">
-				<input type="checkbox" name="services[]" value="<?php echo $id;?>" <?php echo (in_array($id, $services))?'checked="checked"':'';?> />
+				<input type="checkbox" class="" name="services[]" value="<?php echo $id;?>" <?php echo (in_array($id, $services))?'checked="checked"':'';?> />
 				<?php echo $opt;?>
 			</label>
 		<?php endforeach;?>
+			</div>
+		</div>
+		
 
-		<label><?php echo lang('fee');?></label>
-		<?php echo form_dropdown('handling_method', array('$'=>'$', '%'=>'%'), $handling_method, 'class="span1"');?>
-		<?php echo form_input('handling_amount', $handling_amount, 'class="span3"');?>
+		<div class="form-group">
 
-		<label><?php echo lang('enabled');?></label>
-		<?php echo form_dropdown('enabled', array(lang('disabled'), lang('enabled')), $enabled, 'class="span3"');?>
+			<label for="reduction_amount" class="col-sm-2 control-label"><?php echo lang('fee');?></label>
+			<div class="col-sm-10">
+				<div class="input-group drp col-sm-2">
+					<span class="input-group-addon" style="padding-bottom:0px;padding-top:1px;">
+						<?php echo form_dropdown('handling_method', array('$'=>'$', '%'=>'%'), $handling_method, 'class=""');?>
+					</span>
+						<?php echo form_input('handling_amount', $handling_amount, 'class="form-control col-sm-2 inpgrp"');?>
+				</div>
+			</div>			
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('enabled');?></label>
+			<div class="col-sm-10">
+				<?php echo form_dropdown('enabled', array(lang('disabled'), lang('enabled')), $enabled, 'class="input-sm drp"');?>
+			</div>
+		</div>
+		
+		
 
 		<?php
 		$form =ob_get_contents();
