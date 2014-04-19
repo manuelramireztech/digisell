@@ -110,8 +110,13 @@ class cod
 		
 		ob_start();
 		?>
-
-		<label><?php echo lang('enabled');?></label>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('enabled');?></label>
+			<div class="col-sm-10">
+				<?php echo form_dropdown('enabled', array(lang('disabled'), lang('enabled')), $enabled, 'class="input-sm drp"');?>
+			</div>
+		</div>
+		<label></label>
 		<select name="enabled" class="span3">
 			<option value="1"<?php echo((bool)$settings['enabled'])?' selected="selected"':'';?>><?php echo lang('enabled');?></option>
 			<option value="0"<?php echo((bool)$settings['enabled'])?'':' selected="selected"';?>><?php echo lang('disabled');?></option>

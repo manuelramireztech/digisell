@@ -293,28 +293,39 @@ class usps_domestic
 		
 		ob_start();
 		?>
-		<div class="row">
-			<div class="span12">
-				<label><?php echo lang('username');?></label>
-				<?php echo form_input('username', $username, 'class="span3"');?>
-		
-				<label><?php echo lang('password');?></label>
-				<?php echo form_input('password', $username, 'class="span3"');?>
-		
-				<label><?php echo lang('mode');?></label>
-				<?php echo form_dropdown('mode', array('test'=>lang('test'), 'live'=>lang('live')), $mode);?>
-
-				<label><?php echo lang('method')?></label>
-				<div class="controls">
-				 <?php foreach($this->service_list as $id=>$opt):
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('username');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('username', $username, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('password');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('password', $username, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('mode');?></label>
+			<div class="col-sm-10">
+				<?php echo form_dropdown('mode', array('test'=>lang('test'), 'live'=>lang('live')), $mode, 'class="input-sm drp"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('method')?></label>
+			<div class="col-sm-10">
+				<?php foreach($this->service_list as $id=>$opt):
 					$opt = str_replace(array('&lt;', '&gt;'), array('<', '>'), $opt);
 					?>
 					<label class="checkbox">
 						<input type='checkbox' name='service[]' value='<?php echo $id;?>' <?php echo(in_array($id, $service))?"checked='checked'":'';?> /> <?php echo (stripslashes($opt));?>
 					</label>
 		         <?php endforeach;?>
-				</div>
-				<label><?php echo lang('container')?></label>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('container')?></label>
+			<div class="col-sm-10">
 				<?php
 				$opts	= array('VARIABLE'=>lang('variable'),
 								'FLAT RATE BOX'=>lang('flat_rate_box'),
@@ -325,50 +336,72 @@ class usps_domestic
 								'NONRECTANGULAR'=>lang('non_rectangular')
 								);
 		
-				echo form_dropdown('container', $opts, $container, 'class="span3"');?>
-		
-				<label><?php echo lang('size');?></label>
+				echo form_dropdown('container', $opts, $container, 'class="input-sm drp"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('size');?></label>
+			<div class="col-sm-10">
 				<?php
 				$opts	= array('REGULAR'=>lang('regular'),
 								'LARGE'=>lang('large'),
 								'OVERSIZE'=>lang('oversize')
 								);
-				echo form_dropdown('size', $opts, $size, 'class="span3"');?>
-		
-				<h3><?php echo lang('size_message');?></h3>
-		
-				<label><?php echo lang('package_length');?></label>
-				<?php echo form_input('length', $length, 'class="span3"');?>
-		
-				<label><?php echo lang('package_width');?></label>
-				<?php echo form_input('width', $width, 'class="span3"');?>
-		
-				<label><?php echo lang('package_height');?></label>
-				<?php echo form_input('height', $height, 'class="span3"');?>
+				echo form_dropdown('size', $opts, $size, 'class="input-sm drp"');?>
+			</div>
+		</div>
+		<label for="" class="label-info"><h3><?php echo lang('size_message');?></h3></label>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('package_length');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('length', $length, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('package_width');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('width', $width, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('package_height');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('height', $height, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('package_girth');?></label>
+			<div class="col-sm-10">
+				<?php echo form_input('girth', $girth, 'class="form-control"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('machinable');?></label>
+			<div class="col-sm-10">
+				<?php echo form_dropdown('machinable', array('TRUE'=>lang('yes'), 'FALSE'=>lang('no')), $machinable, 'class="input-sm drp"');?>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label"><?php echo lang('handling_fee');?></label>
+			<div class="col-sm-10">
+				<div class="input-group drp col-sm-2">
+					<span class="input-group-addon" style="padding-bottom:0px;padding-top:1px;">
+						<?php echo form_dropdown('handling_method', array('$'=>'$', '%'=>'%'), $handling_method, 'class=""');?>
+					</span>
+						<?php echo form_input('handling_amount', $handling_amount, 'class="form-control input-sm inpgrp"');?>
+				</div>
+			</div>			
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><?php echo lang('enabled');?></label>
+			<div class="col-sm-10">
+				<?php echo form_dropdown('enabled', array(lang('disabled'), lang('enabled')), $enabled, 'class="input-sm drp"');?>
+			</div>
+		</div>
 
-				<label><?php echo lang('package_girth');?></label>
-				<?php echo form_input('girth', $girth, 'class="span3"');?>
+
 		
-				<label><?php echo lang('machinable');?></label>
-				<?php echo form_dropdown('machinable', array('TRUE'=>lang('yes'), 'FALSE'=>lang('no')), $machinable, 'class="span3"');?>
-				
-				<label><?php echo lang('handling_fee');?></label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span1">
-				<?php echo form_dropdown('handling_method', array('$'=>'$', '%'=>'%'), $handling_method, 'class="span1"');?>
-			</div>
-			<div class="span2">
-				<?php echo form_input('handling_amount', $handling_amount, 'class="span2"');?>
-			</div>
-		</div>
-		<div class="row">
-			<div class="span12">
-				<label><?php echo lang('enabled');?></label>
-				<?php echo form_dropdown('enabled', array(lang('disabled'), lang('enabled')), $enabled, 'class="span3"');?>
-			</div>
-		</div>
+		
 		<?php
 		$form =ob_get_contents();
 		ob_end_clean();
