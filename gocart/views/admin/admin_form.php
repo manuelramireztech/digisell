@@ -79,7 +79,7 @@
 					$options = array(	'Admin'		=> 'Admin',
 						'Orders'	=> 'Orders'
 						);
-					echo form_dropdown('access', $options, set_value('phone', $access), 'class="input-sm"');
+					echo form_dropdown('access', $options, set_value('phone', $access), 'class="input-sm drp"');
 					?>
 						</div>
 					</div>
