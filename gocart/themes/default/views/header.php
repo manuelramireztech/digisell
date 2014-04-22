@@ -101,6 +101,7 @@
                                                   <?php else: ?>
                                                        <?php echo "Guest"; ?>
                                                   <?php  endif; ?>
+
                                              </div>
           						</div>
           						<div class="user-status">
@@ -128,7 +129,7 @@
           								</a>
           								<ul class="animated fadeInDown">
           									<?php foreach($this->categories[0] as $cat_menu):?>
-          										<li <?php echo $cat_menu->active ? 'class="active"' : false; ?>><a href="<?php echo site_url($cat_menu->slug);?>"><i class='fa fa-desktop'></i><?php echo $cat_menu->name;?></a></li>
+          										<li <?php echo $cat_menu->active ? 'class="active"' : false; ?>><a href="<?php echo site_url($cat_menu->slug);?>"><i class='fa fa-truck'></i><?php echo $cat_menu->name;?></a></li>
           									<?php endforeach;?>
           								</ul>
           								<?php
@@ -139,9 +140,9 @@
           									foreach($this->pages[0] as $menu_page):?>
           									<li>
           										<?php if(empty($menu_page->content)):?>
-          											<i class='fa fa-desktop'></i><a href="<?php echo $menu_page->url;?>" <?php if($menu_page->new_window ==1){echo 'target="_blank"';} ?>><?php echo $menu_page->menu_title;?></a>
+          											<a href="<?php echo $menu_page->url;?>" <?php if($menu_page->new_window ==1){echo 'target="_blank"';} ?>><?php echo $menu_page->menu_title;?></a>
           										<?php else:?>
-          											<i class='fa fa-desktop'></i><a href="<?php echo site_url($menu_page->slug);?>"><?php echo $menu_page->menu_title;?></a>
+          											<a href="<?php echo site_url($menu_page->slug);?>"><?php echo $menu_page->menu_title;?></a>
           										<?php endif;?>
           									</li>
 

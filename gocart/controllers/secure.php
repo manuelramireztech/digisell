@@ -108,6 +108,7 @@ class Secure extends Front_Controller {
 		if ($submitted)
 		{
 			$email		= $this->input->post('email');
+			$data['email'] = $email;
 			$password	= $this->input->post('password');
 			$remember   = $this->input->post('remember');
 			$redirect	= $this->input->post('redirect');
@@ -118,6 +119,7 @@ class Secure extends Front_Controller {
 				{
 					//if there is not a redirect link, send them to the my account page
 					$redirect = 'secure/my_account';
+					
 				}
 				//to login via ajax
 				if($ajax)
@@ -127,6 +129,7 @@ class Secure extends Front_Controller {
 				else
 				{
 					redirect($redirect);
+					
 				}
 				
 			}
@@ -165,7 +168,7 @@ class Secure extends Front_Controller {
 	function logout()
 	{
 		$this->Customer_model->logout();
-		redirect('secure/login_customer');
+		redirect('cart');
 	}
 	
 	function register_customer()
