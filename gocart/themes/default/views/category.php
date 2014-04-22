@@ -48,11 +48,11 @@
         </h2>
     <?php elseif(count($products) > 0):?>
         
-        <div class="row" style="margin-top:20px; margin-bottom:15px">
-            <div class="<?php echo ($cols == 4)?'span9':'span6';?>">
+        <div class="row">
+            <div class="<?php echo ($cols == 4)?'col-md-9':'col-md-6';?>">
                 <?php echo $this->pagination->create_links();?>&nbsp;
             </div>
-            <div class="col-md-3 pull-right">
+            <div class="col-md-3 input-sm pull-right">
                 <select class="" id="sort_products" onchange="window.location='<?php echo site_url(uri_string());?>/'+$(this).val();">
                     <option value=''><?php echo lang('default');?></option>
                     <option<?php echo(!empty($_GET['by']) && $_GET['by']=='name/asc')?' selected="selected"':'';?> value="?by=name/asc"><?php echo lang('sort_by_name_asc');?></option>
@@ -98,9 +98,9 @@
                             </a>
                         </div>
                         <h5 style="margin-top:5px;">
-                            <a href="<?php echo site_url(implode('/', $base_url).'/'.$product->slug); ?>"><?php echo $product->name;?></a>
+                            <a class="btn btn-info" href="<?php echo site_url(implode('/', $base_url).'/'.$product->slug); ?>"><?php echo $product->name;?></a>
                             <?php if($this->session->userdata('admin')): ?>
-                                <a class="btn" title="<?php echo lang('edit_product'); ?>" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id); ?>"><i class="icon-pencil"></i></a>
+                                <a class="btn btn-info" title="<?php echo lang('edit_product'); ?>" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id); ?>"><i class="fa fa-pencil"></i></a>
                             <?php endif; ?>
                         </h5>
 

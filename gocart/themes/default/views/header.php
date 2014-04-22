@@ -81,7 +81,7 @@
           					<!-- Menu -->
           					<ul class="nav  nav-list">
           						<li class=''>
-          							<a href="<?php echo site_url('homepgae.php');?>" data-original-title='Dashboard'>
+          							<a href="<?php echo site_url('cart');?>" data-original-title='Dashboard'>
           								<i class='fa fa-dashboard'></i>
 
           								<span class='hidden-minibar'>Dashboard</span>
