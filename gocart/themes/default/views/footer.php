@@ -77,6 +77,5 @@
     </script>
 <!-- Gl date picker end -->
 
-
 </body>
 	</html>

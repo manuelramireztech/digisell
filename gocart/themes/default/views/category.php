@@ -140,8 +140,3 @@
 
             <!-- /panel body -->
         </div>
-
-<div class="row">
-    
-    
-    </div>

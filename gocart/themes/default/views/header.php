@@ -13,7 +13,7 @@
 	<link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
 
 	<link href="<?php echo base_url(); ?>less/style.less" rel="stylesheet"  title="lessCss" id="lessCss">
-
+     
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -70,7 +70,13 @@
           						<img src="<?php echo base_url(); ?>images/avatar.png" alt="" class="avatar">
           						<div class="user-info">
           							<div class="welcome">Welcome,</div>
-          							<div class="username"><?php echo "Admin"; ?></div>
+          							<div class="username">
+                                                  <?php if($this->Customer_model->is_logged_in(false, false)):?>
+                                                       <?php echo 'User'; ?>
+                                                  <?php else: ?>
+                                                       <?php echo "Guest"; ?>
+                                                  <?php  endif; ?>
+                                             </div>
           						</div>
           						<div class="user-status">
           							<i class="fa fa-circle "></i>
@@ -549,7 +555,7 @@
           					<div id="js_note_container" class="alert alert-note" style="display:none;">
 								<?php if(!empty($base_url) && is_array($base_url)):?>
           							<div class="row">
-          								<div class="span12">
+          								<div class="col-md-12">
           									<ul class="breadcrumb">
           										<?php
           										$url_path	= '';
@@ -567,28 +573,33 @@
           							</div>
           						</div>
           					<?php endif;?>
+</div>
+<div class="row">
+     <div class="col-md-12">
+          <?php if ($this->session->flashdata('message')):?>
+                                        <div class="alert alert-info">
+                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                             <?php echo $this->session->flashdata('message');?>
+                                        </div>
+                                   <?php endif;?>
 
-          					<?php if ($this->session->flashdata('message')):?>
-          						<div class="alert alert-info">
-          							<a class="close" data-dismiss="alert">×</a>
-          							<?php echo $this->session->flashdata('message');?>
-          						</div>
-          					<?php endif;?>
+                                   <?php if ($this->session->flashdata('error')):?>
+                                        <div class="alert alert-danger">
+                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                             <?php echo $this->session->flashdata('error');?>
+                                        </div>
+                                   <?php endif;?>
 
-          					<?php if ($this->session->flashdata('error')):?>
-          						<div class="alert alert-error">
-          							<a class="close" data-dismiss="alert">×</a>
-          							<?php echo $this->session->flashdata('error');?>
-          						</div>
-          					<?php endif;?>
+                                   <?php if (!empty($error)):?>
+                                        <div class="alert alert-danger">
+                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                             <?php echo $error;?>
+                                        </div>
+                                   <?php endif;?>
 
-          					<?php if (!empty($error)):?>
-          						<div class="alert alert-error">
-          							<a class="close" data-dismiss="alert">×</a>
-          							<?php echo $error;?>
-          						</div>
-          					<?php endif;?>
-
+     </div>
+</div>
+          					
 
           					
-          					</div>
+          					
