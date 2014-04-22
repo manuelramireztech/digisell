@@ -1,95 +1,97 @@
-<script>
-    window.onload = function()
-    {
-        $('.product').equalHeights();
-    }
-</script>
 <div class="row">
-    <div class="span4">
-        
-        <div class="row">
-            <div class="span4" id="primary-img">
-                <?php
-                $photo  = theme_img('no_picture.png', lang('no_image_available'));
-                $product->images    = array_values($product->images);
+    <div class="col-md-12">
+    <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title ">
+                    <?php echo lang('products') ?>
+                    <span class="panel-options">
+                        <a href="#" class="panel-minimize">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a href="#" class="panel-close">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4" id="primary-img">
+                            <?php
+                            $photo  = theme_img('no_picture.png', lang('no_image_available'));
+                            $product->images    = array_values($product->images);
 
-                if(!empty($product->images[0]))
-                {
-                    $primary    = $product->images[0];
-                    foreach($product->images as $photo)
-                    {
-                        if(isset($photo->primary))
-                        {
-                            $primary    = $photo;
-                        }
-                    }
+                            if(!empty($product->images[0]))
+                            {
+                                $primary    = $product->images[0];
+                                foreach($product->images as $photo)
+                                {
+                                    if(isset($photo->primary))
+                                    {
+                                        $primary    = $photo;
+                                    }
+                                }
 
-                    $photo  = '<img class="responsiveImage" src="'.base_url('uploads/images/medium/'.$primary->filename).'" alt="'.$product->seo_title.'"/>';
-                }
-                echo $photo
-                ?>
-            </div>
-        </div>
-        <?php if(!empty($primary->caption)):?>
-        <div class="row">
-            <div class="span4" id="product_caption">
-                <?php echo $primary->caption;?>
-            </div>
-        </div>
-        <?php endif;?>
-        <?php if(count($product->images) > 1):?>
-        <div class="row">
-            <div class="span4 product-images">
-                <?php foreach($product->images as $image):?>
-                <img class="span1" onclick="$(this).squard('390', $('#primary-img'));" src="<?php echo base_url('uploads/images/medium/'.$image->filename);?>"/>
-                <?php endforeach;?>
-            </div>
-        </div>
-        <?php endif;?>
-    </div>
-    <div class="span8 pull-right">
-        
-        <div class="row">
-            <div class="span8">
-                <div class="page-header">
-                    <h2 style="font-weight:normal">
-                        <?php echo $product->name;?>
-                        <?php if($this->session->userdata('admin')): ?>
-                        <a class="btn" title="<?php echo lang('edit_product'); ?>" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id); ?>"><i class="icon-pencil"></i></a>
-                        <?php endif; ?>
-                        <span class="pull-right">
-                            <?php if($product->saleprice > 0):?>
-                                <small><?php echo lang('on_sale');?></small>
-                                <span class="product_price"><?php echo format_currency($product->saleprice); ?></span>
-                            <?php else: ?>
-                                <small><?php echo lang('product_price');?></small>
-                                <span class="product_price"><?php echo format_currency($product->price); ?></span>
-                            <?php endif;?>
-                        </span>
-                    </h2>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="span8">
-                <?php echo $product->excerpt;?>
-            </div>
-        </div>
-        
-        <div class="row" style="margin-top:15px; margin-bottom:15px;">
-            <div class="span4 sku-pricing">
-                <?php if(!empty($product->sku)):?><div><?php echo lang('sku');?>: <?php echo $product->sku; ?></div><?php endif;?>&nbsp;
-            </div>
-            <?php if((bool)$product->track_stock && $product->quantity < 1 && config_item('inventory_enabled')):?>
-            <div class="span4 out-of-stock">
-                <div><?php echo lang('out_of_stock');?></div>
-            </div>
-            <?php endif;?>
-        </div>
-        
-        <div class="row">
-            <div class="span8">
+                                $photo  = '<img class="responsiveImage" src="'.base_url('uploads/images/medium/'.$primary->filename).'" alt="'.$product->seo_title.'"/>';
+                            }
+                            echo $photo
+                            ?>
+                        </div>
+                    </div>
+                    <?php if(!empty($primary->caption)):?>
+                    <div class="row">
+                        <div class="col-md-4" id="product_caption">
+                            <?php echo $primary->caption;?>
+                        </div>
+                    </div>
+                    <?php endif;?>
+                    <?php if(count($product->images) > 1):?>
+                    <div class="row">
+                        <div class="col-md-4 product-images">
+                            <?php foreach($product->images as $image):?>
+                            <img class="span1" onclick="$(this).squard('390', $('#primary-img'));" src="<?php echo base_url('uploads/images/medium/'.$image->filename);?>"/>
+                            <?php endforeach;?>
+                        </div>
+                    </div>
+                    <?php endif;?>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="page-header">
+                                <h2 style="font-weight:normal">
+                                    <?php echo $product->name;?>
+                                    <?php if($this->session->userdata('admin')): ?>
+                                    <a class="btn" title="<?php echo lang('edit_product'); ?>" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id); ?>"><i class="fa fa-pencil"></i></a>
+                                    <?php endif; ?>
+                                    <span class="pull-right">
+                                        <?php if($product->saleprice > 0):?>
+                                            <small><?php echo lang('on_sale');?></small>
+                                            <span class="product_price"><?php echo format_currency($product->saleprice); ?></span>
+                                        <?php else: ?>
+                                            <small><?php echo lang('product_price');?></small>
+                                            <span class="product_price"><?php echo format_currency($product->price); ?></span>
+                                        <?php endif;?>
+                                    </span>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-md-8">
+                            <?php echo $product->excerpt;?>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:15px; margin-bottom:15px;">
+                        <div class="col-md-4 sku-pricing">
+                            <?php if(!empty($product->sku)):?><div><?php echo lang('sku');?>: <?php echo $product->sku; ?></div><?php endif;?>&nbsp;
+                        </div>
+                        <?php if((bool)$product->track_stock && $product->quantity < 1 && config_item('inventory_enabled')):?>
+                        <div class="col-md-4 out-of-stock">
+                            <div><?php echo lang('out_of_stock');?></div>
+                        </div>
+                        <?php endif;?>
+                    </div>
+                    <div class="row">
+            <div class="col-md-8">
                 <div class="product-cart-form">
                     <?php echo form_open('cart/add_to_cart', 'class="form-horizontal"');?>
                     <input type="hidden" name="cartkey" value="<?php echo $this->session->flashdata('cartkey');?>" />
@@ -139,12 +141,12 @@
 
                                 if($option->type == 'textfield'):?>
                                     <div class="controls">
-                                        <input type="text" name="option[<?php echo $option->id;?>]" value="<?php echo $value;?>" class="span4"/>
+                                        <input type="text" name="option[<?php echo $option->id;?>]" value="<?php echo $value;?>" class="col-md-4"/>
                                         <?php echo $required;?>
                                     </div>
                                 <?php elseif($option->type == 'textarea'):?>
                                     <div class="controls">
-                                        <textarea class="span4" name="option[<?php echo $option->id;?>]"><?php echo $value;?></textarea>
+                                        <textarea class="col-md-4" name="option[<?php echo $option->id;?>]"><?php echo $value;?></textarea>
                                         <?php echo $required;?>
                                     </div>
                                 <?php elseif($option->type == 'droplist'):?>
@@ -212,7 +214,7 @@
                                 <?php if(!$product->fixed_quantity) : ?>
                                     <input class="span2" type="text" name="quantity" value=""/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <?php endif; ?>
-                                <button class="btn btn-primary btn-large" type="submit" value="submit"><i class="icon-shopping-cart icon-white"></i> <?php echo lang('form_add_to_cart');?></button>
+                                <button class="btn btn-primary btn-large" type="submit" value="submit"><i class="fa fa-shopping-cart"></i> <?php echo lang('form_add_to_cart');?></button>
                             <?php endif;?>
                         </div>
                     </div>
@@ -222,13 +224,30 @@
                 </div>
     
             </div>
-        </div>
-        
-        <div class="row" style="margin-top:15px;">
-            <div class="span8">
+            </div>
+            <div class="row" style="margin-top:15px;">
+            <div class="col-md-8">
                 <?php echo $product->description; ?>
             </div>
         </div>
+
+                <div class="row">
+    <div class="span4">
+        
+        
+        
+    <div class="span8 pull-right">
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
         
     </div>
     
@@ -289,10 +308,25 @@
     </div>
     <?php endif;?>
 </div>
+                
+            </div>
+
+            <!-- /panel body -->
+        </div>
+        
+
+    </div>
+</div>
 <script>
 $(function(){ 
     $('.category_container').each(function(){
         $(this).children().equalHeights();
     }); 
 });
+</script>
+<script>
+    window.onload = function()
+    {
+        $('.product').equalHeights();
+    }
 </script>
