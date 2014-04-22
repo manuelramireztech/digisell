@@ -50,7 +50,7 @@
           						</form>
           					</li>
           					<li>
-          						<a href="<?php echo site_url($this->config->item('admin_folder').'/login/logout');?>" class="logout">
+          						<a href="<?php echo site_url('secure/logout');?>" class="logout">
           							<i class="fa fa-power-off"></i>
           						</a>
           					</li>
@@ -119,71 +119,38 @@
           							?>
           						</li>
           						<li class='submenu'>
-          							<a class='dropdown' onClick='return false;' href='#' data-original-title='UI-KITS'>
-          								<i class='fa fa-book'></i>
-          								<span class='hidden-minibar'>SSS
+          						<?php if($this->Customer_model->is_logged_in(false, false)):?>
+          							<a onClick='return false;' href='#' data-original-title='Cart L'>
+          								<i class="fa fa-shopping-cart"></i>
+          								<span class='hidden-minibar'>
+          									<?php echo lang('account');?>
           									<i class='fa fa-chevron-right  pull-right'></i>
           								</span>
           							</a>
           							<ul  class="animated fadeInDown">
-          								<?php if($this->Customer_model->is_logged_in(false, false)):?>
-          									<li class="dropdown">
-          										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo lang('account');?> <b class="caret"></b></a>
-          										<ul class="dropdown-menu">
-          											<li><a href="<?php echo  site_url('secure/my_account');?>"><?php echo lang('my_account')?></a></li>
-          											<li><a href="<?php echo  site_url('secure/my_downloads');?>"><?php echo lang('my_downloads')?></a></li>
-          											<li class="divider"></li>
-          											<li><a href="<?php echo site_url('secure/logout');?>"><?php echo lang('logout');?></a></li>
-          										</ul>
-          									</li>
-          								<?php else: ?>
-          									<li><a href="<?php echo site_url('secure/login_customer');?>"><?php echo lang('login');?></a></li>
-          								<?php endif; ?>
-          								<li>
-          									<a href="<?php echo site_url('cart/view_cart');?>">
-          										<?php
-          										if ($this->go_cart->total_items()==0)
-          										{
-          											echo lang('empty_cart');
-          										}
-          										else
-          										{
-          											if($this->go_cart->total_items() > 1)
-          											{
-          												echo sprintf (lang('multiple_items'), $this->go_cart->total_items());
-          											}
-          											else
-          											{
-          												echo sprintf (lang('single_item'), $this->go_cart->total_items());
-          											}
-          										}
-          										?>
+          								<li class=' '>
+          									<a href='<?php echo  site_url('secure/my_account');?>' data-original-title=' my_Account'>
+          										<i class="fa fa-film"></i>
+          										<span class='hidden-minibar'><?php echo lang('my_account')?></span>
+          									</a>
+          								</li>
+          								<li class=' '>
+          									<a href='<?php echo  site_url('secure/my_downloads');?>' data-original-title='my_downloads'>
+          										<i class="fa fa-files-o"></i>
+          										<span class='hidden-minibar'><?php echo lang('my_downloads')?></span>
           									</a>
           								</li>
           							</ul>
+          							<?php endif; ?>
           						</li>
-          						<li class='submenu'>
-          						<?php if($this->Customer_model->is_logged_in(false, false)):?>
-          							<a href='<?php echo site_url('cart/view_cart');?>' data-original-title='Cart L'>
-          								<i class="fa fa-shopping-cart"></i>
-          								<span class='hidden-minibar'>
-          									
+          						<li class=' '>
+          						<?php if(!($this->Customer_model->is_logged_in(false, false))):?>
+          							<a href='<?php echo site_url('secure/login_customer');?>' data-original-title='Login'>
+          								<i class="fa fa-location-arrow"></i>
+          								<span class='hidden-minibar'><?php echo lang('login');?>
           								</span>
           							</a>
-          							<ul  class="animated fadeInDown">
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>banners' data-original-title=' Login'>
-          										<i class="fa fa-film"></i>
-          										<span class='hidden-minibar'>Banners</span>
-          									</a>
-          								</li>
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>pages' data-original-title='Register'>
-          										<i class="fa fa-files-o"></i>
-          										<span class='hidden-minibar'>Pages</span>
-          									</a>
-          								</li>
-          							</ul>
+          							<?php endif; ?>
           						</li>
           						<li class='submenu'>
           						<a href='<?php echo site_url('cart/view_cart');?>' data-original-title='Cart'>
@@ -209,86 +176,6 @@
           								</span>
           							</a>
           						</li>
-          						<li class='submenu'>
-          							<a class='dropdown' onClick='return false;' href='#' data-original-title='Delighted-Pages'>
-          								<i class="fa fa-folder"></i>
-          								<span class='hidden-minibar'>Content
-          									<i class='fa fa-chevron-right  pull-right'></i>
-          								</span>
-          							</a>
-          							<ul  class="animated fadeInDown">
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>banners' data-original-title=' Login'>
-          										<i class="fa fa-film"></i>
-          										<span class='hidden-minibar'>Banners</span>
-          									</a>
-          								</li>
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>pages' data-original-title='Register'>
-          										<i class="fa fa-files-o"></i>
-          										<span class='hidden-minibar'>Pages</span>
-          									</a>
-          								</li>
-          							</ul>
-          						</li><!-- delighted pages -->
-          						<li class='submenu'>
-          							<a class='dropdown' onClick='return false;' href='#' data-original-title='Components'>
-          								<i class="fa fa-cogs"></i>
-          								<span class='hidden-minibar'>Settings
-          									<i class='fa fa-chevron-right  pull-right'></i>
-          								</span>
-          							</a>
-          							<ul  class="animated fadeInDown">
-
-
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>settings' data-original-title='Drop Zone'>
-          										<i class="fa fa-wrench"></i>
-          										<span class='hidden-minibar'>DigiSell Configuration</span>
-          									</a>
-          								</li>
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>shipping' data-original-title='image-crop'>
-          										<i class='fa fa-truck'></i>
-          										<span class='hidden-minibar'>Shipping Modules</span>
-          									</a>
-          								</li>
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>payment' data-original-title='File-Manager'>
-          										<i class="fa fa-money"></i>
-          										<span class='hidden-minibar'>Payment Modules</span>
-          									</a>
-          								</li>
-
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>settings/canned_messages' data-original-title='Grid'>
-          										<i class="fa fa-filter"></i>
-          										<span class='hidden-minibar'>Canned Messages</span>
-          									</a>
-          								</li> 
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>locations' data-original-title='Info-Boxes'>
-          										<i class="fa fa-globe"></i>
-          										<span class='hidden-minibar'>Locations</span>
-          									</a>
-          								</li>    
-          								<li class=' '>
-          									<a href='<?php echo $admin_url;?>admin' data-original-title='Wysiwyg'>
-          										<i class="fa fa-user-md"></i>
-          										<span class='hidden-minibar'>Administrators</span>
-          									</a>
-          								</li>  
-          							</ul>
-          						</li><!-- components -->
-          						<li class=' '>
-          							<a href='<?php echo site_url();?>' data-original-title='Documentation' target="_blank">
-          								<i class="fa fa-location-arrow"></i>
-          								<span class='hidden-minibar'>Front End
-          								</span>
-          							</a>
-          						</li>
-
-
           					</ul>
 
           					<!-- /.Menu -->
