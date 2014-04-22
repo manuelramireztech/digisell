@@ -69,7 +69,7 @@
                                         <?php echo form_open('cart/search', 'class="search-form"');?>
                                         
                                              <div class="form-group">
-                                                  <input type="text" name="term" class="form-control  nav-input-searchs" placeholder="<?php echo lang('search');?>"/>
+                                                  <input type="text" name="term" class="form-control  nav-input-searchs" placeholder="Search Items"/>
                                                   <i class="fa fa-search"></i>
                                              </div>
                                         </form>

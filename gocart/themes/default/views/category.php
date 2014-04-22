@@ -1,4 +1,6 @@
-<?php if(!empty($category->description)): ?>
+<div class="row">
+    <div class="col-md-12">
+        <?php if(!empty($category->description)): ?>
 <div class="row">
     <div class="col-md-12"><?php echo $category->description; ?></div>
 </div>
@@ -140,3 +142,6 @@
 
             <!-- /panel body -->
         </div>
+        
+    </div>
+</div>
