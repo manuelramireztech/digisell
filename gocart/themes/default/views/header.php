@@ -40,15 +40,40 @@
           			<!-- Collect the nav links, forms, and other content for toggling -->
           			<div class="collapse navbar-collapse">
           				<ul class="nav navbar-nav navbar-right">
-          					<li>
-          						<?php echo form_open('cart/search', 'class="search-form"');?>
-          						
-          							<div class="form-group">
-          								<input type="text" name="term" class="form-control  nav-input-searchs" placeholder="<?php echo lang('search');?>"/>
-          								<i class="fa fa-search"></i>
-          							</div>
-          						</form>
-          					</li>
+          					
+                                   <li>
+                                       <a href='<?php echo site_url('cart/view_cart');?>' data-original-title='Cart'>
+                                                  <i class="fa fa-shopping-cart cart"></i>
+                                                  <span class='hidden-minibar cart'>
+                                                       <?php
+                                                            if ($this->go_cart->total_items()==0)
+                                                            {
+                                                                 echo lang('empty_cart');
+                                                            }
+                                                            else
+                                                            {
+                                                                 if($this->go_cart->total_items() > 1)
+                                                                 {
+                                                                      echo sprintf (lang('multiple_items'), $this->go_cart->total_items());
+                                                                 }
+                                                                 else
+                                                                 {
+                                                                      echo sprintf (lang('single_item'), $this->go_cart->total_items());
+                                                                 }
+                                                            }
+                                                            ?>
+                                                  </span>
+                                             </a>
+                                   </li>
+                                   <li>
+                                        <?php echo form_open('cart/search', 'class="search-form"');?>
+                                        
+                                             <div class="form-group">
+                                                  <input type="text" name="term" class="form-control  nav-input-searchs" placeholder="<?php echo lang('search');?>"/>
+                                                  <i class="fa fa-search"></i>
+                                             </div>
+                                        </form>
+                                   </li>
           					<li>
           						<a href="<?php echo site_url('secure/logout');?>" class="logout">
           							<i class="fa fa-power-off"></i>
@@ -127,7 +152,7 @@
           						<li class='submenu'>
           						<?php if($this->Customer_model->is_logged_in(false, false)):?>
           							<a onClick='return false;' href='#' data-original-title='Cart L'>
-          								<i class="fa fa-shopping-cart"></i>
+          								<i class="fa fa-gear"></i>
           								<span class='hidden-minibar'>
           									<?php echo lang('account');?>
           									<i class='fa fa-chevron-right  pull-right'></i>
@@ -158,30 +183,7 @@
           							</a>
           							<?php endif; ?>
           						</li>
-          						<li class='submenu'>
-          						<a href='<?php echo site_url('cart/view_cart');?>' data-original-title='Cart'>
-          								<i class="fa fa-shopping-cart"></i>
-          								<span class='hidden-minibar'>
-          									<?php
-          										if ($this->go_cart->total_items()==0)
-          										{
-          											echo lang('empty_cart');
-          										}
-          										else
-          										{
-          											if($this->go_cart->total_items() > 1)
-          											{
-          												echo sprintf (lang('multiple_items'), $this->go_cart->total_items());
-          											}
-          											else
-          											{
-          												echo sprintf (lang('single_item'), $this->go_cart->total_items());
-          											}
-          										}
-          										?>
-          								</span>
-          							</a>
-          						</li>
+          						
           					</ul>
 
           					<!-- /.Menu -->

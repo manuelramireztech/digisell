@@ -1,6 +1,8 @@
-<?php if ($this->go_cart->total_items()==0):?>
+<div class="row">
+    <div class="col-md-12">
+        <?php if ($this->go_cart->total_items()==0):?>
     <div class="alert alert-info">
-        <a class="close" data-dismiss="alert">×</a>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <?php echo lang('empty_view_cart');?>
     </div>
 <?php else: ?>
@@ -44,3 +46,5 @@
 
 </form>
 <?php endif; ?>
+    </div>
+</div>
