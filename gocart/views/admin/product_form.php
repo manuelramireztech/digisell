@@ -96,48 +96,48 @@ function remove_option(id)
 		</div>
 		<div class="tab-content">
 			<div class="tab-pane active" id="product_info">
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-md-8">
 						<?php
-						$data	= array('placeholder'=>lang('name'), 'name'=>'name', 'value'=>set_value('name', $name), 'class'=>'col-md-8');
+						$data	= array('placeholder'=>lang('name'), 'name'=>'name', 'value'=>set_value('name', $name), 'class'=>'col-md-8 form-control');
 						echo form_input($data);
 						?>
 					</div>
 				</div>
 				
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-md-8">
 						
 						<?php
-						$data	= array('name'=>'description', 'class'=>'redactor', 'value'=>set_value('description', $description));
+						$data	= array('name'=>'description', 'class'=>'redactor form-control drp', 'value'=>set_value('description', $description));
 						echo form_textarea($data);
 						?>
 						
 					</div>
 				</div>
 				
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-md-8">
 						<label><?php echo lang('excerpt');?></label>
 						<?php
-						$data	= array('name'=>'excerpt', 'value'=>set_value('excerpt', $excerpt), 'class'=>'col-md-8', 'rows'=>5);
+						$data	= array('name'=>'excerpt', 'value'=>set_value('excerpt', $excerpt), 'class'=>'col-md-8 form-control drp', 'rows'=>5);
 						echo form_textarea($data);
 						?>
 					</div>
 				</div>
 				
-				<div class="row">
+				<div class="row form-group">
 					<div class="col-md-8">
-						<fieldset>
+					
 							<legend><?php echo lang('inventory');?></legend>
-							<div class="row" style="padding-top:10px;">
+							<div class="row" >
 								<div class="col-md-3">
 									<label for="track_stock"><?php echo lang('track_stock');?> </label>
 									<?php
 								 	$options = array(	 '1'	=> lang('yes')
 														,'0'	=> lang('no')
 														);
-									echo form_dropdown('track_stock', $options, set_value('track_stock',$track_stock), 'class="col-md-3"');
+									echo form_dropdown('track_stock', $options, set_value('track_stock',$track_stock), 'class="col-md-3 form-control"');
 									?>
 								</div>
 								<div class="col-md-3">
@@ -146,43 +146,49 @@ function remove_option(id)
 								 	$options = array(	 '0'	=> lang('no')
 														,'1'	=> lang('yes')
 														);
-									echo form_dropdown('fixed_quantity', $options, set_value('fixed_quantity',$fixed_quantity), 'class="col-md-3"');
+									echo form_dropdown('fixed_quantity', $options, set_value('fixed_quantity',$fixed_quantity), 'class="col-md-3 form-control"');
 									?>
 								</div>
-								<div class="col-md-2">
+								<div class="col-md-6">
 									<label for="quantity"><?php echo lang('quantity');?> </label>
 									<?php
-									$data	= array('name'=>'quantity', 'value'=>set_value('quantity', $quantity), 'class'=>'col-md-2');
+									$data	= array('name'=>'quantity', 'value'=>set_value('quantity', $quantity), 'class'=>'col-md-2 form-control');
 									echo form_input($data);
 									?>
 								</div>
 							</div>
-						</fieldset>
+						
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-8">
 						<fieldset>
 							<legend><?php echo lang('header_information');?></legend>
-							<div class="row" style="padding-top:10px;">
-								<div class="col-md-8">
+							<div class="row" >
+								<div class="col-md-12">
 									
-									<label for="slug"><?php echo lang('slug');?> </label>
+									<div class="form-group">
+										<label for="slug"><?php echo lang('slug');?> </label>
 									<?php
-									$data	= array('name'=>'slug', 'value'=>set_value('slug', $slug), 'class'=>'col-md-8');
+									$data	= array('name'=>'slug', 'value'=>set_value('slug', $slug), 'class'=>'col-md-8 form-control');
 									echo form_input($data);?>
+									</div>
 									
-									<label for="seo_title"><?php echo lang('seo_title');?> </label>
+									<div class="form-group">
+										<label for="seo_title"><?php echo lang('seo_title');?> </label>
 									<?php
-									$data	= array('name'=>'seo_title', 'value'=>set_value('seo_title', $seo_title), 'class'=>'col-md-8');
+									$data	= array('name'=>'seo_title', 'value'=>set_value('seo_title', $seo_title), 'class'=>'col-md-8 form-control');
 									echo form_input($data);
 									?>
+									</div>
 
-									<label for="meta"><?php echo lang('meta');?> <i><?php echo lang('meta_example');?></i></label> 
+									<div class="form-group">
+										<label for="meta"><?php echo lang('meta');?> <i><?php echo lang('meta_example');?></i></label> 
 									<?php
-									$data	= array('name'=>'meta', 'value'=>set_value('meta', html_entity_decode($meta)), 'class'=>'col-md-8');
+									$data	= array('name'=>'meta', 'value'=>set_value('meta', html_entity_decode($meta)), 'class'=>'col-md-8 form-control drp');
 									echo form_textarea($data);
 									?>
+									</div>
 								</div>
 							</div>
 						</fieldset>
@@ -194,8 +200,9 @@ function remove_option(id)
 				<div class="alert alert-info">
 					<?php echo lang('digital_products_desc'); ?>
 				</div>
-				<fieldset>
-					<table class="table table-striped">
+			
+					<div class="table-responsive">
+						<table class="table table-striped">
 						<thead>
 							<tr>
 								<th><?php echo lang('filename');?></th>
@@ -216,7 +223,8 @@ function remove_option(id)
 						<?php endforeach; ?>
 						</tbody>
 					</table>
-				</fieldset>
+					</div>
+				
 			</div>
 			
 			<div class="tab-pane" id="product_categories">
