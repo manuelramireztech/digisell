@@ -5,8 +5,8 @@
 </div>
 <!-- /.site-holder -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/redactor.min.js"></script>
+
 
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->

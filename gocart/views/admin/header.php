@@ -21,6 +21,8 @@
               <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
               <![endif]-->
               
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.js"></script>
+
           </head>
           <body>
             <?php $admin_url = site_url($this->config->item('admin_folder')).'/';?>

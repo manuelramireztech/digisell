@@ -224,7 +224,8 @@ function remove_option(id)
 					<div class="col-md-8">
 						<?php if(isset($categories[0])):?>
 							<label><strong><?php echo lang('select_a_category');?></strong></label>
-							<table class="table table-striped">
+							<div class="table-responsive">
+								<table class="table table-striped">
 							    <thead>
 									<tr>
 										<th colspan="2"><?php echo lang('name')?></th>
@@ -255,6 +256,7 @@ function remove_option(id)
 						
 							?>
 						</table>
+							</div>
 					<?php else:?>
 						<div class="alert"><?php echo lang('no_available_categories');?></div>
 					<?php endif;?>
@@ -263,10 +265,10 @@ function remove_option(id)
 			</div>
 			
 			<div class="tab-pane" id="product_options">
-				<div class="row">
-					<div class="col-md-8">
-						<div class="pull-right" style="padding:0px 0px 10px 0px;">
-							<select id="option_options" style="margin:0px;">
+				<div class="row ">
+					<div class="col-md-7 pull-right">
+						<div class="" style="padding:0px 0px 10px 0px;">
+							<select id="option_options" class="input-sm">
 								<option value=""><?php echo lang('select_option_type')?></option>
 								<option value="checklist"><?php echo lang('checklist');?></option>
 								<option value="radiolist"><?php echo lang('radiolist');?></option>
@@ -274,7 +276,7 @@ function remove_option(id)
 								<option value="textfield"><?php echo lang('textfield');?></option>
 								<option value="textarea"><?php echo lang('textarea');?></option>
 							</select>
-							<input id="add_option" class="btn" type="button" value="<?php echo lang('add_option');?>" style="margin:0px;"/>
+							<input id="add_option" class="btn btn-info" type="button" value="<?php echo lang('add_option');?>" style="margin:0px;"/>
 						</div>
 					</div>
 				</div>
@@ -390,8 +392,9 @@ function remove_option(id)
 					}
 				</style>
 				<div class="row">
-					<div class="col-md-8">
-						<table class="table table-striped"  id="options_container">
+					<div class="col-md-7">
+						<div class="table-responsive">
+							<table class="table table-striped"  id="options_container">
 							<?php
 							$counter	= 0;
 							if(!empty($product_options))
@@ -408,6 +411,7 @@ function remove_option(id)
 							}?>
 								
 						</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -419,10 +423,10 @@ function remove_option(id)
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-2" style="text-align:center">
+					<div class="col-md-7" style="text-align:center">
 						<div class="row">
-							<div class="col-md-2">
-								<input class="col-md-2" type="text" id="product_search" />
+							<div class="col-md-7">
+								<input class="col-md-2 form-control" type="text" id="product_search" />
 								<script type="text/javascript">
 								$('#product_search').keyup(function(){
 									$('#product_list').html('');
@@ -450,13 +454,13 @@ function remove_option(id)
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-2">
-								<select class="col-md-2" id="product_list" size="5" style="margin:0px;"></select>
+							<div class="col-md-7">
+								<select class="col-md-7 form-control" id="product_list" size="5" style="margin:10px;"></select>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-2" style="margin-top:8px;">
-								<a href="#" onclick="add_related_product();return false;" class="btn" title="Add Related Product"><?php echo lang('add_related_product');?></a>
+							<div class="col-md-7" style="margin-top:8px;">
+								<a href="#" onclick="add_related_product();return false;" class="btn btn-info" title="Add Related Product"><?php echo lang('add_related_product');?></a>
 							</div>
 						</div>
 					</div>
@@ -560,10 +564,12 @@ function remove_option(id)
 		</div>
 	</div>
 </div>
-
-<div class="form-actions">
-	<button type="submit" class="btn btn-primary"><?php echo lang('save');?></button>
+<div class="form-group">
+	<div class="col-sm-offset-2 col-sm-10">
+	  <button type="submit" class="btn btn-primary"><?php echo lang('save');?></button>
+	</div>
 </div>
+
 </form>
  	</div>
 

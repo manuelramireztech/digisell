@@ -4273,3 +4273,7 @@ ANIMATIONS
 {
   color: white;
 }
+.tab-pane .row
+{
+  margin-left: 25px;
+}
