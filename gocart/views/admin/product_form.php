@@ -1,3 +1,4 @@
+<?php echo "<div class='row'><div class='col-md-12'> " ?>
 <?php $GLOBALS['option_value_count'] = 0;?>
 <style type="text/css">
 	.sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
@@ -62,15 +63,24 @@ function remove_option(id)
 
 //]]>
 </script>
+ <div class="panel">
+ 	<div class="panel-heading">
+ 		<h3 class="panel-title ">
+ 			<?php echo lang('product_form') ?>
+ 			<span class="panel-options">
+ 				<a href="#" class="panel-minimize">
+ 					<i class="fa fa-chevron-up"></i>
+ 				</a>
+ 				<a href="#" class="panel-close">
+ 					<i class="fa fa-times"></i>
+ 				</a>
+ 			</span>
+ 		</h3>
+ 	</div>
+ 	<div class="panel-body">
+ 		<?php echo form_open($this->config->item('admin_folder').'/products/form/'.$id ); ?>
 <div class="row">
-	<div class="col-md-12">
-		
-	</div>
-</div>
-
-<?php echo form_open($this->config->item('admin_folder').'/products/form/'.$id ); ?>
-<div class="row">
-	<div class="span8">
+	<div class="col-md-8">
 		<div class="tabbable">
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#product_info" data-toggle="tab"><?php echo lang('details');?></a></li>
@@ -87,16 +97,16 @@ function remove_option(id)
 		<div class="tab-content">
 			<div class="tab-pane active" id="product_info">
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<?php
-						$data	= array('placeholder'=>lang('name'), 'name'=>'name', 'value'=>set_value('name', $name), 'class'=>'span8');
+						$data	= array('placeholder'=>lang('name'), 'name'=>'name', 'value'=>set_value('name', $name), 'class'=>'col-md-8');
 						echo form_input($data);
 						?>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						
 						<?php
 						$data	= array('name'=>'description', 'class'=>'redactor', 'value'=>set_value('description', $description));
@@ -107,42 +117,42 @@ function remove_option(id)
 				</div>
 				
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<label><?php echo lang('excerpt');?></label>
 						<?php
-						$data	= array('name'=>'excerpt', 'value'=>set_value('excerpt', $excerpt), 'class'=>'span8', 'rows'=>5);
+						$data	= array('name'=>'excerpt', 'value'=>set_value('excerpt', $excerpt), 'class'=>'col-md-8', 'rows'=>5);
 						echo form_textarea($data);
 						?>
 					</div>
 				</div>
 				
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<fieldset>
 							<legend><?php echo lang('inventory');?></legend>
 							<div class="row" style="padding-top:10px;">
-								<div class="span3">
+								<div class="col-md-3">
 									<label for="track_stock"><?php echo lang('track_stock');?> </label>
 									<?php
 								 	$options = array(	 '1'	=> lang('yes')
 														,'0'	=> lang('no')
 														);
-									echo form_dropdown('track_stock', $options, set_value('track_stock',$track_stock), 'class="span3"');
+									echo form_dropdown('track_stock', $options, set_value('track_stock',$track_stock), 'class="col-md-3"');
 									?>
 								</div>
-								<div class="span3">
+								<div class="col-md-3">
 									<label for="fixed_quantity"><?php echo lang('fixed_quantity');?> </label>
 									<?php
 								 	$options = array(	 '0'	=> lang('no')
 														,'1'	=> lang('yes')
 														);
-									echo form_dropdown('fixed_quantity', $options, set_value('fixed_quantity',$fixed_quantity), 'class="span3"');
+									echo form_dropdown('fixed_quantity', $options, set_value('fixed_quantity',$fixed_quantity), 'class="col-md-3"');
 									?>
 								</div>
-								<div class="span2">
+								<div class="col-md-2">
 									<label for="quantity"><?php echo lang('quantity');?> </label>
 									<?php
-									$data	= array('name'=>'quantity', 'value'=>set_value('quantity', $quantity), 'class'=>'span2');
+									$data	= array('name'=>'quantity', 'value'=>set_value('quantity', $quantity), 'class'=>'col-md-2');
 									echo form_input($data);
 									?>
 								</div>
@@ -151,26 +161,26 @@ function remove_option(id)
 					</div>
 				</div>
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<fieldset>
 							<legend><?php echo lang('header_information');?></legend>
 							<div class="row" style="padding-top:10px;">
-								<div class="span8">
+								<div class="col-md-8">
 									
 									<label for="slug"><?php echo lang('slug');?> </label>
 									<?php
-									$data	= array('name'=>'slug', 'value'=>set_value('slug', $slug), 'class'=>'span8');
+									$data	= array('name'=>'slug', 'value'=>set_value('slug', $slug), 'class'=>'col-md-8');
 									echo form_input($data);?>
 									
 									<label for="seo_title"><?php echo lang('seo_title');?> </label>
 									<?php
-									$data	= array('name'=>'seo_title', 'value'=>set_value('seo_title', $seo_title), 'class'=>'span8');
+									$data	= array('name'=>'seo_title', 'value'=>set_value('seo_title', $seo_title), 'class'=>'col-md-8');
 									echo form_input($data);
 									?>
 
 									<label for="meta"><?php echo lang('meta');?> <i><?php echo lang('meta_example');?></i></label> 
 									<?php
-									$data	= array('name'=>'meta', 'value'=>set_value('meta', html_entity_decode($meta)), 'class'=>'span8');
+									$data	= array('name'=>'meta', 'value'=>set_value('meta', html_entity_decode($meta)), 'class'=>'col-md-8');
 									echo form_textarea($data);
 									?>
 								</div>
@@ -211,7 +221,7 @@ function remove_option(id)
 			
 			<div class="tab-pane" id="product_categories">
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<?php if(isset($categories[0])):?>
 							<label><strong><?php echo lang('select_a_category');?></strong></label>
 							<table class="table table-striped">
@@ -254,7 +264,7 @@ function remove_option(id)
 			
 			<div class="tab-pane" id="product_options">
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<div class="pull-right" style="padding:0px 0px 10px 0px;">
 							<select id="option_options" style="margin:0px;">
 								<option value=""><?php echo lang('select_option_type')?></option>
@@ -380,7 +390,7 @@ function remove_option(id)
 					}
 				</style>
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<table class="table table-striped"  id="options_container">
 							<?php
 							$counter	= 0;
@@ -404,15 +414,15 @@ function remove_option(id)
 
 			<div class="tab-pane" id="product_related">
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						<label><strong><?php echo lang('select_a_product');?></strong></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="span2" style="text-align:center">
+					<div class="col-md-2" style="text-align:center">
 						<div class="row">
-							<div class="span2">
-								<input class="span2" type="text" id="product_search" />
+							<div class="col-md-2">
+								<input class="col-md-2" type="text" id="product_search" />
 								<script type="text/javascript">
 								$('#product_search').keyup(function(){
 									$('#product_list').html('');
@@ -440,17 +450,17 @@ function remove_option(id)
 							</div>
 						</div>
 						<div class="row">
-							<div class="span2">
-								<select class="span2" id="product_list" size="5" style="margin:0px;"></select>
+							<div class="col-md-2">
+								<select class="col-md-2" id="product_list" size="5" style="margin:0px;"></select>
 							</div>
 						</div>
 						<div class="row">
-							<div class="span2" style="margin-top:8px;">
+							<div class="col-md-2" style="margin-top:8px;">
 								<a href="#" onclick="add_related_product();return false;" class="btn" title="Add Related Product"><?php echo lang('add_related_product');?></a>
 							</div>
 						</div>
 					</div>
-					<div class="span6">
+					<div class="col-md-6">
 						<table class="table table-striped" style="margin-top:10px;">
 							<tbody id="product_items_container">
 							<?php
@@ -467,10 +477,10 @@ function remove_option(id)
 			
 			<div class="tab-pane" id="product_photos">
 				<div class="row">
-					<iframe id="iframe_uploader" src="<?php echo site_url($this->config->item('admin_folder').'/products/product_image_form');?>" class="span8" style="height:75px; border:0px;"></iframe>
+					<iframe id="iframe_uploader" src="<?php echo site_url($this->config->item('admin_folder').'/products/product_image_form');?>" class="col-md-8" style="height:75px; border:0px;"></iframe>
 				</div>
 				<div class="row">
-					<div class="span8">
+					<div class="col-md-8">
 						
 						<div id="gc_photos">
 							
@@ -491,46 +501,46 @@ function remove_option(id)
 			</div>
 		</div>
 	</div>
-	<div class="span4">
+	<div class="col-md-4">
 		<?php
 	 	$options = array(	 '0'	=> lang('disabled')
 							,'1'	=> lang('enabled')
 							);
-		echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="span4"');
+		echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="col-md-4"');
 		?>
 		
 		<?php
 		$options = array(	 '1'	=> lang('shippable')
 							,'0'	=> lang('not_shippable')
 							);
-		echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="span4"');
+		echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="col-md-4"');
 		?>
 		
 		<?php
 		$options = array(	 '1'	=> lang('taxable')
 							,'0'	=> lang('not_taxable')
 							);
-		echo form_dropdown('taxable', $options, set_value('taxable',$taxable), 'class="span4"');
+		echo form_dropdown('taxable', $options, set_value('taxable',$taxable), 'class="col-md-4"');
 		?>
 		
 		<label for="sku"><?php echo lang('sku');?></label>
 		<?php
-		$data	= array('name'=>'sku', 'value'=>set_value('sku', $sku), 'class'=>'span4');
+		$data	= array('name'=>'sku', 'value'=>set_value('sku', $sku), 'class'=>'col-md-4');
 		echo form_input($data);?>
 		
 		<label for="weight"><?php echo lang('weight');?> </label>
 		<?php
-		$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'span4');
+		$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'col-md-4');
 		echo form_input($data);?>
 		
 		<label for="price"><?php echo lang('price');?></label>
 		<?php
-		$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'span4');
+		$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'col-md-4');
 		echo form_input($data);?>
 		
 		<label for="saleprice"><?php echo lang('saleprice');?></label>
 		<?php
-		$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'span4');
+		$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'col-md-4');
 		echo form_input($data);?>
 	</div>
 </div>
@@ -539,6 +549,14 @@ function remove_option(id)
 	<button type="submit" class="btn btn-primary"><?php echo lang('save');?></button>
 </div>
 </form>
+ 	</div>
+
+ 	<!-- /panel body -->
+ </div>
+ 
+
+
+
 
 <?php
 function add_image($photo_id, $filename, $alt, $caption, $primary=false)
@@ -547,26 +565,26 @@ function add_image($photo_id, $filename, $alt, $caption, $primary=false)
 	ob_start();
 	?>
 	<div class="row gc_photo" id="gc_photo_<?php echo $photo_id;?>" style="background-color:#fff; border-bottom:1px solid #ddd; padding-bottom:20px; margin-bottom:20px;">
-		<div class="span2">
+		<div class="col-md-2">
 			<input type="hidden" name="images[<?php echo $photo_id;?>][filename]" value="<?php echo $filename;?>"/>
 			<img class="gc_thumbnail" src="<?php echo base_url('uploads/images/thumbnails/'.$filename);?>" style="padding:5px; border:1px solid #ddd"/>
 		</div>
-		<div class="span6">
+		<div class="col-md-6">
 			<div class="row">
-				<div class="span2">
-					<input name="images[<?php echo $photo_id;?>][alt]" value="<?php echo $alt;?>" class="span2" placeholder="<?php echo lang('alt_tag');?>"/>
+				<div class="col-md-2">
+					<input name="images[<?php echo $photo_id;?>][alt]" value="<?php echo $alt;?>" class="col-md-2" placeholder="<?php echo lang('alt_tag');?>"/>
 				</div>
-				<div class="span2">
+				<div class="col-md-2">
 					<input type="radio" name="primary_image" value="<?php echo $photo_id;?>" <?php if($primary) echo 'checked="checked"';?>/> <?php echo lang('primary');?>
 				</div>
-				<div class="span2">
+				<div class="col-md-2">
 					<a onclick="return remove_image($(this));" rel="<?php echo $photo_id;?>" class="btn btn-danger" style="float:right; font-size:9px;"><i class="icon-trash icon-white"></i> <?php echo lang('remove');?></a>
 				</div>
 			</div>
 			<div class="row">
-				<div class="span6">
+				<div class="col-md-6">
 					<label><?php echo lang('caption');?></label>
-					<textarea name="images[<?php echo $photo_id;?>][caption]" class="span6" rows="3"><?php echo $caption;?></textarea>
+					<textarea name="images[<?php echo $photo_id;?>][caption]" class="col-md-6" rows="3"><?php echo $caption;?></textarea>
 				</div>
 			</div>
 		</div>
@@ -594,17 +612,17 @@ function add_option($po, $count)
 			<div class="option-form" id="option-form-<?php echo $count;?>">
 				<div class="row-fluid">
 				
-					<div class="span10">
-						<input type="text" class="span10" placeholder="<?php echo lang('option_name');?>" name="option[<?php echo $count;?>][name]" value="<?php echo $po->name;?>"/>
+					<div class="col-md-10">
+						<input type="text" class="col-md-10" placeholder="<?php echo lang('option_name');?>" name="option[<?php echo $count;?>][name]" value="<?php echo $po->name;?>"/>
 					</div>
 					
-					<div class="span2" style="text-align:right;">
+					<div class="col-md-2" style="text-align:right;">
 						<input class="checkbox" type="checkbox" name="option[<?php echo $count;?>][required]" value="1" <?php echo ($po->required)?'checked="checked"':'';?>/> <?php echo lang('required');?>
 					</div>
 				</div>
 				<?php if($po->type!='textarea' && $po->type!='textfield'):?>
 				<div class="row-fluid">
-					<div class="span12">
+					<div class="col-md-12">
 						<a class="btn" onclick="add_option_value(<?php echo $count;?>);"><?php echo lang('add_item');?></a>
 					</div>
 				</div>
@@ -613,13 +631,13 @@ function add_option($po, $count)
 
 					<div class="row-fluid">
 						<?php if($po->type!='textarea' && $po->type!='textfield'):?>
-						<div class="span1">&nbsp;</div>
+						<div class="col-md-1">&nbsp;</div>
 						<?php endif;?>
-						<div class="span3"><strong>&nbsp;&nbsp;<?php echo lang('name');?></strong></div>
-						<div class="span2"><strong>&nbsp;<?php echo lang('value');?></strong></div>
-						<div class="span2"><strong>&nbsp;<?php echo lang('weight');?></strong></div>
-						<div class="span2"><strong>&nbsp;<?php echo lang('price');?></strong></div>
-						<div class="span2"><strong>&nbsp;<?php echo ($po->type=='textfield')?lang('limit'):'';?></strong></div>
+						<div class="col-md-3"><strong>&nbsp;&nbsp;<?php echo lang('name');?></strong></div>
+						<div class="col-md-2"><strong>&nbsp;<?php echo lang('value');?></strong></div>
+						<div class="col-md-2"><strong>&nbsp;<?php echo lang('weight');?></strong></div>
+						<div class="col-md-2"><strong>&nbsp;<?php echo lang('price');?></strong></div>
+						<div class="col-md-2"><strong>&nbsp;<?php echo ($po->type=='textfield')?lang('limit'):'';?></strong></div>
 					</div>
 					<div class="option-items" id="option-items-<?php echo $count;?>">
 					<?php if($po->values):?>
@@ -651,13 +669,13 @@ function add_option_value($po, $count, $valcount, $value)
 	?>
 	<div class="option-values-form">
 		<div class="row-fluid">
-			<?php if($po->type!='textarea' && $po->type!='textfield'):?><div class="span1"><a class="handle btn btn-mini" style="float:left;"><i class="icon-align-justify"></i></a></div><?php endif;?>
-			<div class="span3"><input type="text" class="span12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][name]" value="<?php echo $value->name ?>" /></div>
-			<div class="span2"><input type="text" class="span12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][value]" value="<?php echo $value->value ?>" /></div>
-			<div class="span2"><input type="text" class="span12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][weight]" value="<?php echo $value->weight ?>" /></div>
-			<div class="span2"><input type="text" class="span12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][price]" value="<?php echo $value->price ?>" /></div>
-			<div class="span2">
-			<?php if($po->type=='textfield'):?><input class="span12" type="text" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][limit]" value="<?php echo $value->limit ?>" />
+			<?php if($po->type!='textarea' && $po->type!='textfield'):?><div class="col-md-1"><a class="handle btn btn-mini" style="float:left;"><i class="icon-align-justify"></i></a></div><?php endif;?>
+			<div class="col-md-3"><input type="text" class="col-md-12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][name]" value="<?php echo $value->name ?>" /></div>
+			<div class="col-md-2"><input type="text" class="col-md-12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][value]" value="<?php echo $value->value ?>" /></div>
+			<div class="col-md-2"><input type="text" class="col-md-12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][weight]" value="<?php echo $value->weight ?>" /></div>
+			<div class="col-md-2"><input type="text" class="col-md-12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][price]" value="<?php echo $value->price ?>" /></div>
+			<div class="col-md-2">
+			<?php if($po->type=='textfield'):?><input class="col-md-12" type="text" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][limit]" value="<?php echo $value->limit ?>" />
 			<?php elseif($po->type!='textarea' && $po->type!='textfield'):?>
 				<a class="delete-option-value btn btn-danger btn-mini pull-right"><i class="icon-trash icon-white"></i></a>
 			<?php endif;?>
@@ -737,3 +755,6 @@ function related_items($id, $name) {
 			</tr>
 		';
 }
+
+
+echo "</div></div>";
