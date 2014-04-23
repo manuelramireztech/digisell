@@ -376,12 +376,7 @@ function remove_option(id)
 					.option-values-form
 					{
 						background-color:#fff;
-						padding:6px 3px 6px 6px;
-						-webkit-border-radius: 3px;
-						-moz-border-radius: 3px;
-						border-radius: 3px;
-						margin-bottom:5px;
-						border:1px solid #ddd;
+						
 					}
 					
 					.option-values-form input {
@@ -392,7 +387,7 @@ function remove_option(id)
 					}
 				</style>
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-12">
 						<div class="table-responsive">
 							<table class="table table-striped"  id="options_container">
 							<?php
@@ -627,51 +622,48 @@ function add_option($po, $count)
 	?>
 	<tr id="option-<?php echo $count;?>">
 		<td>
-			<a class="handle btn btn-mini"><i class="icon-align-justify"></i></a>
-			<strong><a class="option_title" href="#option-form-<?php echo $count;?>"><?php echo $po->type;?> <?php echo (!empty($po->name))?' : '.$po->name:'';?></a></strong>
-			<button type="button" class="btn btn-mini btn-danger pull-right" onclick="remove_option(<?php echo $count ?>);"><i class="icon-trash icon-white"></i></button>
+			<a class="handle btn btn-mini"><i class="fa fa-align-justify"></i></a>
+			<a class="option_title" href="#option-form-<?php echo $count;?>"><?php echo $po->type;?> <?php echo (!empty($po->name))?' : '.$po->name:'';?></a>	
+			<button type="button" class="btn btn-mini btn-danger pull-right" onclick="remove_option(<?php echo $count ?>);"><i class="fa fa-trash-o"></i></button>
 			<input type="hidden" name="option[<?php echo $count;?>][type]" value="<?php echo $po->type;?>" />
 			<div class="option-form" id="option-form-<?php echo $count;?>">
-				<div class="row-fluid">
-				
-					<div class="col-md-10">
-						<input type="text" class="col-md-10" placeholder="<?php echo lang('option_name');?>" name="option[<?php echo $count;?>][name]" value="<?php echo $po->name;?>"/>
-					</div>
-					
-					<div class="col-md-2" style="text-align:right;">
-						<input class="checkbox" type="checkbox" name="option[<?php echo $count;?>][required]" value="1" <?php echo ($po->required)?'checked="checked"':'';?>/> <?php echo lang('required');?>
-					</div>
+			<div class="row-fluid">
+				<div class="col-md-8">
+					<input type="text" class="col-md-10 form-control" placeholder="<?php echo lang('option_name');?>" name="option[<?php echo $count;?>][name]" value="<?php echo $po->name;?>"/>
 				</div>
-				<?php if($po->type!='textarea' && $po->type!='textfield'):?>
-				<div class="row-fluid">
-					<div class="col-md-12">
-						<a class="btn" onclick="add_option_value(<?php echo $count;?>);"><?php echo lang('add_item');?></a>
-					</div>
+				<div class="col-md-2">
+					<input class="checkbox" type="checkbox" name="option[<?php echo $count;?>][required]" value="1" <?php echo ($po->required)?'checked="checked"':'';?>/> <?php echo lang('required');?>
 				</div>
-				<?php endif;?>
-				<div style="margin-top:10px;">
-
-					<div class="row-fluid">
-						<?php if($po->type!='textarea' && $po->type!='textfield'):?>
-						<div class="col-md-1">&nbsp;</div>
-						<?php endif;?>
-						<div class="col-md-3"><strong>&nbsp;&nbsp;<?php echo lang('name');?></strong></div>
-						<div class="col-md-2"><strong>&nbsp;<?php echo lang('value');?></strong></div>
-						<div class="col-md-2"><strong>&nbsp;<?php echo lang('weight');?></strong></div>
-						<div class="col-md-2"><strong>&nbsp;<?php echo lang('price');?></strong></div>
-						<div class="col-md-2"><strong>&nbsp;<?php echo ($po->type=='textfield')?lang('limit'):'';?></strong></div>
-					</div>
-					<div class="option-items" id="option-items-<?php echo $count;?>">
-					<?php if($po->values):?>
-						<?php
-						foreach($po->values as $value)
-						{
-							$value = (object)$value;
-							add_option_value($po, $count, $GLOBALS['option_value_count'], $value);
-							$GLOBALS['option_value_count']++;
-						}?>
+			</div>
+			<?php if($po->type!='textarea' && $po->type!='textfield'):?>
+			<div class="row-fluid">
+				<div class="col-md-12">
+					<a class="btn btn-info" onclick="add_option_value(<?php echo $count;?>);"><?php echo lang('add_item');?></a>
+				</div>
+			</div>
+			<?php endif;?>
+			<div>
+				<div class="row-fluid">
+					<?php if($po->type!='textarea' && $po->type!='textfield'):?>
+					<div class="col-md-12">&nbsp;</div>
 					<?php endif;?>
-					</div>
+					<div class="col-md-3"><strong>&nbsp;&nbsp;<?php echo lang('name');?></strong></div>
+					<div class="col-md-2"><strong>&nbsp;<?php echo lang('value');?></strong></div>
+					<div class="col-md-2"><strong>&nbsp;<?php echo lang('weight');?></strong></div>
+					<div class="col-md-2"><strong>&nbsp;<?php echo lang('price');?></strong></div>
+					<div class="col-md-2"><strong>&nbsp;<?php echo ($po->type=='textfield')?lang('limit'):'';?></strong></div>
+				</div>
+				<div class="option-items" id="option-items-<?php echo $count;?>">
+				<?php if($po->values):?>
+					<?php
+					foreach($po->values as $value)
+					{
+						$value = (object)$value;
+						add_option_value($po, $count, $GLOBALS['option_value_count'], $value);
+						$GLOBALS['option_value_count']++;
+					}?>
+				<?php endif;?>
+				</div>
 				</div>
 			</div>
 		</td>
@@ -692,14 +684,14 @@ function add_option_value($po, $count, $valcount, $value)
 	<div class="option-values-form">
 		<div class="row-fluid">
 			<?php if($po->type!='textarea' && $po->type!='textfield'):?><div class="col-md-1"><a class="handle btn btn-mini" style="float:left;"><i class="icon-align-justify"></i></a></div><?php endif;?>
-			<div class="col-md-3"><input type="text" class="col-md-12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][name]" value="<?php echo $value->name ?>" /></div>
-			<div class="col-md-2"><input type="text" class="col-md-12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][value]" value="<?php echo $value->value ?>" /></div>
-			<div class="col-md-2"><input type="text" class="col-md-12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][weight]" value="<?php echo $value->weight ?>" /></div>
-			<div class="col-md-2"><input type="text" class="col-md-12" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][price]" value="<?php echo $value->price ?>" /></div>
+			<div class="col-md-3"><input type="text" class="col-md-12 form-control" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][name]" value="<?php echo $value->name ?>" /></div>
+			<div class="col-md-2"><input type="text" class="col-md-12 form-control" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][value]" value="<?php echo $value->value ?>" /></div>
+			<div class="col-md-2"><input type="text" class="col-md-12 form-control" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][weight]" value="<?php echo $value->weight ?>" /></div>
+			<div class="col-md-2"><input type="text" class="col-md-12 form-control" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][price]" value="<?php echo $value->price ?>" /></div>
 			<div class="col-md-2">
-			<?php if($po->type=='textfield'):?><input class="col-md-12" type="text" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][limit]" value="<?php echo $value->limit ?>" />
+			<?php if($po->type=='textfield'):?><input class="col-md-12 form-control" type="text" name="option[<?php echo $count;?>][values][<?php echo $valcount ?>][limit]" value="<?php echo $value->limit ?>" />
 			<?php elseif($po->type!='textarea' && $po->type!='textfield'):?>
-				<a class="delete-option-value btn btn-danger btn-mini pull-right"><i class="icon-trash icon-white"></i></a>
+				<a class="delete-option-value btn btn-danger btn-mini pull-right"><i class="fa fa-trash-o"></i></a>
 			<?php endif;?>
 			</div>
 		</div>
