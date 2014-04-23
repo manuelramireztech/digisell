@@ -78,9 +78,9 @@ function remove_option(id)
  		</h3>
  	</div>
  	<div class="panel-body">
- 		<?php echo form_open($this->config->item('admin_folder').'/products/form/'.$id ); ?>
+ 		<?php echo form_open($this->config->item('admin_folder').'/products/form/'.$id, 'class="form-horizontal"' ); ?>
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-7">
 		<div class="tabbable">
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#product_info" data-toggle="tab"><?php echo lang('details');?></a></li>
@@ -501,47 +501,63 @@ function remove_option(id)
 			</div>
 		</div>
 	</div>
-	<div class="col-md-4">
-		<?php
-	 	$options = array(	 '0'	=> lang('disabled')
-							,'1'	=> lang('enabled')
-							);
-		echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="col-md-4"');
-		?>
-		
-		<?php
-		$options = array(	 '1'	=> lang('shippable')
-							,'0'	=> lang('not_shippable')
-							);
-		echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="col-md-4"');
-		?>
-		
-		<?php
-		$options = array(	 '1'	=> lang('taxable')
-							,'0'	=> lang('not_taxable')
-							);
-		echo form_dropdown('taxable', $options, set_value('taxable',$taxable), 'class="col-md-4"');
-		?>
-		
-		<label for="sku"><?php echo lang('sku');?></label>
-		<?php
-		$data	= array('name'=>'sku', 'value'=>set_value('sku', $sku), 'class'=>'col-md-4');
-		echo form_input($data);?>
-		
-		<label for="weight"><?php echo lang('weight');?> </label>
-		<?php
-		$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'col-md-4');
-		echo form_input($data);?>
-		
-		<label for="price"><?php echo lang('price');?></label>
-		<?php
-		$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'col-md-4');
-		echo form_input($data);?>
-		
-		<label for="saleprice"><?php echo lang('saleprice');?></label>
-		<?php
-		$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'col-md-4');
-		echo form_input($data);?>
+	<div class="col-md-5">
+		<div class="form-group">
+	    	<?php
+		 	$options = array(	 '0'	=> lang('disabled')
+								,'1'	=> lang('enabled')
+								);
+			echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="col-md-4 form-control"');
+			?>
+		</div>
+		<div class="form-group">
+			<?php
+			$options = array(	 '1'	=> lang('shippable')
+								,'0'	=> lang('not_shippable')
+								);
+			echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="col-md-4 form-control"');
+			?>
+		</div>
+		<div class="form-group">
+			<?php
+			$options = array(	 '1'	=> lang('taxable')
+								,'0'	=> lang('not_taxable')
+								);
+			echo form_dropdown('taxable', $options, set_value('taxable',$taxable), 'class="col-md-4 form-control"');
+			?>
+		</div>
+		<div class="form-group">
+		    <label for="sku" class="col-sm-2 control-label"><?php echo lang('sku');?></label>
+		    <div class="col-sm-10">
+		      <?php
+			$data	= array('name'=>'sku', 'value'=>set_value('sku', $sku), 'class'=>'col-md-4 form-control');
+			echo form_input($data);?>
+		    </div>
+		</div>
+		<div class="form-group">
+		    <label for="weight" class="col-sm-2 control-label"><?php echo lang('weight');?></label>
+		    <div class="col-sm-10">
+		      <?php
+			$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'col-md-4 form-control');
+			echo form_input($data);?>
+		    </div>
+		</div>
+		 <div class="form-group">
+		    <label for="price" class="col-sm-2 control-label"><?php echo lang('price');?></label>
+		    <div class="col-sm-10">
+		      <?php
+			$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'col-md-4 form-control');
+			echo form_input($data);?>
+		    </div>
+		</div>
+		<div class="form-group">
+		    <label for="saleprice" class="col-sm-2 control-label"><?php echo lang('saleprice');?></label>
+		    <div class="col-sm-10">
+		      <?php
+			$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'col-md-4 form-control');
+			echo form_input($data);?>
+		    </div>
+		</div>
 	</div>
 </div>
 
