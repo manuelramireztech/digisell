@@ -62,7 +62,11 @@ function remove_option(id)
 
 //]]>
 </script>
-
+<div class="row">
+	<div class="col-md-12">
+		
+	</div>
+</div>
 
 <?php echo form_open($this->config->item('admin_folder').'/products/form/'.$id ); ?>
 <div class="row">
