@@ -460,7 +460,8 @@ function remove_option(id)
 						</div>
 					</div>
 					<div class="col-md-6">
-						<table class="table table-striped" style="margin-top:10px;">
+						<div class="table-responsive">
+							<table class="table table-striped" style="margin-top:10px;">
 							<tbody id="product_items_container">
 							<?php
 							foreach($related_products as $rel)
@@ -470,6 +471,7 @@ function remove_option(id)
 							?>
 							</tbody>
 						</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -479,7 +481,7 @@ function remove_option(id)
 					<iframe id="iframe_uploader" src="<?php echo site_url($this->config->item('admin_folder').'/products/product_image_form');?>" class="col-md-8" style="height:75px; border:0px;"></iframe>
 				</div>
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-12">
 						
 						<div id="gc_photos">
 							
@@ -582,26 +584,26 @@ function add_image($photo_id, $filename, $alt, $caption, $primary=false)
 	ob_start();
 	?>
 	<div class="row gc_photo" id="gc_photo_<?php echo $photo_id;?>" style="background-color:#fff; border-bottom:1px solid #ddd; padding-bottom:20px; margin-bottom:20px;">
-		<div class="col-md-2">
+		<div class="col-md-12">
 			<input type="hidden" name="images[<?php echo $photo_id;?>][filename]" value="<?php echo $filename;?>"/>
 			<img class="gc_thumbnail" src="<?php echo base_url('uploads/images/thumbnails/'.$filename);?>" style="padding:5px; border:1px solid #ddd"/>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<div class="row">
-				<div class="col-md-2">
-					<input name="images[<?php echo $photo_id;?>][alt]" value="<?php echo $alt;?>" class="col-md-2" placeholder="<?php echo lang('alt_tag');?>"/>
+				<div class="col-md-6">
+					<input name="images[<?php echo $photo_id;?>][alt]" value="<?php echo $alt;?>" class="col-md-6 form-control" placeholder="<?php echo lang('alt_tag');?>"/>
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-6">
 					<input type="radio" name="primary_image" value="<?php echo $photo_id;?>" <?php if($primary) echo 'checked="checked"';?>/> <?php echo lang('primary');?>
 				</div>
-				<div class="col-md-2">
-					<a onclick="return remove_image($(this));" rel="<?php echo $photo_id;?>" class="btn btn-danger" style="float:right; font-size:9px;"><i class="icon-trash icon-white"></i> <?php echo lang('remove');?></a>
+				<div class="col-md-6">
+					<a onclick="return remove_image($(this));" rel="<?php echo $photo_id;?>" class="btn btn-danger" style="float:right; font-size:9px;"><i class="fa fa-trash-o"></i> <?php echo lang('remove');?></a>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
 					<label><?php echo lang('caption');?></label>
-					<textarea name="images[<?php echo $photo_id;?>][caption]" class="col-md-6" rows="3"><?php echo $caption;?></textarea>
+					<textarea name="images[<?php echo $photo_id;?>][caption]" class="col-md-6 form-control" rows="3"><?php echo $caption;?></textarea>
 				</div>
 			</div>
 		</div>
@@ -631,7 +633,7 @@ function add_option($po, $count)
 				<div class="col-md-8">
 					<input type="text" class="col-md-10 form-control" placeholder="<?php echo lang('option_name');?>" name="option[<?php echo $count;?>][name]" value="<?php echo $po->name;?>"/>
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-6">
 					<input class="checkbox" type="checkbox" name="option[<?php echo $count;?>][required]" value="1" <?php echo ($po->required)?'checked="checked"':'';?>/> <?php echo lang('required');?>
 				</div>
 			</div>
