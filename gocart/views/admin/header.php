@@ -11,9 +11,10 @@
     <!-- Custom Styles -->
     <link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
+    
 
     <link href="<?php echo base_url(); ?>less/style.less" rel="stylesheet"  title="lessCss" id="lessCss">
-
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,6 +23,9 @@
               <![endif]-->
               
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/css/redactor.css"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/redactor.min.js"></script>
+
 
           </head>
           <body>

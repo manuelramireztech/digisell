@@ -5,7 +5,7 @@
 </div>
 <!-- /.site-holder -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script type="text/javascript" src="<?php echo base_url();?>assets/js/redactor.min.js"></script>
+
 
 
 
