@@ -154,7 +154,7 @@
           		<div class="box-holder">
 
           			<div class="content  animated fadeInBig">
-                         <div class="container">
+                                                  <div class="container">
           				<div class="main-content">
 
 

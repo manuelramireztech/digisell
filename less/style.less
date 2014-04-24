@@ -1055,16 +1055,19 @@ body
 
 /* Nav Tabs
 ---------------------------------------------------------------------------------------------- */
+
+/* Nav Tabs
+---------------------------------------------------------------------------------------------- */
 .nav-tabs
 {
-	border-color: @primary;
+	border-color: #FFFFFF;
 	margin-bottom: 5px;
-	
 	li a
 	{
 		color:lighten(@secondary, 30%);
 		font-weight: normal;
 		margin-bottom: -1px;
+		border-radius: 0px;
 		
 	}
 
@@ -1075,9 +1078,15 @@ body
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
 		box-shadow: none;
-		border-color:@primary;
-		border-bottom-width: 0px;
+		border-color:#ffffff;
+		border-bottom-width: 1px;
+		
 
+	}
+	li > a:hover
+	{
+		background-color: #FFFFFF;
+		border-color: #FFFFFF;
 	}
 }
 .nav-stacked-left
@@ -5653,4 +5662,20 @@ ANIMATIONS
 .delighted-time-date-pickers
 {
 	margin-bottom: 10px;
+}
+.form-group select {
+	padding-top: 0px;
+	border: 1px solid #cccccc;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+                background: #fff url("../images/arrowdown.png") no-repeat 97% 50%;
+
+}
+
+.form-group select:focus {
+    outline: none;
 }

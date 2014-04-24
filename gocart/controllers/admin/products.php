@@ -335,7 +335,7 @@ class Products extends Admin_Controller {
 			$post_images				= $this->input->post('images');
 			
 			$save['slug']				= $slug;
-			$save['route_id']			= $route_id;
+			$save['route_id']			= $route_id ? $route_id : '';
 			
 			if($primary	= $this->input->post('primary_image'))
 			{
@@ -402,7 +402,7 @@ class Products extends Admin_Controller {
 
 			//save the route
 			$route['id']	= $route_id;
-			$route['slug']	= $slug;
+			//$route['slug']	= $slug;
 			$route['route']	= 'cart/product/'.$product_id;
 			
 			$this->Routes_model->save($route);

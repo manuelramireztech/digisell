@@ -938,14 +938,17 @@ a {
 }
 /* Nav Tabs
 ---------------------------------------------------------------------------------------------- */
+/* Nav Tabs
+---------------------------------------------------------------------------------------------- */
 .nav-tabs {
-  border-color: #23bab5;
+  border-color: #FFFFFF;
   margin-bottom: 5px;
 }
 .nav-tabs li a {
   color: #667d83;
   font-weight: normal;
   margin-bottom: -1px;
+  border-radius: 0px;
 }
 .nav-tabs li.active > a,
 .nav-tabs li.active > a:hover {
@@ -954,8 +957,12 @@ a {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  border-color: #23bab5;
-  border-bottom-width: 0px;
+  border-color: #ffffff;
+  border-bottom-width: 1px;
+}
+.nav-tabs li > a:hover {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
 }
 .nav-stacked-left {
   border-color: #23bab5 !important;
@@ -4258,4 +4265,18 @@ ANIMATIONS
 }
 .delighted-time-date-pickers {
   margin-bottom: 10px;
+}
+.form-group select {
+  padding-top: 0px;
+  border: 1px solid #cccccc;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #ffffff url("../images/arrowdown.png") no-repeat 97% 50%;
+}
+.form-group select:focus {
+  outline: none;
 }

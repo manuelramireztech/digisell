@@ -29,6 +29,7 @@ Class Digital_Products extends Admin_Controller {
 							,'max_downloads'	=>''
 							,'title'			=>''
 							,'size'				=>''
+							,'version'				=>''
 							);
 		if($id)
 		{
@@ -75,6 +76,7 @@ Class Digital_Products extends Admin_Controller {
 			
 			$save['max_downloads']	= set_value('max_downloads');				
 			$save['title']			= set_value('title');
+			$save['version']			= '';
 			
 			$this->digital_product_model->save($save);
 			

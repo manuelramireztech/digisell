@@ -62,6 +62,20 @@
 ---------------------------------------------------------------------------------------------- */
 /* Predefined Variables
 ---------------------------------------------------------------------------------------------- */
+/******************* Color variables *********************/
+/*	 Global Color variables @requested not to change these values if you are not sure of what you are doing
+----------------------------------------------------------------------------------------------------------- */
+/*	 Fonts
+-------------------------------------------------------------------------------------------------- */
+/*	 Navbar variables @you change these variables , make sure to get a good color combination ;)
+-------------------------------------------------------------------------------------------------- */
+/* Desired height is 90px , below 80px is not recommended */
+/*	 LeftSidebar variables @you change these variables , make sure to get a good color combination ;)
+-------------------------------------------------------------------------------------------------- */
+/*	 LeftSidebar variables @you change these variables , make sure to get a good color combination ;)
+-------------------------------------------------------------------------------------------------- */
+/*	 Panels variables
+-------------------------------------------------------------------------------------------------- */
 /*	 External Less Files
 ---------------------------------------------------------------------------------------------- */
 /******************* Color variables *********************/
@@ -393,7 +407,7 @@ a {
 .left-sidebar {
   position: absolute;
   background-color: #232b2d;
-  width: 220px;
+  width: 0px;
   z-index: 1001;
   height: 100%;
   color: #80969c;
@@ -593,7 +607,7 @@ a {
   z-index: 0;
   position: absolute;
   text-align: justify;
-  width: 270px;
+  width: 50px;
   height: 100%;
   color: #80969c;
   z-index: 1000;
@@ -607,7 +621,7 @@ a {
   box-shadow: 2px 0px 1px 0px #e2e2e2;
 }
 .site-holder.mini-sidebar .user-details.user-details-close {
-  margin-left: -220px;
+  margin-left: 0px;
   -webkit-transition: 2000ms ease;
   -moz-transition: 2000ms ease;
   -o-transition: 2000ms ease;
@@ -624,7 +638,7 @@ a {
 /*	Content
 ---------------------------------------------------------------------------------------------- */
 .content {
-  margin-left: 220px;
+  margin-left: 0px;
   -webkit-transition: 500ms ease;
   -moz-transition: 500ms ease;
   -o-transition: 500ms ease;
@@ -635,14 +649,14 @@ a {
   min-height: 600px;
 }
 .content.left-sidebar-open {
-  margin-left: 220px !important;
+  margin-left: 0px !important;
 }
 .content .row {
   margin-right: -15px;
   margin-left: -15px !important;
 }
 .content.user-details-open {
-  margin-left: 490px;
+  margin-left: 50px;
 }
 .content .breadcrumb-holder {
   height: 60px;
@@ -756,12 +770,12 @@ a {
 /*	User Details
 ---------------------------------------------------------------------------------------------- */
 .user-details {
-  margin-left: 220px;
+  margin-left: 0px;
   background-color: #f5f5f5;
   z-index: 0;
   position: absolute;
   text-align: justify;
-  width: 270px;
+  width: 50px;
   height: 100%;
   color: #80969c;
   z-index: 1000;
@@ -898,7 +912,7 @@ a {
   font-family: 'Droid Sans', sans-serif;
   padding: 0px;
   line-height: 60px;
-  width: 220px;
+  width: 0px;
   text-align: center;
 }
 #jprePercentage {
