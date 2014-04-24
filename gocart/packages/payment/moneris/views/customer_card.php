@@ -116,21 +116,28 @@ payment_method.moneris = function()
 
 
 	<div class="form_wrap">
-		<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-6">
 			<?php echo lang('address_firstname') ?><b class="r"> *</b><br/>
 			<input name="first_name" type="text" class="pmt_required textfield input form-control" value="<?php echo @$cc_data["first_name"] ?>" size="30" />
 		</div>
-		<div class="col-sm-6">
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
 			<?php echo lang('address_lastname') ?><b class="r"> *</b><br/>
 			<input name="last_name" type="text" class="pmt_required textfield input form-control" value="<?php echo @$cc_data["last_name"] ?>" size="30" />
 		</div>
+		</div>
 	</div>
 	<div class="form_wrap">
-		<div class="col-sm-6">
+		<div class="row">
+			<div class="col-sm-6">
 			<?php echo lang('card_number') ?><b class="r"> *</b><br/>
 			<input id="card_num" name="card_num" type="text" class="pmt_required textfield input form-control" value="<?php echo @$cc_data["card_num"] ?>" size="30">
 		</div>
-		<div class="col-sm-3">
+		</div>
+		<div class="row">
+			
 			<?php echo lang('expires_on') ?><b class="r"> *</b><br/>
 			<?php
 			
@@ -143,14 +150,17 @@ payment_method.moneris = function()
 				$years[$y] = $y;
 				$y++;
 			}
-			echo form_dropdown('exp_date_mm', $months, @$cc_data["exp_date_mm"], 'class="input col-md-1 form-control"').'/'.form_dropdown('exp_date_yy', $years, @$cc_data["exp_date_yy"], 'class="input col-md-1 form-control"');			
+			echo '<div class="col-sm-1">'.form_dropdown('exp_date_mm', $months, @$cc_data["exp_date_mm"], 'class="input col-md-1 form-control drp"').'</div><div class="col-sm-1">'.form_dropdown('exp_date_yy', $years, @$cc_data["exp_date_yy"], 'class="input col-md-1 form-control"');			
 			?>
+			</div>
 		</div>
 		
 	</div>
 	
-	<div class="col-sm-3">
+	<div class="row">
+		<div class="col-sm-1">
 		<?php echo lang('cvv_code') ?><b class="r"> *</b><br/>
 		<input name="card_code" type="text" class="pmt_required textfield input form-control" id="card_code" maxlength="4" value="<?php echo @$cc_data["card_code"] ?>" />
+	</div>
 	</div>
 		<br style="clear:both;">

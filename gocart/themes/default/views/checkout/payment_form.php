@@ -40,8 +40,11 @@
 							<?php echo form_open('checkout/step_3', 'id="form-'.$method.'"');?>
 								<input type="hidden" name="module" value="<?php echo $method;?>" />
 								<?php echo $info['form'];?>
-								
-									<input class="btn btn-large btn-success" type="submit" value="<?php echo lang('form_continue');?>"/>
+								<div class="row" style="margin-top:20px">
+									<div class="col-sm-2">
+										<input class="btn btn-large btn-success" type="submit" value="<?php echo lang('form_continue');?>"/>
+									</div>									
+								</div>
 								
 							</form>
 						</div>

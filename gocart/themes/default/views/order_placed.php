@@ -1,14 +1,28 @@
-<div class="page-header">
-	<h2><?php echo lang('order_number');?>: <?php echo $order_id;?></h2>
-</div>
+<div class="row">
+	<div class="col-md-12">
 
-<?php
+	<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title ">
+					<?php echo lang('order_number') ?>
+					<span class="panel-options">
+						<a href="#" class="panel-minimize">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a href="#" class="panel-close">
+							<i class="fa fa-times"></i>
+						</a>
+					</span>
+				</h3>
+			</div>
+			<div class="panel-body">
+				<?php
 // content defined in canned messages
 echo $download_section;
 ?>
 
 <div class="row">
-	<div class="span4">
+	<div class="col-md-4">
 		<h3><?php echo lang('account_information');?></h3>
 		<?php echo (!empty($customer['company']))?$customer['company'].'<br/>':'';?>
 		<?php echo $customer['firstname'];?> <?php echo $customer['lastname'];?><br/>
@@ -19,14 +33,14 @@ echo $download_section;
 	$ship = $customer['ship_address'];
 	$bill = $customer['bill_address'];
 	?>
-	<div class="span4">
+	<div class="col-md-4">
 		<h3><?php echo ($ship != $bill)?lang('shipping_information'):lang('shipping_and_billing');?></h3>
 		<?php echo format_address($ship, TRUE);?><br/>
 		<?php echo $ship['email'];?><br/>
 		<?php echo $ship['phone'];?>
 	</div>
 	<?php if($ship != $bill):?>
-	<div class="span4">
+	<div class="col-md-4">
 		<h3><?php echo lang('billing_information');?></h3>
 		<?php echo format_address($bill, TRUE);?><br/>
 		<?php echo $bill['email'];?><br/>
@@ -36,25 +50,25 @@ echo $download_section;
 </div>
 
 <div class="row">
-	<div class="span4">
+	<div class="col-md-4">
 		<h3><?php echo lang('additional_details');?></h3>
 		<?php
 		if(!empty($referral)):?><div><strong><?php echo lang('heard_about');?></strong> <?php echo $referral;?></div><?php endif;?>
 		<?php if(!empty($shipping_notes)):?><div><strong><?php echo lang('shipping_instructions');?></strong> <?php echo $shipping_notes;?></div><?php endif;?>
 	</div>
 
-	<div class="span4">
+	<div class="col-md-4">
 		<h3 style="padding-top:10px;"><?php echo lang('shipping_method');?></h3>
 		<?php echo $shipping['method']; ?>
 	</div>
 	
-	<div class="span4">
+	<div class="col-md-4">
 		<h3><?php echo lang('payment_information');?></h3>
 		<?php echo $payment['description']; ?>
 	</div>
 	
 </div>
-
+<div class="table-responsive">
 <table class="table table-bordered table-striped" style="margin-top:20px;">
 	<thead>
 		<tr>
@@ -162,3 +176,13 @@ echo $download_section;
 	<?php endforeach; ?>
 	</tbody>
 </table>
+		</div>		
+			</div>
+
+			<!-- /panel body -->
+		</div>
+		
+
+
+	</div>
+</div>

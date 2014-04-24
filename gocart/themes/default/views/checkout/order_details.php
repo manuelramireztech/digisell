@@ -28,7 +28,7 @@
 
 <?php if(config_item('require_shipping')):?>
 	<?php if($this->go_cart->requires_shipping()):?>
-		<div class="col-md-3">
+		<div class="col-md-3" >
 			<a href="<?php echo site_url('checkout/shipping_address');?>" class="btn btn-info btn-block"><?php echo lang('shipping_address_button');?></a>
 			<p>
 				<?php echo format_address($customer['ship_address'], true);?>
@@ -54,7 +54,7 @@
 <?php if(!empty($payment_method)):?>
 	<div class="col-md-3">
 		<p><a href="<?php echo site_url('checkout/step_3');?>" class="btn btn-info btn-block"><?php echo lang('billing_method_button');?></a></p>
-		<?php echo $payment_method['description'];?>
+		<p><?php echo $payment_method['description'];?></p>
 	</div>
 <?php endif;?>
 </div>

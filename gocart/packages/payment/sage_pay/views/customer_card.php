@@ -70,33 +70,45 @@ payment_method.sage_pay = function(){
 
 
 	<div class="form_wrap">
-		<div>
-			<?php echo lang('full_name') ?><b class="r"> *</b><br/>
-            <?php echo form_input(array('id' => 'CardHolder', 'name' => 'CardHolder', 'value' => @$sp_data["CardHolder"],  'class' => 'pmt_required textfield input', 'size' => '30')) ?>
-		</div>
-        <div>
-        <?php echo lang('card_type') ?><b class="r"> *</b><br/>
-            <?php echo form_dropdown('CardType', $accepted_cards, @$sp_data["CardType"],'class="input"') ?>
+		<div class="row">
+            <div class="col-sm-6">
+                <?php echo lang('full_name') ?><b class="r"> *</b><br/>
+                <?php echo form_input(array('id' => 'CardHolder', 'name' => 'CardHolder', 'value' => @$sp_data["CardHolder"],  'class' => 'pmt_required form-control textfield input', 'size' => '30')) ?>
+            </div>      
         </div>
-        <div>
+        <div class="row">
+            <div class="col-sm-6">
+                <?php echo lang('card_type') ?><b class="r"> *</b><br/>
+                <?php echo form_dropdown('CardType', $accepted_cards, @$sp_data["CardType"],'class="input form-control drp"') ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
         <?php echo lang('card_number') ?><b class="r"> *</b><br/>
-            <?php echo form_input(array('id' => 'CardNumber', 'name' => 'CardNumber', 'value' => @$sp_data["CardNumber"],  'class' => 'pmt_required textfield input', 'size' => '30')) ?>
+            <?php echo form_input(array('id' => 'CardNumber', 'name' => 'CardNumber', 'value' => @$sp_data["CardNumber"],  'class' => 'pmt_required form-control textfield input', 'size' => '30')) ?>
+        </div>
         </div>
 	</div>
 	<div class="form_wrap">
-        <div>
-            <?php echo lang('valid_from') ?><br/>
-            <?php echo form_dropdown('StartDate_mm', $months, @$sp_data["StartDate_mm"], 'class="input"').'/'.form_dropdown('StartDate_yy', $valid_from_years, @$sp_data["StartDate_yy"], 'class="input"');            
-            ?>
+        <div class="row">
+            <div class="col-sm-6">
+                <?php echo lang('valid_from') ?><br/>
+                <div class="col-sm-3"><?php echo form_dropdown('StartDate_mm', $months, @$sp_data["StartDate_mm"], 'class="input form-control"').'</div><div class="col-sm-3">'.form_dropdown('StartDate_yy', $valid_from_years, @$sp_data["StartDate_yy"], 'class="input form-control"');            
+                ?></div>
+            </div>
         </div>
-		<div>
-			<?php echo lang('expires_on') ?><b class="r"> *</b><br/>
-			<?php echo form_dropdown('ExpiryDate_mm', $months, @$sp_data["ExpiryDate_mm"], 'class="input"').'/'.form_dropdown('ExpiryDate_yy', $expires_on_years, @$sp_data["ExpiryDate_yy"], 'class="input"');			
-			?>
-		</div>
-		<div>
-			<?php echo lang('cvv_code') ?><b class="r"> *</b><br/>
-            <?php echo form_input(array('id' => 'CV2', 'name' => 'CV2', 'max_length' => '3',  'value' => @$sp_data["CV2"],  'class' => 'pmt_required textfield input', 'size' => '5')) ?>
-		</div>
+		<div class="row">
+            <div class="col-sm-6">
+                <?php echo lang('expires_on') ?><b class="r"> *</b><br/>
+                <div class="col-sm-3"><?php echo form_dropdown('ExpiryDate_mm', $months, @$sp_data["ExpiryDate_mm"], 'class="input form-control"').'</div><div class="col-sm-3">'.form_dropdown('ExpiryDate_yy', $expires_on_years, @$sp_data["ExpiryDate_yy"], 'class="input form-control"');         
+                ?></div>
+            </div>      
+        </div>
+		<div class="row">
+            <div class="col-sm-1">
+                <?php echo lang('cvv_code') ?><b class="r"> *</b><br/>
+                <?php echo form_input(array('id' => 'CV2', 'name' => 'CV2', 'max_length' => '3',  'value' => @$sp_data["CV2"],  'class' => 'form-control pmt_required textfield input', 'size' => '5')) ?>
+            </div>      
+        </div>
 	</div>
 	<br style="clear:both;">
