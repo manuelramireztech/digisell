@@ -78,6 +78,20 @@
 -------------------------------------------------------------------------------------------------- */
 /*	 Panels variables
 -------------------------------------------------------------------------------------------------- */
+/******************* Color variables *********************/
+/*	 Global Color variables @requested not to change these values if you are not sure of what you are doing
+----------------------------------------------------------------------------------------------------------- */
+/*	 Fonts
+-------------------------------------------------------------------------------------------------- */
+/*	 Navbar variables @you change these variables , make sure to get a good color combination ;)
+-------------------------------------------------------------------------------------------------- */
+/* Desired height is 90px , below 80px is not recommended */
+/*	 LeftSidebar variables @you change these variables , make sure to get a good color combination ;)
+-------------------------------------------------------------------------------------------------- */
+/*	 LeftSidebar variables @you change these variables , make sure to get a good color combination ;)
+-------------------------------------------------------------------------------------------------- */
+/*	 Panels variables
+-------------------------------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
   /* left-sidebar toggler
   ---------------------------------------------------------------------------------------------- */
@@ -611,7 +625,6 @@ a {
 ---------------------------------------------------------------------------------------------- */
 .content {
   margin-left: 220px;
-  padding-left: 10px;
   -webkit-transition: 500ms ease;
   -moz-transition: 500ms ease;
   -o-transition: 500ms ease;
@@ -625,7 +638,8 @@ a {
   margin-left: 220px !important;
 }
 .content .row {
-  margin-right: 0px;
+  margin-right: -15px;
+  margin-left: -15px !important;
 }
 .content.user-details-open {
   margin-left: 490px;

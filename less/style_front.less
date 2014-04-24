@@ -18,7 +18,7 @@
 /*	 External Less Files
 ---------------------------------------------------------------------------------------------- */
 @import "../css/jquery-ui-1.10.3.custom.min.css";
-@import "variables.less";
+@import "variables_front.less";
 @import "../css/animate.css";
 @import "../css/responsive.less";
 @import "../css/ionicons.css";
@@ -671,7 +671,6 @@ body
 .content
 {
 	margin-left: @leftSidebarWidth;
-	padding-left: 10px;
 	.transition(500ms ease);
 	.main-content{
 		padding-top: 15px;
@@ -683,8 +682,8 @@ body
 	}
 	.row
 	{
-		margin-right: 0px;
-		
+		margin-right: -15px;
+		margin-left: -15px !important;
 	}	
 	&.user-details-open
 	{

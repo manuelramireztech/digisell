@@ -6,13 +6,12 @@
 	<!-- Bootstrap -->
 	<link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
 	<!-- Styles -->
-	<link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>css/style_front.css" rel="stylesheet">
 
 	<!-- Custom Styles -->
 	<link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
 
-	<link href="<?php echo base_url(); ?>less/style.less" rel="stylesheet"  title="lessCss" id="lessCss">
      
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
