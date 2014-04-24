@@ -37,10 +37,10 @@
                               </a>
                               <ul class="nav navbar-nav">
                                    <li class='active'>
-                                        <a href="<?php echo site_url('cart');?>" data-original-title='Dashboard'>
+                                        <a href="<?php echo site_url('cart');?>" data-original-title='Home'>
                                              
 
-                                             <span class='hidden-minibar'>Dashboard</span>
+                                             <span class='hidden-minibar'>Home</span>
                                         </a>
                                    </li>
                                    <li class='dropdown'>
@@ -70,32 +70,6 @@
                                         }
                                         ?>
                                    </li>   
-                                   <?php if($this->Customer_model->is_logged_in(false, false)):?>
-                                   <li class='dropdown'>
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo lang('account');?> <b class="caret"></b></a>
-                                        <ul  class="dropdown-menu">
-                                             <li class=' '>
-                                                  <a href='<?php echo  site_url('secure/my_account');?>' data-original-title=' my_Account'>
-                                                       
-                                                       <span class='hidden-minibar'><?php echo lang('my_account')?></span>
-                                                  </a>
-                                             </li>
-                                             <li class=' '>
-                                                  <a href='<?php echo  site_url('secure/my_downloads');?>' data-original-title='my_downloads'>
-                                                       
-                                                       <span class='hidden-minibar'><?php echo lang('my_downloads')?></span>
-                                                  </a>
-                                             </li>
-                                        </ul>
-                                   </li>
-                                        <?php endif; ?>
-                                   <?php if(!($this->Customer_model->is_logged_in(false, false))):?>
-                                   <li>
-                                        
-                                        <a href="<?php echo site_url('secure/login_customer');?>" ><?php echo lang('login');?> </a>
-                                   </li>
-                                             
-                                        <?php endif; ?>
                                    
                                               
                               </ul>
@@ -139,11 +113,38 @@
                                              </div>
                                         </form>
                                    </li>
-                                   <li>
-                                        <a href="<?php echo site_url('secure/logout');?>" class="logout">
-                                             <i class="fa fa-power-off"></i>
+                                   <?php if($this->Customer_model->is_logged_in(false, false)):?>
+                                   <li class='dropdown'>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo lang('account');?> <b class="caret"></b></a>
+                                        <ul  class="dropdown-menu">
+                                             <li class=' '>
+                                                  <a href='<?php echo  site_url('secure/my_account');?>' data-original-title=' my_Account'>
+                                                       
+                                                       <span class='hidden-minibar'><?php echo lang('my_account')?></span>
+                                                  </a>
+                                             </li>
+                                             <li class=' '>
+                                                  <a href='<?php echo  site_url('secure/my_downloads');?>' data-original-title='my_downloads'>
+                                                       
+                                                       <span class='hidden-minibar'><?php echo lang('my_downloads')?></span>
+                                                  </a>
+                                             </li>
+                                             <li>
+                                        <a href="<?php echo site_url('secure/logout');?>">
+                                             Logout
                                         </a>
                                    </li>
+                                        </ul>
+                                   </li>
+                                        <?php endif; ?>
+                                   <?php if(!($this->Customer_model->is_logged_in(false, false))):?>
+                                   <li>
+                                        
+                                        <a href="<?php echo site_url('secure/login_customer');?>" ><?php echo lang('login');?> </a>
+                                   </li>
+                                             
+                                        <?php endif; ?>
+                                   
                               </ul>
                          </div>
                          <!-- /.navbar-collapse -->            
