@@ -1,18 +1,23 @@
-<div class="page-header">
-	<h2><?php echo lang('form_checkout');?></h2>
-</div>
 
-<?php if (validation_errors()):?>
-	<div class="alert alert-error">
-		<a class="close" data-dismiss="alert">×</a>
-		<?php echo validation_errors();?>
-	</div>
-<?php endif;?>
-
-<?php include('order_details.php');?>
+<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title ">
+					<?php echo lang('form_checkout') ?>
+					<span class="panel-options">
+						<a href="#" class="panel-minimize">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a href="#" class="panel-close">
+							<i class="fa fa-times"></i>
+						</a>
+					</span>
+				</h3>
+			</div>
+			<div class="panel-body">
+				<?php include('order_details.php');?>
 
 	<div class="row">
-		<div class="span12">
+		<div class="col-md-12">
 			<h2><?php echo lang('payment_method');?></h2>
 			<div class="tabbable tabs-left">
 				<ul class="nav nav-tabs">
@@ -35,7 +40,9 @@
 							<?php echo form_open('checkout/step_3', 'id="form-'.$method.'"');?>
 								<input type="hidden" name="module" value="<?php echo $method;?>" />
 								<?php echo $info['form'];?>
-								<input class="btn btn-block btn-large btn-primary" type="submit" value="<?php echo lang('form_continue');?>"/>
+								
+									<input class="btn btn-large btn-success" type="submit" value="<?php echo lang('form_continue');?>"/>
+								
 							</form>
 						</div>
 					<?php endforeach;?>
@@ -43,3 +50,8 @@
 			</div>
 		</div>
 	</div>
+				
+			</div>
+
+			<!-- /panel body -->
+		</div>

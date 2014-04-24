@@ -116,21 +116,21 @@ payment_method.moneris = function()
 
 
 	<div class="form_wrap">
-		<div>
+		<div class="col-sm-6">
 			<?php echo lang('address_firstname') ?><b class="r"> *</b><br/>
-			<input name="first_name" type="text" class="pmt_required textfield input" value="<?php echo @$cc_data["first_name"] ?>" size="30" />
+			<input name="first_name" type="text" class="pmt_required textfield input form-control" value="<?php echo @$cc_data["first_name"] ?>" size="30" />
 		</div>
-		<div>
+		<div class="col-sm-6">
 			<?php echo lang('address_lastname') ?><b class="r"> *</b><br/>
-			<input name="last_name" type="text" class="pmt_required textfield input" value="<?php echo @$cc_data["last_name"] ?>" size="30" />
+			<input name="last_name" type="text" class="pmt_required textfield input form-control" value="<?php echo @$cc_data["last_name"] ?>" size="30" />
 		</div>
 	</div>
 	<div class="form_wrap">
-		<div>
+		<div class="col-sm-6">
 			<?php echo lang('card_number') ?><b class="r"> *</b><br/>
-			<input id="card_num" name="card_num" type="text" class="pmt_required textfield input" value="<?php echo @$cc_data["card_num"] ?>" size="30">
+			<input id="card_num" name="card_num" type="text" class="pmt_required textfield input form-control" value="<?php echo @$cc_data["card_num"] ?>" size="30">
 		</div>
-		<div>
+		<div class="col-sm-3">
 			<?php echo lang('expires_on') ?><b class="r"> *</b><br/>
 			<?php
 			
@@ -143,12 +143,14 @@ payment_method.moneris = function()
 				$years[$y] = $y;
 				$y++;
 			}
-			echo form_dropdown('exp_date_mm', $months, @$cc_data["exp_date_mm"], 'class="input span1"').'/'.form_dropdown('exp_date_yy', $years, @$cc_data["exp_date_yy"], 'class="input span1"');			
+			echo form_dropdown('exp_date_mm', $months, @$cc_data["exp_date_mm"], 'class="input col-md-1 form-control"').'/'.form_dropdown('exp_date_yy', $years, @$cc_data["exp_date_yy"], 'class="input col-md-1 form-control"');			
 			?>
 		</div>
-		<div>
-			<?php echo lang('cvv_code') ?><b class="r"> *</b><br/>
-			<input style="width:30px;"name="card_code" type="text" class="pmt_required textfield input" id="card_code" maxlength="4" value="<?php echo @$cc_data["card_code"] ?>" />
-		</div>
+		
 	</div>
-	<br style="clear:both;">
+	
+	<div class="col-sm-3">
+		<?php echo lang('cvv_code') ?><b class="r"> *</b><br/>
+		<input name="card_code" type="text" class="pmt_required textfield input form-control" id="card_code" maxlength="4" value="<?php echo @$cc_data["card_code"] ?>" />
+	</div>
+		<br style="clear:both;">

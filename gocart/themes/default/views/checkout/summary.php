@@ -1,11 +1,12 @@
-	<table class="table table-striped table-bordered">
+<div class="table-responsive">
+		<table class="table table-striped table-bordered">
 		<thead>
 			<tr>
 				<th style="width:10%;"><?php echo lang('sku');?></th>
 				<th style="width:20%;"><?php echo lang('name');?></th>
 				<th style="width:10%;"><?php echo lang('price');?></th>
 				<th><?php echo lang('description');?></th>
-				<th style="width:10%;"><?php echo lang('quantity');?></th>
+				<th style="width:12%;"><?php echo lang('quantity');?></th>
 				<th style="width:8%;"><?php echo lang('totals');?></th>
 			</tr>
 		</thead>
@@ -136,17 +137,19 @@
 					<td style="white-space:nowrap">
 						<?php if($this->uri->segment(1) == 'cart'): ?>
 							<?php if(!(bool)$product['fixed_quantity']):?>
-								<div class="control-group">
-									<div class="controls">
-										<div class="input-append">
-											<input class="span1" style="margin:0px;" name="cartkey[<?php echo $cartkey;?>]"  value="<?php echo $product['quantity'] ?>" size="3" type="text"><button class="btn btn-danger" type="button" onclick="if(confirm('<?php echo lang('remove_item');?>')){window.location='<?php echo site_url('cart/remove_item/'.$cartkey);?>';}"><i class="icon-remove icon-white"></i></button>
+								<div class="form-group">
+									<div class="col-sm-10">
+										<div class="col-sm-8">
+											<input class="form-control vcart"  name="cartkey[<?php echo $cartkey;?>]"  value="<?php echo $product['quantity'] ?>" size="3" type="text">
 										</div>
+											<button class="btn btn-danger" type="button" onclick="if(confirm('<?php echo lang('remove_item');?>')){window.location='<?php echo site_url('cart/remove_item/'.$cartkey);?>';}"><i class="fa fa-trash-o"></i></button>
+										
 									</div>
 								</div>
 							<?php else:?>
 								<?php echo $product['quantity'] ?>
 								<input type="hidden" name="cartkey[<?php echo $cartkey;?>]" value="1"/>
-								<button class="btn btn-danger" type="button" onclick="if(confirm('<?php echo lang('remove_item');?>')){window.location='<?php echo site_url('cart/remove_item/'.$cartkey);?>';}"><i class="icon-remove icon-white"></i></button>
+								<button class="btn btn-danger" type="button" onclick="if(confirm('<?php echo lang('remove_item');?>')){window.location='<?php echo site_url('cart/remove_item/'.$cartkey);?>';}"><i class="fa fa-trash-o"></i></button>
 							<?php endif;?>
 						<?php else: ?>
 							<?php echo $product['quantity'] ?>
@@ -157,3 +160,4 @@
 			<?php endforeach;?>
 		</tbody>
 	</table>
+</div>

@@ -35,101 +35,49 @@
 						    </div>
 						  </div>
 						  <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						    <label for="account_firstname" class="col-sm-2 control-label"><?php echo lang('account_firstname');?></label>
 						    <div class="col-sm-10">
-						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+						      <?php echo form_input($first);?>
 						    </div>
 						  </div>
 						  <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						    <label for="account_lastname" class="col-sm-2 control-label"><?php echo lang('account_lastname');?></label>
 						    <div class="col-sm-10">
-						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+						      <?php echo form_input($last);?>
 						    </div>
 						  </div>
 						  <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						    <label for="account_email" class="col-sm-2 control-label"><?php echo lang('account_email');?></label>
 						    <div class="col-sm-10">
-						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+						      <?php echo form_input($email);?>
 						    </div>
 						  </div>
 						  <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						    <label for="account_phone" class="col-sm-2 control-label"><?php echo lang('account_phone');?></label>
 						    <div class="col-sm-10">
-						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+						      <?php echo form_input($phone);?>
 						    </div>
 						  </div>
 						  <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						    <label for="inputEmail3" class="col-sm-2 control-label"ss="col-sm-2 control-label"></label>
 						    <div class="col-sm-10">
-						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-						    <div class="col-sm-10">
-						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-						    </div>
-						  </div>
-						  <div class="form-group">
-						    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-						    <div class="col-sm-10">
-						      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-						    </div>
-						  </div>
-
-						<fieldset>
-							<div class="row">
-								<div class="span6">
-									
-									
-								</div>
-							</div>
-							<div class="row">	
-								<div class="span3">
-									<label for="account_firstname"><?php echo lang('account_firstname');?></label>
-									<?php echo form_input($first);?>
-								</div>
-
-								<div class="span3">
-									<label for="account_lastname"><?php echo lang('account_lastname');?></label>
-									<?php echo form_input($last);?>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="span3">
-									<label for="account_email"><?php echo lang('account_email');?></label>
-									<?php echo form_input($email);?>
-								</div>
-
-								<div class="span3">
-									<label for="account_phone"><?php echo lang('account_phone');?></label>
-									<?php echo form_input($phone);?>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="span7">
-									<label class="checkbox">
-										<input type="checkbox" name="email_subscribe" value="1" <?php echo set_radio('email_subscribe', '1', TRUE); ?>/> <?php echo lang('account_newsletter_subscribe');?>
+						      <label class="checkbox">
+			 							<input type="checkbox" name="email_subscribe" value="1" <?php echo set_radio('email_subscribe', '1', TRUE); ?>/> <?php echo lang('account_newsletter_subscribe');?>
 									</label>
-								</div>
-							</div>
-
-							<div class="row">	
-								<div class="span3">
-									<label for="account_password"><?php echo lang('account_password');?></label>
-									<input type="password" name="password" value="" class="form-control" autocomplete="off" />
-								</div>
-
-								<div class="span3">
-									<label for="account_confirm"><?php echo lang('account_confirm');?></label>
-									<input type="password" name="confirm" value="" class="form-control" autocomplete="off" />
-								</div>
-							</div>
-
-							
-						</fieldset>
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="account_password" class="col-sm-2 control-label"><?php echo lang('account_password');?></label>
+						    <div class="col-sm-10">
+						      <input type="password" name="password" value="" class="form-control" autocomplete="off" />
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="account_confirm" class="col-sm-2 control-label"><?php echo lang('account_confirm');?></label>
+						    <div class="col-sm-10">
+						      <input type="password" name="confirm" value="" class="form-control" autocomplete="off" />
+						    </div>
+						  </div>
 						  <div class="form-group">
 						    <div class="col-sm-offset-2 col-sm-10">
 						      <input type="submit" value="<?php echo lang('form_register');?>" class="btn btn-primary" />
@@ -137,8 +85,8 @@
 						  </div>
 					</form>
 
-					<div style="text-align:center;">
-						<a href="<?php echo site_url('secure/login'); ?>"><?php echo lang('go_to_login');?></a>
+					<div style="text-align:center;" class="gologin">
+						<a href="<?php echo site_url('secure/login'); ?>"><span class="label label-info"><?php echo lang('go_to_login');?></span></a>
 					</div>
 				</div>
 			</div>

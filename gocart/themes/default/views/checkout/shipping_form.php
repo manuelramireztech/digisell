@@ -1,19 +1,27 @@
-<div class="page-header">
-	<h2><?php echo lang('form_checkout');?></h2>
-</div>
+<div class="row">
+	<div class="col-md-12">
+		
 
-<?php if (validation_errors()):?>
-	<div class="alert alert-error">
-		<a class="close" data-dismiss="alert">×</a>
-		<?php echo validation_errors();?>
-	</div>
-<?php endif;?>
 
-<?php include('order_details.php');?>
-
-<?php echo form_open('checkout/step_2');?>
+<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title ">
+					<?php echo lang('form_checkout') ?>
+					<span class="panel-options">
+						<a href="#" class="panel-minimize">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a href="#" class="panel-close">
+							<i class="fa fa-times"></i>
+						</a>
+					</span>
+				</h3>
+			</div>
+			<div class="panel-body">
+			<?php include('order_details.php');?>
+				<?php echo form_open('checkout/step_2');?>
 	<div class="row">
-		<div class="span6">
+		<div class="col-md-6">
 				<h2><?php echo lang('shipping_method');?></h2>
 				<div class="alert alert-error" id="shipping_error_box" style="display:none"></div>
 				<table class="table">
@@ -40,13 +48,22 @@
 					<?php endforeach;?>
 				</table>
 		</div>
-		<div class="span6">
+		<div class="col-md-6">
 			<h2><?php echo lang('shipping_instructions')?></h2>
-			<?php echo form_textarea(array('name'=>'shipping_notes', 'value'=>set_value('shipping_notes', $this->go_cart->get_additional_detail('shipping_notes')), 'class'=>'span6', 'style'=>'height:75px;'));?>
+			<?php echo form_textarea(array('name'=>'shipping_notes', 'value'=>set_value('shipping_notes', $this->go_cart->get_additional_detail('shipping_notes')), 'class'=>'col-md-6 form-control', 'style'=>'height:75px;'));?>
 		</div>
 	</div>
-	<input class="btn btn-block btn-large btn-primary" type="submit" value="<?php echo lang('form_continue');?>"/>
+	<div class="col-sm-3">
+		<input class="btn btn-block btn-primary" type="submit" value="<?php echo lang('form_continue');?>"/>	
+	</div>
+	
 </form>
+				
+			</div>
+
+			<!-- /panel body -->
+		</div>
+
 <script>
 	function toggle_shipping(key)
 	{
@@ -57,3 +74,5 @@
 		}
 	}
 </script>
+	</div>
+</div>
