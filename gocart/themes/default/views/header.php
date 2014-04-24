@@ -70,8 +70,8 @@
                                         }
                                         ?>
                                    </li>   
-                                   <li class='dropdown'>
                                    <?php if($this->Customer_model->is_logged_in(false, false)):?>
+                                   <li class='dropdown'>
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo lang('account');?> <b class="caret"></b></a>
                                         <ul  class="dropdown-menu">
                                              <li class=' '>
@@ -87,15 +87,15 @@
                                                   </a>
                                              </li>
                                         </ul>
-                                        <?php endif; ?>
                                    </li>
-                                   <li class='dropdown'>
+                                        <?php endif; ?>
                                    <?php if(!($this->Customer_model->is_logged_in(false, false))):?>
+                                   <li>
                                         
-                                        <a href="<?php echo site_url('secure/login_customer');?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo lang('login');?> </a>
+                                        <a href="<?php echo site_url('secure/login_customer');?>" ><?php echo lang('login');?> </a>
+                                   </li>
                                              
                                         <?php endif; ?>
-                                   </li>
                                    
                                               
                               </ul>
