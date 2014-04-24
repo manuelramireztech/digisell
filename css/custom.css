@@ -1,1 +1,29 @@
-        
+.drp
+{
+  margin-left: 10px;
+}
+.inpgrp
+{
+  margin: 0px !important;
+}
+.sps
+{
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+.cart
+{
+  color: white;
+}
+.tab-pane .row
+{
+  margin-left: 25px;
+}
+.gologin a
+{
+  text-decoration: none;
+}
+.vcart
+{
+  width: 50px;
+}

@@ -99,7 +99,7 @@
     height: 100%;
     min-height: 100%;
     position: absolute;
-    left: -220px;
+    left: 0px;
   }
   .user-details {
     display: none;
@@ -301,7 +301,7 @@ a {
   font-family: 'Droid Sans', sans-serif;
   padding: 0px;
   line-height: 60px;
-  width: 220px;
+  width: 100px;
   text-align: center;
 }
 .navbar.nav-delighted.navbar-default .navbar-brand i {
@@ -310,6 +310,15 @@ a {
 .navbar.nav-delighted.navbar-default .navbar-brand img {
   height: 30px !important;
   margin-left: -17px;
+}
+.navbar.nav-delighted.navbar-default ul.nav > li > a {
+  line-height: 30px;
+  background: none;
+  color: white;
+  font-weight: 600;
+}
+.navbar.nav-delighted.navbar-default ul.nav .dropdown-menu .fa {
+  color: #333333;
 }
 .navbar.nav-delighted.navbar-default a.toggle-left-sidebar {
   color: white;
@@ -322,8 +331,8 @@ a {
 }
 .navbar.nav-delighted.navbar-default a.logout {
   font-size: 34px;
-  color: #23bab5;
-  background-color: #232b2d;
+  color: #23bab5 !important;
+  background-color: #232b2d !important;
   float: right;
   height: 60px;
   width: 60px;
@@ -370,7 +379,7 @@ a {
 .left-sidebar {
   position: absolute;
   background-color: #232b2d;
-  width: 220px;
+  width: 0px;
   z-index: 1001;
   height: 100%;
   color: #80969c;
@@ -570,7 +579,7 @@ a {
   z-index: 0;
   position: absolute;
   text-align: justify;
-  width: 270px;
+  width: 50px;
   height: 100%;
   color: #80969c;
   z-index: 1000;
@@ -584,7 +593,7 @@ a {
   box-shadow: 2px 0px 1px 0px #e2e2e2;
 }
 .site-holder.mini-sidebar .user-details.user-details-close {
-  margin-left: -220px;
+  margin-left: 0px;
   -webkit-transition: 2000ms ease;
   -moz-transition: 2000ms ease;
   -o-transition: 2000ms ease;
@@ -601,8 +610,7 @@ a {
 /*	Content
 ---------------------------------------------------------------------------------------------- */
 .content {
-  margin-left: 220px;
-  padding-left: 10px;
+  margin-left: 0px;
   -webkit-transition: 500ms ease;
   -moz-transition: 500ms ease;
   -o-transition: 500ms ease;
@@ -613,13 +621,14 @@ a {
   min-height: 600px;
 }
 .content.left-sidebar-open {
-  margin-left: 220px !important;
+  margin-left: 0px !important;
 }
 .content .row {
-  margin-right: 0px;
+  margin-right: -15px;
+  margin-left: -15px !important;
 }
 .content.user-details-open {
-  margin-left: 490px;
+  margin-left: 50px;
 }
 .content .breadcrumb-holder {
   height: 60px;
@@ -733,12 +742,12 @@ a {
 /*	User Details
 ---------------------------------------------------------------------------------------------- */
 .user-details {
-  margin-left: 220px;
+  margin-left: 0px;
   background-color: #f5f5f5;
   z-index: 0;
   position: absolute;
   text-align: justify;
-  width: 270px;
+  width: 50px;
   height: 100%;
   color: #80969c;
   z-index: 1000;
@@ -875,7 +884,7 @@ a {
   font-family: 'Droid Sans', sans-serif;
   padding: 0px;
   line-height: 60px;
-  width: 220px;
+  width: 0px;
   text-align: center;
 }
 #jprePercentage {
@@ -3325,7 +3334,6 @@ ANIMATIONS
 }
 .login-page .header-section img {
   height: 30px;
-  float: left;
 }
 .login-page .header-section .menu {
   float: right;
@@ -4250,38 +4258,4 @@ ANIMATIONS
 }
 .delighted-time-date-pickers {
   margin-bottom: 10px;
-}
-.navbar-category
-{
-  margin-top: 40px !important;
-  margin-right: 200px !important;
-}
-.drp
-{
-  margin-left: 10px;
-}
-.inpgrp
-{
-  margin: 0px !important;
-}
-.sps
-{
-  margin-right: 0px !important;
-  margin-left: 0px !important;
-}
-.cart
-{
-  color: white;
-}
-.tab-pane .row
-{
-  margin-left: 25px;
-}
-.gologin a
-{
-  text-decoration: none;
-}
-.vcart
-{
-  width: 50px;
 }

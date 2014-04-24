@@ -263,9 +263,9 @@ $config['encryption_key'] = '<?php echo md5(time());?>';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'GoCart';
+$config['sess_cookie_name']		= 'Digisell';
 $config['sess_expiration']		= 0;
-$config['sess_expire_on_close']	= FALSE;
+$config['sess_expire_on_close']	= TRUE;
 $config['sess_encrypt_cookie']	= TRUE;
 $config['sess_use_database']	= TRUE;
 $config['sess_table_name']		= 'sessions';

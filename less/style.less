@@ -278,7 +278,7 @@ body
 			font-family: @second-font;
 			padding: 0px;
 			line-height: 60px;
-			width: @leftSidebarWidth;
+			width: 100px; //@leftSidebarWidth;
 
 			text-align: center;
 			i
@@ -291,6 +291,20 @@ body
 				margin-left: -17px;
 			}
 		}
+		ul.nav > li > a 
+	    {
+		   line-height: 30px;
+		   background: none;
+		   color: white;
+		   font-weight: 600;
+	    }   
+	    ul.nav .dropdown-menu
+	    {
+	    	.fa
+	    	{
+	    		color: #333333;
+	    	}
+	    }    
 		a.toggle-left-sidebar
 		{
 			color: white;
@@ -305,8 +319,8 @@ body
 		a.logout
 		{
 			font-size: 34px;
-			color: @primary;
-			background-color: @leftSidebarBackground;
+			color: @primary !important;
+			background-color: @leftSidebarBackground !important;
 			float: right;
 			height: 60px;
 			width: 60px;
@@ -657,7 +671,6 @@ body
 .content
 {
 	margin-left: @leftSidebarWidth;
-	padding-left: 10px;
 	.transition(500ms ease);
 	.main-content{
 		padding-top: 15px;
@@ -669,7 +682,8 @@ body
 	}
 	.row
 	{
-		margin-right: 0px;
+		margin-right: -15px;
+		margin-left: -15px !important;
 	}	
 	&.user-details-open
 	{
