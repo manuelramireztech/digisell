@@ -119,7 +119,8 @@
                                                             {
                                                                  if($this->go_cart->total_items() > 1)
                                                                  {
-                                                                      echo sprintf (lang('multiple_items'), $this->go_cart->total_items());
+                                                                      //echo sprintf (lang('multiple_items'), $this->go_cart->total_items());
+                                                                      echo 'cart <span class="badge">'.$this->go_cart->total_items().'</span>';
                                                                  }
                                                                  else
                                                                  {
