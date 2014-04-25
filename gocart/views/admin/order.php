@@ -3,7 +3,7 @@
         <div class="panel">
             <div class="panel-heading">
                 <h3 class="panel-title ">
-                    <?php echo lang('recent_orders') ?>
+                    <?php echo lang('order_details') ?>
                     <span class="panel-options">
                         <a href="#" class="panel-minimize">
                             <i class="fa fa-chevron-up"></i>
@@ -25,11 +25,11 @@
 
 
                 <div id="notification_form" class="row" style="display:none;">
-                    <div class="span12">
+                    <div class="col-md-12">
                         <?php echo form_open($this->config->item('admin_folder').'/orders/send_notification/'.$order->id);?>
                         <fieldset>
                             <label><?php echo lang('message_templates');?></label>
-                            <select id="canned_messages" onchange="set_canned_message(this.value)" class="span12">
+                            <select id="canned_messages" onchange="set_canned_message(this.value)" class="col-md-12">
                                 <option><?php echo lang('select_canned_message');?></option>
                                 <?php foreach($msg_templates as $msg)
                                 {
@@ -39,7 +39,7 @@
                             </select>
 
                             <label><?php echo lang('recipient');?></label>
-                            <select name="recipient" onchange="update_name()" id="recipient_name" class='span12'>
+                            <select name="recipient" onchange="update_name()" id="recipient_name" class='col-md-12'>
                                 <?php 
                                 if(!empty($order->email))
                                 {
@@ -57,7 +57,7 @@
                             </select>
 
                             <label><?php echo lang('subject');?></label>
-                            <input type="text" name="subject" size="40" id="msg_subject" class="span12"/>
+                            <input type="text" name="subject" size="40" id="msg_subject" class="col-md-12"/>
 
                             <label><?php echo lang('message');?></label>
                             <textarea id="content_editor" name="content"></textarea>

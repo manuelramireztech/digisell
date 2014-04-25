@@ -24,6 +24,8 @@
               
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/css/redactor.css"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/css/jquery-ui.css"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/css/file-browser.css"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/redactor.min.js"></script>
 
 
