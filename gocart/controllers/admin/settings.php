@@ -83,7 +83,7 @@ class Settings extends Admin_Controller {
             $data['zones_menu'] = $this->Location_model->get_zones_menu(array_shift(array_keys($data['countries_menu'])));
         }
 
-        $data['page_title'] = lang('common_gocart_configuration');
+        $data['page_title'] = lang('common_digisell_configuration');
 
         if ($this->form_validation->run() == FALSE)
         {

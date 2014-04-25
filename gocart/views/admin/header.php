@@ -526,7 +526,7 @@
 <div class="content  animated fadeInBig">
     <div class=" breadcrumb-holder">
         <ul class="breadcrumb">
-            <li class="active">DashBoard</li>
+            <li class="active"><?php echo (isset($page_title))? $page_title:''; ?></li>
             <li>
                 <a href="#">Dashboard</a>
             </li>
