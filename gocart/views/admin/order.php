@@ -26,17 +26,21 @@
 
                 <div id="notification_form" class="row" style="display:none;">
                     <div class="col-md-12">
-                        <?php echo form_open($this->config->item('admin_folder').'/orders/send_notification/'.$order->id);?>
-                        <fieldset>
-                            <label><?php echo lang('message_templates');?></label>
-                            <select id="canned_messages" onchange="set_canned_message(this.value)" class="col-md-12">
-                                <option><?php echo lang('select_canned_message');?></option>
-                                <?php foreach($msg_templates as $msg)
-                                {
-                                    echo '<option value="'.$msg['id'].'">'.$msg['name'].'</option>';
-                                }
-                                ?>
-                            </select>
+                        <?php echo form_open($this->config->item('admin_folder').'/orders/send_notification/'.$order->id, 'class="form-horizontal"');?>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><?php echo lang('message_templates');?></label>
+                                <div class="col-sm-4">
+                                    <select id="canned_messages" onchange="set_canned_message(this.value)" class="form-control">
+                                        <option><?php echo lang('select_canned_message');?></option>
+                                        <?php foreach($msg_templates as $msg)
+                                        {
+                                            echo '<option value="'.$msg['id'].'">'.$msg['name'].'</option>';
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            
 
                             <label><?php echo lang('recipient');?></label>
                             <select name="recipient" onchange="update_name()" id="recipient_name" class='col-md-12'>
@@ -65,13 +69,13 @@
                             <div class="form-actions">
                                 <input type="submit" class="btn btn-primary" value="<?php echo lang('send_message');?>" />
                             </div>
-                        </fieldset>
+                        
                     </form>
                 </div>
             </div>
 
             <div class="row">
-                <div class="span4">
+                <div class="col-md-4">
                     <h3><?php echo lang('account_info');?></h3>
                     <p>
                         <?php echo (!empty($order->company))?$order->company.'<br>':'';?>
@@ -80,7 +84,7 @@
                         <?php echo $order->phone;?>
                     </p>
                 </div>
-                <div class="span4">
+                <div class="col-md-4">
                     <h3><?php echo lang('billing_address');?></h3>
                     <?php echo (!empty($order->bill_company))?$order->bill_company.'<br/>':'';?>
                     <?php echo $order->bill_firstname.' '.$order->bill_lastname;?> <br/>
@@ -92,7 +96,7 @@
                     <?php echo $order->bill_email;?><br/>
                     <?php echo $order->bill_phone;?>
                 </div>
-                <div class="span4">
+                <div class="col-md-4">
                     <h3><?php echo lang('shipping_address');?></h3>
                     <?php echo (!empty($order->ship_company))?$order->ship_company.'<br/>':'';?>
                     <?php echo $order->ship_firstname.' '.$order->ship_lastname;?> <br/>
@@ -106,8 +110,8 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-top:20px;">
-                <div class="span4">
+            <div class="row" >
+                <div class="col-md-4">
                     <h3><?php echo lang('order_details');?></h3>
                     <p>
                         <?php if(!empty($order->referral)):?>
@@ -123,11 +127,11 @@
                         <?php endif;?>
                     </p>
                 </div>
-                <div class="span4">
+                <div class="col-md-4">
                     <h3><?php echo lang('payment_method');?></h3>
                     <p><?php echo $order->payment_info; ?></p>
                 </div>
-                <div class="span4">
+                <div class="col-md-4">
                     <h3><?php echo lang('shipping_details');?></h3>
                     <?php echo $order->shipping_method; ?>
                     <?php if(!empty($order->shipping_notes)):?><div style="margin-top:10px;"><?php echo $order->shipping_notes;?></div><?php endif;?>
@@ -143,10 +147,10 @@
                     </div>
 
 
-                    <div class="span4">
+                    <div class="col-md-4">
                         <h3><?php echo lang('status');?></h3>
                         <?php
-                        echo form_dropdown('status', $this->config->item('order_statuses'), $order->status, 'class="span4"');
+                        echo form_dropdown('status', $this->config->item('order_statuses'), $order->status, 'class="col-md-4"');
                         ?>
 
                     </div>
