@@ -24,6 +24,8 @@
               
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/css/redactor.css"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/css/jquery-ui.css"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/css/file-browser.css"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/redactor.min.js"></script>
 
 
@@ -620,14 +622,18 @@
             </div>
 
 
-            <?php if (!empty($message)): ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <?php if (!empty($message)): ?>
             
             <div class="alert alert-success alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <strong>Warning!</strong> <?php echo $message; ?>
+              <strong>Success!</strong> <?php echo $message; ?>
             </div>
 
             <?php endif; ?>
+                </div>
+            </div>
 
             <?php if (!empty($error)): ?>
                 <div class="alert alert-warning alert-dismissable">

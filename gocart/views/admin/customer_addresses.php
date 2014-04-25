@@ -15,8 +15,12 @@
 				</h3>
 			</div>
 			<div class="panel-body">
+				<div class="text-right">
+					<a class="btn btn-info" style="float:right;"href="<?php echo site_url($this->config->item('admin_folder').'/customers/address_form/'.$customer->id);?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_address');?></a>
+					
+				</div>
 				<div class="table-responsive">
-					<table class="table">
+					<table class="table table-stripped">
 						<thead>
 							<tr>
 								<th><?php echo lang('name');?></th>
@@ -57,7 +61,7 @@
 								<td>
 									<div class="btn-group" style="float:right">
 										
-										<a class="btn" href="<?php echo site_url($this->config->item('admin_folder').'/customers/address_form/'.$customer->id.'/'.$address['id']);?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
+										<a class="btn btn-warning" href="<?php echo site_url($this->config->item('admin_folder').'/customers/address_form/'.$customer->id.'/'.$address['id']);?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
 										
 										<a class="btn btn-danger" href="<?php echo site_url($this->config->item('admin_folder').'/customers/delete_address/'.$customer->id.'/'.$address['id']);?>" onclick="return areyousure();"><i class="icon-trash icon-white"></i> <?php echo lang('delete');?></a>
 									</div>
@@ -67,10 +71,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="text-right">
-				<a class="btn btn-info" style="float:right;"href="<?php echo site_url($this->config->item('admin_folder').'/customers/address_form/'.$customer->id);?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_address');?></a>
-				
-			</div>
+			
 			
 		</div>
 

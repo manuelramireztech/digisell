@@ -1,5 +1,3 @@
-
-
 <div class="row">
 	<div class="col-md-12">
 		<?php
@@ -106,7 +104,7 @@
 	</div>
 	<div class="panel-body">
 		<div class="table-responsive">
-			<table class="table table-striped">
+			<table class="table table-striped table-condensed">
 				<thead>
 					<tr>
 						<th>
@@ -132,13 +130,19 @@
 							<td style="white-space:nowrap"><?php echo $order->bill_lastname.', '.$order->bill_firstname; ?></td>
 							<td style="white-space:nowrap"><?php echo $order->ship_lastname.', '.$order->ship_firstname; ?></td>
 							<td style="white-space:nowrap"><?php echo date('m/d/y h:i a', strtotime($order->ordered_on)); ?></td>
-							<td style="span2">
-								<?php echo form_dropdown('status', $this->config->item('order_statuses'), $order->status, 'id="status_form_'.$order->id.'" class="span2" style="float:left;"'); ?>
-								<button type="button" class="btn" onClick="save_status(<?php echo $order->id; ?>)" style="float:left;margin-left:4px;"><?php echo lang('save');?></button>
+							<td width="250px">
+								  	<div class="input-group">
+							
+										<?php echo form_dropdown('status', $this->config->item('order_statuses'), $order->status, 'id="status_form_'.$order->id.'" class="form-control" '); ?>
+								      	      <span class="input-group-btn">
+										<button type="button" class="btn btn-success" onClick="save_status(<?php echo $order->id; ?>)" style="float:left;margin-left:4px;"><?php echo lang('save');?></button>
+								      </span>
+								    </div><!-- /input-group -->
+								  
 							</td>
 							<td><div class="MainTableNotes"><?php echo format_currency($order->total); ?></div></td>
 							<td>
-								<a class="btn btn-small" style="float:right;"href="<?php echo site_url($this->config->item('admin_folder').'/orders/order/'.$order->id);?>"><i class="fa fa-search"></i> <?php echo lang('form_view')?></a>
+								<a class="btn btn-small" style="float:right;"href="<?php echo site_url($this->config->item('admin_folder').'/orders/order/'.$order->id);?>"><i class="fa fa-eye"></i> <?php echo lang('form_view')?></a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

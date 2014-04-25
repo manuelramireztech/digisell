@@ -5668,7 +5668,7 @@ ANIMATIONS
 	padding-right: 25px !important;
 	border: 1px solid #cccccc;
     box-shadow: none;
-    background-color: transparent;
+    background-color: transparent !important;
     background-image: none;
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -5678,11 +5678,22 @@ ANIMATIONS
 }
 
 .form-group select:focus {
-    outline: none;
-	border: 1px solid #cccccc;
+    outline: none !important;
+	border: 1px solid #cccccc !important;
 }
 
 .form-group select:hover {
     
-	border: 1px solid #cccccc;
+	border: 1px solid #cccccc !important;
+}
+.input-group
+{
+	select
+	{
+		margin-right: 0px !important;
+	}
+	span
+	{
+		margin-left: 0px !important;
+	}
 }

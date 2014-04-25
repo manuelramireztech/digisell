@@ -29,7 +29,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label"><?php echo lang('theme');?></label>
                     <div class="col-sm-4">
-                       <?php echo form_dropdown('theme', $themes, set_value('theme', $theme), 'class="input-sm col-sm-6 drp"');?>
+                       <?php echo form_dropdown('theme', $themes, set_value('theme', $theme), 'class="form-control col-sm-6 drp"');?>
                    </div>
                </div>
                <div class="form-group">
@@ -64,13 +64,13 @@
 <div class="form-group">
    <label class="col-sm-2 control-label"><?php echo lang('country');?></label>
    <div class="col-sm-4">
-      <?php echo form_dropdown('country_id', $countries_menu, set_value('country_id', $country_id), 'id="country_id" class="input-sm drp"');?>
+      <?php echo form_dropdown('country_id', $countries_menu, set_value('country_id', $country_id), 'id="country_id" class="form-control drp"');?>
   </div>
 </div>
 <div class="form-group">
    <label class="col-sm-2 control-label"><?php echo lang('state');?></label>
    <div class="col-sm-4">
-      <?php echo form_dropdown('zone_id', $zones_menu, set_value('zone_id', $zone_id), 'id="zone_id" class="input-sm drp"');?>
+      <?php echo form_dropdown('zone_id', $zones_menu, set_value('zone_id', $zone_id), 'id="zone_id" class="form-control drp"');?>
   </div>
 </div>
 <div class="form-group">
@@ -86,13 +86,13 @@
 <div class="form-group">
    <label class="col-sm-2 control-label"><?php echo lang('locale');?></label>
    <div class="col-sm-4">
-      <?php echo form_dropdown('locale', $locales, set_value('locale', $locale), 'class="input-sm drp"');?>
+      <?php echo form_dropdown('locale', $locales, set_value('locale', $locale), 'class="form-control drp"');?>
   </div>
 </div>
 <div class="form-group">
    <label class="col-sm-2 control-label"><?php echo lang('currency');?></label>
    <div class="col-sm-4">
-      <?php echo form_dropdown('currency_iso', $iso_4217, set_value('currency_iso', $currency_iso), 'class="input-sm drp"');?>
+      <?php echo form_dropdown('currency_iso', $iso_4217, set_value('currency_iso', $currency_iso), 'class="form-control drp"');?>
   </div>
 </div>
 
@@ -152,7 +152,7 @@
                     <th><?php echo lang('order_statuses');?></th>
                     <th style="text-align:right;">
                         
-                            <input type="text" value="" class="input-sm" id="new_order_status_field" style="margin:0px;" placeholder="<?php echo lang('status_name');?>"/>
+                            <input type="text" value="" class="form-control" id="new_order_status_field" style="margin:0px;" placeholder="<?php echo lang('status_name');?>"/>
                         
                         
                         <button type="button" class="btn" onclick="add_status()"><i class="fa fa-plus"></i></button>
@@ -198,8 +198,8 @@
     <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('tax_address');?></label>
     <div class="col-sm-10">
-      <?php $address_options = array('ship'=>lang('shipping_address'), 'bill'=>lang('billing_address'), 'class="input-sm"');?>
-      <?php echo form_dropdown('tax_address', $address_options, set_value('tax_address',$tax_address), 'class="input-sm"');?>
+      <?php $address_options = array('ship'=>lang('shipping_address'), 'bill'=>lang('billing_address'));?>
+      <?php echo form_dropdown('tax_address', $address_options, set_value('tax_address',$tax_address), 'class="form-control"');?>
     </div>
   </div>
     <div class="form-group">
@@ -228,7 +228,7 @@
         var os_submission = JSON.stringify(order_statuses);
         $('#order_statuses_json').val(os_submission);
 
-        var row = '<tr><td><input type="radio" value="'+htmlEntities(status)+'" name="order_status"></td><td>'+htmlEntities(status)+'</td><td style="text-align:right;"><button type="button" onclick="if(confirm(\'<?php echo lang('confirm_delete_order_status');?>\')){delete_status($(this).parent().siblings().first().html()); $(this).parent().parent().remove();}" class="btn btn-danger"><i class="icon-remove icon-white"></i></button></td></tr>';
+        var row = '<tr><td><input type="radio" value="'+htmlEntities(status)+'" name="order_status"></td><td>'+htmlEntities(status)+'</td><td style="text-align:right;"><button type="button" onclick="if(confirm(\'<?php echo lang('confirm_delete_order_status');?>\')){delete_status($(this).parent().siblings().first().html()); $(this).parent().parent().remove();}" class="btn btn-danger"><i class="fa fa-trash-o"></i></button></td></tr>';
         $('#order_statuses').append(row);
 
         $('#new_order_status_field').val('')
