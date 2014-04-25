@@ -13,7 +13,7 @@
     <link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
     
 
-    <link href="<?php echo base_url(); ?>less/style.less" rel="stylesheet"  title="lessCss" id="lessCss">
+    
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,11 +22,11 @@
               <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
               <![endif]-->
               
-<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/css/redactor.css"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/css/jquery-ui.css"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/css/file-browser.css"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/js/redactor.min.js"></script>
+
+<link type="text/css" href="<?php echo base_url('assets/css/redactor.css');?>" rel="stylesheet" />
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/redactor.min.js');?>"></script>
 
 
           </head>
@@ -106,13 +106,13 @@
                                                     <span class='hidden-minibar'>Orders</span>
                                                 </a>
                                             </li>
-                                            <li class='<?php echo ($this->uri->segment(2)=="customers") ? "active" : "" ; ?>'>
+                                            <li class='<?php echo ($this->uri->segment(2)=="customers"&&$this->uri->segment(3)=="") ? "active" : "" ; ?>'>
                                                 <a href='<?php echo $admin_url;?>customers' data-original-title='Inbox'>
                                                     <i class='fa fa-user'></i>
                                                     <span class='hidden-minibar'>Customers</span>
                                                 </a>
                                             </li>
-                                            <li class='<?php echo ($this->uri->segment(2)=="customers/groups") ? "active" : "" ; ?>'>
+                                            <li class='<?php echo ($this->uri->segment(3)=="groups") ? "active" : "" ; ?>'>
                                                 <a href='<?php echo $admin_url;?>customers/groups' data-original-title='Profile'>
                                                     <i class='fa fa-group'></i>
                                                     <span class='hidden-minibar'>Groups</span>
@@ -198,7 +198,7 @@
                                         <ul  class="animated fadeInDown">
 
 
-                                           <li class='<?php echo ($this->uri->segment(2)=="settings") ? "active" : "" ; ?>'>
+                                           <li class='<?php echo ($this->uri->segment(2)=="settings"&&$this->uri->segment(3)=="") ? "active" : "" ; ?>'>
                                             <a href='<?php echo $admin_url;?>settings' data-original-title='Drop Zone'>
                                                 <i class="fa fa-wrench"></i>
                                                 <span class='hidden-minibar'>DigiSell Configuration</span>
@@ -217,7 +217,7 @@
                                             </a>
                                         </li>
 
-                                        <li class='<?php echo ($this->uri->segment(2)=="settings/canned_messages") ? "active" : "" ; ?>'>
+                                        <li class='<?php echo ($this->uri->segment(3)=="canned_messages") ? "active" : "" ; ?>'>
                                             <a href='<?php echo $admin_url;?>settings/canned_messages' data-original-title='Grid'>
                                              <i class="fa fa-filter"></i>
                                              <span class='hidden-minibar'>Canned Messages</span>

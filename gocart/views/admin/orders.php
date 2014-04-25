@@ -117,7 +117,7 @@
 						<th><?php echo sort_url('ordered_on','ordered_on', $sort_by, $sort_order, $code, $this->config->item('admin_folder')); ?></th>
 						<th><?php echo sort_url('status','status', $sort_by, $sort_order, $code, $this->config->item('admin_folder')); ?></th>
 						<th><?php echo sort_url('total','total', $sort_by, $sort_order, $code, $this->config->item('admin_folder')); ?></th>
-
+						<th></th>
 					</tr>
 				</thead>
 
@@ -140,7 +140,7 @@
 								    </div><!-- /input-group -->
 								  
 							</td>
-							<td><div class="MainTableNotes"><?php echo format_currency($order->total); ?></div></td>
+							<td><div class="MainTableNotes pull-right"><?php echo format_currency($order->total); ?></div></td>
 							<td>
 								<a class="btn btn-small" style="float:right;"href="<?php echo site_url($this->config->item('admin_folder').'/orders/order/'.$order->id);?>"><i class="fa fa-eye"></i> <?php echo lang('form_view')?></a>
 							</td>
