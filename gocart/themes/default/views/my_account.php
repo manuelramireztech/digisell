@@ -94,7 +94,7 @@
 					<div class="col-md-6">
 						<h2><span class="label label-info"><?php echo lang('address_manager');?></span></h2>
 						<div class="pull-right" style="margin-bottom:10px;">
-							<input type="button" class="btn btn-info" rel="0" value="<?php echo lang('add_address');?>"/>
+							<input type="button" class="btn btn-info edit_address" rel="0" value="<?php echo lang('add_address');?>"/>
 						</div>
 						<?php if(count($addresses) > 0):?>
 							<div class="table-responsive">

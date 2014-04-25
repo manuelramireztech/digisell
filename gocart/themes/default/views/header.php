@@ -10,7 +10,8 @@
 
 	<!-- Custom Styles -->
 	<link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
+     <link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
+	
 
 <?php echo theme_js('jquery.js', true);?>
 <?php echo theme_js('bootstrap.min.js', true);?>
