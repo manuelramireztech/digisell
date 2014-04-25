@@ -33,6 +33,7 @@
 						<?php echo form_input($f_company);?>
 					</div>
 				</div>
+				<input type="hidden" value="">
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('firstname');?></label>
 					<div class="col-sm-10">
@@ -58,9 +59,9 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('country');?></label>
-					<div class="col-sm-10">
-						<?php echo form_dropdown('country_id', $countries_menu, set_value('country_id', $country_id), 'id="f_country_id" class="input-sm"');?>
+					<label class="col-sm-2 control-label"><?php echo lang('country');?></label>
+					<div class="col-sm-3">
+						<?php echo form_dropdown('country_id', $countries_menu, set_value('country_id', $country_id), 'id="f_country_id" class="form-control drp"');?>
 					</div>
 				</div>
 				<div class="form-group">
@@ -83,8 +84,8 @@
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('state');?></label>
-					<div class="col-sm-10">
-						<?php echo form_dropdown('zone_id', $zones_menu, set_value('zone_id', $zone_id), 'id="f_zone_id" class="input-sm"');?>
+					<div class="col-sm-3">
+						<?php echo form_dropdown('zone_id', $zones_menu, set_value('zone_id', $zone_id), 'id="f_zone_id" class="form-control drp"');?>
 					</div>
 				</div>
 				<div class="form-group">

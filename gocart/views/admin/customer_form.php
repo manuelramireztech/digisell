@@ -1,4 +1,3 @@
-
 <div class="row">
 	<div class="col-md-12">
 		<?php echo form_open($this->config->item('admin_folder').'/customers/form/'.$id, 'class="form-horizontal"'); ?>
@@ -96,8 +95,8 @@
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('group');?></label>
-					<div class="col-sm-10">
-						<?php echo form_dropdown('group_id', $group_list, set_value('group_id',$group_id), 'class="input-sm"'); ?>
+					<div class="col-sm-1">
+						<?php echo form_dropdown('group_id', $group_list, set_value('group_id',$group_id), 'class="form-control drp"'); ?>
 					</div>
 				</div>
 				<div class="form-group">

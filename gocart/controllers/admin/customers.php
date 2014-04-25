@@ -409,7 +409,11 @@ class Customers extends Admin_Controller {
 		{
 			
 			$a['customer_id']				= $customer_id; // this is needed for new records
-			$a['id']						= (empty($id))?'':$id;
+			if(!empty($id))
+			{
+				$a['id']						= $id;	
+			}
+			
 			$a['field_data']['company']		= $this->input->post('company');
 			$a['field_data']['firstname']	= $this->input->post('firstname');
 			$a['field_data']['lastname']	= $this->input->post('lastname');
