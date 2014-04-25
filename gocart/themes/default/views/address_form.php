@@ -14,7 +14,7 @@ $f_zip		= array('id'=>'f_zip', 'maxlength'=>'10', 'class'=>'span12', 'name'=>'zi
 echo form_input($f_id);
 
 ?>
-<div class="modal" id="my-modal">
+
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal">×</button>
 		<h3><?php echo lang('address_form');?></h3>
@@ -83,9 +83,44 @@ echo form_input($f_id);
 		<a href="#" class="btn" data-dismiss="modal"><?php echo lang('close');?></a>
 		<a href="#" class="btn btn-primary" type="button" onclick="save_address(); return false;"><?php echo lang('form_submit');?></a>
 	</div>
-</div>
 
 <script>
+$(document).ready(function(){
+		$('.delete_address').click(function(){
+			if($('.delete_address').length > 1)
+			{
+				if(confirm('<?php echo lang('delete_address_confirmation');?>'))
+				{
+					$.post("<?php echo site_url('secure/delete_address');?>", { id: $(this).attr('rel') },
+						function(data){
+							$('#address_'+data).remove();
+							$('#address_list .my_account_address').removeClass('address_bg');
+							$('#address_list .my_account_address:even').addClass('address_bg');
+						});
+				}
+			}
+			else
+			{
+				alert('<?php echo lang('error_must_have_address');?>');
+			}	
+		});
+
+		$('.edit_address').click(function(){
+			$.post('<?php echo site_url('secure/address_form'); ?>/'+$(this).attr('rel'),
+				function(data){
+					$('#address-form-container').html(data).modal('show');
+				}
+				);
+		});
+	});
+
+
+	function set_default(address_id, type)
+	{
+		$.post('<?php echo site_url('secure/set_default_address') ?>/',{id:address_id, type:type});
+	}
+
+
 $(function(){
 	$('#f_country_id').change(function(){
 			$.post('<?php echo site_url('locations/get_zone_menu');?>',{id:$('#f_country_id').val()}, function(data) {

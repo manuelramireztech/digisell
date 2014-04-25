@@ -651,7 +651,7 @@ class Secure extends Front_Controller {
 			}
 			else
 			{
-				$this->partial('address_form', $data);
+				$this->view('address_form', $data);
 			}
 		}
 		else
