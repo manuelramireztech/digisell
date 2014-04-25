@@ -24,6 +24,9 @@ $('.close-right-user').click(function(){
     });
 
 
+//enabling active menu parent
+
+$('.left-sidebar .nav.nav-list .active').parent().parent().addClass('current')
 
 //user-canvas
         $('.user-canvas').easyPieChart({

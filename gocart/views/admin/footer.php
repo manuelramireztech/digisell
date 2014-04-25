@@ -43,11 +43,7 @@
 	});
 </script>
 
-<!-- Remove below two lines in production -->
 
-<script src="<?php echo base_url(); ?>js/theme-options.js"></script>
-
-<script src="<?php echo base_url(); ?>js/core.js"></script>
 <script src="<?php echo base_url(); ?>js/glDatePicker.min.js"></script>
 <!-- Gl date picker start -->
     <script type="text/javascript">
@@ -67,6 +63,7 @@
     </script>
 <!-- Gl date picker end -->
 
+<script src="<?php echo base_url(); ?>js/core.js"></script>
 
 </body>
 	</html>
