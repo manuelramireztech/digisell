@@ -59,15 +59,14 @@
 		margin-top:-3px;
 	}
 </style>
-<div class="row">
-	<div class="span12" style="border-bottom:1px solid #f5f5f5;">
+
 		<div class="row">
-			<div class="span4">
-				<?php echo $this->pagination->create_links();?>	&nbsp;
+			<div class="col-md-4">
+				<?php echo $this->pagination->create_links();?>
+				
 			</div>
-			<div class="col-md-12">
-				<?php echo form_open($this->config->item('admin_folder').'/products/index', 'class="form-inline" style="float:right"');?>
-				<fieldset>
+			<div class="col-md-8">
+				<?php echo form_open($this->config->item('admin_folder').'/products/index', 'class="form-inline pull-right" ');?>
 					<?php
 
 					function list_categories($id, $categories, $sub='') {
@@ -86,10 +85,10 @@
 
 					if(!empty($categories))
 					{
-						echo '<select name="category_id" class="input-sm">';
+						echo '<div class="form-group"><select name="category_id" class="form-control">';
 						echo '<option value="">'.lang('filter_by_category').'</option>';
 						list_categories(0, $categories);
-						echo '</select>';
+						echo '</select></div>';
 
 					}?>
 					<div class="form-group">
@@ -98,12 +97,10 @@
 					</div>
 					<button class="btn" name="submit" value="search"><?php echo lang('search')?></button>
 					<a class="btn btn-warning" href="<?php echo site_url($this->config->item('admin_folder').'/products/index');?>">Reset</a>
-				</fieldset>
 			</form>
 		</div>
 	</div>
-</div>
-</div>
+
 <div class="btn-group pull-right">
 </div>
 <br>
