@@ -1,7 +1,5 @@
 <div class="row">
 	<div class="col-md-12">
-		
-
 		<div class="panel">
 			<div class="panel-heading">
 				<h3 class="panel-title ">
@@ -32,43 +30,43 @@
 					<div class="col-md-6">
 						<h2><span class="label label-info"><?php echo lang('account_information');?></span></h2>
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<label for="company"><?php echo lang('account_company');?></label>
 									<?php echo form_input($company);?>
 								</div>
 							</div>
 							<div class="row">	
-								<div class="col-md-3">
+								<div class="col-md-6">
 									<label for="account_firstname"><?php echo lang('account_firstname');?></label>
 									<?php echo form_input($first);?>
 								</div>
 
-								<div class="col-md-3">
+								<div class="col-md-6">
 									<label for="account_lastname"><?php echo lang('account_lastname');?></label>
 									<?php echo form_input($last);?>
 								</div>
 							</div>
 
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-6">
 									<label for="account_email"><?php echo lang('account_email');?></label>
 									<?php echo form_input($email);?>
 								</div>
 
-								<div class="col-md-3">
+								<div class="col-md-6">
 									<label for="account_phone"><?php echo lang('account_phone');?></label>
 									<?php echo form_input($phone);?>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-8">
+								<div class="col-md-12">
 									<label class="checkbox">
 										<input type="checkbox" name="email_subscribe" value="1" <?php if((bool)$customer['email_subscribe']) { ?> checked="checked" <?php } ?>/> <?php echo lang('account_newsletter_subscribe');?>
 									</label>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-12">
 									<div style="margin:30px 0px 10px; text-align:center;">
 										<strong><?php echo lang('account_password_instructions');?></strong>
 									</div>
@@ -76,12 +74,12 @@
 							</div>
 
 							<div class="row">	
-								<div class="col-md-3">
+								<div class="col-md-6">
 									<label for="account_password"><?php echo lang('account_password');?></label>
 									<?php echo form_password($password);?>
 								</div>
 
-								<div class="col-md-3">
+								<div class="col-md-6">
 									<label for="account_confirm"><?php echo lang('account_confirm');?></label>
 									<?php echo form_password($confirm);?>
 								</div>
@@ -99,7 +97,8 @@
 							<input type="button" class="btn btn-info" rel="0" value="<?php echo lang('add_address');?>"/>
 						</div>
 						<?php if(count($addresses) > 0):?>
-							<table class="table table-bordered table-striped">
+							<div class="table-responsive">
+								<table class="table table-bordered table-striped">
 								<?php
 								$c = 1;
 								foreach($addresses as $a):?>
@@ -131,6 +130,7 @@
 								</tr>
 							<?php endforeach;?>
 						</table>
+							</div>
 					<?php endif;?>
 					</div>
 				</div>	

@@ -12,7 +12,10 @@
 	<link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
 
-     
+<?php echo theme_js('jquery.js', true);?>
+<?php echo theme_js('bootstrap.min.js', true);?>
+<?php echo theme_js('squard.js', true);?>
+<?php echo theme_js('equal_heights.js', true);?>     
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -86,7 +89,7 @@
                                                        <?php
                                                             if ($this->go_cart->total_items()==0)
                                                             {
-                                                                 echo lang('empty_cart');
+                                                                 echo 'cart <span class="badge">'.'0'.'</span>';
                                                             }
                                                             else
                                                             {
@@ -97,7 +100,8 @@
                                                                  }
                                                                  else
                                                                  {
-                                                                      echo sprintf (lang('single_item'), $this->go_cart->total_items());
+                                                                      //echo sprintf (lang('single_item'), $this->go_cart->total_items());
+                                                                      echo 'cart <span class="badge">'.$this->go_cart->total_items().'</span>';
                                                                  }
                                                             }
                                                             ?>

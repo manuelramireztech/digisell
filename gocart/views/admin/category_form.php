@@ -46,8 +46,8 @@
 							</div>
 							<div class="form-group ">
 								<label for="enabled" class="col-sm-2 control-label"><?php echo lang('enabled');?> </label>
-								<div class="col-sm-10">
-									<?php echo form_dropdown('enabled', array('0' => lang('disabled'), '1' => lang('enabled')),  set_value('enabled',$enabled)); ?>
+								<div class="col-sm-1">
+									<?php echo form_dropdown('enabled', array('0' => lang('disabled'), '1' => lang('enabled')),  set_value('enabled',$enabled), 'class="form-control drp"'); ?>
 								</div>
 							</div>
 						</div>
