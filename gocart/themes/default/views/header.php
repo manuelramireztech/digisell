@@ -10,7 +10,7 @@
 
 	<!-- Custom Styles -->
 	<link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
-     <link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
+     
 	
 
 <?php echo theme_js('jquery.js', true);?>
@@ -90,7 +90,7 @@
                                                        <?php
                                                             if ($this->go_cart->total_items()==0)
                                                             {
-                                                                 echo 'cart <span class="badge btn-info">'.'0'.'</span>';
+                                                                 echo 'cart <span class="badge btn-primary">'.'0'.'</span>';
                                                             }
                                                             else
                                                             {

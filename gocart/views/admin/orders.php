@@ -43,7 +43,7 @@
 		<div class="alert alert-info">
 			<?php echo sprintf(lang('search_returned'), intval($total));?>
 		</div>
-	<?php endif;?>
+		<?php endif;?>
 
 	<style type="text/css">
 		.pagination {
@@ -135,7 +135,7 @@
 							
 										<?php echo form_dropdown('status', $this->config->item('order_statuses'), $order->status, 'id="status_form_'.$order->id.'" class="form-control" '); ?>
 								      	      <span class="input-group-btn">
-										<button type="button" class="btn btn-success" onClick="save_status(<?php echo $order->id; ?>)" style="float:left;margin-left:4px;"><?php echo lang('save');?></button>
+										<button type="button" class="btn btn-success" onClick="save_status(<?php echo $order->id; ?>)"><?php echo lang('save');?></button>
 								      </span>
 								    </div><!-- /input-group -->
 								  

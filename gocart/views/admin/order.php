@@ -13,7 +13,7 @@
         <div class="col-md-8">
 
           <div class="col-md-1 invoice-from">
-            <img src="images/profiles/one.png"  alt="">
+            <img src="<?php echo base_url(); ?>images/profiles/one.png"  alt="">
         </div>
         <div class="col-md-4">        
             <ul class="list-unstyled">
@@ -21,17 +21,15 @@
                   <strong><?php echo lang('billing_address');?>:</strong>
                   <li><?php echo (!empty($order->bill_company))?$order->bill_company.'<br/>':'';?></li>
                   <li><?php echo $order->bill_firstname.' '.$order->bill_lastname;?> <br/></li>
-                  <li><?php echo $order->bill_address1;?>,<?php echo (!empty($order->bill_address2))?$order->bill_address2.'<br/>':'';?></li>
-                  <li><?php echo $order->bill_city.', '.$order->bill_zone.' '.$order->bill_zip;?></li>
-                  <li><?php echo $order->bill_country;?></li>
-                  <li><?php echo $order->bill_email;?></li>
-                  <li><?php echo $order->bill_phone;?></li>
+                  <li><?php echo $order->bill_address1;?>, <?php echo (!empty($order->bill_address2))?$order->bill_address2.'<br/>':'';?></li>
+                  <li><?php echo $order->bill_city.', '.$order->bill_zone.' '.$order->bill_zip;?>, <?php echo $order->bill_country;?></li>
+                  <li><?php echo $order->bill_email;?>, <?php echo $order->bill_phone;?></li>
               </li>
           </ul>
       </div>
       
       <div class="col-md-1 invoice-from">
-        <img src="images/profiles/one.png"  alt="">
+        <img src="<?php echo base_url(); ?>images/profiles/two.png"  alt="">
     </div>
     <div class="col-md-4">
         <ul class="list-unstyled">     
@@ -39,11 +37,9 @@
             <strong><?php echo lang('shipping_address');?>:</strong>
             <li><?php echo (!empty($order->ship_company))?$order->ship_company.'<br/>':'';?></li>
             <li><?php echo $order->ship_firstname.' '.$order->ship_lastname;?></li>
-            <li><?php echo $order->ship_address1;?>,<?php echo (!empty($order->ship_address2))?$order->ship_address2.'<br/>':'';?></li> 
-            <li><?php echo $order->ship_city.', '.$order->ship_zone.' '.$order->ship_zip;?></li>
-            <li><?php echo $order->ship_country;?></li>
-            <li><?php echo $order->ship_email;?></li>
-            <li><?php echo $order->ship_phone;?></li>
+            <li><?php echo $order->ship_address1;?>, <?php echo (!empty($order->ship_address2))?$order->ship_address2.'<br/>':'';?></li> 
+            <li><?php echo $order->ship_city.', '.$order->ship_zone.' '.$order->ship_zip;?>, <?php echo $order->ship_country;?></li>
+            <li><?php echo $order->ship_email;?>, <?php echo $order->ship_phone;?></li>
         </li>
     </ul>
 </div>
@@ -104,17 +100,7 @@
                 <td><?php echo format_currency($product['price']*$product['quantity']);?></td>
             </tr>
         <?php endforeach;?>
-    </tbody>
-    <tfoot>
-        <?php if($order->coupon_discount > 0):?>
-            <tr>
-                <td><strong><?php echo lang('coupon_discount');?></strong></td>
-                <td colspan="3"></td>
-                <td><?php echo format_currency(0-$order->coupon_discount); ?></td>
-            </tr>
-        <?php endif;?>
-
-    </tfoot>
+    </tbody>    
   </table>
 </div>
 <!-- ***** End Of Invoice Table ***** -->
@@ -147,6 +133,9 @@
         <p><?php echo lang('giftcard_discount');?> : <?php echo format_currency(0-$order->gift_card_discount); ?></p>
     <?php endif;?>
     <p><?php echo lang('tax');?> : <?php echo format_currency($order->tax); ?></p>
+    <?php if($order->coupon_discount > 0):?>
+        <p><strong><?php echo lang('coupon_discount');?></strong> : <?php echo format_currency(0-$order->coupon_discount); ?></p>
+    <?php endif;?>
 
 </div>
 </div>
@@ -226,7 +215,7 @@
        <tr><td><i class="fa fa-user"></i> <span class="pay-tab-bold"><?php echo lang('account_info');?></span><br>
         <div class="col-md-8">
                 <div class="col-md-1 invoice-from">
-                    <img src="images/profiles/one.png"  alt="">
+                    <img src="<?php echo base_url(); ?>images/profiles/five.png"  alt="">
                 </div>
                 <div class="col-md-5">        
                     <ul class="list-unstyled">

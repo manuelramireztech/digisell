@@ -1,6 +1,6 @@
 <?php if(!empty($category->description)): ?>
 <div class="row">
-    <div class="span12"><?php echo $category->description; ?></div>
+    <div class="col-md-12"><?php echo $category->description; ?></div>
 </div>
 <?php endif; ?>
         
@@ -10,7 +10,7 @@
     $cols = 4;
     if(isset($category)):?>
         <?php if(isset($this->categories[$category->id] ) && count($this->categories[$category->id]) > 0): $cols=3; ?>
-            <div class="span3">
+            <div class="col-md-3">
                 <ul class="nav nav-list well">
                     <li class="nav-header">
                     <?php echo lang('subcategories'); ?>
@@ -22,12 +22,12 @@
                 </ul>
             </div>
         
-            <div class="span9">
+            <div class="col-md-9">
         <?php endif;?>
     <?php endif;?>
     
     <?php if($cols == 4):?>
-        <div class="span12">
+        <div class="col-md-12">
     <?php endif;?>
     
     <?php if(count($products) == 0):?>
@@ -37,11 +37,11 @@
     <?php elseif(count($products) > 0):?>
         
         <div class="row" style="margin-top:20px; margin-bottom:15px">
-            <div class="<?php echo ($cols == 4)?'span9':'span6';?>">
+            <div class="<?php echo ($cols == 4)?'col-md-9':'col-md-6';?>">
                 <?php echo $this->pagination->create_links();?>&nbsp;
             </div>
-            <div class="span3 pull-right">
-                <select class="span3" id="sort_products" onchange="window.location='<?php echo site_url(uri_string());?>/'+$(this).val();">
+            <div class="col-md-3 pull-right">
+                <select class="form-control" id="sort_products" onchange="window.location='<?php echo site_url(uri_string());?>/'+$(this).val();">
                     <option value=''><?php echo lang('default');?></option>
                     <option<?php echo(!empty($_GET['by']) && $_GET['by']=='name/asc')?' selected="selected"':'';?> value="?by=name/asc"><?php echo lang('sort_by_name_asc');?></option>
                     <option<?php echo(!empty($_GET['by']) && $_GET['by']=='name/desc')?' selected="selected"':'';?>  value="?by=name/desc"><?php echo lang('sort_by_name_desc');?></option>
@@ -60,7 +60,7 @@
                     <div class="row">
                 <?php endif;?>
 
-                <div class="span3 product">
+                <div class="col-md-3 product">
                     <div>
                         <?php
                         $photo  = theme_img('no_picture.png', lang('no_image_available'));

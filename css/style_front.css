@@ -329,7 +329,7 @@ a {
   font-family: 'Droid Sans', sans-serif;
   padding: 0px;
   line-height: 60px;
-  width: 100px;
+  width: @LeftSidebarWidth;
   text-align: center;
 }
 .navbar.nav-delighted.navbar-default .navbar-brand i {
