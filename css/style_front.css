@@ -331,6 +331,8 @@ a {
   line-height: 60px;
   width: @LeftSidebarWidth;
   text-align: center;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .navbar.nav-delighted.navbar-default .navbar-brand i {
   font-size: 24px;
