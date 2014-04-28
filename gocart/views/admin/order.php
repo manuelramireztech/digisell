@@ -223,49 +223,63 @@
    </table>
    <h4 class="closed-invoice">Invoice Details</h4>
    <table class="table table-bordered ">
-       <tr><td><i class="fa fa-file"></i> <span class="pay-tab-bold"><?php echo lang('account_info');?></span><br>
+       <tr><td><i class="fa fa-user"></i> <span class="pay-tab-bold"><?php echo lang('account_info');?></span><br>
         <div class="col-md-8">
-
-          <div class="col-md-1 invoice-from">
-            <img src="images/profiles/one.png"  alt="">
-        </div>
-        <div class="col-md-4">        
-            <ul class="list-unstyled">
-             <li>       
-              <?php echo (!empty($order->company))?$order->company.'<br>':'';?>
-              <?php echo $order->firstname;?> <?php echo $order->lastname;?> <br/>
-              <?php echo $order->email;?> <br/>
-              <?php echo $order->phone;?>
-          </li>
-      </ul>
-  </div> 
-            
+                <div class="col-md-1 invoice-from">
+                    <img src="images/profiles/one.png"  alt="">
+                </div>
+                <div class="col-md-5">        
+                    <ul class="list-unstyled">
+                        <li>       
+                          <?php echo (!empty($order->company))?$order->company.'<br>':'';?>
+                          <?php echo $order->firstname;?> <?php echo $order->lastname;?> <br/>
+                          <?php echo $order->email;?> <br/>
+                          <?php echo $order->phone;?>
+                        </li>
+                    </ul>
+                </div>
+        </div> 
         </td></tr>
         <tr><td><i class="fa fa-file"></i> <span class="pay-tab-bold"><?php echo lang('payment_method');?></span><br> 
-            <div class="col-md-8">
-
-                  <div class="col-md-1 invoice-from">
-                    
+        <div class="col-md-8">
+                <div class="col-md-1 invoice-from">
+                     <ul class="list-unstyled">
+                        <li>       
+                           <strong>Type</strong>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-4">        
+                <div class="col-md-7">        
                     <ul class="list-unstyled">
-                       <li>       
-                          <?php echo $order->payment_info; ?>
-                      </li>
-                  </ul>
-              </div> 
-            <div style="text-align:center">
-                
-            </div> 
+                        <li>       
+                           <?php echo $order->payment_info; ?>
+                        </li>
+                    </ul>
+                </div>
+        </div>     
         </td></tr>
         <tr><td><i class="fa fa-file"></i> <span class="pay-tab-bold"><?php echo lang('shipping_details');?></span><br> 
-            <div style="text-align:center">
-                <?php echo $order->shipping_method; ?>
-                <?php if(!empty($order->shipping_notes)):?><div style="margin-top:10px;"><?php echo $order->shipping_notes;?></div><?php endif;?>
-            </div> 
+        <div class="col-md-8">
+                <div class="col-md-2 invoice-from">
+                    <ul class="list-unstyled">
+                        <li><strong>Shipping</strong></li>
+                        <li style="margin-top:10px;">
+                           <strong>Notes</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">        
+                    <ul class="list-unstyled">
+                        <li><?php echo $order->shipping_method; ?></li>
+                        <li>       
+                            <?php if(!empty($order->shipping_notes)):?><div style="margin-top:10px;"><?php echo $order->shipping_notes;?></div><?php endif;?>
+                        </li>
+                    </ul>
+                </div>
+        </div>    
         </td></tr>
        <tr><td><i class="fa fa-file"></i> <span class="pay-tab-bold"><?php echo lang('order_details');?></span><br> 
-            <div style="text-align:center">
+        <div class="col-md-8">
                 <?php if(!empty($order->referral)):?>
                     <strong><?php echo lang('referral');?>: </strong><?php echo $order->referral;?><br/>
                 <?php else: ?>
@@ -283,7 +297,7 @@
                 <?php else: ?>
                     <strong>---Gift Message Unavailble---</strong><br>
                 <?php endif;?>
-            </div> 
+        </div> 
         </td></tr>
    </table>
 </div>
