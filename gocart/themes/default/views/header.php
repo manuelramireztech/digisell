@@ -84,7 +84,7 @@
                               <ul class="nav navbar-nav navbar-right">
 
                                    <li>
-                                       <a href='<?php echo site_url('cart/view_cart');?>' data-original-title='Cart'>
+                                       <a href='<?php echo site_url('cart/view_cart');?>' data-original-title='Cart' class="btn-lg">
                                                   <i class="fa fa-shopping-cart cart"></i>
                                                   <span class='hidden-minibar cart'>
                                                        <?php

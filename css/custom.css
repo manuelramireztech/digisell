@@ -27,3 +27,8 @@
 {
   width: 50px;
 }
+.notify-email:hover
+{
+	text-decoration: none;
+	cursor: pointer;
+}
