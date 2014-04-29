@@ -329,10 +329,8 @@ a {
   font-family: 'Droid Sans', sans-serif;
   padding: 0px;
   line-height: 60px;
-  width: @LeftSidebarWidth;
+  width: 220px;
   text-align: center;
-  margin-left: 0px;
-  margin-right: 0px;
 }
 .navbar.nav-delighted.navbar-default .navbar-brand i {
   font-size: 24px;
@@ -4288,4 +4286,19 @@ ANIMATIONS
 }
 .delighted-time-date-pickers {
   margin-bottom: 10px;
+}
+.carousel .carousel-control {
+  height: 60px;
+  width: 60px;
+  top: 40%;
+}
+.carousel .left {
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 15px;
+}
+.carousel .right {
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 15px;
 }

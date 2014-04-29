@@ -72,14 +72,14 @@
 									}
 									?>
 									<tr id="banners-<?php echo $banner->banner_id;?>">
-										<td class="handle"><a class="btn" style="cursor:move"><span class="icon-align-justify"></span></a></td>
+										<td class="handle"><a class="btn" style="cursor:move"><span class="fa fa-align-justify"></span></a></td>
 										<td><?php echo $disabled_icon.$banner->name;?></td>
 										<td><?php echo $enable;?></td>
 										<td><?php echo $disable;?></td>
 										<td>
 											<div class="btn-group" style="float:right">
-												<a class="btn" href="<?php echo site_url(config_item('admin_folder').'/banners/banner_form/'.$banner_collection_id.'/'.$banner->banner_id);?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
-												<a class="btn btn-danger" href="<?php echo  site_url(config_item('admin_folder').'/banners/delete_banner/'.$banner->banner_id);?>" onclick="return areyousure();"><i class="icon-trash icon-white"></i> <?php echo lang('delete');?></a>
+												<a class="btn btn-info" href="<?php echo site_url(config_item('admin_folder').'/banners/banner_form/'.$banner_collection_id.'/'.$banner->banner_id);?>"><i class="fa fa-edit"></i> <?php echo lang('edit');?></a>
+												<a class="btn btn-danger" href="<?php echo  site_url(config_item('admin_folder').'/banners/delete_banner/'.$banner->banner_id);?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 											</div>
 										</td>
 									</tr>

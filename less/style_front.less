@@ -371,7 +371,7 @@ body
 			font-family: @second-font;
 			padding: 0px;
 			line-height: 60px;
-			width: 100px; //0px;
+			width: @leftSidebarWidth;
 
 			text-align: center;
 			i
@@ -5745,4 +5745,25 @@ ANIMATIONS
 .delighted-time-date-pickers
 {
 	margin-bottom: 10px;
+}
+.carousel 
+{
+	.carousel-control
+	{
+		height: 60px;
+		width: 60px;
+		top:40%;
+	}
+	.left 
+	{
+		border-radius: 50%;
+		text-align: center;
+		padding-top: 15px;
+	}
+	.right 
+	{
+		border-radius: 50%;
+		text-align: center;
+		padding-top: 15px;
+	}
 }
