@@ -1,10 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <?php if(!empty($category->description)): ?>
-<div class="row">
-    <div class="col-md-12"><?php echo $category->description; ?></div>
-</div>
-<?php endif; ?>
+        
         <div class="panel">
             <div class="panel-heading">
                 <h3 class="panel-title ">
@@ -20,6 +16,11 @@
                 </h3>
             </div>
             <div class="panel-body">
+            <?php if(!empty($category->description)): ?>
+<div class="row">
+    <div class="col-md-12"><?php echo $category->description; ?></div>
+</div>
+<?php endif; ?>
                 <?php
     $cols = 4;
     if(isset($category)):?>
