@@ -229,7 +229,7 @@
                 </div>
         </div> 
         </td></tr>
-        <tr><td><i class="fa fa-file"></i> <span class="pay-tab-bold"><?php echo lang('payment_method');?></span><br> 
+        <tr><td><i class="fa fa-credit-card"></i> <span class="pay-tab-bold"><?php echo lang('payment_method');?></span><br> 
         <div class="col-md-8">
                 <div class="col-md-1 invoice-from">
                      <ul class="list-unstyled">
@@ -247,7 +247,7 @@
                 </div>
         </div>     
         </td></tr>
-        <tr><td><i class="fa fa-file"></i> <span class="pay-tab-bold"><?php echo lang('shipping_details');?></span><br> 
+        <tr><td><i class="fa fa-truck"></i> <span class="pay-tab-bold"><?php echo lang('shipping_details');?></span><br> 
         <div class="col-md-8">
                 <div class="col-md-2 invoice-from">
                     <ul class="list-unstyled">
@@ -267,7 +267,7 @@
                 </div>
         </div>    
         </td></tr>
-       <tr><td><i class="fa fa-file"></i> <span class="pay-tab-bold"><?php echo lang('order_details');?></span><br> 
+       <tr><td><i class="fa fa-suitcase"></i> <span class="pay-tab-bold"><?php echo lang('order_details');?></span><br> 
         <div class="col-md-8">
                 <?php if(!empty($order->referral)):?>
                     <strong><?php echo lang('referral');?>: </strong><?php echo $order->referral;?><br/>
