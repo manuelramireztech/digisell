@@ -109,7 +109,7 @@ function remove_option(id)
 				</div>
 				
 				<div class="row form-group">
-						<label class='col-sm-2'><?php echo 'Product Summary';?></label>
+						<label class='col-sm-2'><?php echo 'Product Full Desc,.';?></label>
 				
 					<div class="col-md-8 drp">
 						<?php
@@ -121,7 +121,7 @@ function remove_option(id)
 				</div>
 				
 				<div class="row form-group">
-				<label class='col-sm-2'><?php echo lang('excerpt');?></label>
+				<label class='col-sm-2'><?php echo 'Product Summary';?></label>
 					<div class="col-md-8">
 						
 						<?php
