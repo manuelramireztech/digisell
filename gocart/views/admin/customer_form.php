@@ -95,7 +95,7 @@
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('group');?></label>
-					<div class="col-sm-1">
+					<div class="col-md-2">
 						<?php echo form_dropdown('group_id', $group_list, set_value('group_id',$group_id), 'class="form-control drp"'); ?>
 					</div>
 				</div>

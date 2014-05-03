@@ -7,3 +7,4 @@ ALTER TABLE `orders` CHANGE `order_number` `order_number` VARCHAR(60) CHARACTER 
 ALTER TABLE `orders` CHANGE `shipped_on` `shipped_on` DATETIME NULL DEFAULT NULL;
 ALTER TABLE `download_package_files` CHANGE `downloads` `downloads` INT(5) NOT NULL DEFAULT '0';
 ALTER TABLE  `pages` CHANGE  `url`  `url` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ;
+ALTER TABLE  `customers` ADD  `created_on` VARCHAR( 250 ) NULL DEFAULT NULL ;

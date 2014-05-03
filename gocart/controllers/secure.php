@@ -171,10 +171,7 @@ class Secure extends Front_Controller {
 		redirect('cart');
 	}
 	
-	function register_customer()
-	{
-		$this->load->view('register_cust');
-	}
+	
 
 	function register()
 	{
@@ -201,7 +198,7 @@ class Secure extends Front_Controller {
 		$data['gift_cards_enabled'] = $this->gift_cards_enabled;
 		
 		//default values are empty if the customer is new
-
+		
 		$data['company']	= '';
 		$data['firstname']	= '';
 		$data['lastname']	= '';
@@ -213,7 +210,7 @@ class Secure extends Front_Controller {
 		$data['state']		= '';
 		$data['zip']		= '';
 		$data['default_billing_address']		= '';
-
+		
 
 
 		$this->form_validation->set_rules('company', 'lang:address_company', 'trim|max_length[128]');
@@ -247,7 +244,7 @@ class Secure extends Front_Controller {
 		else
 		{
 			
-			
+			$date = date('d/m/Y');
 			$save['id']		= false;
 			
 			$save['firstname']			= $this->input->post('firstname');
@@ -261,6 +258,7 @@ class Secure extends Front_Controller {
 			$save['password']			= $this->input->post('password');
 			$save['default_billing_address']			= "1";
 			$save['default_shipping_address']			= "1";
+			$save['created_on'] = $date;
 			
 			$redirect					= $this->input->post('redirect');
 			
