@@ -69,6 +69,7 @@ class Customers extends Admin_Controller {
 		force_download_content('customers.xml',	$this->load->view($this->config->item('admin_folder').'/customers_xml', $data, true));
 	}
 
+	
 	function form($id = false)
 	{
 		$this->load->helper('form');

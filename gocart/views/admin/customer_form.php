@@ -16,7 +16,7 @@
 				</h3>
 			</div>
 			<div class="panel-body">
-			<?php echo heading('<span class="label label-primary">Customer Information</span>',3) ?>
+			<?php echo heading('<span class="label label-primary">Client Information</span>',3) ?>
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('company');?></label>
 					<div class="col-sm-10">
@@ -114,6 +114,7 @@
 								<thead>
 									<tr class="active">
 										<th><?php echo 'Order Number'; ?></th>
+										<th><?php echo 'Product'; ?></th>
 										<th><?php echo 'Status'; ?></th>
 										<th><?php echo 'Created On'; ?></th>
 									</tr>
@@ -122,6 +123,11 @@
 									<?php foreach ($orders as $order): ?>
 										<tr>
 											<td><?php echo $order->order_number; ?></td>
+											<td>
+												<?php
+													echo '<a href="'.base_url('index.php').'/admin/products/form/'.$order->product_id.'">'.'#'.$order->product_id.'</a>';
+												?>
+											</td>
 											<td><?php echo $order->status; ?></td>
 											<td><?php echo $order->ordered_on; ?></td>
 										</tr>

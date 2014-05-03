@@ -108,7 +108,7 @@ function remove_option(id)
 				</div>
 				
 				<div class="row form-group">
-					<div class="col-md-8">
+					<div class="col-md-8 drp">
 						
 						<?php
 						$data	= array('name'=>'description', 'id'=>'content_editor', 'class'=>' form-control drp', 'value'=>set_value('description', $description));

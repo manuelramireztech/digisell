@@ -39,9 +39,11 @@ Class Customer_model extends CI_Model
 
     function recent_orders($id)
     {
-       $this->db->where('customer_id',$id);
-        $res = $this->db->get('orders');
-        return $res->result();
+        $this->db->from('orders');
+        $this->db->where('customer_id',$id);
+        $this->db->join('order_items', 'order_items.order_id = orders.id');
+        $result = $this->db->get();
+        return $result->result();
     }
     
     function get_subscribers()

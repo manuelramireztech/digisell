@@ -109,7 +109,7 @@
                                             <li class='<?php echo ($this->uri->segment(2)=="customers"&&$this->uri->segment(3)=="") ? "active" : "" ; ?>'>
                                                 <a href='<?php echo $admin_url;?>customers' data-original-title='Inbox'>
                                                     <i class='fa fa-user'></i>
-                                                    <span class='hidden-minibar'>Customers</span>
+                                                    <span class='hidden-minibar'>Clients</span>
                                                 </a>
                                             </li>
                                             <li class='<?php echo ($this->uri->segment(3)=="groups") ? "active" : "" ; ?>'>
