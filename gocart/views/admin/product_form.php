@@ -164,7 +164,7 @@ function remove_option(id)
 				</div>
 				<div class="row">
 					<div class="col-md-8">
-						<fieldset>
+						
 							<legend><?php echo lang('header_information');?></legend>
 							<div class="row" >
 								<div class="col-md-12">
@@ -193,7 +193,7 @@ function remove_option(id)
 									</div>
 								</div>
 							</div>
-						</fieldset>
+						
 					</div>
 				</div>
 			</div>

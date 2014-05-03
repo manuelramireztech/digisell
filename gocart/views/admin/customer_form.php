@@ -16,60 +16,61 @@
 				</h3>
 			</div>
 			<div class="panel-body">
+			<?php echo heading('<span class="label label-primary">Customer Information</span>',3) ?>
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('company');?></label>
 					<div class="col-sm-10">
 						<?php
-							$data	= array('name'=>'company', 'value'=>set_value('company', $company), 'class'=>'form-control');
-							echo form_input($data); ?>
+						$data	= array('name'=>'company', 'value'=>set_value('company', $company), 'class'=>'form-control');
+						echo form_input($data); ?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('firstname');?></label>
 					<div class="col-sm-10">
 						<?php
-							$data	= array('name'=>'firstname', 'value'=>set_value('firstname', $firstname), 'class'=>'form-control');
-							echo form_input($data); ?>
+						$data	= array('name'=>'firstname', 'value'=>set_value('firstname', $firstname), 'class'=>'form-control');
+						echo form_input($data); ?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('lastname');?></label>
 					<div class="col-sm-10">
 						<?php
-							$data	= array('name'=>'lastname', 'value'=>set_value('lastname', $lastname), 'class'=>'form-control');
-							echo form_input($data); ?>
+						$data	= array('name'=>'lastname', 'value'=>set_value('lastname', $lastname), 'class'=>'form-control');
+						echo form_input($data); ?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('email');?></label>
 					<div class="col-sm-10">
 						<?php
-							$data	= array('name'=>'email', 'value'=>set_value('email', $email), 'class'=>'form-control');
-							echo form_input($data); ?>
+						$data	= array('name'=>'email', 'value'=>set_value('email', $email), 'class'=>'form-control');
+						echo form_input($data); ?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('phone');?></label>
 					<div class="col-sm-10">
 						<?php
-							$data	= array('name'=>'phone', 'value'=>set_value('phone', $phone), 'class'=>'form-control');
-							echo form_input($data); ?>
+						$data	= array('name'=>'phone', 'value'=>set_value('phone', $phone), 'class'=>'form-control');
+						echo form_input($data); ?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('password');?></label>
 					<div class="col-sm-10">
 						<?php
-							$data	= array('name'=>'password', 'class'=>'form-control');
-							echo form_password($data); ?>
+						$data	= array('name'=>'password', 'class'=>'form-control');
+						echo form_password($data); ?>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-2 control-label"><?php echo lang('confirm');?></label>
 					<div class="col-sm-10">
 						<?php
-							$data	= array('name'=>'confirm', 'class'=>'form-control');
-							echo form_password($data); ?>
+						$data	= array('name'=>'confirm', 'class'=>'form-control');
+						echo form_password($data); ?>
 					</div>
 				</div>
 				<div class="form-group">
@@ -104,19 +105,35 @@
 						<input class="btn btn-primary" type="submit" value="<?php echo lang('save');?>"/>
 					</div>
 				</div>
+			<?php echo heading('<span class="label label-primary">Recent Orders</span>',3) ?>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-1 control-label"></label>
+					<div class="col-sm-11">
+						<div class="table-responsive">
+							<table class="table table-hover table-bordered">
+								<thead>
+									<tr class="active">
+										<th><?php echo 'Order Number'; ?></th>
+										<th><?php echo 'Status'; ?></th>
+										<th><?php echo 'Created On'; ?></th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($orders as $order): ?>
+										<tr>
+											<td><?php echo $order->order_number; ?></td>
+											<td><?php echo $order->status; ?></td>
+											<td><?php echo $order->ordered_on; ?></td>
+										</tr>
+									<?php endforeach ?>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>				
+				<!-- /panel body -->
+			</div>
 
-
-
-
-
-				
-				
-				
-		
-
-			<!-- /panel body -->
-		</div>
-
-	</form>
-</div>
+		</form>
+	</div>
 </div>

@@ -34,6 +34,7 @@ class Login extends Base_Controller {
 			$login		= $this->auth->login_admin($username, $password, $remember);
 			if ($login)
 			{
+				$this->session->set_userdata($data);
 				if ($redirect == '')
 				{
 					$redirect = $this->config->item('admin_folder').'/dashboard';

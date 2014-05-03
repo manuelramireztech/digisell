@@ -99,8 +99,10 @@ class Customers extends Admin_Controller {
 		
 		if ($id)
 		{	
+
 			$this->customer_id	= $id;
 			$customer		= $this->Customer_model->get_customer($id);
+			$data['orders'] 		= $this->Customer_model->recent_orders($id);
 			//if the customer does not exist, redirect them to the customer list with an error
 			if (!$customer)
 			{
@@ -118,6 +120,8 @@ class Customers extends Admin_Controller {
 			$data['company']			= $customer->company;
 			$data['active']				= $customer->active;
 			$data['email_subscribe']	= $customer->email_subscribe;
+			
+
 			
 		}
 		
