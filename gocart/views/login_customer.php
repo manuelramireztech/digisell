@@ -9,23 +9,41 @@
 
 	<!-- Custom Styles -->
 	<link href="<?php echo base_url(); ?>css/custom.css" rel="stylesheet">
-	<link href="<?php echo base_url(); ?>css/styles/glDatePicker.default.css" rel="stylesheet">
+	
 
-	<link href="<?php echo base_url(); ?>less/style.less" rel="stylesheet"  title="lessCss" id="lessCss">
+	
 
 </head>
 <body>
 	<div class="login-page">
 		<div class="header-section">
 			<a href="#"><img src="<?php echo base_url(); ?>images/loginlogo.png" alt=""></a>
-			<ul class="menu">
+			<ul class="menu menu-login">
 				<li><a href="<?php echo base_url(); ?>">Home</a></li>
 				<li><a href="<?php echo base_url('index.php'); ?>/secure/register">Sign up</a></li>
 			</ul>
 		</div><!--end of header -section-->
 		<div class="form-section">
 			<div class="container">
+									<?php if ($this->session->flashdata('message')):?>
+                                        <div class="alert alert-info">
+                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                             <?php echo $this->session->flashdata('message');?>
+                                        </div>
+                                    <?php endif;?>
+                                    <?php if ($this->session->flashdata('error')):?>
+                                        <div class="alert alert-danger">
+                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                             <?php echo $this->session->flashdata('error');?>
+                                        </div>
+                                   <?php endif;?>
 
+                                   <?php if (!empty($error)):?>
+                                        <div class="alert alert-danger">
+                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                             <?php echo $error;?>
+                                        </div>
+                                   <?php endif;?>
 			<?php echo form_open('secure/login_customer', 'class="form-horizontal"'); ?>
 				<div class="form-inputs">
 					<h4>Member Area</h4>
@@ -40,7 +58,7 @@
 
 					<input class="polaris-input" type="checkbox" name="remember" value="true" /> <span class="check-text">Remember me</span> 
 					<input class="btn btn-info pull-right" name="submit" type="submit" value="Sign In"/>
-					<h5><a href="forgot" target="_parent">Forgot Your Password ?</a></h5>
+					<h5><a href="forgot_password" target="_parent">Forgot Your Password ?</a></h5>
 				</div>
 									
 				
