@@ -42,8 +42,6 @@
                               <ul class="nav navbar-nav">
                                    <li class='active'>
                                         <a href="<?php echo site_url('cart');?>" data-original-title='Home'>
-                                             
-
                                              <span class='hidden-minibar'>Home</span>
                                         </a>
                                    </li>
@@ -58,24 +56,25 @@
                                              </ul>
                                              <?php
                                              endif;
-
-                                             if(isset($this->pages[0]))
-                                             {
-                                                  foreach($this->pages[0] as $menu_page):?>
-                                                  <li>
-                                                       <?php if(empty($menu_page->content)):?>
-                                                            <a href="<?php echo $menu_page->url;?>" <?php if($menu_page->new_window ==1){echo 'target="_blank"';} ?>><?php echo $menu_page->menu_title;?></a>
-                                                       <?php else:?>
-                                                            <a href="<?php echo site_url($menu_page->slug);?>"><?php echo $menu_page->menu_title;?></a>
-                                                       <?php endif;?>
-                                                  </li>
-
+                                             ?>
+                                   </li>
+                                   <li class='dropdown'>   
+                                        <?php
+                                        if(isset($this->pages[0]))
+                                        { ?>
+                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo 'Pages';?> <b class="caret"></b></a>
+                                             <ul class="dropdown-menu">
+                                             <?php foreach($this->pages[0] as $menu_page):?>
+                                                  <?php if(empty($menu_page->content)):?>
+                                                       <li><a href="<?php echo $menu_page->url;?>" <?php if($menu_page->new_window ==1){echo 'target="_blank"';} ?>><?php echo $menu_page->menu_title;?></a></li>
+                                                  <?php else:?>
+                                                      <li><a href="<?php echo site_url($menu_page->slug);?>"><?php echo $menu_page->menu_title;?></a></li>
+                                                  <?php endif;?>
                                              <?php endforeach;   
                                         }
                                         ?>
-                                   </li>   
-                                   
-                                              
+                                        </ul>
+                                   </li>           
                               </ul>
                          </div>
 
