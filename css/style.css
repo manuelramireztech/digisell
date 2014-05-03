@@ -352,8 +352,8 @@ a {
 }
 .navbar.nav-delighted.navbar-default .search-form input {
   height: 32px;
-  width: 155px;
-  border-radius: 16px;
+  width: 185px;
+  border-radius: 0px;
   color: #23bab5;
   padding-left: 30px;
   background-color: white;

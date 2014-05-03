@@ -16,7 +16,7 @@
 				</h3>
 			</div>
 			<div class="panel-body">
-			<?php echo heading('<span class="label label-primary">Client Information</span>',3) ?>
+			<?php echo heading('<span class="label label-primary label-width">Client Information</span>',5) ?>
 				<div class="form-group">
 					<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('company');?></label>
 					<div class="col-sm-10">
@@ -105,7 +105,7 @@
 						<input class="btn btn-primary" type="submit" value="<?php echo lang('save');?>"/>
 					</div>
 				</div>
-			<?php echo heading('<span class="label label-primary">Recent Orders</span>',3) ?>
+			<?php echo heading('<span class="label label-primary lable-width">Recent Orders</span>',5) ?>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-1 control-label"></label>
 					<div class="col-sm-11">

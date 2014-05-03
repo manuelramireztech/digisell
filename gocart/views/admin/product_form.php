@@ -99,6 +99,7 @@ function remove_option(id)
 		<div class="tab-content">
 			<div class="tab-pane active" id="product_info">
 				<div class="row form-group">
+					<label class='col-sm-2'><?php echo lang('name');?></label>
 					<div class="col-md-8">
 						<?php
 						$data	= array('placeholder'=>lang('name'), 'name'=>'name', 'value'=>set_value('name', $name), 'class'=>'col-md-8 form-control');
@@ -108,8 +109,9 @@ function remove_option(id)
 				</div>
 				
 				<div class="row form-group">
+						<label class='col-sm-2'><?php echo 'Product Summary';?></label>
+				
 					<div class="col-md-8 drp">
-						
 						<?php
 						$data	= array('name'=>'description', 'id'=>'content_editor', 'class'=>' form-control drp', 'value'=>set_value('description', $description));
 						echo form_textarea($data);
@@ -119,8 +121,9 @@ function remove_option(id)
 				</div>
 				
 				<div class="row form-group">
+				<label class='col-sm-2'><?php echo lang('excerpt');?></label>
 					<div class="col-md-8">
-						<label><?php echo lang('excerpt');?></label>
+						
 						<?php
 						$data	= array('name'=>'excerpt', 'value'=>set_value('excerpt', $excerpt), 'class'=>'col-md-8 form-control drp', 'rows'=>5);
 						echo form_textarea($data);
