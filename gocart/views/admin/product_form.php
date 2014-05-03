@@ -98,6 +98,17 @@ function remove_option(id)
 		</div>
 		<div class="tab-content">
 			<div class="tab-pane active" id="product_info">
+				<div class="row	form-group">
+					<label class='col-sm-2'><?php echo 'Product Status';?></label>
+			    	<div class="col-md-8">
+			    		<?php
+					 	$options = array(	 '0'	=> lang('disabled')
+											,'1'	=> lang('enabled')
+											);
+						echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="col-md-8 drp form-control"');
+						?>
+					</div>
+				</div>
 				<div class="row form-group">
 					<label class='col-sm-2'><?php echo lang('name');?></label>
 					<div class="col-md-8">
@@ -516,14 +527,7 @@ function remove_option(id)
 		</div>
 	</div>
 	<div class="col-md-4">
-		<div class="form-group">
-	    	<?php
-		 	$options = array(	 '0'	=> lang('disabled')
-								,'1'	=> lang('enabled')
-								);
-			echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="form-control"');
-			?>
-		</div>
+		
 		<div class="form-group">
 			<?php
 			$options = array(	 '1'	=> lang('shippable')
