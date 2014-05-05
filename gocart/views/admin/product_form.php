@@ -141,6 +141,24 @@ function remove_option(id)
 						?>
 					</div>
 				</div>
+
+				<div class="row form-group">
+				    <label for="price" class="col-sm-2 control-label"><?php echo lang('price');?></label>
+				    <div class="col-sm-8">
+				      <?php
+					$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'form-control');
+					echo form_input($data);?>
+				    </div>
+				</div>
+
+				<div class="row form-group">
+				    <label for="saleprice" class="col-sm-2 control-label"><?php echo lang('saleprice');?></label>
+				    <div class="col-sm-8">
+				      <?php
+					$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'form-control');
+					echo form_input($data);?>
+				    </div>
+				</div>
 				
 				<div class="row form-group">
 					<div class="col-md-8">
@@ -560,22 +578,8 @@ function remove_option(id)
 			echo form_input($data);?>
 		    </div>
 		</div>
-		 <div class="form-group">
-		    <label for="price" class="col-sm-4 control-label"><?php echo lang('price');?></label>
-		    <div class="col-sm-8">
-		      <?php
-			$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'form-control');
-			echo form_input($data);?>
-		    </div>
-		</div>
-		<div class="form-group">
-		    <label for="saleprice" class="col-sm-4 control-label"><?php echo lang('saleprice');?></label>
-		    <div class="col-sm-8">
-		      <?php
-			$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'form-control');
-			echo form_input($data);?>
-		    </div>
-		</div>
+		
+		
 	</div>
 </div>
 <div class="form-group">
