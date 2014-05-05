@@ -23,9 +23,29 @@
 				<li><a href="<?php echo base_url('index.php'); ?>/secure/register">Sign up</a></li>
 			</ul>
 		</div><!--end of header -section-->
+
 		<div class="form-section">
 			<div class="container">
+			<?php if ($this->session->flashdata('message')):?>
+                <div class="alert alert-info">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                     <?php echo $this->session->flashdata('message');?>
+                </div>
+           <?php endif;?>
 
+           <?php if ($this->session->flashdata('error')):?>
+                <div class="alert alert-danger">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                     <?php echo $this->session->flashdata('error');?>
+                </div>
+           <?php endif;?>
+
+           <?php if (!empty($error)):?>
+                <div class="alert alert-danger">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                     <?php echo $error;?>
+                </div>
+           <?php endif;?>
 			<?php echo form_open('secure/login_customer', 'class="form-horizontal"'); ?>
 				<div class="form-inputs">
 					<h4>Member Area</h4>
