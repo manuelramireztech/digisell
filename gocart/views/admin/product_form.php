@@ -87,23 +87,23 @@ function remove_option(id)
 	<div class="col-md-8">
 
 		<div class="panel-group" id="accordionVj">
-	        <div class="panel col-md-12 panel-primary">
-			    <div class="panel-heading">
-				        <h4 class="panel-title">
-				            <a data-toggle="collapse" data-parent="#accordionVj" href="#collapseSeven">
-				            	<i class="fa fa-th-large"></i> <?php echo 'Product Details';?>
-				         	</a>
-				     	</h4>
-			 	</div>
+			<div class="panel col-md-12 panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseSeven">
+							<i class="fa fa-th-large"></i> <?php echo 'Product Details';?>
+						</a>
+					</h4>
+				</div>
 				<div id="collapseSeven" class="panel-collapse collapse in">
-				    <div class="panel-body">
-				        <div class="row	form-group">
+					<div class="panel-body">
+						<div class="row	form-group">
 							<label class='col-sm-2 control-label'><?php echo 'Product Status';?></label>
-					    	<div class="col-md-8">
-					    		<?php
-							 	$options = array(	 '0'	=> lang('disabled')
-													,'1'	=> lang('enabled')
-													);
+							<div class="col-md-8">
+								<?php
+								$options = array(	 '0'	=> lang('disabled')
+									,'1'	=> lang('enabled')
+									);
 								echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="col-md-8 drp form-control"');
 								?>
 							</div>
@@ -118,8 +118,8 @@ function remove_option(id)
 							</div>
 						</div>
 						<div class="row form-group">
-								<label class='col-sm-2 control-label'><?php echo 'Product Full Desc,.';?></label>
-						
+							<label class='col-sm-2 control-label'><?php echo 'Product Full Desc,.';?></label>
+
 							<div class="col-md-8 drp">
 								<?php
 								$data	= array('name'=>'description', 'id'=>'content_editor', 'class'=>' form-control drp', 'value'=>set_value('description', $description));
@@ -130,7 +130,7 @@ function remove_option(id)
 						</div>
 						
 						<div class="row form-group">
-						<label class='col-sm-2 control-label'><?php echo 'Product Summary';?></label>
+							<label class='col-sm-2 control-label'><?php echo 'Product Summary';?></label>
 							<div class="col-md-8">
 								
 								<?php
@@ -140,21 +140,21 @@ function remove_option(id)
 							</div>
 						</div>
 						<div class="row form-group">
-						    <label for="price" class="col-sm-2 control-label"><?php echo lang('price');?></label>
-						    <div class="col-sm-8">
-						      <?php
-							$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'form-control');
-							echo form_input($data);?>
-						    </div>
+							<label for="price" class="col-sm-2 control-label"><?php echo lang('price');?></label>
+							<div class="col-sm-8">
+								<?php
+								$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'form-control');
+								echo form_input($data);?>
+							</div>
 						</div>
 
 						<div class="row form-group">
-						    <label for="saleprice" class="col-sm-2 control-label"><?php echo lang('saleprice');?></label>
-						    <div class="col-sm-8">
-						      <?php
-							$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'form-control');
-							echo form_input($data);?>
-						    </div>
+							<label for="saleprice" class="col-sm-2 control-label"><?php echo lang('saleprice');?></label>
+							<div class="col-sm-8">
+								<?php
+								$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'form-control');
+								echo form_input($data);?>
+							</div>
 						</div>
 
 						<div class="row alert alert-info">
@@ -164,9 +164,9 @@ function remove_option(id)
 						</div>
 						
 						<div class="row form-group">
-						    <label for="saleprice" class="col-sm-2 control-label"><?php echo 'Product Downloads';?></label>
-						    <div class="col-sm-8">
-							    <div class="table-responsive">
+							<label for="saleprice" class="col-sm-2 control-label"><?php echo 'Product Downloads';?></label>
+							<div class="col-sm-8">
+								<div class="table-responsive">
 									<table class="table table-striped table-bordered">
 										<thead>
 											<tr>
@@ -177,26 +177,66 @@ function remove_option(id)
 											</tr>
 										</thead>
 										<tbody>
-										<?php echo (count($file_list) < 1)?'<tr><td style="text-align:center;" colspan="6">'.lang('no_files').'</td></tr>':''?>
-										<?php foreach ($file_list as $file):?>
-											<tr>
-												<td><?php echo $file->filename ?></td>
-												<td><?php echo $file->title ?></td>
-												<td><?php echo $file->size ?></td>
-												<td><?php echo form_checkbox('downloads[]', $file->id, in_array($file->id, $product_files)); ?></td>
-											</tr>
-										<?php endforeach; ?>
+											<?php echo (count($file_list) < 1)?'<tr><td style="text-align:center;" colspan="6">'.lang('no_files').'</td></tr>':''?>
+											<?php foreach ($file_list as $file):?>
+												<tr>
+													<td><?php echo $file->filename ?></td>
+													<td><?php echo $file->title ?></td>
+													<td><?php echo $file->size ?></td>
+													<td><?php echo form_checkbox('downloads[]', $file->id, in_array($file->id, $product_files)); ?></td>
+												</tr>
+											<?php endforeach; ?>
 										</tbody>
 									</table>
 								</div>
-						    </div>
+							</div>
 						</div>
 
 						
-				    </div>
+					</div>
 				</div>
 			</div>
+
+		
+
+	<div class="col-md-4">
+		
+		<div class="form-group">
+			<?php
+			$options = array(	 '1'	=> lang('shippable')
+								,'0'	=> lang('not_shippable')
+								);
+			echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="form-control"');
+			?>
 		</div>
+		<div class="form-group">
+			<?php
+			$options = array(	 '1'	=> lang('taxable')
+								,'0'	=> lang('not_taxable')
+								);
+			echo form_dropdown('taxable', $options, set_value('taxable',$taxable), 'class="form-control"');
+			?>
+		</div>
+		<div class="form-group">
+		    <label for="sku" class="col-sm-4 control-label"><?php echo lang('sku');?></label>
+		    <div class="col-sm-8">
+		      <?php
+			$data	= array('name'=>'sku', 'value'=>set_value('sku', $sku), 'class'=>'form-control');
+			echo form_input($data);?>
+		    </div>
+		</div>
+		<div class="form-group">
+		    <label for="weight" class="col-sm-4 control-label"><?php echo lang('weight');?></label>
+		    <div class="col-sm-8">
+		      <?php
+			$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'form-control');
+			echo form_input($data);?>
+		    </div>
+		</div>
+		
+		
+	</div>
+</div>
 
 
 
@@ -583,43 +623,7 @@ function remove_option(id)
 			</div>
 		</div>
 	</div>
-	<div class="col-md-4">
-		
-		<div class="form-group">
-			<?php
-			$options = array(	 '1'	=> lang('shippable')
-								,'0'	=> lang('not_shippable')
-								);
-			echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="form-control"');
-			?>
-		</div>
-		<div class="form-group">
-			<?php
-			$options = array(	 '1'	=> lang('taxable')
-								,'0'	=> lang('not_taxable')
-								);
-			echo form_dropdown('taxable', $options, set_value('taxable',$taxable), 'class="form-control"');
-			?>
-		</div>
-		<div class="form-group">
-		    <label for="sku" class="col-sm-4 control-label"><?php echo lang('sku');?></label>
-		    <div class="col-sm-8">
-		      <?php
-			$data	= array('name'=>'sku', 'value'=>set_value('sku', $sku), 'class'=>'form-control');
-			echo form_input($data);?>
-		    </div>
-		</div>
-		<div class="form-group">
-		    <label for="weight" class="col-sm-4 control-label"><?php echo lang('weight');?></label>
-		    <div class="col-sm-8">
-		      <?php
-			$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'form-control');
-			echo form_input($data);?>
-		    </div>
-		</div>
-		
-		
-	</div>
+	
 </div>
 <div class="form-group">
 	<div class="col-sm-offset-2 col-sm-10">
