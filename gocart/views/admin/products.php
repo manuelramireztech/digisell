@@ -60,6 +60,27 @@
 	}
 </style>
 
+		
+
+<div class="btn-group pull-right">
+</div>
+<br>
+<?php echo form_open($this->config->item('admin_folder').'/products/bulk_save', array('id'=>'bulk_form'));?>
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title ">
+		<?php echo lang('products') ?>
+			<span class="panel-options">
+				<a href="#" class="panel-minimize">
+					<i class="fa fa-chevron-up"></i>
+				</a>
+				<a href="#" class="panel-close">
+					<i class="fa fa-times"></i>
+				</a>
+			</span>
+		</h3>
+	</div>
+	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-4">
 				<?php echo $this->pagination->create_links();?>
@@ -95,31 +116,11 @@
 						<input type="text" class="form-control" name="term" placeholder="<?php echo lang('search_term');?>" /> 
 													
 					</div>
-					<button class="btn" name="submit" value="search"><?php echo lang('search')?></button>
+					<button class="btn btn-success" name="submit" value="search"><?php echo lang('search')?></button>
 					<a class="btn btn-warning" href="<?php echo site_url($this->config->item('admin_folder').'/products/index');?>">Reset</a>
 			</form>
 		</div>
 	</div>
-
-<div class="btn-group pull-right">
-</div>
-<br>
-<?php echo form_open($this->config->item('admin_folder').'/products/bulk_save', array('id'=>'bulk_form'));?>
-<div class="panel">
-	<div class="panel-heading">
-		<h3 class="panel-title ">
-		<?php echo lang('products') ?>
-			<span class="panel-options">
-				<a href="#" class="panel-minimize">
-					<i class="fa fa-chevron-up"></i>
-				</a>
-				<a href="#" class="panel-close">
-					<i class="fa fa-times"></i>
-				</a>
-			</span>
-		</h3>
-	</div>
-	<div class="panel-body">
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>
@@ -132,8 +133,8 @@
 						<th><?php echo sort_url('enabled', 'enabled', $order_by, $sort_order, $code, $this->config->item('admin_folder'));?></th>
 						<th>
 							<span class="btn-group pull-right">
-								<button class="btn" href="#"><i class="icon-ok"></i> <?php echo lang('bulk_save');?></button>
-								<a class="btn btn-primary" style="font-weight:normal;"href="<?php echo site_url($this->config->item('admin_folder').'/products/form');?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_product');?></a>
+								<button class="btn btn-success btn-sm" href="#"><i class="fa fa-save"></i> <?php echo lang('bulk_save');?></button>
+								<a class="btn btn-primary btn-sm" href="<?php echo site_url($this->config->item('admin_folder').'/products/form');?>"><i class="fa fa-plus"></i> <?php echo lang('add_new_product');?></a>
 							</span>
 						</th>
 					</tr>
@@ -159,9 +160,9 @@
 							</td>
 							<td>
 								<span class="btn-group pull-right">
-									<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id);?>"><i class="icon-pencil"></i>  <?php echo lang('edit');?></a>
-									<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id.'/1');?>"><i class="icon-share-alt"></i> <?php echo lang('copy');?></a>
-									<a class="btn btn-danger" href="<?php echo  site_url($this->config->item('admin_folder').'/products/delete/'.$product->id);?>" onclick="return areyousure();"><i class="icon-trash icon-white"></i> <?php echo lang('delete');?></a>
+									<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id);?>"><i class="fa fa-pencil"></i>  <?php echo lang('edit');?></a>
+									<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id.'/1');?>"><i class="fa fa-share"></i> <?php echo lang('copy');?></a>
+									<a class="btn btn-danger" href="<?php echo  site_url($this->config->item('admin_folder').'/products/delete/'.$product->id);?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 								</span>
 							</td>
 						</tr>

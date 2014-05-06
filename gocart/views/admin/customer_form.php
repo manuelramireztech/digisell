@@ -105,7 +105,8 @@
 						<input class="btn btn-primary" type="submit" value="<?php echo lang('save');?>"/>
 					</div>
 				</div>
-			<?php echo heading('<span class="label label-primary lable-width">Recent Orders</span>',5) ?>
+				<?php if($orders) { ?>
+				<?php echo heading('<span class="label label-primary lable-width">Recent Orders</span>',5) ?>
 				<div class="form-group">
 					<label for="inputPassword3" class="col-sm-1 control-label"></label>
 					<div class="col-sm-11">
@@ -136,6 +137,7 @@
 							</table>
 						</div>
 					</div>
+					<?php } ?>
 				</div>				
 				<!-- /panel body -->
 			</div>
