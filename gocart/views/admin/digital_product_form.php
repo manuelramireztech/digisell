@@ -24,11 +24,14 @@
 							<?php 	$data = array('id'=>'file', 'name'=>'userfile');
 							echo form_upload($data);
 							?>
+						</div>
 						<?php else : ?>
 							<label for="file" class="col-sm-2 control-label"><?php echo lang('file_label');?> </label>
-							<?php echo $filename ?>
+							<div class="col-sm-10">	
+								<?php echo $filename ?>
+							</div>
 						<?php endif; ?>
-					</div>
+					
 				</div>
 				<div class="form-group">
 					<label for="title" class="col-sm-2 control-label"><?php echo lang('title');?></label>

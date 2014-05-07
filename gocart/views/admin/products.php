@@ -60,27 +60,6 @@
 	}
 </style>
 
-		
-
-<div class="btn-group pull-right">
-</div>
-<br>
-<?php echo form_open($this->config->item('admin_folder').'/products/bulk_save', array('id'=>'bulk_form'));?>
-<div class="panel">
-	<div class="panel-heading">
-		<h3 class="panel-title ">
-		<?php echo lang('products') ?>
-			<span class="panel-options">
-				<a href="#" class="panel-minimize">
-					<i class="fa fa-chevron-up"></i>
-				</a>
-				<a href="#" class="panel-close">
-					<i class="fa fa-times"></i>
-				</a>
-			</span>
-		</h3>
-	</div>
-	<div class="panel-body">
 		<div class="row">
 			<div class="col-md-4">
 				<?php echo $this->pagination->create_links();?>
@@ -121,6 +100,26 @@
 			</form>
 		</div>
 	</div>
+
+
+<br>
+<?php echo form_open($this->config->item('admin_folder').'/products/bulk_save', array('id'=>'bulk_form'));?>
+<div class="panel">
+	<div class="panel-heading">
+		<h3 class="panel-title ">
+		<?php echo lang('products') ?>
+			<span class="panel-options">
+				<a href="#" class="panel-minimize">
+					<i class="fa fa-chevron-up"></i>
+				</a>
+				<a href="#" class="panel-close">
+					<i class="fa fa-times"></i>
+				</a>
+			</span>
+		</h3>
+	</div>
+	<div class="panel-body">
+		
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<thead>
