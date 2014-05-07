@@ -55,7 +55,7 @@ class Login extends Base_Controller {
 	function logout()
 	{
 		$this->auth->logout();
-		
+		$this->session->sess_destroy();
 		//when someone logs out, automatically redirect them to the login page.
 		$this->session->set_flashdata('message', lang('message_logged_out'));
 		redirect($this->config->item('admin_folder').'/login');

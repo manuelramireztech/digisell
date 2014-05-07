@@ -76,7 +76,7 @@
                                     <img src="<?php echo base_url(); ?>images/avatar.png" alt="" class="avatar">
                                     <div class="user-info">
                                         <div class="welcome">Welcome,</div>
-                                        <div class="username"><?php echo "Admin"; ?></div>
+                                        <div class="username"><?php echo $this->session->userdata('uname'); ?></div>
                                     </div>
                                     <div class="user-status">
                                         <i class="fa fa-circle "></i>
