@@ -44,9 +44,10 @@
 </script>
 
 
-<script src="<?php echo base_url(); ?>js/glDatePicker.min.js"></script>
+ 
+<!--<script src="<?php echo base_url(); ?>js/glDatePicker.min.js"></script>-->
 <!-- Gl date picker start -->
-    <script type="text/javascript">
+<!--    <script type="text/javascript">
         $(window).load(function()
         {
             $('#start_top').glDatePicker();
@@ -61,7 +62,10 @@
         });
 
     </script>
+-->
 <!-- Gl date picker end -->
+
+
 
 <script src="<?php echo base_url(); ?>js/core.js"></script>
 

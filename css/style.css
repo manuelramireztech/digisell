@@ -4290,3 +4290,78 @@ ANIMATIONS
 .input-group span {
   margin-left: 0px !important;
 }
+.ui-datepicker:before {
+  position: absolute;
+  top: -7px;
+  left: 9px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  content: '';
+}
+.ui-datepicker {
+  background: white;
+  border: 1px solid #efefee !important;
+  left: 10px;
+  margin-top: 7px;
+  width: 225px;
+  border-radius: 3px;
+}
+.ui-datepicker .ui-datepicker-header {
+  background: white;
+}
+.ui-datepicker .ui-datepicker-month {
+  color: black;
+  text-decoration: bold;
+}
+.ui-datepicker .ui-datepicker-prev:before {
+  color: black;
+  font-family: FontAwesome;
+  content: "\f0a8";
+  display: block;
+  z-index: 10000;
+  text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-prev:before:hover {
+  color: #525252;
+}
+.ui-datepicker .ui-datepicker-prev {
+  margin-top: 5px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-prev:hover {
+  background: none;
+  cursor: pointer;
+}
+.ui-datepicker .ui-datepicker-next:before {
+  color: black;
+  font-family: FontAwesome;
+  content: "\f0a9";
+  display: block;
+  z-index: 10000;
+  text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-next:before:hover {
+  color: #525252;
+}
+.ui-datepicker .ui-datepicker-next {
+  margin-top: 5px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+.ui-datepicker .ui-datepicker-next:hover {
+  background: none;
+  cursor: pointer;
+}
+.ui-datepicker .ui-state-highlight {
+  background: #23bab5;
+  color: #fff;
+  border-radius: 3px;
+}
+.ui-datepicker .ui-state-default {
+  border-radius: 3px;
+  text-align: center;
+}

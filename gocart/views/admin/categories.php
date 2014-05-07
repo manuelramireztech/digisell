@@ -50,11 +50,11 @@
 									<td>
 										<div class="btn-group" style="float:right">
 
-											<a class="btn btn-primary" href="<?php echo  site_url(ADMIN_FOLDER.'/categories/form/'.$cat->id);?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
+											<a class="btn btn-primary" href="<?php echo  site_url(ADMIN_FOLDER.'/categories/form/'.$cat->id);?>"><i class="fa fa-edit"></i> <?php echo lang('edit');?></a>
 
-											<a class="btn btn-success" href="<?php echo  site_url(ADMIN_FOLDER.'/categories/organize/'.$cat->id);?>"><i class="icon-move"></i> <?php echo lang('organize');?></a>
+											<a class="btn btn-success" href="<?php echo  site_url(ADMIN_FOLDER.'/categories/organize/'.$cat->id);?>"><i class="fa fa-th"></i> <?php echo lang('organize');?></a>
 
-											<a class="btn btn-danger" href="<?php echo  site_url(ADMIN_FOLDER.'/categories/delete/'.$cat->id);?>" onclick="return areyousure();"><i class="icon-trash icon-white"></i> <?php echo lang('delete');?></a>
+											<a class="btn btn-danger" href="<?php echo  site_url(ADMIN_FOLDER.'/categories/delete/'.$cat->id);?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 										</div>
 									</td>
 								</tr>
