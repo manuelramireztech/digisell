@@ -18,7 +18,7 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-8">
-							<?php echo heading('<span class="label label-primary label-width">Client Information</span> + Edit Customer Information',5) ?>
+							<?php echo heading('<span class="label label-primary label-width">Client Information</span> - Edit Customer Information',5) ?>
 						<div class="form-group">
 							<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('company');?></label>
 							<div class="col-sm-10">
@@ -108,7 +108,7 @@
 							</div>
 						</div>
 						<?php if($orders) { ?>
-						<?php echo heading('<span class="label label-primary lable-width">Recent Orders</span> + Recent Order Activity',5) ?>
+						<?php echo heading('<span class="label label-primary lable-width">Recent Orders</span> - Recent Order Activity',5) ?>
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-1 control-label"></label>
 							<div class="col-sm-11">
@@ -142,7 +142,11 @@
 							
 
 						</div>
-						<?php echo heading('<span class="label label-primary lable-width">Recent Invoices</span> + Recent Invoices Activity',5) ?>
+						<div class="">
+						<?php echo heading('<span class="label pull-left label-primary lable-width">Recent Invoices</span> - Recent Invoices Activity',5) ?>
+						
+							
+						</div>
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-1 control-label"></label>
 							<div class="col-sm-11">
@@ -174,6 +178,7 @@
 								</div>
 							</div>
 						</div>
+						<?php echo heading('<span class="label label-primary lable-width">Client Notes</span> - Visible to the Client',5) ?>
 				</div>
 				<div class="col-md-4">
 					<div class="table-responsive cinfo-border">
