@@ -162,7 +162,7 @@
 													<td><?php echo $order->order_number; ?></td>
 													<td>
 														<?php
-															echo '<a href="'.base_url('index.php').'/admin/orders/order/'.$order->order_id.'">'.'Get <i class="fa fa-mail-forward"></i></a>';
+															echo '<a href="'.base_url('index.php').'/admin/orders/order/'.$order->order_id.'">'.'#'.$order->order_number.' <i class="fa fa-mail-forward"></i></a>';
 														?>
 													</td>
 													<td><?php echo $order->status; ?></td>
