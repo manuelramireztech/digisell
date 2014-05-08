@@ -144,7 +144,35 @@
 						</div>
 						<?php echo heading('<span class="label label-primary lable-width">Recent Invoices</span> + Recent Invoices Activity',5) ?>
 						<div class="form-group">
-							
+							<label for="inputPassword3" class="col-sm-1 control-label"></label>
+							<div class="col-sm-11">
+								<div class="table-responsive">
+									<table class="table table-hover table-bordered">
+										<thead>
+											<tr class="active">
+												<th><?php echo 'Order Number'; ?></th>
+												<th><?php echo 'Invoice'; ?></th>
+												<th><?php echo 'Status'; ?></th>
+												<th><?php echo 'Created On'; ?></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php foreach ($orders as $order): ?>
+												<tr>
+													<td><?php echo $order->order_number; ?></td>
+													<td>
+														<?php
+															echo '<a href="'.base_url('index.php').'/admin/orders/order/'.$order->order_id.'">'.'Get <i class="fa fa-mail-forward"></i></a>';
+														?>
+													</td>
+													<td><?php echo $order->status; ?></td>
+													<td><?php echo $order->ordered_on; ?></td>
+												</tr>
+											<?php endforeach ?>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 				</div>
 				<div class="col-md-4">
