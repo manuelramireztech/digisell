@@ -139,7 +139,7 @@
 									</table>
 								</div>
 							</div>
-							<?php } ?>
+							
 
 						</div>
 						<?php echo heading('<span class="label label-primary lable-width">Recent Invoices</span> + Recent Invoices Activity',5) ?>
@@ -256,7 +256,8 @@
 						</table>
 					</div>
 				</div>
-				
+				<?php }?>
+
 			</div>				
 				<!-- /panel body -->
 			</div>
