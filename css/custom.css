@@ -36,3 +36,9 @@
 {
   width: 150px !important;
 }
+.cinfo
+{
+  width: 80px;
+  border-radius: 0px;
+  text-align: right;
+}

@@ -30,10 +30,11 @@
 					</div>
 					
 				</div>
+				<br><br><br>
 				<div class="table-responsive">
-					<table class="table table-striped">
+					<table class="table table-hover table-bordered">
 						<thead>
-							<tr>
+							<tr class="active">
 
 								<?php
 								if($by=='ASC')
@@ -52,10 +53,10 @@
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/lastname/');?>/<?php echo ($field == 'lastname')?$by:'';?>"><?php echo lang('lastname');?>
 									<?php if($field == 'lastname'){ echo ($by == 'ASC')?'<i class="icon-chevron-up"></i>':'<i class="icon-chevron-down"></i>';} ?> </a></th>
 
-												<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/email/');?>/<?php echo ($field == 'email')?$by:'';?>"><?php echo lang('email');?>
+												
 													<?php if($field == 'email'){ echo ($by == 'ASC')?'<i class="icon-chevron-up"></i>':'<i class="icon-chevron-down"></i>';} ?></a></th>
 														<th><?php echo 'Created On' ?></th>
-														<th><?php echo lang('active');?></th>
+														
 														<th width="20%"></th>
 													</tr>
 												</thead>
@@ -74,19 +75,9 @@
 														
 														<td class="gc_cell_left"><?php echo  $customer->firstname; ?></td>
 														<td><?php echo  $customer->lastname; ?></td>
-														<td><a href="mailto:<?php echo  $customer->email;?>"><?php echo  $customer->email; ?></a></td>
+														
 														<td><?php echo  $customer->created_on; ?></td>
-														<td>
-															<?php if($customer->active == 1)
-															{
-																echo 'Yes';
-															}
-															else
-															{
-																echo 'No';
-															}
-															?>
-														</td>
+														
 														<td>
 															<div class="btn-group" style="float:right">
 																<a class="btn btn-primary" href="<?php echo site_url($this->config->item('admin_folder').'/customers/form/'.$customer->id); ?>"><i class="fa fa-edit"></i> <?php echo lang('edit');?></a>
