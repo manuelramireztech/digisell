@@ -1,400 +1,7 @@
 <?php echo "<div class='row'><div class='col-md-12'> " ?>
 <?php $GLOBALS['option_value_count'] = 0;?>
-<style type="text/css">
-	.sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
-	.sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; height: 18px; }
-	.sortable li>span { position: absolute; margin-left: -1.3em; margin-top:.4em; }
-</style>
 
 <script type="text/javascript">
-//<![CDATA[
-
-$(document).ready(function() {
-	$(".sortable").sortable();
-	$(".sortable > span").disableSelection();
-	//if the image already exists (phpcheck) enable the selector
-
-	<?php if($id) : ?>
-	//options related
-	var ct	= $('#option_list').children().size();
-	// set initial count
-	option_count = <?php echo count($product_options); ?>;
-	<?php endif; ?>
-
-	photos_sortable();
-});
-
-function add_product_image(data)
-{
-	p	= data.split('.');
-	
-	var photo = '<?php add_image("'+p[0]+'", "'+p[0]+'.'+p[1]+'", '', '', '', base_url('uploads/images/thumbnails'));?>';
-	$('#gc_photos').append(photo);
-	$('#gc_photos').sortable('destroy');
-	photos_sortable();
-}
-
-function remove_image(img)
-{
-	if(confirm('<?php echo lang('confirm_remove_image');?>'))
-	{
-		var id	= img.attr('rel')
-		$('#gc_photo_'+id).remove();
-	}
-}
-
-function photos_sortable()
-{
-	$('#gc_photos').sortable({	
-		handle : '.gc_thumbnail',
-		items: '.gc_photo',
-		axis: 'y',
-		scroll: true
-	});
-}
-
-function remove_option(id)
-{
-	if(confirm('<?php echo lang('confirm_remove_option');?>'))
-	{
-		$('#option-'+id).remove();
-	}
-}
-
-//]]>
-</script>
-
-
- <div class="panel">
- 	<div class="panel-heading">
- 		<h3 class="panel-title ">
- 			<?php echo lang('product_form') ?>
- 			<span class="panel-options">
- 				<a href="#" class="panel-minimize">
- 					<i class="fa fa-chevron-up"></i>
- 				</a>
- 				<a href="#" class="panel-close">
- 					<i class="fa fa-times"></i>
- 				</a>
- 			</span>
- 		</h3>
- 	</div>
- 	<div class="panel-body">
-<?php echo form_open($this->config->item('admin_folder').'/products/form/'.$id, 'class="form-horizontal"' ); ?>
-
-	
-<div class="row">
-	<div class="col-md-8">
-
-		<div class="panel-group" id="accordionVj">
-			<div class="panel col-md-12 panel-primary">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseSeven">
-							<i class="fa fa-th-large"></i> <?php echo 'Product Details';?>
-						</a>
-					</h4>
-				</div>
-				<div id="collapseSeven" class="panel-collapse collapse in">
-					<div class="panel-body">
-						<div class="row	form-group">
-							<label class='col-sm-2 control-label'><?php echo 'Product Status';?></label>
-							<div class="col-md-8">
-								<?php
-								$options = array(	 '0'	=> lang('disabled')
-									,'1'	=> lang('enabled')
-									);
-								echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="col-md-8 drp form-control"');
-								?>
-							</div>
-						</div>
-						<div class="row form-group">
-							<label class='col-sm-2 control-label'><?php echo lang('name');?></label>
-							<div class="col-md-8">
-								<?php
-								$data	= array('placeholder'=>lang('name'), 'name'=>'name', 'value'=>set_value('name', $name), 'class'=>'col-md-8 form-control');
-								echo form_input($data);
-								?>
-							</div>
-						</div>
-						<div class="row form-group">
-							<label class='col-sm-2 control-label'><?php echo 'Product Full Desc,.';?></label>
-
-							<div class="col-md-8 drp">
-								<?php
-								$data	= array('name'=>'description', 'id'=>'content_editor', 'class'=>' form-control drp', 'value'=>set_value('description', $description));
-								echo form_textarea($data);
-								?>
-								
-							</div>
-						</div>
-						
-						<div class="row form-group">
-							<label class='col-sm-2 control-label'><?php echo 'Product Summary';?></label>
-							<div class="col-md-8">
-								
-								<?php
-								$data	= array('name'=>'excerpt', 'value'=>set_value('excerpt', $excerpt), 'class'=>'col-md-8 form-control drp', 'rows'=>5);
-								echo form_textarea($data);
-								?>
-							</div>
-						</div>
-						<div class="row form-group">
-							<label for="price" class="col-sm-2 control-label"><?php echo lang('price');?></label>
-							<div class="col-sm-8">
-								<?php
-								$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'form-control');
-								echo form_input($data);?>
-							</div>
-						</div>
-
-						<div class="row form-group">
-							<label for="saleprice" class="col-sm-2 control-label"><?php echo lang('saleprice');?></label>
-							<div class="col-sm-8">
-								<?php
-								$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'form-control');
-								echo form_input($data);?>
-							</div>
-						</div>
-
-						<div class="row alert alert-info">
-							<div class="col-md-8">
-								<?php echo lang('digital_products_desc'); ?>
-							</div>
-						</div>
-						
-						<div class="row form-group">
-							<label for="saleprice" class="col-sm-2 control-label"><?php echo 'Product Downloads';?></label>
-							<div class="col-sm-8">
-								<div class="table-responsive">
-									<table class="table table-striped table-bordered">
-										<thead>
-											<tr>
-												<th><?php echo lang('filename');?></th>
-												<th><?php echo lang('title');?></th>
-												<th style="width:70px;"><?php echo lang('size');?></th>
-												<th style="width:16px;"></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php echo (count($file_list) < 1)?'<tr><td style="text-align:center;" colspan="6">'.lang('no_files').'</td></tr>':''?>
-											<?php foreach ($file_list as $file):?>
-												<tr>
-													<td><?php echo $file->filename ?></td>
-													<td><?php echo $file->title ?></td>
-													<td><?php echo $file->size ?></td>
-													<td><?php echo form_checkbox('downloads[]', $file->id, in_array($file->id, $product_files)); ?></td>
-												</tr>
-											<?php endforeach; ?>
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-4">
-		<div class="form-group">
-			<?php
-			$options = array(	 '1'	=> lang('shippable')
-								,'0'	=> lang('not_shippable')
-								);
-			echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="form-control"');
-			?>
-		</div>
-		<div class="form-group">
-			<?php
-			$options = array(	 '1'	=> lang('taxable')
-								,'0'	=> lang('not_taxable')
-								);
-			echo form_dropdown('taxable', $options, set_value('taxable',$taxable), 'class="form-control"');
-			?>
-		</div>
-		<div class="form-group">
-		    <label for="sku" class="col-sm-4 control-label"><?php echo lang('sku');?></label>
-		    <div class="col-sm-8">
-		      <?php
-			$data	= array('name'=>'sku', 'value'=>set_value('sku', $sku), 'class'=>'form-control');
-			echo form_input($data);?>
-		    </div>
-		</div>
-		<div class="form-group">
-		    <label for="weight" class="col-sm-4 control-label"><?php echo lang('weight');?></label>
-		    <div class="col-sm-8">
-		      <?php
-			$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'form-control');
-			echo form_input($data);?>
-		    </div>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-8">
-		<div class="tabbable">
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#product_info" data-toggle="tab"><?php echo lang('details');?></a></li>
-				<?php //if there aren't any files uploaded don't offer the client the tab
-				if (count($file_list) > 0):?>
-				<li><a href="#product_downloads" data-toggle="tab"><?php echo lang('digital_content');?></a></li>
-				<?php endif;?>
-				<li><a href="#product_categories" data-toggle="tab"><?php echo lang('categories');?></a></li>
-				<li><a href="#product_options" data-toggle="tab"><?php echo lang('options');?></a></li>
-				<li><a href="#product_related" data-toggle="tab"><?php echo lang('related_products');?></a></li>
-				<li><a href="#product_photos" data-toggle="tab"><?php echo lang('images');?></a></li>
-			</ul>
-		</div>
-		<div class="tab-content">
-			<div class="tab-pane active" id="product_info">
-				
-
-				
-				
-				
-
-				
-				
-				<div class="row form-group">
-					<div class="col-md-8">
-					
-							<legend><?php echo lang('inventory');?></legend>
-							<div class="row" >
-								<div class="col-md-3">
-									<label for="track_stock"><?php echo lang('track_stock');?> </label>
-									<?php
-								 	$options = array(	 '1'	=> lang('yes')
-														,'0'	=> lang('no')
-														);
-									echo form_dropdown('track_stock', $options, set_value('track_stock',$track_stock), 'class="col-md-3 form-control"');
-									?>
-								</div>
-								<div class="col-md-3">
-									<label for="fixed_quantity"><?php echo lang('fixed_quantity');?> </label>
-									<?php
-								 	$options = array(	 '0'	=> lang('no')
-														,'1'	=> lang('yes')
-														);
-									echo form_dropdown('fixed_quantity', $options, set_value('fixed_quantity',$fixed_quantity), 'class="col-md-3 form-control"');
-									?>
-								</div>
-								<div class="col-md-6">
-									<label for="quantity"><?php echo lang('quantity');?> </label>
-									<?php
-									$data	= array('name'=>'quantity', 'value'=>set_value('quantity', $quantity), 'class'=>'col-md-2 form-control');
-									echo form_input($data);
-									?>
-								</div>
-							</div>
-						
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-8">
-						
-							<legend><?php echo lang('header_information');?></legend>
-							<div class="row" >
-								<div class="col-md-12">
-									
-									<div class="form-group">
-										<label for="slug"><?php echo lang('slug');?> </label>
-									<?php
-									$data	= array('name'=>'slug', 'value'=>set_value('slug', $slug), 'class'=>'col-md-8 form-control');
-									echo form_input($data);?>
-									</div>
-									
-									<div class="form-group">
-										<label for="seo_title"><?php echo lang('seo_title');?> </label>
-									<?php
-									$data	= array('name'=>'seo_title', 'value'=>set_value('seo_title', $seo_title), 'class'=>'col-md-8 form-control');
-									echo form_input($data);
-									?>
-									</div>
-
-									<div class="form-group">
-										<label for="meta"><?php echo lang('meta');?> <i><?php echo lang('meta_example');?></i></label> 
-									<?php
-									$data	= array('name'=>'meta', 'value'=>set_value('meta', html_entity_decode($meta)), 'class'=>'col-md-8 form-control drp');
-									echo form_textarea($data);
-									?>
-									</div>
-								</div>
-							</div>
-						
-					</div>
-				</div>
-			</div>
-			
-			<div class="tab-pane" id="product_downloads">
-					
-				
-			</div>
-			
-			<div class="tab-pane" id="product_categories">
-				<div class="row">
-					<div class="col-md-8">
-						<?php if(isset($categories[0])):?>
-							<label><strong><?php echo lang('select_a_category');?></strong></label>
-							<div class="table-responsive">
-								<table class="table table-striped">
-							    <thead>
-									<tr>
-										<th colspan="2"><?php echo lang('name')?></th>
-									</tr>
-								</thead>
-							<?php
-							function list_categories($parent_id, $cats, $sub='', $product_categories) {
-			
-								foreach ($cats[$parent_id] as $cat):?>
-								<tr>
-									<td><?php echo  $sub.$cat->name; ?></td>
-									<td>
-										<input type="checkbox" name="categories[]" value="<?php echo $cat->id;?>" <?php echo(in_array($cat->id, $product_categories))?'checked="checked"':'';?>/>
-									</td>
-								</tr>
-								<?php
-								if (isset($cats[$cat->id]) && sizeof($cats[$cat->id]) > 0)
-								{
-									$sub2 = str_replace('&rarr;&nbsp;', '&nbsp;', $sub);
-										$sub2 .=  '&nbsp;&nbsp;&nbsp;&rarr;&nbsp;';
-									list_categories($cat->id, $cats, $sub2, $product_categories);
-								}
-								endforeach;
-							}
-						
-						
-							list_categories(0, $categories, '', $product_categories);
-						
-							?>
-						</table>
-							</div>
-					<?php else:?>
-						<div class="alert"><?php echo lang('no_available_categories');?></div>
-					<?php endif;?>
-					</div>
-				</div>
-			</div>
-			
-			<div class="tab-pane" id="product_options">
-				<div class="row ">
-					<div class="col-md-7 pull-right">
-						<div class="" style="padding:0px 0px 10px 0px;">
-							<select id="option_options" class="input-sm">
-								<option value=""><?php echo lang('select_option_type')?></option>
-								<option value="checklist"><?php echo lang('checklist');?></option>
-								<option value="radiolist"><?php echo lang('radiolist');?></option>
-								<option value="droplist"><?php echo lang('droplist');?></option>
-								<option value="textfield"><?php echo lang('textfield');?></option>
-								<option value="textarea"><?php echo lang('textarea');?></option>
-							</select>
-							<input id="add_option" class="btn btn-info" type="button" value="<?php echo lang('add_option');?>" style="margin:0px;"/>
-						</div>
-					</div>
-				</div>
-				
-				<script type="text/javascript">
 				
 				$( "#add_option" ).click(function(){
 					if($('#option_options').val() != '')
@@ -499,31 +106,463 @@ function remove_option(id)
 						margin-top:3px;
 					}
 				</style>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="table-responsive">
-							<table class="table table-striped"  id="options_container">
-							<?php
-							$counter	= 0;
-							if(!empty($product_options))
-							
-							{
-								foreach($product_options as $po)
-								{
-									$po	= (object)$po;
-									if(empty($po->required)){$po->required = false;}
 
-									add_option($po, $counter);
-									$counter++;
-								}
-							}?>
+<style type="text/css">
+	.sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+	.sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; height: 18px; }
+	.sortable li>span { position: absolute; margin-left: -1.3em; margin-top:.4em; }
+</style>
+
+<script type="text/javascript">
+//<![CDATA[
+
+$(document).ready(function() {
+	$(".sortable").sortable();
+	$(".sortable > span").disableSelection();
+	//if the image already exists (phpcheck) enable the selector
+
+	<?php if($id) : ?>
+	//options related
+	var ct	= $('#option_list').children().size();
+	// set initial count
+	option_count = <?php echo count($product_options); ?>;
+	<?php endif; ?>
+
+	photos_sortable();
+});
+
+function add_product_image(data)
+{
+	p	= data.split('.');
+	
+	var photo = '<?php add_image("'+p[0]+'", "'+p[0]+'.'+p[1]+'", '', '', '', base_url('uploads/images/thumbnails'));?>';
+	$('#gc_photos').append(photo);
+	$('#gc_photos').sortable('destroy');
+	photos_sortable();
+}
+
+function remove_image(img)
+{
+	if(confirm('<?php echo lang('confirm_remove_image');?>'))
+	{
+		var id	= img.attr('rel')
+		$('#gc_photo_'+id).remove();
+	}
+}
+
+function photos_sortable()
+{
+	$('#gc_photos').sortable({	
+		handle : '.gc_thumbnail',
+		items: '.gc_photo',
+		axis: 'y',
+		scroll: true
+	});
+}
+
+function remove_option(id)
+{
+	if(confirm('<?php echo lang('confirm_remove_option');?>'))
+	{
+		$('#option-'+id).remove();
+	}
+}
+
+//]]>
+</script>
+
+
+ <div class="panel">
+ 	<div class="panel-heading">
+ 		<h3 class="panel-title ">
+ 			<?php echo lang('product_form') ?>
+ 			<span class="panel-options">
+ 				<a href="#" class="panel-minimize">
+ 					<i class="fa fa-chevron-up"></i>
+ 				</a>
+ 				<a href="#" class="panel-close">
+ 					<i class="fa fa-times"></i>
+ 				</a>
+ 			</span>
+ 		</h3>
+ 	</div>
+ 	<div class="panel-body">
+<?php echo form_open($this->config->item('admin_folder').'/products/form/'.$id, 'class="form-horizontal"' ); ?>
+
+	
+<div class="row">
+	<div class="col-md-8">
+
+		<div class="panel-group" id="accordionVj">
+			<div class="panel col-md-12 panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseMain">
+							<i class="fa fa-th-large"></i> <?php echo 'Product Details';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseMain" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row	form-group">
+							<label class='col-sm-2 control-label'><?php echo 'Product Status';?></label>
+							<div class="col-md-8">
+								<?php
+								$options = array(	 '0'	=> lang('disabled')
+									,'1'	=> lang('enabled')
+									);
+								echo form_dropdown('enabled', $options, set_value('enabled',$enabled), 'class="col-md-8 drp form-control"');
+								?>
+							</div>
+						</div>
+						<div class="row form-group">
+							<label class='col-sm-2 control-label'><?php echo lang('name');?></label>
+							<div class="col-md-8">
+								<?php
+								$data	= array('placeholder'=>lang('name'), 'name'=>'name', 'value'=>set_value('name', $name), 'class'=>'col-md-8 form-control');
+								echo form_input($data);
+								?>
+							</div>
+						</div>
+						<div class="row form-group">
+							<label class='col-sm-2 control-label'><?php echo 'Product Full Desc,.';?></label>
+
+							<div class="col-md-8 drp">
+								<?php
+								$data	= array('name'=>'description', 'id'=>'content_editor', 'class'=>' form-control drp', 'value'=>set_value('description', $description));
+								echo form_textarea($data);
+								?>
 								
-						</table>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<label class='col-sm-2 control-label'><?php echo 'Product Summary';?></label>
+							<div class="col-md-8">
+								
+								<?php
+								$data	= array('name'=>'excerpt', 'value'=>set_value('excerpt', $excerpt), 'class'=>'col-md-8 form-control drp', 'rows'=>5);
+								echo form_textarea($data);
+								?>
+							</div>
+						</div>
+						<div class="row form-group">
+							<label for="price" class="col-sm-2 control-label"><?php echo lang('price');?></label>
+							<div class="col-sm-8">
+								<?php
+								$data	= array('name'=>'price', 'value'=>set_value('price', $price), 'class'=>'form-control');
+								echo form_input($data);?>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<label for="saleprice" class="col-sm-2 control-label"><?php echo lang('saleprice');?></label>
+							<div class="col-sm-8">
+								<?php
+								$data	= array('name'=>'saleprice', 'value'=>set_value('saleprice', $saleprice), 'class'=>'form-control');
+								echo form_input($data);?>
+							</div>
+						</div>
+
+						<div class="row alert alert-info">
+							<div class="col-md-8">
+								<?php echo lang('digital_products_desc'); ?>
+							</div>
+						</div>
+						
+						<div class="row form-group">
+							<label for="saleprice" class="col-sm-2 control-label"><?php echo 'Product Downloads';?></label>
+							<div class="col-sm-10">
+								<div class="table-responsive">
+									<table class="table table-hover table-bordered">
+										<thead>
+											<tr class="active">
+												<th><?php echo lang('filename');?></th>
+												<th><?php echo lang('title');?></th>
+												<th style="width:80px;"><?php echo lang('size');?></th>
+												<th style="width:16px;"></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php echo (count($file_list) < 1)?'<tr><td style="text-align:center;" colspan="6">'.lang('no_files').'</td></tr>':''?>
+											<?php foreach ($file_list as $file):?>
+												<tr>
+													<td><?php echo $file->filename ?></td>
+													<td><?php echo $file->title ?></td>
+													<td><?php echo $file->size ?></td>
+													<td><?php echo form_checkbox('downloads[]', $file->id, in_array($file->id, $product_files)); ?></td>
+												</tr>
+											<?php endforeach; ?>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="row alert alert-info">
+							<div class="col-md-8">
+								<?php echo 'Coupon code Discounts'; ?>
+							</div>
+						</div>
+						<div class="row form-group">
+							<label for="saleprice" class="col-sm-2 control-label"><?php echo 'Coupon Code'."'".'s';?></label>
+							<div class="col-sm-4">
+								<?php if(count($coupon) < 1): ?>
+									<div class="alert alert-warning pull-right"><?php echo lang('no_files'); ?></div>
+								<?php else: ?>
+								<div class="table-responsive">
+									<table class="table table-hover table-bordered">
+										<thead>
+											<tr class="active">
+												<th style="width:16px;"></th>
+												<th><?php echo 'Coupon Code';?></th>
+												<th style="width:16px;"></th>
+												
+												
+											</tr>
+										</thead>
+										<tbody>
+											<?php echo (count($coupon) < 1)?'<tr><td style="text-align:center;" colspan="6">'.lang('no_files').'</td></tr>':''?>
+											<?php foreach ($coupon as $file):?>
+												<tr>
+													<td><?php echo form_checkbox('downloads[]', $file->id, in_array($file->id, $product_files)); ?></td>
+													<td><?php echo $file->code ?></td>
+													<td>
+														<?php
+															echo '<a href="'.base_url('index.php').'/admin/coupons/form/'.$file->coupon_id.'">'.'<i class="fa fa-edit"></i></a>';
+														?>
+													</td>
+												</tr>
+											<?php endforeach; ?>
+										</tbody>
+									</table>
+								</div>
+								<?php endif; ?>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="panel-group" id="accordionVj">
+			<div class="panel col-md-12 panel-primary">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseExtra">
+							<i class="ion-help-buoy"></i> <?php echo 'Extras';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseExtra" class="panel-collapse collapse">
+					<div class="panel-body">
+						<legend><?php echo lang('inventory');?></legend>
+						<div class="row" >
+							<div class="col-md-3">
+								<label for="track_stock"><?php echo lang('track_stock');?> </label>
+								<?php
+							 	$options = array(	 '1'	=> lang('yes')
+													,'0'	=> lang('no')
+													);
+								echo form_dropdown('track_stock', $options, set_value('track_stock',$track_stock), 'class="col-md-3 form-control"');
+								?>
+							</div>
+							<div class="col-md-3">
+								<label for="fixed_quantity"><?php echo lang('fixed_quantity');?> </label>
+								<?php
+							 	$options = array(	 '0'	=> lang('no')
+													,'1'	=> lang('yes')
+													);
+								echo form_dropdown('fixed_quantity', $options, set_value('fixed_quantity',$fixed_quantity), 'class="col-md-3 form-control"');
+								?>
+							</div>
+							<div class="col-md-6">
+								<label for="quantity"><?php echo lang('quantity');?> </label>
+								<?php
+								$data	= array('name'=>'quantity', 'value'=>set_value('quantity', $quantity), 'class'=>'col-md-2 form-control');
+								echo form_input($data);
+								?>
+							</div>
+						</div>
+						<br>
+						<legend><?php echo lang('header_information');?></legend>
+						<div class="row" >
+							<div class="col-md-12">
+								
+								<div class="form-group">
+									<label for="slug"><?php echo lang('slug');?> </label>
+								<?php
+								$data	= array('name'=>'slug', 'value'=>set_value('slug', $slug), 'class'=>'col-md-8 form-control');
+								echo form_input($data);?>
+								</div>
+								
+								<div class="form-group">
+									<label for="seo_title"><?php echo lang('seo_title');?> </label>
+								<?php
+								$data	= array('name'=>'seo_title', 'value'=>set_value('seo_title', $seo_title), 'class'=>'col-md-8 form-control');
+								echo form_input($data);
+								?>
+								</div>
 
+								<div class="form-group">
+									<label for="meta"><?php echo lang('meta');?> <i><?php echo lang('meta_example');?></i></label> 
+								<?php
+								$data	= array('name'=>'meta', 'value'=>set_value('meta', html_entity_decode($meta)), 'class'=>'col-md-8 form-control drp');
+								echo form_textarea($data);
+								?>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="tabbable">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#product_info" data-toggle="tab"><?php echo lang('details');?></a></li>
+								
+								<li><a href="#product_categories" data-toggle="tab"><?php echo lang('categories');?></a></li>
+								<li><a href="#product_options" data-toggle="tab"><?php echo lang('options');?></a></li>
+								<li><a href="#product_related" data-toggle="tab"><?php echo lang('related_products');?></a></li>
+								<li><a href="#product_photos" data-toggle="tab"><?php echo lang('images');?></a></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane active" id="product_info">
+								
+								<div class="row">
+									<div class="col-md-8">
+											
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="product_categories">
+								<div class="row">
+									<div class="col-md-8">
+										<?php if(isset($categories[0])):?>
+											<label><strong><?php echo lang('select_a_category');?></strong></label>
+											<div class="table-responsive">
+												<table class="table table-striped">
+											    <thead>
+													<tr>
+														<th colspan="2"><?php echo lang('name')?></th>
+													</tr>
+												</thead>
+											<?php
+											function list_categories($parent_id, $cats, $sub='', $product_categories) {
+							
+												foreach ($cats[$parent_id] as $cat):?>
+												<tr>
+													<td><?php echo  $sub.$cat->name; ?></td>
+													<td>
+														<input type="checkbox" name="categories[]" value="<?php echo $cat->id;?>" <?php echo(in_array($cat->id, $product_categories))?'checked="checked"':'';?>/>
+													</td>
+												</tr>
+												<?php
+												if (isset($cats[$cat->id]) && sizeof($cats[$cat->id]) > 0)
+												{
+													$sub2 = str_replace('&rarr;&nbsp;', '&nbsp;', $sub);
+														$sub2 .=  '&nbsp;&nbsp;&nbsp;&rarr;&nbsp;';
+													list_categories($cat->id, $cats, $sub2, $product_categories);
+												}
+												endforeach;
+											}
+										
+										
+											list_categories(0, $categories, '', $product_categories);
+										
+											?>
+										</table>
+											</div>
+									<?php else:?>
+										<div class="alert"><?php echo lang('no_available_categories');?></div>
+									<?php endif;?>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="product_options">
+								<div class="row ">
+									<div class="col-md-7 pull-right">
+										<div class="" style="padding:0px 0px 10px 0px;">
+											<select id="option_options" class="input-sm">
+												<option value=""><?php echo lang('select_option_type')?></option>
+												<option value="checklist"><?php echo lang('checklist');?></option>
+												<option value="radiolist"><?php echo lang('radiolist');?></option>
+												<option value="droplist"><?php echo lang('droplist');?></option>
+												<option value="textfield"><?php echo lang('textfield');?></option>
+												<option value="textarea"><?php echo lang('textarea');?></option>
+											</select>
+											<input id="add_option" class="btn btn-info" type="button" value="<?php echo lang('add_option');?>" style="margin:0px;"/>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="table-responsive">
+											<table class="table table-striped"  id="options_container">
+												<?php
+												$counter	= 0;
+												if(!empty($product_options))
+												
+												{
+													foreach($product_options as $po)
+													{
+														$po	= (object)$po;
+														if(empty($po->required)){$po->required = false;}
+
+														add_option($po, $counter);
+														$counter++;
+													}
+												}?>
+													
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="form-group">
+			<?php
+			$options = array(	 '1'	=> lang('shippable')
+								,'0'	=> lang('not_shippable')
+								);
+			echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="form-control"');
+			?>
+		</div>
+		<div class="form-group">
+			<?php
+			$options = array(	 '1'	=> lang('taxable')
+								,'0'	=> lang('not_taxable')
+								);
+			echo form_dropdown('taxable', $options, set_value('taxable',$taxable), 'class="form-control"');
+			?>
+		</div>
+		<div class="form-group">
+		    <label for="sku" class="col-sm-4 control-label"><?php echo lang('sku');?></label>
+		    <div class="col-sm-8">
+		      <?php
+			$data	= array('name'=>'sku', 'value'=>set_value('sku', $sku), 'class'=>'form-control');
+			echo form_input($data);?>
+		    </div>
+		</div>
+		<div class="form-group">
+		    <label for="weight" class="col-sm-4 control-label"><?php echo lang('weight');?></label>
+		    <div class="col-sm-8">
+		      <?php
+			$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'form-control');
+			echo form_input($data);?>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-8">
+		
+		<div class="tab-content">
+		
 			<div class="tab-pane" id="product_related">
 				<div class="row">
 					<div class="col-md-8">
@@ -613,6 +652,8 @@ function remove_option(id)
 					</div>
 				</div>
 			</div>
+
+
 		</div>
 	</div>
 	

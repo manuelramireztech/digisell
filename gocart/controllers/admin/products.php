@@ -181,7 +181,7 @@ class Products extends Admin_Controller {
 			// get product & options data
 			$data['product_options']	= $this->Option_model->get_product_options($id);
 			$product					= $this->Product_model->get_product($id);
-			
+			$data['coupon'] 		= $this->Product_model->coupon_code($id);
 			//if the product does not exist, redirect them to the product list with an error
 			if (!$product)
 			{

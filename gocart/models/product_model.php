@@ -144,6 +144,15 @@ Class Product_model extends CI_Model
 		}
 	}
 	
+	function coupon_code($id)
+    {
+        $this->db->from('coupons_products');
+        $this->db->where('product_id',$id);
+        $this->db->join('coupons', 'coupons.id = coupons_products.coupon_id');
+        $result = $this->db->get();
+        return $result->result();
+    }
+
 	function count_all_products()
 	{
 		return $this->db->count_all_results('products');
