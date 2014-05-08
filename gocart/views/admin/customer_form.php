@@ -148,7 +148,7 @@
 						</div>
 				</div>
 				<div class="col-md-4">
-					<div class="table-responsive">
+					<div class="table-responsive cinfo-border">
 						<table class="table table-bordered">
 							<tbody>
 								<tr>
