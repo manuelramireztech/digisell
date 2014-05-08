@@ -374,13 +374,6 @@ function remove_option(id)
 								echo form_dropdown('fixed_quantity', $options, set_value('fixed_quantity',$fixed_quantity), 'class="col-md-3 form-control"');
 								?>
 							</div>
-							<div class="col-md-6">
-								<label for="quantity"><?php echo lang('quantity');?> </label>
-								<?php
-								$data	= array('name'=>'quantity', 'value'=>set_value('quantity', $quantity), 'class'=>'col-md-2 form-control');
-								echo form_input($data);
-								?>
-							</div>
 						</div>
 						<br>
 						<legend><?php echo lang('header_information');?></legend>
@@ -415,7 +408,7 @@ function remove_option(id)
 
 						<div class="tabbable">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#product_info" data-toggle="tab"><?php echo lang('details');?></a></li>
+								
 								
 								<li><a href="#product_categories" data-toggle="tab"><?php echo lang('categories');?></a></li>
 								<li><a href="#product_options" data-toggle="tab"><?php echo lang('options');?></a></li>
@@ -424,14 +417,7 @@ function remove_option(id)
 							</ul>
 						</div>
 						<div class="tab-content">
-							<div class="tab-pane active" id="product_info">
-								
-								<div class="row">
-									<div class="col-md-8">
-											
-									</div>
-								</div>
-							</div>
+							
 							<div class="tab-pane" id="product_categories">
 								<div class="row">
 									<div class="col-md-8">
@@ -553,6 +539,15 @@ function remove_option(id)
 		      <?php
 			$data	= array('name'=>'weight', 'value'=>set_value('weight', $weight), 'class'=>'form-control');
 			echo form_input($data);?>
+		    </div>
+		</div>
+		<div class="form-group">
+			<label for="quantity" class="col-sm-4 control-label"><?php echo lang('quantity');?> </label>
+		    <div class="col-sm-8">
+		      <?php
+			$data	= array('name'=>'quantity', 'value'=>set_value('quantity', $quantity), 'class'=>'col-md-2 form-control');
+			echo form_input($data);
+			?>
 		    </div>
 		</div>
 	</div>
