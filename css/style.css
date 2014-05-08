@@ -4303,7 +4303,7 @@ ANIMATIONS
 }
 .ui-datepicker {
   background: white;
-  border: 1px solid #efefee !important;
+  border: 1px solid #c9c9c9 !important;
   left: 10px;
   margin-top: 7px;
   width: 225px;
@@ -4318,8 +4318,8 @@ ANIMATIONS
 }
 .ui-datepicker .ui-datepicker-prev:before {
   color: black;
-  font-family: FontAwesome;
-  content: "\f0a8";
+  font-family: Ionicons;
+  content: "\f150";
   display: block;
   z-index: 10000;
   text-decoration: none;
@@ -4329,7 +4329,7 @@ ANIMATIONS
 }
 .ui-datepicker .ui-datepicker-prev {
   margin-top: 5px;
-  margin-left: 10px;
+  margin-left: 20px;
   text-decoration: none;
 }
 .ui-datepicker .ui-datepicker-prev:hover {
@@ -4338,8 +4338,8 @@ ANIMATIONS
 }
 .ui-datepicker .ui-datepicker-next:before {
   color: black;
-  font-family: FontAwesome;
-  content: "\f0a9";
+  font-family: Ionicons;
+  content: "\f152";
   display: block;
   z-index: 10000;
   text-decoration: none;
@@ -4349,7 +4349,6 @@ ANIMATIONS
 }
 .ui-datepicker .ui-datepicker-next {
   margin-top: 5px;
-  margin-left: 10px;
   text-decoration: none;
 }
 .ui-datepicker .ui-datepicker-next:hover {

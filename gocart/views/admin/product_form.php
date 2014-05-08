@@ -191,16 +191,12 @@ function remove_option(id)
 								</div>
 							</div>
 						</div>
-
-						
 					</div>
 				</div>
 			</div>
-
-		
-
+		</div>
+	</div>
 	<div class="col-md-4">
-		
 		<div class="form-group">
 			<?php
 			$options = array(	 '1'	=> lang('shippable')
@@ -233,15 +229,11 @@ function remove_option(id)
 			echo form_input($data);?>
 		    </div>
 		</div>
-		
-		
 	</div>
 </div>
 
-
-
-
-
+<div class="row">
+	<div class="col-md-8">
 		<div class="tabbable">
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#product_info" data-toggle="tab"><?php echo lang('details');?></a></li>
@@ -632,6 +624,12 @@ function remove_option(id)
 </div>
 
 </form>
+	</div>
+</div>
+
+
+
+		
  	</div>
 
  	<!-- /panel body -->

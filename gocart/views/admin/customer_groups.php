@@ -49,10 +49,10 @@
 						<td>
 							<div class="btn-group" style="float:right;">
 
-								<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/edit_group/'.$group->id); ?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
+								<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/edit_group/'.$group->id); ?>"><i class="fa fa-edit"></i> <?php echo lang('edit');?></a>
 
 								<?php if($group->id != 1) : ?>
-									<a class="btn btn-danger" href="<?php echo site_url($this->config->item('admin_folder').'/customers/delete_group/'.$group->id); ?>" onclick="return areyousure();"><i class="icon-trash icon-white"></i> <?php echo lang('delete');?></a>
+									<a class="btn btn-danger" href="<?php echo site_url($this->config->item('admin_folder').'/customers/delete_group/'.$group->id); ?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 								<?php endif; ?>
 							</div>
 						</td>
