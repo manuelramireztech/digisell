@@ -110,7 +110,7 @@
 							</div>
 						</div>
 						</form>
-						<?php if($orders) { ?>
+						<?php if($id) { ?>
 						<h4 class="text-info pull-left">Recent Orders<small> - Recent Order Activity</small></h4>
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-2">
@@ -200,6 +200,7 @@
 							</div>
 						</form>
 						</div>
+						
 						<div class="col-md-4">
 							<?php  
 								$active_orders = 0;
@@ -248,25 +249,25 @@
 										<tr>
 											<td class="active">Total Register Balance:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo '0'; ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Invoices Paid:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo '0'; ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Invoices Due:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo '0'; ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Invoices With Credit:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo '0'; ?>
 											</td>
 										</tr>
 
@@ -323,6 +324,7 @@
 							</div>
 						</div>
 						<?php }?>
+						
 
 			</div>				
 				<!-- /panel body -->

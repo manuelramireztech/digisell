@@ -80,11 +80,11 @@
 														
 														<td>
 															<div class="btn-group" style="float:right">
-																<a class="btn btn-primary" href="<?php echo site_url($this->config->item('admin_folder').'/customers/form/'.$customer->id); ?>"><i class="fa fa-edit"></i> <?php echo lang('edit');?></a>
+																<a class="btn  btn-primary" href="<?php echo site_url($this->config->item('admin_folder').'/customers/form/'.$customer->id); ?>"><i class="fa fa-edit"></i> <?php echo lang('edit');?></a>
 
-																<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/addresses/'.$customer->id); ?>"><i class="fa fa-envelope"></i> <?php echo lang('addresses');?></a>
+																<a class="btn  btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/addresses/'.$customer->id); ?>"><i class="fa fa-envelope"></i> <?php echo lang('addresses');?></a>
 
-																<a class="btn btn-danger" href="<?php echo site_url($this->config->item('admin_folder').'/customers/delete/'.$customer->id); ?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
+																<a class="btn  btn-danger" href="<?php echo site_url($this->config->item('admin_folder').'/customers/delete/'.$customer->id); ?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 															</div>
 														</td>
 													</tr>
