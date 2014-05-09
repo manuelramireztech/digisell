@@ -37,6 +37,22 @@ Class Customer_model extends CI_Model
         return $result->row();
     }
 
+    function save_client_note($id, $client_notes)
+    {
+        $this->db->where('id', $id);
+        $this->db->set('client_notes', $client_notes);
+        $this->db->update('customers');
+        return true;
+    }
+
+    function save_admin_note($id, $admin_notes)
+    {
+        $this->db->where('id', $id);
+        $this->db->set('admin_notes', $admin_notes);
+        $this->db->update('customers');
+        return true;
+    }
+
     function recent_orders($id)
     {
         $this->db->from('orders');

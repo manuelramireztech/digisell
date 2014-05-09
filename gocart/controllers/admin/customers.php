@@ -121,6 +121,8 @@ class Customers extends Admin_Controller {
 			$data['company']			= $customer->company;
 			$data['active']				= $customer->active;
 			$data['email_subscribe']	= $customer->email_subscribe;
+			$data['client_notes']	= $customer->client_notes;
+			$data['admin_notes']	= $customer->admin_notes;
 			
 
 			
@@ -149,6 +151,7 @@ class Customers extends Admin_Controller {
 		}
 		else
 		{
+			$date = date('d/m/Y');
 			$save['id']		= $id;
 			$save['group_id'] 	= $this->input->post('group_id');
 			$save['firstname']	= $this->input->post('firstname');
@@ -158,6 +161,7 @@ class Customers extends Admin_Controller {
 			$save['company']	= $this->input->post('company');
 			$save['active']		= $this->input->post('active');
 			$save['email_subscribe'] = $this->input->post('email_subscribe');
+			$save['created_on'] = $date;
 
 			
 			if ($this->input->post('password') != '' || !$id)
@@ -171,6 +175,26 @@ class Customers extends Admin_Controller {
 			
 			//go back to the customer list
 			redirect($this->config->item('admin_folder').'/customers');
+		}
+	}
+
+	function save_client_notes($id)
+	{
+		$client_notes = $this->input->post('client_notes');
+		if($this->Customer_model->save_client_note($id, $client_notes))
+		{
+			$this->session->set_flashdata('message', 'Client Notes Saved Successfully');
+			redirect($this->config->item('admin_folder').'/customers/form/'.$id);
+		}
+	}
+
+	function save_admin_notes($id)
+	{
+		$admin_notes = $this->input->post('admin_notes');
+		if($this->Customer_model->save_admin_note($id, $admin_notes))
+		{
+			$this->session->set_flashdata('message', 'Admin Notes Saved Successfully');
+			redirect($this->config->item('admin_folder').'/customers/form/'.$id);
 		}
 	}
 	

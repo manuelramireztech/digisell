@@ -1,5 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
+
 		<?php echo form_open($this->config->item('admin_folder').'/customers/form/'.$id, 'class="form-horizontal"'); ?>
 		<div class="panel">
 			<div class="panel-heading">
@@ -18,7 +19,8 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-8">
-							<?php echo heading('<span class="label label-primary label-width">Client Information</span> - Edit Customer Information',5) ?>
+							
+							<?php echo heading('<span class="pull-left text-info">Client Information </span><small> - Edit Customer Information</small>',4) ?>
 						<div class="form-group">
 							<label for="inputEmail3" class="col-sm-2 control-label"><?php echo lang('company');?></label>
 							<div class="col-sm-10">
@@ -107,11 +109,11 @@
 								<input class="btn btn-primary" type="submit" value="<?php echo lang('save');?>"/>
 							</div>
 						</div>
+						</form>
 						<?php if($orders) { ?>
-						<?php echo heading('<span class="label label-primary lable-width">Recent Orders</span> - Recent Order Activity',5) ?>
+						<h4 class="text-info pull-left">Recent Orders<small> - Recent Order Activity</small></h4>
 						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-1 control-label"></label>
-							<div class="col-sm-11">
+							<div class="col-md-10 col-md-offset-2">
 								<div class="table-responsive">
 									<table class="table table-hover table-bordered">
 										<thead>
@@ -142,14 +144,9 @@
 							
 
 						</div>
-						<div class="">
-						<?php echo heading('<span class="label pull-left label-primary lable-width">Recent Invoices</span> - Recent Invoices Activity',5) ?>
-						
-							
-						</div>
+						<h4 class="text-info pull-left">Recent Invoices<small> - Recent Invoice Activity</small></h4>
 						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-1 control-label"></label>
-							<div class="col-sm-11">
+							<div class="col-md-10 col-md-offset-2">
 								<div class="table-responsive">
 									<table class="table table-hover table-bordered">
 										<thead>
@@ -178,95 +175,118 @@
 								</div>
 							</div>
 						</div>
-						<?php echo heading('<span class="label label-primary lable-width">Client Notes</span> - Visible to the Client',5) ?>
-				</div>
-				<div class="col-md-4">
-					<div class="table-responsive cinfo-border">
-						<table class="table table-bordered">
-							<tbody>
-								<tr>
-									<td class="active">Total Register Balance:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Invoices Paid:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Invoices Due:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Invoices With Credit:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
+						<?php echo form_open($this->config->item('admin_folder').'/customers/save_client_notes/'.$id); ?>
+							<h4 class="text-info pull-left note">Client Notes<small> - Visible to the Client</small></h4>
+							<input type="submit" value="save changes" class="btn btn-default btn-xs pull-right">
+							<div class="form-group">
+								<div class="col-md-10 col-md-offset-2">
+									<?php
+									$data	= array('name'=>'client_notes', 'value'=>set_value('client_notes', $client_notes), 'class'=>'form-control', 'rows'=>5);
+									echo form_textarea($data);
+									?>
+								</div>
+							</div>
+						</form>
+						<?php echo form_open($this->config->item('admin_folder').'/customers/save_admin_notes/'.$id); ?>
+							<h4 class="text-info pull-left note">Admin Notes<small> - Invisible to the Client</small></h4>
+							<input type="submit" value="save changes" class="btn btn-default btn-xs pull-right">
+							<div class="form-group">
+								<div class="col-md-10 col-md-offset-2">
+									<?php
+									$data	= array('name'=>'admin_notes', 'value'=>set_value('admin_notes', $admin_notes), 'class'=>'form-control', 'rows'=>5);
+									echo form_textarea($data);
+									?>
+								</div>
+							</div>
+						</form>
+						</div>
+						<div class="col-md-4">
+							<div class="table-responsive cinfo-border">
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<td class="active">Total Register Balance:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Invoices Paid:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Invoices Due:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Invoices With Credit:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
 
-							</tbody>
-						</table>
-						<hr>
-						<table class="table table-bordered">
-							<tbody>
-								<tr>
-									<td class="active">Total Active Orders:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Pending Orders:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Suspended Orders:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Cancelled Orders:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Refunded Orders:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Fraud Orders:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
-								<tr>
-									<td class="active">Total Incomplete Orders:</td>
-									<td width="15%" align="right">
-										<?php echo anchor('#','0'); ?>
-									</td>
-								</tr>
+									</tbody>
+								</table>
+								<hr>
+								<table class="table table-bordered">
+									<tbody>
+										<tr>
+											<td class="active">Total Active Orders:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Pending Orders:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Suspended Orders:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Cancelled Orders:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Refunded Orders:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Fraud Orders:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
+										<tr>
+											<td class="active">Total Incomplete Orders:</td>
+											<td width="15%" align="right">
+												<?php echo anchor('#','0'); ?>
+											</td>
+										</tr>
 
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<?php }?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<?php }?>
 
 			</div>				
 				<!-- /panel body -->
 			</div>
 
-		</form>
+		
 	</div>
 </div>
