@@ -201,6 +201,47 @@
 						</form>
 						</div>
 						<div class="col-md-4">
+							<?php  
+								$active_orders = 0;
+								$pending_orders = 0;
+								$suspended_orders = 0;
+								$cancelled_orders = 0;
+								$refunded_orders = 0;
+								$fraud_orders = 0;
+								$incomplete_orders = 0;
+								$link = base_url('index.php').'/admin/orders';
+								foreach ($orders as $order)
+								{
+									if(($order->status)=='Active')
+									{
+										$active_orders++;
+									}
+									if(($order->status)=='Pending')
+									{
+										$pending_orders++;
+									}
+									if(($order->status)=='Suspended')
+									{
+										$suspended_orders++;
+									}
+									if(($order->status)=='Cancelled')
+									{
+										$cancelled_orders++;
+									}
+									if(($order->status)=='Refunded')
+									{
+										$refunded_orders++;
+									}
+									if(($order->status)=='Fraud')
+									{
+										$fraud_orders++;
+									}
+									if(($order->status)=='Incomplete')
+									{
+										$incomplete_orders++;
+									}
+								}
+							?>
 							<div class="table-responsive cinfo-border">
 								<table class="table table-bordered">
 									<tbody>
@@ -237,43 +278,43 @@
 										<tr>
 											<td class="active">Total Active Orders:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo anchor($link,$active_orders); ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Pending Orders:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo anchor($link,$pending_orders); ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Suspended Orders:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo anchor($link,$suspended_orders); ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Cancelled Orders:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo anchor($link,$cancelled_orders); ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Refunded Orders:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo anchor($link,$refunded_orders); ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Fraud Orders:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo anchor($link,$fraud_orders); ?>
 											</td>
 										</tr>
 										<tr>
 											<td class="active">Total Incomplete Orders:</td>
 											<td width="15%" align="right">
-												<?php echo anchor('#','0'); ?>
+												<?php echo anchor($link,$incomplete_orders); ?>
 											</td>
 										</tr>
 

@@ -154,8 +154,8 @@
                         
                             <input type="text" value="" class="form-control" id="new_order_status_field" style="margin:0px;" placeholder="<?php echo lang('status_name');?>"/>
                         
-                        
-                        <button type="button" class="btn" onclick="add_status()"><i class="fa fa-plus"></i></button>
+                        <br>
+                        <button type="button" class="btn btn-success" onclick="add_status()"><i class="fa fa-plus"></i></button>
                     </th>
                 </tr>
             </thead>
