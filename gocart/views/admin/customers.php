@@ -30,6 +30,7 @@
 					</div>
 				</div>
 				<br><br><br>
+				<form method="post" action="<?php echo site_url($this->config->item('admin_folder').'/customers/delete/'); ?>">
 				<div class="table-responsive">
 					<table class="table table-hover table-bordered">
 						<thead>
@@ -47,14 +48,17 @@
 								?>
 
 								<th width="10px">
-									<?php 
-										foreach ($customers as $key) 
-										{
-											$id = $key->id;
-										}
-									?>
-									<a href="<?php echo site_url($this->config->item('admin_folder').'/customers/delete/'.$id); ?>" class="btn btn-danger btn-sm"><i class="ion-close"></i></a> 
 									
+									
+									<?php  
+										$data = array(
+						    														'type'        => 'submit',
+						    														'value'       => 'x',
+						    														'checked'     => false,
+						    														
+							    											 );
+																echo form_checkbox($data);
+									?>
 								</th>
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/firstname/');?>/<?php echo ($field == 'firstname')?$by:'';?>"><?php echo lang('firstname');?>
 									<?php if($field == 'firstname'){ echo ($by == 'ASC')?'<i class="icon-chevron-up"></i>':'<i class="icon-chevron-down"></i>';} ?></a></th>
@@ -78,10 +82,20 @@
 												<?php endif;?>
 												<?php echo (count($customers) < 1)?'<tr><td style="text-align:center;" colspan="5">'.lang('no_customers').'</td></tr>':''?>
 												<?php foreach ($customers as $customer):?>
-													<tr>
+													<tr class="user-row">
 														<?php /*<td style="width:16px;"><?php echo  $customer->id; ?></td>*/?>
 														<td>
-															<input type="checkbox" value="<?php echo  $customer->id; ?>" id="clt" name="clt[]">
+															<?php
+																$data = array(
+						    														'name'        => 'clt[]',
+						    														'id'		  => 'clt',
+						    														'value'       => $customer->id,
+						    														'checked'     => false,
+						    														'class'       => 'checkbox-inline',
+							    											 );
+																echo form_checkbox($data); 
+															?>
+															
 														</td>
 														<td class="gc_cell_left"><?php echo  $customer->firstname; ?></td>
 														<td><?php echo  $customer->lastname; ?></td>
@@ -105,7 +119,7 @@
 										</tbody>
 									</table>
 								</div>
-								
+								</form>
 
 							</div>
 
@@ -115,3 +129,23 @@
 
 					</div>
 				</div>
+				<script type="text/javascript">
+		$(document).ready(function(){
+				
+				$('.user-row').on('click',function(){
+						if($(this).find('.checkbox-inline').attr('checked'))
+						{
+							$(this).find('.checkbox-inline').removeAttr('checked','checked');
+						}
+						else
+						{
+							$(this).find('.checkbox-inline').attr('checked','checked');	
+						}
+						
+				});
+
+				
+
+	});
+
+	</script>

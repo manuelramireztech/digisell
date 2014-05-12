@@ -229,20 +229,8 @@ class Customers extends Admin_Controller {
 			}
 			else
 			{
-				$cc = $this->input->post('clt');
-				if($cc)
-				{
-					foreach($cc as $clt)
-					{
-						$delete	= $this->Customer_model->delete($id);
-					}
-				}
-				else
-				{
-					//if the customer is legit, delete them
+				//if the customer is legit, delete them
 					$delete	= $this->Customer_model->delete($id);
-					
-				}
 				
 				$this->session->set_flashdata('message', lang('message_customer_deleted'));
 				redirect($this->config->item('admin_folder').'/customers');
@@ -250,9 +238,25 @@ class Customers extends Admin_Controller {
 		}
 		else
 		{
-			//if they do not provide an id send them to the customer list page with an error
-			$this->session->set_flashdata('error', lang('error_not_found'));
-			redirect($this->config->item('admin_folder').'/customers');
+				$cc = $this->input->post('clt');
+				print_r($this->input->post('clt'));
+				
+				if($cc)
+				{
+					foreach($cc as $clt)
+					{
+						$this->Customer_model->delete($clt);
+					}
+				}
+				else
+				{
+					//if they do not provide an id send them to the customer list page with an error
+					$this->session->set_flashdata('error', lang('error_not_found'));
+					redirect($this->config->item('admin_folder').'/customers');
+					
+				}
+				$this->session->set_flashdata('message', lang('message_customer_deleted'));
+				redirect($this->config->item('admin_folder').'/customers');
 		}
 	}
 	
