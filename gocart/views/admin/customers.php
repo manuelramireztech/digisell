@@ -28,7 +28,6 @@
 						<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/get_subscriber_list');?>"><i class="icon-download"></i> <?php echo lang('subscriber_download');?></a>
 						<a class="btn btn-primary" href="<?php echo site_url($this->config->item('admin_folder').'/customers/form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_customer');?></a>
 					</div>
-					
 				</div>
 				<br><br><br>
 				<div class="table-responsive">
@@ -47,7 +46,16 @@
 								}
 								?>
 
-								
+								<th width="10px">
+									<?php 
+										foreach ($customers as $key) 
+										{
+											$id = $key->id;
+										}
+									?>
+									<a href="<?php echo site_url($this->config->item('admin_folder').'/customers/delete/'.$id); ?>" class="btn btn-danger btn-sm"><i class="ion-close"></i></a> 
+									
+								</th>
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/firstname/');?>/<?php echo ($field == 'firstname')?$by:'';?>"><?php echo lang('firstname');?>
 									<?php if($field == 'firstname'){ echo ($by == 'ASC')?'<i class="icon-chevron-up"></i>':'<i class="icon-chevron-down"></i>';} ?></a></th>
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/lastname/');?>/<?php echo ($field == 'lastname')?$by:'';?>"><?php echo lang('lastname');?>
@@ -72,7 +80,9 @@
 												<?php foreach ($customers as $customer):?>
 													<tr>
 														<?php /*<td style="width:16px;"><?php echo  $customer->id; ?></td>*/?>
-														
+														<td>
+															<input type="checkbox" value="<?php echo  $customer->id; ?>" id="clt" name="clt[]">
+														</td>
 														<td class="gc_cell_left"><?php echo  $customer->firstname; ?></td>
 														<td><?php echo  $customer->lastname; ?></td>
 														

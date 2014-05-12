@@ -229,8 +229,20 @@ class Customers extends Admin_Controller {
 			}
 			else
 			{
-				//if the customer is legit, delete them
-				$delete	= $this->Customer_model->delete($id);
+				$cc = $this->input->post('clt');
+				if($cc)
+				{
+					foreach($cc as $clt)
+					{
+						$delete	= $this->Customer_model->delete($id);
+					}
+				}
+				else
+				{
+					//if the customer is legit, delete them
+					$delete	= $this->Customer_model->delete($id);
+					
+				}
 				
 				$this->session->set_flashdata('message', lang('message_customer_deleted'));
 				redirect($this->config->item('admin_folder').'/customers');
