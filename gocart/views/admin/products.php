@@ -63,7 +63,6 @@
 		<div class="row">
 			<div class="col-md-4">
 				<?php echo $this->pagination->create_links();?>
-				
 			</div>
 			<div class="col-md-8">
 				<?php echo form_open($this->config->item('admin_folder').'/products/index', 'class="form-inline pull-right" ');?>
@@ -159,8 +158,8 @@
 							</td>
 							<td>
 								<span class="btn-group pull-right">
-									<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id);?>"><i class="fa fa-pencil"></i>  <?php echo lang('edit');?></a>
-									<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id.'/1');?>"><i class="fa fa-share"></i> <?php echo lang('copy');?></a>
+									<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id);?>"><i class="fa fa-edit"></i>  <?php echo lang('edit');?></a>
+									<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/products/form/'.$product->id.'/1');?>"><i class="fa fa-copy"></i> <?php echo lang('copy');?></a>
 									<a class="btn btn-danger" href="<?php echo  site_url($this->config->item('admin_folder').'/products/delete/'.$product->id);?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 								</span>
 							</td>

@@ -192,13 +192,12 @@ function remove_option(id)
 	
 <div class="row">
 	<div class="col-md-8">
-
 		<div class="panel-group" id="accordionVj">
 			<div class="panel col-md-12 panel-primary">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseMain">
-							<i class="fa fa-th-large"></i> <?php echo 'Product Details';?>
+							<i class="ion-bag"></i> <?php echo 'Product Details';?>
 						</a>
 					</h4>
 				</div>
@@ -246,6 +245,17 @@ function remove_option(id)
 								?>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapsePrice">
+							<i class="ion-ios7-pricetag"></i> <?php echo 'Price Details';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapsePrice" class="panel-collapse collapse">
+					<div class="panel-body">
 						<div class="row form-group">
 							<label for="price" class="col-sm-2 control-label"><?php echo lang('price');?></label>
 							<div class="col-sm-8">
@@ -263,13 +273,71 @@ function remove_option(id)
 								echo form_input($data);?>
 							</div>
 						</div>
-
+					</div>
+				</div>
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseCat">
+							<i class="ion-ios7-albums"></i> <?php echo 'Categories';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseCat" class="panel-collapse collapse">
+					<div class="panel-body">
+						<?php if(isset($categories[0])):?>
+							<label><strong><?php echo lang('select_a_category');?></strong></label>
+							<div class="table-responsive">
+								<table class="table table-striped">
+								    <thead>
+										<tr>
+											<th colspan="2"><?php echo lang('name')?></th>
+										</tr>
+									</thead>
+										<?php
+										function list_categories($parent_id, $cats, $sub='', $product_categories) {
+						
+											foreach ($cats[$parent_id] as $cat):?>
+											<tr>
+												<td><?php echo  $sub.$cat->name; ?></td>
+												<td>
+													<input type="checkbox" name="categories[]" value="<?php echo $cat->id;?>" <?php echo(in_array($cat->id, $product_categories))?'checked="checked"':'';?>/>
+												</td>
+											</tr>
+											<?php
+											if (isset($cats[$cat->id]) && sizeof($cats[$cat->id]) > 0)
+											{
+												$sub2 = str_replace('&rarr;&nbsp;', '&nbsp;', $sub);
+													$sub2 .=  '&nbsp;&nbsp;&nbsp;&rarr;&nbsp;';
+												list_categories($cat->id, $cats, $sub2, $product_categories);
+											}
+											endforeach;
+										}
+									
+									
+										list_categories(0, $categories, '', $product_categories);
+									
+										?>
+								</table>
+							</div>
+						<?php else:?>
+										<div class="alert"><?php echo lang('no_available_categories');?></div>
+						<?php endif;?>
+					</div>
+				</div>
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseDown">
+							<i class="ion-archive"></i> <?php echo 'Downloadable file(s)';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseDown" class="panel-collapse collapse">
+					<div class="panel-body">
 						<div class="row alert alert-info">
 							<div class="col-md-8">
 								<?php echo lang('digital_products_desc'); ?>
 							</div>
 						</div>
-						
 						<div class="row form-group">
 							<label for="saleprice" class="col-sm-2 control-label"><?php echo 'Product Downloads';?></label>
 							<div class="col-sm-10">
@@ -298,6 +366,17 @@ function remove_option(id)
 								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseCoupon">
+							<i class="ion-social-reddit"></i> <?php echo 'Coupon(s)';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseCoupon" class="panel-collapse collapse">
+					<div class="panel-body">
 						<div class="row alert alert-info">
 							<div class="col-md-8">
 								<?php echo 'Coupon code Discounts'; ?>
@@ -316,8 +395,6 @@ function remove_option(id)
 												<th style="width:16px;"></th>
 												<th><?php echo 'Coupon Code';?></th>
 												<th style="width:16px;"></th>
-												
-												
 											</tr>
 										</thead>
 										<tbody>
@@ -341,18 +418,151 @@ function remove_option(id)
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="panel-group" id="accordionVj">
-			<div class="panel col-md-12 panel-primary">
 				<div class="panel-heading">
 					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseExtra">
-							<i class="ion-help-buoy"></i> <?php echo 'Extras';?>
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseOpt">
+							<i class="ion-ios7-cog-outline"></i> <?php echo 'Option(s)';?>
 						</a>
 					</h4>
 				</div>
-				<div id="collapseExtra" class="panel-collapse collapse">
+				<div id="collapseOpt" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row ">
+							<div class="col-md-4 pull-right">
+								<div class="" style="padding:0px 0px 10px 0px;">
+									<select id="option_options" class="input-sm">
+										<option value=""><?php echo lang('select_option_type')?></option>
+										<option value="checklist"><?php echo lang('checklist');?></option>
+										<option value="radiolist"><?php echo lang('radiolist');?></option>
+										<option value="droplist"><?php echo lang('droplist');?></option>
+										<option value="textfield"><?php echo lang('textfield');?></option>
+										<option value="textarea"><?php echo lang('textarea');?></option>
+									</select>
+									<input id="add_option" class="btn btn-info" type="button" value="<?php echo lang('add_option');?>" style="margin:0px;"/>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="table-responsive">
+									<table class="table table-striped"  id="options_container">
+										<?php
+										$counter	= 0;
+										if(!empty($product_options))
+										
+										{
+											foreach($product_options as $po)
+											{
+												$po	= (object)$po;
+												if(empty($po->required)){$po->required = false;}
+
+												add_option($po, $counter);
+												$counter++;
+											}
+										}?>
+											
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseRel">
+							<i class="ion-android-promotion"></i> <?php echo 'Related Product(s)';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseRel" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-8">
+								<label><strong><?php echo lang('select_a_product');?></strong></label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<input class="col-md-2 form-control" type="text" id="product_search" />
+								<script type="text/javascript">
+								$('#product_search').keyup(function(){
+									$('#product_list').html('');
+									run_product_query();
+								});
+						
+								function run_product_query()
+								{
+									$.post("<?php echo site_url($this->config->item('admin_folder').'/products/product_autocomplete/');?>", { name: $('#product_search').val(), limit:10},
+										function(data) {
+									
+											$('#product_list').html('');
+									
+											$.each(data, function(index, value){
+									
+												if($('#related_product_'+index).length == 0)
+												{
+													$('#product_list').append('<option id="product_item_'+index+'" value="'+index+'">'+value+'</option>');
+												}
+											});
+									
+									}, 'json');
+								}
+								</script>
+								<select class="col-md-7 form-control" id="product_list" size="5" style="margin:10px;"></select>
+								<div class="col-md-6">
+									<a href="#" onclick="add_related_product();return false;" class="btn btn-info" title="Add Related Product"><?php echo lang('add_related_product');?></a>
+								</div>
+								<div class="pull-right">
+									<div class="table-responsive">
+										<table class="table table-striped" style="margin-top:10px;">
+											<tbody id="product_items_container">
+											<?php
+											foreach($related_products as $rel)
+											{
+												echo related_items($rel->id, $rel->name);
+											}
+											?>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseImg">
+							<i class="ion-images"></i> <?php echo 'Image(s)';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseImg" class="panel-collapse collapse">
+					<div class="panel-body">
+						<iframe id="iframe_uploader" src="<?php echo site_url($this->config->item('admin_folder').'/products/product_image_form');?>" class="col-md-8" style="height:75px; border:0px;"></iframe>
+						<div id="gc_photos">
+							<?php
+							foreach($images as $photo_id=>$photo_obj)
+							{
+								if(!empty($photo_obj))
+								{
+									$photo = (array)$photo_obj;
+									add_image($photo_id, $photo['filename'], $photo['alt'], $photo['caption'], isset($photo['primary']));
+								}
+
+							}
+							?>
+						</div>
+					</div>
+				</div>
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseExt">
+							<i class="ion-ionic"></i> <?php echo 'Extras';?>
+						</a>
+					</h4>
+				</div>
+				<div id="collapseExt" class="panel-collapse collapse">
 					<div class="panel-body">
 						<legend><?php echo lang('inventory');?></legend>
 						<div class="row" >
@@ -401,105 +611,6 @@ function remove_option(id)
 								$data	= array('name'=>'meta', 'value'=>set_value('meta', html_entity_decode($meta)), 'class'=>'col-md-8 form-control drp');
 								echo form_textarea($data);
 								?>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="tabbable">
-							<ul class="nav nav-tabs">
-								
-								
-								<li><a href="#product_categories" data-toggle="tab"><?php echo lang('categories');?></a></li>
-								<li><a href="#product_options" data-toggle="tab"><?php echo lang('options');?></a></li>
-								<li><a href="#product_related" data-toggle="tab"><?php echo lang('related_products');?></a></li>
-								<li><a href="#product_photos" data-toggle="tab"><?php echo lang('images');?></a></li>
-							</ul>
-						</div>
-						<div class="tab-content">
-							
-							<div class="tab-pane" id="product_categories">
-								<div class="row">
-									<div class="col-md-8">
-										<?php if(isset($categories[0])):?>
-											<label><strong><?php echo lang('select_a_category');?></strong></label>
-											<div class="table-responsive">
-												<table class="table table-striped">
-											    <thead>
-													<tr>
-														<th colspan="2"><?php echo lang('name')?></th>
-													</tr>
-												</thead>
-											<?php
-											function list_categories($parent_id, $cats, $sub='', $product_categories) {
-							
-												foreach ($cats[$parent_id] as $cat):?>
-												<tr>
-													<td><?php echo  $sub.$cat->name; ?></td>
-													<td>
-														<input type="checkbox" name="categories[]" value="<?php echo $cat->id;?>" <?php echo(in_array($cat->id, $product_categories))?'checked="checked"':'';?>/>
-													</td>
-												</tr>
-												<?php
-												if (isset($cats[$cat->id]) && sizeof($cats[$cat->id]) > 0)
-												{
-													$sub2 = str_replace('&rarr;&nbsp;', '&nbsp;', $sub);
-														$sub2 .=  '&nbsp;&nbsp;&nbsp;&rarr;&nbsp;';
-													list_categories($cat->id, $cats, $sub2, $product_categories);
-												}
-												endforeach;
-											}
-										
-										
-											list_categories(0, $categories, '', $product_categories);
-										
-											?>
-										</table>
-											</div>
-									<?php else:?>
-										<div class="alert"><?php echo lang('no_available_categories');?></div>
-									<?php endif;?>
-									</div>
-								</div>
-							</div>
-							<div class="tab-pane" id="product_options">
-								<div class="row ">
-									<div class="col-md-7 pull-right">
-										<div class="" style="padding:0px 0px 10px 0px;">
-											<select id="option_options" class="input-sm">
-												<option value=""><?php echo lang('select_option_type')?></option>
-												<option value="checklist"><?php echo lang('checklist');?></option>
-												<option value="radiolist"><?php echo lang('radiolist');?></option>
-												<option value="droplist"><?php echo lang('droplist');?></option>
-												<option value="textfield"><?php echo lang('textfield');?></option>
-												<option value="textarea"><?php echo lang('textarea');?></option>
-											</select>
-											<input id="add_option" class="btn btn-info" type="button" value="<?php echo lang('add_option');?>" style="margin:0px;"/>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<div class="table-responsive">
-											<table class="table table-striped"  id="options_container">
-												<?php
-												$counter	= 0;
-												if(!empty($product_options))
-												
-												{
-													foreach($product_options as $po)
-													{
-														$po	= (object)$po;
-														if(empty($po->required)){$po->required = false;}
-
-														add_option($po, $counter);
-														$counter++;
-													}
-												}?>
-													
-											</table>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -553,106 +664,6 @@ function remove_option(id)
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-md-8">
-		
-		<div class="tab-content">
-		
-			<div class="tab-pane" id="product_related">
-				<div class="row">
-					<div class="col-md-8">
-						<label><strong><?php echo lang('select_a_product');?></strong></label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-7" style="text-align:center">
-						<div class="row">
-							<div class="col-md-7">
-								<input class="col-md-2 form-control" type="text" id="product_search" />
-								<script type="text/javascript">
-								$('#product_search').keyup(function(){
-									$('#product_list').html('');
-									run_product_query();
-								});
-						
-								function run_product_query()
-								{
-									$.post("<?php echo site_url($this->config->item('admin_folder').'/products/product_autocomplete/');?>", { name: $('#product_search').val(), limit:10},
-										function(data) {
-									
-											$('#product_list').html('');
-									
-											$.each(data, function(index, value){
-									
-												if($('#related_product_'+index).length == 0)
-												{
-													$('#product_list').append('<option id="product_item_'+index+'" value="'+index+'">'+value+'</option>');
-												}
-											});
-									
-									}, 'json');
-								}
-								</script>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-7">
-								<select class="col-md-7 form-control" id="product_list" size="5" style="margin:10px;"></select>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-7" style="margin-top:8px;">
-								<a href="#" onclick="add_related_product();return false;" class="btn btn-info" title="Add Related Product"><?php echo lang('add_related_product');?></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="table-responsive">
-							<table class="table table-striped" style="margin-top:10px;">
-							<tbody id="product_items_container">
-							<?php
-							foreach($related_products as $rel)
-							{
-								echo related_items($rel->id, $rel->name);
-							}
-							?>
-							</tbody>
-						</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="tab-pane" id="product_photos">
-				<div class="row">
-					<iframe id="iframe_uploader" src="<?php echo site_url($this->config->item('admin_folder').'/products/product_image_form');?>" class="col-md-8" style="height:75px; border:0px;"></iframe>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						
-						<div id="gc_photos">
-							
-						<?php
-						foreach($images as $photo_id=>$photo_obj)
-						{
-							if(!empty($photo_obj))
-							{
-								$photo = (array)$photo_obj;
-								add_image($photo_id, $photo['filename'], $photo['alt'], $photo['caption'], isset($photo['primary']));
-							}
-
-						}
-						?>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-	</div>
-	
-</div>
 <div class="form-group">
 	<div class="col-sm-offset-2 col-sm-10">
 	  <button type="submit" class="btn btn-primary"><?php echo lang('save');?></button>
