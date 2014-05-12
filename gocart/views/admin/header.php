@@ -106,7 +106,7 @@
                                                     <span class='hidden-minibar'>Orders</span>
                                                 </a>
                                             </li>
-                                            <li class='<?php echo ($this->uri->segment(2)=="customers"&&$this->uri->segment(3)=="") ? "active" : "" ; ?>'>
+                                            <li class='<?php echo ($this->uri->segment(2)=="customers"&&$this->uri->segment(3)!="groups") ? "active" : "" ; ?>'>
                                                 <a href='<?php echo $admin_url;?>customers' data-original-title='Inbox'>
                                                     <i class='fa fa-user'></i>
                                                     <span class='hidden-minibar'>Clients</span>
