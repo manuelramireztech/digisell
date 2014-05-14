@@ -61,7 +61,14 @@ class Orders extends Admin_Controller {
 		} 
  		
  		$data['term']	= $term;
- 		$customer_by = $this->session->userdata('cust_id');
+ 		if($this->session->userdata('cust_id'))
+ 		{
+ 			$customer_by = $this->session->userdata('cust_id');
+ 		}
+ 		else
+ 		{
+ 			$customer_by = 0;
+ 		}
  		$this->session->unset_userdata('cust_id');
  		$data['orders']	= $this->Order_model->get_orders($term, $sort_by, $sort_order, $rows, $page, $customer_by);
 		$data['total']	= $this->Order_model->get_orders_count($term);

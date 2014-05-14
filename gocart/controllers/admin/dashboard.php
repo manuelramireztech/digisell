@@ -27,7 +27,8 @@ class Dashboard extends Admin_Controller {
 		$data['page_title']	=  lang('dashboard');
 		
 		// get 5 latest orders
-		$data['orders']	= $this->Order_model->get_orders(false, '' , 'DESC', 5);
+ 		$customer_by = 0;
+		$data['orders']	= $this->Order_model->get_orders(false, '' , 'DESC', 5, 0, $customer_by);
 
 		// get 5 latest customers
 		$data['customers'] = $this->Customer_model->get_customers(5);
