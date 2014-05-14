@@ -55,9 +55,10 @@
 						    														'type'        => 'submit',
 						    														'value'       => 'x',
 						    														'checked'     => false,
-						    														
+						    														'onclick'	  => "return areyousure();",
+						    														'class'		  => 'btn'
 							    											 );
-																echo form_checkbox($data);
+																echo form_submit($data);
 									?>
 								</th>
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/firstname/');?>/<?php echo ($field == 'firstname')?$by:'';?>"><?php echo lang('firstname');?>
