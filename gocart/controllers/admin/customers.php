@@ -34,7 +34,7 @@ class Customers extends Admin_Controller {
 		
 		$this->load->library('pagination');
 
-		$config['base_url']		= base_url().'/'.$this->config->item('admin_folder').'/customers/index/'.$field.'/'.$by.'/';
+		$config['base_url']		= base_url('index.php').'/'.$this->config->item('admin_folder').'/customers/index/'.$field.'/'.$by.'/';
 		$config['total_rows']	= $this->Customer_model->count_customers();
 		$config['per_page']		= 50;
 		$config['uri_segment']	= 6;
@@ -45,8 +45,8 @@ class Customers extends Admin_Controller {
 		$config['last_tag_open']	= '<li>';
 		$config['last_tag_close']	= '</li>';
 
-		$config['full_tag_open']	= '<div class="pagination"><ul>';
-		$config['full_tag_close']	= '</ul></div>';
+		$config['full_tag_open']	= '<ul class="pagination">';
+		$config['full_tag_close']	= '</ul>';
 		$config['cur_tag_open']		= '<li class="active"><a href="#">';
 		$config['cur_tag_close']	= '</a></li>';
 		

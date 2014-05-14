@@ -79,9 +79,9 @@
 
 		
 
-<div class="row">
+<div class="row ">
 	<div class="col-md-4 pull-right">
-		<?php echo $this->pagination->create_links();?>&nbsp;
+		<?php echo $this->pagination->create_links();?>
 	</div>
 </div>
 

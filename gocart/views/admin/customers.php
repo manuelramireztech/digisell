@@ -59,6 +59,12 @@
 				<div class="table-responsive">
 					<table class="table table-hover table-bordered">
 						<thead>
+						<?php
+													$page_links	= $this->pagination->create_links();
+
+													if($page_links != ''):?>
+													<tr><td colspan="5" style="text-align:center"><?php echo $page_links;?></td></tr>
+												<?php endif;?>
 							<tr class="active">
 
 								<?php
@@ -74,7 +80,7 @@
 
 								<th width="6%">
 									<input type="checkbox" id="selecctall"/>
-									<button type="submit" onclick="return areyousure();" class="btn btn-sm btn-danger"><i class="ion-trash-b"></i></button>
+									<button type="submit" onclick="return areyousure();" class="btn btn-xs btn-danger"><i class="ion-android-close"></i></button>
 								</th>
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/firstname/');?>/<?php echo ($field == 'firstname')?$by:'';?>"><?php echo lang('firstname');?>
 									<?php if($field == 'firstname'){ echo ($by == 'ASC')?'<i class="fa fa-chevron-up"></i>':'<i class="fa fa-chevron-down"></i>';} ?></a></th>
@@ -90,12 +96,7 @@
 												</thead>
 
 												<tbody>
-													<?php
-													$page_links	= $this->pagination->create_links();
-
-													if($page_links != ''):?>
-													<tr><td colspan="5" style="text-align:center"><?php echo $page_links;?></td></tr>
-												<?php endif;?>
+													
 												<?php echo (count($customers) < 1)?'<tr><td style="text-align:center;" colspan="5">'.lang('no_customers').'</td></tr>':''?>
 												<?php foreach ($customers as $customer):?>
 													<tr class="user-row">
