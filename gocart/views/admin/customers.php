@@ -72,8 +72,9 @@
 								}
 								?>
 
-								<th width="10px">
-									<button type="submit" onclick="return areyousure();" class="btn btn-xs btn-danger"><i class="ion-trash-b"></i></button>
+								<th width="6%">
+									<input type="checkbox" id="selecctall"/>
+									<button type="submit" onclick="return areyousure();" class="btn btn-sm btn-danger"><i class="ion-trash-b"></i></button>
 								</th>
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/firstname/');?>/<?php echo ($field == 'firstname')?$by:'';?>"><?php echo lang('firstname');?>
 									<?php if($field == 'firstname'){ echo ($by == 'ASC')?'<i class="fa fa-chevron-up"></i>':'<i class="fa fa-chevron-down"></i>';} ?></a></th>
@@ -106,7 +107,7 @@
 						    														'id'		  => 'clt',
 						    														'value'       => $customer->id,
 						    														'checked'     => false,
-						    														'class'       => 'checkbox-inline',
+						    														'class'       => 'cb1',
 							    											 );
 																echo form_checkbox($data); 
 															?>
@@ -148,18 +149,28 @@
 		$(document).ready(function(){
 				
 				$('.user-row').on('click',function(){
-						if($(this).find('.checkbox-inline').attr('checked'))
+						if($(this).find('.cb1').attr('checked'))
 						{
-							$(this).find('.checkbox-inline').removeAttr('checked','checked');
+							$(this).find('.cb1').removeAttr('checked','checked');
 						}
 						else
 						{
-							$(this).find('.checkbox-inline').attr('checked','checked');	
+							$(this).find('.cb1').attr('checked','checked');	
 						}
 						
 				});
 
-				
+				$('#selecctall').click(function(event) {  //on click 
+			        if(this.checked) { // check select status
+			            $('.cb1').each(function() { //loop through each checkbox
+			                this.checked = true;  //select all checkboxes with class "cb1"               
+			            });
+			        }else{
+			            $('.cb1').each(function() { //loop through each checkbox
+			                this.checked = false; //deselect all checkboxes with class "cb1"                       
+			            });         
+			        }
+			    });
 
 	});
 
