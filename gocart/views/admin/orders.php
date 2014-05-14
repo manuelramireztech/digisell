@@ -51,36 +51,34 @@
 			margin-top:-3px;
 		}
 	</style>
-	<div class="row">
-		<div class="col-md-12 pull-right">
+	
 
 			
 			<div class="panel">
-				<div class="panel-body">
-					<?php echo form_open($this->config->item('admin_folder').'/orders/index', 'class="form-inline" style="float:right"');?>
-					
-					<div class="form-group">
-						<input id="start_top"  value="" class="form-control" type="text" placeholder="Start Date"/>
-						<input id="start_top_alt" type="hidden" name="start_date" />
+					<div class="panel-body">
+						<?php echo form_open($this->config->item('admin_folder').'/orders/index', 'class="form-inline" style="float:right"');?>
 						
-					</div>
-					<div class="form-group">
-						<input id="end_top" value="" class="form-control" type="text"  placeholder="End Date"/>
-						<input id="end_top_alt" type="hidden" name="end_date" />
-					</div>
-					<div class="form-group">
-						<input id="top" type="text" class="form-control" name="term" placeholder="<?php echo lang('term')?>" /> 
-					</div>	
-					<button class="btn btn-success" name="submit" value="search"><?php echo lang('search')?></button>
-					<button class="btn btn-success" name="submit" value="export"><?php echo lang('xml_export')?></button>			
-				</form>
+						<div class="form-group">
+							<input id="start_top"  value="" class="form-control" type="text" placeholder="Start Date"/>
+							<input id="start_top_alt" type="hidden" name="start_date" />
+							
+						</div>
+						<div class="form-group">
+							<input id="end_top" value="" class="form-control" type="text"  placeholder="End Date"/>
+							<input id="end_top_alt" type="hidden" name="end_date" />
+						</div>
+						<div class="form-group">
+							<input id="top" type="text" class="form-control" name="term" placeholder="<?php echo lang('term')?>" /> 
+						</div>	
+						<button class="btn btn-success" name="submit" value="search"><?php echo lang('search')?></button>
+						<button class="btn btn-success" name="submit" value="export"><?php echo lang('xml_export')?></button>			
+					</form>
+				</div>
 			</div>
-		</div>
 		
 
 		
-	</div>
-</div>
+
 <div class="row">
 	<div class="col-md-4 pull-right">
 		<?php echo $this->pagination->create_links();?>&nbsp;

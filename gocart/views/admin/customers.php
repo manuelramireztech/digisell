@@ -29,7 +29,7 @@
 						<a class="btn btn-primary" href="<?php echo site_url($this->config->item('admin_folder').'/customers/form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_customer');?></a>
 					</div>
 					<div class="col-md-7">
-					<form method="post" action="<?php echo site_url($this->config->item('admin_folder').'/customers/search/'); ?>">
+					<form method="post" action="<?php echo site_url($this->config->item('admin_folder').'/customers/index/'); ?>">
 						<div class="col-lg-4 pull-right">
 						    <div class="input-group">
 						      <input type="text" name="txtSearch" id="txtSearch" class="form-control" placeholder="Search Client">
