@@ -290,7 +290,7 @@ function remove_option(id)
 									<table class="table table-hover table-bordered">
 										<thead>
 											<tr class="active">
-												<th style="width:16px;"></th>
+												
 												<th><?php echo 'Coupon Code';?></th>
 												<th style="width:16px;"></th>
 											</tr>
@@ -299,7 +299,6 @@ function remove_option(id)
 											<?php echo (count($coupon) < 1)?'<tr><td style="text-align:center;" colspan="6">'.lang('no_files').'</td></tr>':''?>
 											<?php foreach ($coupon as $file):?>
 												<tr>
-													<td><?php echo form_checkbox('downloads[]', $file->id, in_array($file->id, $product_files)); ?></td>
 													<td><?php echo $file->code ?></td>
 													<td>
 														<?php
