@@ -59,7 +59,7 @@
 								echo form_input($data);
 								?>
 							</div>
-							<input type="button" value="Clear" class="btn" onclick="$('#datepicker1_alt').val('');$('#datepicker1').val('');" />
+							<input type="button" value="Clear" class="btn btn-warning" onclick="$('#datepicker1_alt').val('');$('#datepicker1').val('');" />
 							<input type="hidden" name="start_date" value="<?php echo set_value('start_date', $start_date) ?>" id="datepicker1_alt" readonly />
 						</div>
 						<div class="form-group">
@@ -70,7 +70,7 @@
 								echo form_input($data);
 								?>
 							</div>
-							<input type="button" value="Clear"  class="btn" onclick="$('#datepicker2_alt').val('');$('#datepicker2').val('');" />
+							<input type="button" value="Clear"  class="btn btn-warning" onclick="$('#datepicker2_alt').val('');$('#datepicker2').val('');" />
 							<input type="hidden" name="end_date" value="<?php echo set_value('end_date', $end_date) ?>" id="datepicker2_alt" readonly />
 						</div>	
 						<div class="form-group col-md-12">

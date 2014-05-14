@@ -695,11 +695,11 @@ function add_image($photo_id, $filename, $alt, $caption, $primary=false)
 	ob_start();
 	?>
 	<div class="row gc_photo" id="gc_photo_<?php echo $photo_id;?>" style="background-color:#fff; border-bottom:1px solid #ddd; padding-bottom:20px; margin-bottom:20px;">
-		<div class="col-md-12">
+		<div class="col-md-4">
 			<input type="hidden" name="images[<?php echo $photo_id;?>][filename]" value="<?php echo $filename;?>"/>
 			<img class="gc_thumbnail" src="<?php echo base_url('uploads/images/thumbnails/'.$filename);?>" style="padding:5px; border:1px solid #ddd"/>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-8">
 			<div class="row">
 				<div class="col-md-6">
 					<input name="images[<?php echo $photo_id;?>][alt]" value="<?php echo $alt;?>" class="col-md-6 form-control" placeholder="<?php echo lang('alt_tag');?>"/>
@@ -711,11 +711,9 @@ function add_image($photo_id, $filename, $alt, $caption, $primary=false)
 					<a onclick="return remove_image($(this));" rel="<?php echo $photo_id;?>" class="btn btn-danger" style="float:right; font-size:9px;"><i class="fa fa-trash-o"></i> <?php echo lang('remove');?></a>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<label><?php echo lang('caption');?></label>
-					<textarea name="images[<?php echo $photo_id;?>][caption]" class="col-md-6 form-control" rows="3"><?php echo $caption;?></textarea>
-				</div>
+			<div class="col-md-6">
+				<label><?php echo lang('caption');?></label>
+				<textarea name="images[<?php echo $photo_id;?>][caption]" class="col-md-6 form-control" rows="3"><?php echo $caption;?></textarea>
 			</div>
 		</div>
 	</div>
