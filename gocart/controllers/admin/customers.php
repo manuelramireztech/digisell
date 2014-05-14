@@ -20,7 +20,7 @@ class Customers extends Admin_Controller {
 		//$this->session->set_flashdata('message', 'this is our message');
 		
 		$data['page_title']	= lang('customers');
-		if($this->input->post('txtSearch'))
+		if(($this->input->post('txtSearch')) && ($this->input->post('searchBy')!='all'))
 		{
 			$searchBy = $this->input->post('searchBy');
 			$searchtxt = $this->input->post('txtSearch');

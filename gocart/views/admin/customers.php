@@ -37,10 +37,11 @@
 							    <!-- Button and dropdown menu -->
 							    
 							    <select name="searchBy" id="searchBy" class="form-control csearch">
+							    	<option value="all">All Clients</option>
 							    	<option value="firstname">First Name</option>
 							    	<option value="lastname">Last Name</option>
 							    </select>
-							    <button class="btn btn-success csbtn" type="submit">Go!</button>
+							    <button class="btn btn-success csbtn" type="submit">Search</button>
 							    <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search By <span class="caret"></span></button>
 							  	<ul class="dropdown-menu pull-right">
 						          <li><a href="#">First Name</a></li>
@@ -72,19 +73,7 @@
 								?>
 
 								<th width="10px">
-									
-									
-									<?php  
-										$data = array(
-						    														'type'        => 'submit',
-						    														'value'       => 'x',
-						    														'checked'     => false,
-						    														'onclick'	  => "return areyousure();",
-						    														'class'		  => 'btn btn-sm btn-danger',
-						    														'title'		  => 'Delete',
-							    											 );
-																echo form_submit($data);
-									?>
+									<button type="submit" onclick="return areyousure();" class="btn btn-xs btn-danger"><i class="ion-close"></i></button>
 								</th>
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/firstname/');?>/<?php echo ($field == 'firstname')?$by:'';?>"><?php echo lang('firstname');?>
 									<?php if($field == 'firstname'){ echo ($by == 'ASC')?'<i class="fa fa-chevron-up"></i>':'<i class="fa fa-chevron-down"></i>';} ?></a></th>
@@ -92,7 +81,7 @@
 									<?php if($field == 'lastname'){ echo ($by == 'ASC')?'<i class="fa fa-chevron-up"></i>':'<i class="fa fa-chevron-down"></i>';} ?> </a></th>
 
 												
-													<?php if($field == 'email'){ echo ($by == 'ASC')?'<i class="icon-chevron-up"></i>':'<i class="icon-chevron-down"></i>';} ?></a></th>
+													
 														<th><?php echo 'Created On' ?></th>
 														
 														<th width="20%"></th>
