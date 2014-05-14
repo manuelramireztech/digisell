@@ -30,13 +30,25 @@
 					</div>
 					<div class="col-md-7">
 					<form method="post" action="<?php echo site_url($this->config->item('admin_folder').'/customers/index/'); ?>">
-						<div class="col-lg-4 pull-right">
-						    <div class="input-group">
-						      <input type="text" name="txtSearch" id="txtSearch" class="form-control" placeholder="Search Client">
-						      <span class="input-group-btn">
-						        <button class="btn btn-success" type="submit">Go!</button>
-						      </span>
-						    </div><!-- /input-group -->
+						<div class="col-lg-6 pull-right">
+							<div class="input-group">
+							  <input type="text" name="txtSearch" id="txtSearch" class="form-control" placeholder="Search Client">
+							  <div class="input-group-btn">
+							    <!-- Button and dropdown menu -->
+							    
+							    <select name="searchBy" id="searchBy" class="form-control csearch">
+							    	<option value="firstname">First Name</option>
+							    	<option value="lastname">Last Name</option>
+							    </select>
+							    <button class="btn btn-success csbtn" type="submit">Go!</button>
+							    <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Search By <span class="caret"></span></button>
+							  	<ul class="dropdown-menu pull-right">
+						          <li><a href="#">First Name</a></li>
+						          <li><a href="#">Last Name</a></li>
+						        </ul> -->
+							  </div>
+							</div>	
+						    
 						</div><!-- /.col-lg-4 -->
 					</form>
 					</div>

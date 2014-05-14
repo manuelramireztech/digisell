@@ -22,8 +22,9 @@ class Customers extends Admin_Controller {
 		$data['page_title']	= lang('customers');
 		if($this->input->post('txtSearch'))
 		{
+			$searchBy = $this->input->post('searchBy');
 			$searchtxt = $this->input->post('txtSearch');
-			$data['customers']	= $this->Customer_model->get_customers_search(50,$page, $field, $by, $searchtxt);
+			$data['customers']	= $this->Customer_model->get_customers_search(50,$page, $field, $by, $searchtxt, $searchBy);
 		}
 		else
 		{
