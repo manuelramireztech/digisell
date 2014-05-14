@@ -96,6 +96,7 @@
 					</div>
 					<button class="btn btn-success" name="submit" value="search"><?php echo lang('search')?></button>
 					<a class="btn btn-warning" href="<?php echo site_url($this->config->item('admin_folder').'/products/index');?>">Reset</a>
+					
 			</form>
 		</div>
 	</div>
