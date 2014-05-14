@@ -623,23 +623,28 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <?php if (!empty($message)): ?>
-            
-            <div class="alert alert-success alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <strong>Success!</strong> <?php echo $message; ?>
-            </div>
 
-            <?php endif; ?>
-                </div>
-            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                                <?php if (!empty($message)): ?>
+                        
+                        <div class="alert alert-success alert-dismissable">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <strong>Success!</strong> <?php echo $message; ?>
+                        </div>
 
-            <?php if (!empty($error)): ?>
-                <div class="alert alert-warning alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <?php echo $error; ?>
+                        <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <?php if (!empty($error)): ?>
+                            <div class="alert alert-warning alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <?php echo $error; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            <?php endif; ?>
 
 
 
