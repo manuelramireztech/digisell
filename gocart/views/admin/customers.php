@@ -73,7 +73,7 @@
 								?>
 
 								<th width="10px">
-									<button type="submit" onclick="return areyousure();" class="btn btn-xs btn-danger"><i class="ion-close"></i></button>
+									<button type="submit" onclick="return areyousure();" class="btn btn-xs btn-danger"><i class="ion-trash-b"></i></button>
 								</th>
 								<th><a href="<?php echo site_url($this->config->item('admin_folder').'/customers/index/firstname/');?>/<?php echo ($field == 'firstname')?$by:'';?>"><?php echo lang('firstname');?>
 									<?php if($field == 'firstname'){ echo ($by == 'ASC')?'<i class="fa fa-chevron-up"></i>':'<i class="fa fa-chevron-down"></i>';} ?></a></th>
