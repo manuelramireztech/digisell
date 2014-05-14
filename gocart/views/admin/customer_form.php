@@ -144,7 +144,9 @@
 							
 
 						</div>
-						<h4 class="text-info pull-left">Recent Invoices<small> - Recent Invoice Activity</small></h4>
+						<?php echo form_open($this->config->item('admin_folder').'/customers/view_all/'.$id); ?>
+						<h4 class="text-info pull-left note">Recent Invoices<small> - Recent Invoice Activity</small></h4>
+						<input type="submit" value="View All" class="btn btn-default btn-xs pull-right">
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-2">
 								<div class="table-responsive">
@@ -175,6 +177,7 @@
 								</div>
 							</div>
 						</div>
+						</form>
 						<?php echo form_open($this->config->item('admin_folder').'/customers/save_client_notes/'.$id); ?>
 							<h4 class="text-info pull-left note">Client Notes<small> - Visible to the Client</small></h4>
 							<input type="submit" value="save changes" class="btn btn-default btn-xs pull-right">

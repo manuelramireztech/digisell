@@ -9,7 +9,7 @@ class Customers extends Admin_Controller {
 	{		
 		parent::__construct();
 
-		$this->load->model(array('Customer_model', 'Location_model'));
+		$this->load->model(array('Customer_model', 'Location_model', 'Order_model'));
 		$this->load->helper('formatting_helper');
 		$this->lang->load('customer');
 	}
@@ -206,6 +206,13 @@ class Customers extends Admin_Controller {
 			$this->session->set_flashdata('message', 'Admin Notes Saved Successfully');
 			redirect($this->config->item('admin_folder').'/customers/form/'.$id);
 		}
+	}
+
+	function view_all($id)
+	{
+		$data['cust_id'] = $id;
+		$this->session->set_userdata($data);
+		redirect($this->config->item('admin_folder').'/orders');
 	}
 	
 	function addresses($id = false)

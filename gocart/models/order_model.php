@@ -37,7 +37,7 @@ Class order_model extends CI_Model
 		return $years;
 	}
 	
-	function get_orders($search=false, $sort_by='', $sort_order='DESC', $limit=0, $offset=0)
+	function get_orders($search=false, $sort_by='', $sort_order='DESC', $limit=0, $offset=0, $customer_by)
 	{			
 		if ($search)
 		{
@@ -66,6 +66,7 @@ Class order_model extends CI_Model
 					$like	.= $operator." `ship_lastname` ".$not."LIKE '%".$t."%'  ";
 					$like	.= $operator." `status` ".$not."LIKE '%".$t."%' ";
 					$like	.= $operator." `notes` ".$not."LIKE '%".$t."%' )";
+					
 
 					$this->db->where($like);
 				}	
@@ -92,6 +93,11 @@ Class order_model extends CI_Model
 		{
 			$this->db->order_by($sort_by, $sort_order);
 		}
+		
+		if($customer_by)
+		{
+			$this->db->where('customer_id', $customer_by);
+		}	
 		
 		return $this->db->get('orders')->result();
 	}
