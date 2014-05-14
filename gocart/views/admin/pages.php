@@ -52,13 +52,13 @@
 										<td>
 											<div class="btn-group pull-right">
 												<?php if(!empty($page->url)): ?>
-													<a class="btn" href="<?php echo site_url($GLOBALS['admin_folder'].'/pages/link_form/'.$page->id); ?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
-													<a class="btn" href="<?php echo $page->url;?>" target="_blank"><i class="icon-play-circle"></i> <?php echo lang('follow_link');?></a>
+													<a class="btn btn-success" href="<?php echo site_url($GLOBALS['admin_folder'].'/pages/link_form/'.$page->id); ?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
+													<a class="btn btn-primary" href="<?php echo $page->url;?>" target="_blank"><i class="fa fa-play-circle"></i> <?php echo lang('follow_link');?></a>
 												<?php else: ?>
-													<a class="btn" href="<?php echo site_url($GLOBALS['admin_folder'].'/pages/form/'.$page->id); ?>"><i class="icon-pencil"></i> <?php echo lang('edit');?></a>
-													<a class="btn" href="<?php echo site_url($page->slug); ?>" target="_blank"><i class="icon-play-circle"></i> <?php echo lang('go_to_page');?></a>
+													<a class="btn btn-success" href="<?php echo site_url($GLOBALS['admin_folder'].'/pages/form/'.$page->id); ?>"><i class="fa fa-edit"></i> <?php echo lang('edit');?></a>
+													<a class="btn btn-primary" href="<?php echo site_url($page->slug); ?>" target="_blank"><i class="fa fa-play-circle"></i> <?php echo lang('go_to_page');?></a>
 												<?php endif; ?>
-												<a class="btn btn-danger" href="<?php echo site_url($GLOBALS['admin_folder'].'/pages/delete/'.$page->id); ?>" onclick="return areyousure();"><i class="icon-trash icon-white"></i> <?php echo lang('delete');?></a>
+												<a class="btn btn-danger" href="<?php echo site_url($GLOBALS['admin_folder'].'/pages/delete/'.$page->id); ?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 											</div>
 										</td>
 									</tr>
