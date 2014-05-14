@@ -56,7 +56,8 @@
 						    														'value'       => 'x',
 						    														'checked'     => false,
 						    														'onclick'	  => "return areyousure();",
-						    														'class'		  => 'btn'
+						    														'class'		  => 'btn btn-sm btn-danger',
+						    														'title'		  => 'Delete',
 							    											 );
 																echo form_submit($data);
 									?>
