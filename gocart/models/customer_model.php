@@ -71,6 +71,8 @@ Class Customer_model extends CI_Model
         $this->db->from('orders');
         $this->db->where('customer_id',$id);
         $this->db->join('order_items', 'order_items.order_id = orders.id');
+        $this->db->order_by('ordered_on', 'DESC');
+        $this->db->limit(1);
         $result = $this->db->get();
         return $result->result();
     }
