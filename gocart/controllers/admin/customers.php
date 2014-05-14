@@ -60,6 +60,53 @@ class Customers extends Admin_Controller {
 		
 		$this->view($this->config->item('admin_folder').'/customers', $data);
 	}
+
+	function search($field='lastname', $by='ASC', $page=0)
+	{
+		//we're going to use flash data and redirect() after form submissions to stop people from refreshing and duplicating submissions
+		//$this->session->set_flashdata('message', 'this is our message');
+		$searchtxt = $this->input->post('txtSearch');
+		$data['page_title']	= lang('customers');
+		$data['customers']	= $this->Customer_model->get_customers_search(50,$page, $field, $by, $searchtxt);
+		
+		$this->load->library('pagination');
+
+		$config['base_url']		= base_url().'/'.$this->config->item('admin_folder').'/customers/index/'.$field.'/'.$by.'/';
+		$config['total_rows']	= $this->Customer_model->count_customers();
+		$config['per_page']		= 50;
+		$config['uri_segment']	= 6;
+		$config['first_link']		= 'First';
+		$config['first_tag_open']	= '<li>';
+		$config['first_tag_close']	= '</li>';
+		$config['last_link']		= 'Last';
+		$config['last_tag_open']	= '<li>';
+		$config['last_tag_close']	= '</li>';
+
+		$config['full_tag_open']	= '<div class="pagination"><ul>';
+		$config['full_tag_close']	= '</ul></div>';
+		$config['cur_tag_open']		= '<li class="active"><a href="#">';
+		$config['cur_tag_close']	= '</a></li>';
+		
+		$config['num_tag_open']		= '<li>';
+		$config['num_tag_close']	= '</li>';
+		
+		$config['prev_link']		= '&laquo;';
+		$config['prev_tag_open']	= '<li>';
+		$config['prev_tag_close']	= '</li>';
+
+		$config['next_link']		= '&raquo;';
+		$config['next_tag_open']	= '<li>';
+		$config['next_tag_close']	= '</li>';
+		
+		$this->pagination->initialize($config);
+		
+		
+		$data['page']	= $page;
+		$data['field']	= $field;
+		$data['by']		= $by;
+		
+		$this->view($this->config->item('admin_folder').'/customers', $data);
+	}
 	
 	function export_xml()
 	{

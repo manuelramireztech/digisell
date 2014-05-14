@@ -24,6 +24,20 @@ Class Customer_model extends CI_Model
         $result = $this->db->get('customers');
         return $result->result();
     }
+
+    function get_customers_search($limit=0, $offset=0, $order_by='id', $direction='DESC', $searchtxt)
+    {
+        $this->db->like('firstname',$searchtxt);
+        
+        $this->db->order_by($order_by, $direction);
+        if($limit>0)
+        {
+            $this->db->limit($limit, $offset);
+        }
+
+        $result = $this->db->get('customers');
+        return $result->result();
+    }
     
     function count_customers()
     {

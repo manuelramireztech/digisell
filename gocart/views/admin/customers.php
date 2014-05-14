@@ -22,14 +22,26 @@
 				</h3>
 			</div>
 			<div class="panel-body">
-				<div class="row pull-right">
-					<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-5">
 						<a class="btn btn-primary" href="<?php echo site_url($this->config->item('admin_folder').'/customers/export_xml');?>"><i class="icon-download"></i> <?php echo lang('xml_download');?></a>
 						<a class="btn btn-success" href="<?php echo site_url($this->config->item('admin_folder').'/customers/get_subscriber_list');?>"><i class="icon-download"></i> <?php echo lang('subscriber_download');?></a>
 						<a class="btn btn-primary" href="<?php echo site_url($this->config->item('admin_folder').'/customers/form'); ?>"><i class="icon-plus-sign"></i> <?php echo lang('add_new_customer');?></a>
 					</div>
+					<div class="col-md-7">
+					<form method="post" action="<?php echo site_url($this->config->item('admin_folder').'/customers/search/'); ?>">
+						<div class="col-lg-4 pull-right">
+						    <div class="input-group">
+						      <input type="text" name="txtSearch" id="txtSearch" class="form-control" placeholder="Search Client">
+						      <span class="input-group-btn">
+						        <button class="btn btn-success" type="submit">Go!</button>
+						      </span>
+						    </div><!-- /input-group -->
+						</div><!-- /.col-lg-4 -->
+					</form>
+					</div>
 				</div>
-				<br><br><br>
+				<br>
 				<form method="post" action="<?php echo site_url($this->config->item('admin_folder').'/customers/delete/'); ?>">
 				<div class="table-responsive">
 					<table class="table table-hover table-bordered">
