@@ -528,10 +528,7 @@
         <ul class="breadcrumb">
             <li class="active"><?php echo (isset($page_title))? $page_title:''; ?></li>
             <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="#">Template</a>
+                <a href="<?php echo $admin_url; ?>">Dashboard</a>
             </li>
         </ul>
         <a href="#" class="options-toggle">

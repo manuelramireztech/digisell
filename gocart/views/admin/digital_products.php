@@ -45,7 +45,7 @@
 									<td><?php echo $file->size; ?> kb</td>
 									<td>
 										<div class="btn-group" style="float:right">
-											<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/digital_products/form/'.$file->id);?>"><i class="fa fa-pencil"></i> <?php echo lang('edit');?></a>
+											<a class="btn btn-primary" href="<?php echo  site_url($this->config->item('admin_folder').'/digital_products/form/'.$file->id);?>"><i class="fa fa-edit"></i> <?php echo lang('edit');?></a>
 
 											<a class="btn btn-danger" href="<?php echo  site_url($this->config->item('admin_folder').'/digital_products/delete/'.$file->id);?>" onclick="return areyousure();"><i class="fa fa-trash-o"></i> <?php echo lang('delete');?></a>
 										</div>
