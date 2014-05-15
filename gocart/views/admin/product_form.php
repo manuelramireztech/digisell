@@ -266,6 +266,7 @@ function remove_option(id)
 						</div>
 					</div>
 				</div>
+				<?php if($coupon) {?>
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseCoupon">
@@ -315,6 +316,7 @@ function remove_option(id)
 						</div>
 					</div>
 				</div>
+				<?php } ?>
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a data-toggle="collapse" data-parent="#accordionVj" href="#collapseOpt">
@@ -624,8 +626,8 @@ function remove_option(id)
 	<div class="col-md-4">
 		<div class="form-group">
 			<?php
-			$options = array(	 '1'	=> lang('shippable')
-								,'0'	=> lang('not_shippable')
+			$options = array(	 '0'	=> lang('not_shippable')
+								,'1'	=> lang('shippable')
 								);
 			echo form_dropdown('shippable', $options, set_value('shippable',$shippable), 'class="form-control"');
 			?>
