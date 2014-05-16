@@ -43,17 +43,16 @@ class Dashboard extends CI_Controller {
 		}
 		else
 		{	
-			$this->session->set_flashdata('error', 'User un-available');
-			// redirect('admin/dashboard/login');
-			$this->load->view('admin/login');
+			$this->session->set_flashdata('error', 'Failed to Login!'.heading(' Invalid Login data.......',3));
+			redirect('admin/dashboard');
 		}		
 	}
 
 	function logout()
 	{
 		$this->session->unset_userdata('email');
-		$this->session->set_flashdata('message', 'You have been logged out');
-		redirect('admin/dashboard/login');
+		$this->session->set_flashdata('message', 'Successfully logged out! ');
+		redirect('admin/dashboard');
 	}
 }
 
