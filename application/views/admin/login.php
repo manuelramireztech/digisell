@@ -9,7 +9,7 @@
 <body>
 	<div class="login-page">
 		<div class="header-section">
-			
+			<?php echo heading('Digi Audit',2); ?>
 		</div><!--end of header -section-->
 		<?php echo form_open('admin/dashboard/login'); ?>
 		<div class="form-section">
@@ -26,7 +26,7 @@
                      <?php echo $this->session->flashdata('error');?>
                 </div>
            <?php endif;?>
-           
+
 				<div class="form-inputs">
 					<h4>Member Area</h4>
 					<div class="input-group">
