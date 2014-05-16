@@ -329,7 +329,7 @@ a {
   font-family: 'Droid Sans', sans-serif;
   padding: 0px;
   line-height: 60px;
-  width: 220px;
+  width: 100px;
   text-align: center;
 }
 .navbar.nav-delighted.navbar-default .navbar-brand i {
@@ -381,7 +381,7 @@ a {
 .navbar.nav-delighted.navbar-default .search-form input {
   height: 32px;
   width: 155px;
-  border-radius: 16px;
+  border-radius: 0px;
   color: #23bab5;
   padding-left: 30px;
   background-color: white;
@@ -652,8 +652,8 @@ a {
   margin-left: 0px !important;
 }
 .content .row {
-  margin-right: -15px;
-  margin-left: -15px !important;
+  margin-right: 0px;
+  margin-left: 0px !important;
 }
 .content.user-details-open {
   margin-left: 50px;
@@ -4286,19 +4286,4 @@ ANIMATIONS
 }
 .delighted-time-date-pickers {
   margin-bottom: 10px;
-}
-.carousel .carousel-control {
-  height: 60px;
-  width: 60px;
-  top: 40%;
-}
-.carousel .left {
-  border-radius: 50%;
-  text-align: center;
-  padding-top: 15px;
-}
-.carousel .right {
-  border-radius: 50%;
-  text-align: center;
-  padding-top: 15px;
 }
