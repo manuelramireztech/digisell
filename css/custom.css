@@ -27,3 +27,8 @@
 {
   width: 50px;
 }
+.dash-border
+{
+	border: 1px #ccc solid;
+	padding: 5px;
+}

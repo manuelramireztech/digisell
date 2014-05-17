@@ -32,20 +32,103 @@
 		    
 		  </div>
 		  <div class="panel-body">
-		    <div class="table-responsive">
-		    	<table class="table table-bordered">
-		    		<tbody>
-		    			<tr>
-		    				<td>hi</td>
-		    				<td></td>
-		    			</tr>
-		    			<tr>
-		    				<td>hi</td>
-		    				<td></td>
-		    			</tr>
-		    		</tbody>
-		    	</table>
-		    </div>
+		  	<div class="col-md-6">
+		  		<div class="table-responsive dash-border">
+			    	<table class="table ">
+						<tbody>
+							<tr>
+								<td class="active">Total Active Orders:</td>
+								<td width="15%" align="right">
+									<?php echo anchor('#',0); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Pending Orders:</td>
+								<td width="15%" align="right">
+									<?php echo anchor('#',0); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Suspended Orders:</td>
+								<td width="15%" align="right">
+									<?php echo anchor('#',0); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Cancelled Orders:</td>
+								<td width="15%" align="right">
+									<?php echo anchor('#',0); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Refunded Orders:</td>
+								<td width="15%" align="right">
+									<?php echo anchor('#',0); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Fraud Orders:</td>
+								<td width="15%" align="right">
+									<?php echo anchor('#',0); ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Incomplete Orders:</td>
+								<td width="15%" align="right">
+									<?php echo anchor('#',0); ?>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+			    </div>
+		  	</div>
+		  	<div class="col-md-6">
+		  		<div class="table-responsive dash-border">
+		  			<table class="table">
+						<tbody>
+							<tr>
+								<td class="active">Total Register Balance:<br><span class="text-danger">Ignoring Multi-Currency</span></td>
+								<td width="15%" align="right">
+									<?php echo '0'; ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Invoices Paid:</td>
+								<td width="15%" align="right">
+									<?php echo '0'; ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Invoices Due:</td>
+								<td width="15%" align="right">
+									<?php echo '0'; ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Invoices With Credit:</td>
+								<td width="15%" align="right">
+									<?php echo '0'; ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Clients In DB:</td>
+								<td width="15%" align="right">
+									<?php echo '0'; ?>
+								</td>
+							</tr>
+							<tr>
+								<td class="active">Total Admins In DB:</td>
+								<td width="15%" align="right">
+									<?php echo '0'; ?>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+		  		</div>
+		  	</div>
+		    
 		  </div>
 		</div>
 	</div>
