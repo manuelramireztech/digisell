@@ -31,6 +31,8 @@ class Admin_login extends CI_Controller {
 	function login()
 	{	
 		$data['news'] = $this->Admin->news();
+		$data['total_admins'] = $this->Admin->total_admin();
+		$data['total_clients'] = $this->Admin->total_client();
 
 		if($this->session->userdata('email'))
 		{
