@@ -1,7 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
-
+class Admin_login extends CI_Controller {
+	public function __construct() {
+        parent::__construct();
+    }
 	/**
 	 * Index Page for this controller.
 	 *
@@ -21,22 +23,25 @@ class Dashboard extends CI_Controller {
 	{
 		if($this->session->userdata('email'))
 		{
-			$this->load->model('Admin_login');
-			$data['user'] = $this->Admin_login->login($this->session->userdata('email'),$this->session->userdata('password'));
-			if($data['user'])
-			{
-				$this->load->view('admin/dashboard',$data);
-			}
+			redirect('admin_login/login');
 		}
 		$this->load->view('admin/login');
 	}
 
 	function login()
-	{
-		$data['uname'] = $this->input->post('username');
-		$data['password'] = $this->input->post('password');
-		$this->load->model('Admin_login');
-		$data['user'] = $this->Admin_login->login($data['uname'],$data['password']);
+	{	
+		$data['news'] = $this->Admin->news();
+
+		if($this->session->userdata('email'))
+		{
+			$data['user'] = $this->Admin->get_data();
+		}
+		else
+		{
+			$data['uname'] = $this->input->post('username');
+			$data['password'] = $this->input->post('password');
+			$data['user'] = $this->Admin->login($data['uname'],$data['password']);
+		}
 		if($data['user'])
 		{
 			$this->load->view('admin/dashboard',$data);
@@ -44,15 +49,16 @@ class Dashboard extends CI_Controller {
 		else
 		{	
 			$this->session->set_flashdata('error', 'Failed to Login!'.heading(' Invalid Login data.......',3));
-			redirect('admin/dashboard');
-		}		
+			redirect('admin_login');
+		}
+				
 	}
 
 	function logout()
 	{
 		$this->session->unset_userdata('email');
 		$this->session->set_flashdata('message', 'Successfully logged out! ');
-		redirect('admin/dashboard');
+		redirect('admin_dashboard');
 	}
 }
 

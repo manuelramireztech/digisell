@@ -61,7 +61,7 @@
                                 </form>
                               </li>
                               <li>
-                                <a href='<?php echo site_url('admin/dashboard/logout'); ?>' class="logout">
+                                <a href='<?php echo site_url('admin_login/logout'); ?>' class="logout">
                                   <i class="fa fa-power-off"></i>
                                 </a>
                               </li>
