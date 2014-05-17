@@ -55,7 +55,8 @@ class Admin_dashboard extends CI_Controller {
 			$data['uname'] = $this->input->post('username');
 			$data['password'] = $this->input->post('password');
 			$data['user'] = $this->Admin->login($data['uname'],$data['password']);
-			$this->session->set_userdata('name', $data['user']->first_name);
+			$info['name'] = $data['user']->first_name;
+			$this->session->set_userdata($info);
 		}
 		if($data['user'])
 		{
