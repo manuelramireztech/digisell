@@ -4,7 +4,7 @@
 		<div class="panel">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">
-		    	PHP Audit News & Information
+		    	PHP Audit News
 		    	<div class="pull-right">
 		    		Updated : <?php echo $news->date; ?>
 		    	</div>
@@ -19,7 +19,7 @@
 		<div class="panel">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">
-		    	PHP Audit News & Information
+		    	PHP Audit Information
 				<span class="panel-options">
 					<a href="#" class="panel-minimize">
 						<i class="fa fa-chevron-up"></i>
@@ -48,7 +48,7 @@
 								<td class="active">Total Pending Orders:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$order_pending); ?>
 									</div>
 								</td>
 							</tr>
@@ -56,7 +56,7 @@
 								<td class="active">Total Suspended Orders:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$order_suspended); ?>
 									</div>
 								</td>
 							</tr>
@@ -64,7 +64,7 @@
 								<td class="active">Total Cancelled Orders:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$order_cancelled); ?>
 									</div>
 								</td>
 							</tr>
@@ -72,7 +72,7 @@
 								<td class="active">Total Refunded Orders:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$order_refunded); ?>
 									</div>
 								</td>
 							</tr>
@@ -80,7 +80,7 @@
 								<td class="active">Total Fraud Orders:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$order_fraud); ?>
 									</div>
 								</td>
 							</tr>
@@ -88,7 +88,7 @@
 								<td class="active">Total Incomplete Orders:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$order_incomplete); ?>
 									</div>
 								</td>
 							</tr>

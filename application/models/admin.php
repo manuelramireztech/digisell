@@ -96,6 +96,54 @@ class Admin extends CI_Model
 		$result = $this->db->get('order');
 		return $result->num_rows();
 	}
+
+	function order_pending()
+	{
+		$this->db->select('*');
+		$this->db->where('status', 'pending');
+		$result = $this->db->get('order');
+		return $result->num_rows();
+	}
+
+	function order_suspended()
+	{
+		$this->db->select('*');
+		$this->db->where('status', 'suspended');
+		$result = $this->db->get('order');
+		return $result->num_rows();
+	}
+
+	function order_cancelled()
+	{
+		$this->db->select('*');
+		$this->db->where('status', 'cancelled');
+		$result = $this->db->get('order');
+		return $result->num_rows();
+	}
+
+	function order_refunded()
+	{
+		$this->db->select('*');
+		$this->db->where('status', 'refunded');
+		$result = $this->db->get('order');
+		return $result->num_rows();
+	}
+
+	function order_fraud()
+	{
+		$this->db->select('*');
+		$this->db->where('status', 'fraud');
+		$result = $this->db->get('order');
+		return $result->num_rows();
+	}
+
+	function order_incomplete()
+	{
+		$this->db->select('*');
+		$this->db->where('status', 'incomplete');
+		$result = $this->db->get('order');
+		return $result->num_rows();
+	}
 }
 
 

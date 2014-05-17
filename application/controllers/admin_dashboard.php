@@ -39,6 +39,12 @@ class Admin_dashboard extends CI_Controller {
 		$data['total_invoice_credit'] = $this->Admin->total_invoice_credit();
 		$data['balance'] = $this->Admin->register_balance();
 		$data['order_active'] = $this->Admin->order_active();
+		$data['order_pending'] = $this->Admin->order_pending();
+		$data['order_suspended'] = $this->Admin->order_suspended();
+		$data['order_cancelled'] = $this->Admin->order_cancelled();
+		$data['order_refunded'] = $this->Admin->order_refunded();
+		$data['order_fraud'] = $this->Admin->order_fraud();
+		$data['order_incomplete'] = $this->Admin->order_incomplete();
 
 		if($this->session->userdata('email'))
 		{
