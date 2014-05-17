@@ -55,6 +55,7 @@ class Admin_dashboard extends CI_Controller {
 			$data['uname'] = $this->input->post('username');
 			$data['password'] = $this->input->post('password');
 			$data['user'] = $this->Admin->login($data['uname'],$data['password']);
+			$this->session->set_userdata('name', $data['user']->first_name);
 		}
 		if($data['user'])
 		{
@@ -65,7 +66,11 @@ class Admin_dashboard extends CI_Controller {
 			$this->session->set_flashdata('error', 'Failed to Login!'.heading(' Invalid Login data.......',3));
 			redirect('admin_login');
 		}
-				
+	}
+
+	function client()
+	{
+		$this->load->view('admin/client');
 	}
 
 	function logout()

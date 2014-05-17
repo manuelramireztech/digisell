@@ -79,7 +79,7 @@
                                 <img src="<?php echo base_url(); ?>images/avatar.png" alt="" class="avatar">
                                 <div class="user-info">
                                   <div class="welcome">Welcome,</div>
-                                  <div class="username"><?php echo $user->first_name; ?></div>
+                                  <div class="username"><?php echo $this->session->userdata('name'); ?></div>
                                 </div>
                                 <div class="user-status">
                                   <i class="fa fa-circle "></i>
@@ -96,8 +96,8 @@
                                     <span class='hidden-minibar'>Dashboard</span>
                                   </a>
                                 </li>
-                                <li class=''>
-                                  <a href='admin_dashboard' data-original-title='Dashboard'>
+                                <li class='<?php echo ($this->uri->segment(2)=="client") ? "active" : "" ; ?>'>
+                                  <a href='client' data-original-title='Dashboard'>
                                     <i class='icon ion-person-stalker'></i>
 
                                     <span class='hidden-minibar'>Clients</span>
@@ -139,10 +139,6 @@
                         <!-- /.left-sidebar Holder-->
                       </div>
                       <!-- /.left-sidebar -->
-
-                      
-
-
                       <!-- .content -->
                       <div class="content  animated fadeInBig">
                         <div class=" breadcrumb-holder">
