@@ -56,6 +56,46 @@ class Admin extends CI_Model
 		$result = $this->db->get('clients');
 		return $result->num_rows();
 	}
+
+	function total_invoice_paid()
+	{
+		$this->db->select('*');
+		$this->db->where('transaction_type', 'paid');
+		$result = $this->db->get('register');
+		return $result->num_rows();
+	}
+
+	function total_invoice_due()
+	{
+		$this->db->select('*');
+		$this->db->where('transaction_type', 'due');
+		$result = $this->db->get('register');
+		return $result->num_rows();
+	}
+
+	function total_invoice_credit()
+	{
+		$this->db->select('*');
+		$this->db->where('transaction_type', 'credit');
+		$result = $this->db->get('register');
+		return $result->num_rows();
+	}
+
+	function register_balance()
+	{
+		$this->db->select_sum('amount');
+		$query = $this->db->get('register')->row();
+		return $query->amount;
+		
+	}
+
+	function order_active()
+	{
+		$this->db->select('*');
+		$this->db->where('status', 'active');
+		$result = $this->db->get('order');
+		return $result->num_rows();
+	}
 }
 
 

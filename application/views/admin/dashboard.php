@@ -40,7 +40,7 @@
 								<td class="active">Total Active Orders:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$order_active); ?>
 									</div>
 								</td>
 							</tr>
@@ -105,7 +105,7 @@
 								<td class="active">Total Register Balance:<br><span class="text-danger">Ignoring Multi-Currency</span></td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<span class="text-danger"><?php echo heading($balance,4); ?></span>
 									</div>
 								</td>
 							</tr>
@@ -113,7 +113,7 @@
 								<td class="active">Total Invoices Paid:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$total_invoice_paid); ?>
 									</div>
 								</td>
 							</tr>
@@ -121,7 +121,7 @@
 								<td class="active">Total Invoices Due:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$total_invoice_due); ?>
 									</div>
 								</td>
 							</tr>
@@ -129,7 +129,7 @@
 								<td class="active">Total Invoices With Credit:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',0); ?>
+										<?php echo anchor('#',$total_invoice_credit); ?>
 									</div>
 								</td>
 							</tr>

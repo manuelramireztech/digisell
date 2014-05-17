@@ -33,6 +33,11 @@ class Admin_login extends CI_Controller {
 		$data['news'] = $this->Admin->news();
 		$data['total_admins'] = $this->Admin->total_admin();
 		$data['total_clients'] = $this->Admin->total_client();
+		$data['total_invoice_paid'] = $this->Admin->total_invoice_paid();
+		$data['total_invoice_due'] = $this->Admin->total_invoice_due();
+		$data['total_invoice_credit'] = $this->Admin->total_invoice_credit();
+		$data['balance'] = $this->Admin->register_balance();
+		$data['order_active'] = $this->Admin->order_active();
 
 		if($this->session->userdata('email'))
 		{
