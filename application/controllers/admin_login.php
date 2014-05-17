@@ -23,50 +23,12 @@ class Admin_login extends CI_Controller {
 	{
 		if($this->session->userdata('email'))
 		{
-			redirect('admin_login/login');
+			redirect('admin_dashboard/login');
 		}
 		$this->load->view('admin/login');
 	}
 
-	function login()
-	{	
-		$data['news'] = $this->Admin->news();
-		$data['total_admins'] = $this->Admin->total_admin();
-		$data['total_clients'] = $this->Admin->total_client();
-		$data['total_invoice_paid'] = $this->Admin->total_invoice_paid();
-		$data['total_invoice_due'] = $this->Admin->total_invoice_due();
-		$data['total_invoice_credit'] = $this->Admin->total_invoice_credit();
-		$data['balance'] = $this->Admin->register_balance();
-		$data['order_active'] = $this->Admin->order_active();
-
-		if($this->session->userdata('email'))
-		{
-			$data['user'] = $this->Admin->get_data();
-		}
-		else
-		{
-			$data['uname'] = $this->input->post('username');
-			$data['password'] = $this->input->post('password');
-			$data['user'] = $this->Admin->login($data['uname'],$data['password']);
-		}
-		if($data['user'])
-		{
-			$this->load->view('admin/dashboard',$data);
-		}
-		else
-		{	
-			$this->session->set_flashdata('error', 'Failed to Login!'.heading(' Invalid Login data.......',3));
-			redirect('admin_login');
-		}
-				
-	}
-
-	function logout()
-	{
-		$this->session->unset_userdata('email');
-		$this->session->set_flashdata('message', 'Successfully logged out! ');
-		redirect('admin_dashboard');
-	}
+	
 }
 
 /* End of file welcome.php */
