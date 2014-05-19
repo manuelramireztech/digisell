@@ -92,5 +92,22 @@ class Admin_client extends CI_Controller {
 		redirect('admin_client');
 	}
 
+	public function edit($id)
+	{
+		$data['client_info'] = $this->Client->get_client($id);
+		$this->load->view('admin/client_form',$data);
+	}
+
+	public function change_email($id)
+	{
+		$email_id = $this->input->post('email_id');
+		$email = $this->Client->change_email($id,$email_id);
+		if($email)
+		{
+			$this->session->set_flashdata('message', 'email changed successfully');
+			redirect('admin_client/edit/'.$id);
+		}
+	}
+
 }
 ?>

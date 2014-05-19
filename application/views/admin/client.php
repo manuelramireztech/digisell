@@ -68,8 +68,8 @@
 											<td><?php echo $client->last_name; ?></td>
 											<td><?php echo date('d-m-Y',$client->created); ?></td>
 											<td>
-												<a href="#"><i class='fa fa-edit'></i></a>&nbsp;&nbsp;
-												<a href="<?php echo base_url('index.php').'/admin_client/delete/'.$client->client_id ?>" onclick="areyousure();">
+												<a href="<?php echo base_url('index.php').'/admin_client/edit/'.$client->client_id; ?>"><i class='fa fa-edit'></i></a>&nbsp;&nbsp;
+												<a href="<?php echo base_url('index.php').'/admin_client/delete/'.$client->client_id; ?>" onclick="areyousure();">
 												<i class='fa fa-trash-o'></i></a>
 											</td>
 					    				</tr>

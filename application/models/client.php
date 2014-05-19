@@ -25,5 +25,27 @@ class Client extends CI_Model
         	return true;
         }
 	}
+
+	function get_client($id)
+	{
+		$this->db->where('client_id', $id);
+        $result = $this->db->get('clients');
+        return $result->row();
+	}
+
+	function change_email($id,$email)
+	{
+		$this->db->where('client_id', $id);
+		$this->db->set('email',$email);
+		
+        if($this->db->update('clients'))
+        {
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
+	}
 }
 ?>
