@@ -22,15 +22,10 @@ class Admin_dashboard extends CI_Controller {
 	 */
 	public function index()
 	{
-		if($this->session->userdata('email'))
+		if(!$this->session->userdata('email'))
 		{
-			redirect('admin_dashboard/login');
+			redirect('admin_login');
 		}
-		$this->load->view('admin/login');
-	}
-
-	function login()
-	{	
 		$data['news'] = $this->Admin->news();
 		$data['total_admins'] = $this->Admin->total_admin();
 		$data['total_clients'] = $this->Admin->total_client();
@@ -45,42 +40,10 @@ class Admin_dashboard extends CI_Controller {
 		$data['order_refunded'] = $this->Admin->order_refunded();
 		$data['order_fraud'] = $this->Admin->order_fraud();
 		$data['order_incomplete'] = $this->Admin->order_incomplete();
-
-		if($this->session->userdata('email'))
-		{
-			$data['user'] = $this->Admin->get_data();
-		}
-		else
-		{
-			$data['uname'] = $this->input->post('username');
-			$data['password'] = $this->input->post('password');
-			$data['user'] = $this->Admin->login($data['uname'],$data['password']);
-			$info['name'] = $data['user']->first_name;
-			$this->session->set_userdata($info);
-		}
-		if($data['user'])
-		{
-			$this->load->view('admin/dashboard',$data);
-		}
-		else
-		{	
-			$this->session->set_flashdata('error', 'Failed to Login!'.heading(' Invalid Login data.......',3));
-			redirect('admin_login');
-		}
+		$data['user'] = $this->Admin->get_data();
+		$this->load->view('admin/dashboard',$data);
 	}
 
-	function client()
-	{
-		$this->load->view('admin/client');
-	}
-
-	function logout()
-	{
-		$this->session->unset_userdata('email');
-		$this->session->set_flashdata('message', 'Successfully logged out! ');
-		redirect('admin_login');
-	}
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+?>

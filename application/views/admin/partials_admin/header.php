@@ -61,7 +61,7 @@
                                 </form>
                               </li>
                               <li>
-                                <a href='<?php echo site_url('admin_dashboard/logout'); ?>' class="logout">
+                                <a href='<?php echo site_url('admin_login/logout'); ?>' class="logout">
                                   <i class="fa fa-power-off"></i>
                                 </a>
                               </li>
@@ -89,15 +89,15 @@
 
                               <!-- Menu -->
                               <ul class="nav  nav-list">
-                                <li class='<?php echo ($this->uri->segment(2)=="login") ? "active" : "" ; ?>'>
-                                  <a href='admin_dashboard' data-original-title='Dashboard'>
+                                <li class='<?php echo ($this->uri->segment(1)=="admin_dashboard") ? "active" : "" ; ?>'>
+                                  <a href='<?php echo base_url('index.php').'/admin_dashboard' ?>' data-original-title='Dashboard'>
                                     <i class='icon ion-home'></i>
 
                                     <span class='hidden-minibar'>Dashboard</span>
                                   </a>
                                 </li>
-                                <li class='<?php echo ($this->uri->segment(2)=="client") ? "active" : "" ; ?>'>
-                                  <a href='client' data-original-title='Dashboard'>
+                                <li class='<?php echo ($this->uri->segment(1)=="admin_client") ? "active" : "" ; ?>'>
+                                  <a href='<?php echo base_url('index.php').'/admin_client' ?>' data-original-title='Dashboard'>
                                     <i class='icon ion-person-stalker'></i>
 
                                     <span class='hidden-minibar'>Clients</span>

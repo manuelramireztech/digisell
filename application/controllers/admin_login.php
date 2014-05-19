@@ -23,12 +23,36 @@ class Admin_login extends CI_Controller {
 	{
 		if($this->session->userdata('email'))
 		{
-			redirect('admin_dashboard/login');
+			redirect('admin_dashboard');
 		}
 		$this->load->view('admin/login');
 	}
 
+	function login()
+	{	
+		$data['uname'] = $this->input->post('username');
+		$data['password'] = $this->input->post('password');
+		$data['user'] = $this->Admin->login($data['uname'],$data['password']);
+		$info['name'] = $data['user']->first_name;
+		$this->session->set_userdata($info);
 	
+		if($data['user'])
+		{
+			redirect('admin_dashboard');
+		}
+		else
+		{	
+			$this->session->set_flashdata('error', 'Failed to Login!'.heading(' Invalid Login data.......',3));
+			redirect('admin_login');
+		}
+	}
+
+	function logout()
+	{
+		$this->session->unset_userdata('email');
+		$this->session->set_flashdata('message', 'Successfully logged out! ');
+		redirect('admin_login');
+	}
 }
 
 /* End of file welcome.php */

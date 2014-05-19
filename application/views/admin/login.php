@@ -11,7 +11,7 @@
 		<div class="header-section">
 			<?php echo heading('Digi Audit',2); ?>
 		</div><!--end of header -section-->
-		<?php echo form_open('admin_dashboard/login'); ?>
+		<?php echo form_open('admin_login/login'); ?>
 		<div class="form-section">
 			<div class="container">
 			<?php if ($this->session->flashdata('message')):?>
