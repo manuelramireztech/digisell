@@ -26,11 +26,11 @@ class Admin_client extends CI_Controller {
 		{
 			redirect('admin_login');
 		}
-		$data['clients'] = $this->Client->get_clients(10, $page);
+		$data['clients'] = $this->Client->get_clients(15, $page);
 		$config['base_url']		= base_url('index.php').'/admin_client/index';
 		$config['total_rows']	= $this->Admin->total_client();
-		$config['per_page']		= 10;
-		$config['uri_segment']	= 6;
+		$config['per_page']		= 15;
+		$config['uri_segment']	= 3;
 		$config['first_link']		= 'First';
 		$config['first_tag_open']	= '<li>';
 		$config['first_tag_close']	= '</li>';
@@ -56,6 +56,40 @@ class Admin_client extends CI_Controller {
 
 		$this->pagination->initialize($config);
 		$this->load->view('admin/client',$data);
+	}
+
+	public function delete($id = false)
+	{
+		if(!$id)
+		{
+			$cc = $this->input->post('clt');
+			print_r($this->input->post('clt'));
+		
+			if($cc)
+			{
+				foreach($cc as $clt)
+				{
+					$this->Client->delete_client($clt);
+				}
+				$this->session->set_flashdata('message', 'customer(s) deleted');
+				redirect('admin_client');
+			}
+			else
+			{
+				//if they do not provide an id send them to the customer list page with an error
+				$this->session->set_flashdata('error', 'customer not found');
+				redirect('admin_client');
+
+			}
+		}
+		$del = $this->Client->delete_client($id);
+		if($del)
+		{
+			$this->session->set_flashdata('message', 'customer deleted');
+			redirect('admin_client');
+		}
+		$this->session->set_flashdata('error', 'customer not found');
+		redirect('admin_client');
 	}
 
 }

@@ -1,6 +1,18 @@
 <?php include('partials_admin/header.php'); ?>
 <div class="row">
 	<div class="col-md-12">
+			<?php if ($this->session->flashdata('message')):?>
+                <div class="alert alert-info">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                     <?php echo $this->session->flashdata('message');?>
+                </div>
+           <?php endif;?>
+           <?php if ($this->session->flashdata('error')):?>
+                <div class="alert alert-danger">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                     <?php echo $this->session->flashdata('error');?>
+                </div>
+           <?php endif;?>
 			<div class="panel">
 			  	<div class="panel-heading">
 				    <h3 class="panel-title">
@@ -22,43 +34,54 @@
 							if($page_links != ''):?>
 							<tr><td colspan="5" style="text-align:center"><?php echo $page_links;?></td></tr>
 						<?php endif;?>
-			    		<table class="table table-striped" cellpadding="10" cellspacing="5">
-			    			<thead>
-				    			<tr>
-				    				<th>
-				    					<input type="checkbox" id="selecctall"/>
-										<button type="submit" onclick="return areyousure();" class="btn btn-xs btn-danger"><i class="ion-android-close"></i>
-										</button>
-				    				</th>
-				    				<th>First Name</th>
-				    				<th>Last Name</th>
-				    				<th>Created</th>
-				    				<th>Options</th>
-				    			</tr>
-			    			</thead>
-			    			<tbody>
-			    				<?php foreach ($clients as $client) { ?>
-			    					<tr>
-										<td>
-											<?php
-												$data = array(
-		    														'name'        => 'clt[]',
-		    														'id'		  => 'clt',
-		    														'value'       => $client->client_id,
-		    														'checked'     => false,
-		    														'class'       => 'cb1',
-			    											 );
-												echo form_checkbox($data); 
-											?>
-										</td>
-										<td><?php echo $client->first_name; ?></td>
-										<td><?php echo $client->last_name; ?></td>
-										<td><?php echo date('d-m-Y',$client->created); ?></td>
-										<td>1</td>
-				    				</tr>
-			    				<?php } ?>
-			    			</tbody>
-			    		</table>
+						<form action="<?php echo base_url('index.php').'/admin_client/delete' ?>" method="post">
+				    		<table class="table table-striped" cellpadding="10" cellspacing="5">
+				    			<thead>
+					    			<tr>
+					    				<th width='100px'>
+					    					<input type="checkbox" id="selecctall" name="selectall" />
+											<button type="submit" class="btn btn-xs btn-danger"><i class="ion-android-close"></i>
+											</button>
+					    				</th>
+					    				<th>First Name</th>
+					    				<th>Last Name</th>
+					    				<th>Created</th>
+					    				<th>Options</th>
+					    			</tr>
+				    			</thead>
+				    			<tbody>
+				    				<?php foreach ($clients as $client) { ?>
+				    					<tr>
+											<td>
+												<?php
+													$data = array(
+			    														'name'        => 'clt[]',
+			    														'id'		  => 'clt',
+			    														'value'       => $client->client_id,
+			    														'checked'     => false,
+			    														'class'       => 'cb1',
+				    											 );
+													echo form_checkbox($data); 
+												?>
+											</td>
+											<td><?php echo $client->first_name; ?></td>
+											<td><?php echo $client->last_name; ?></td>
+											<td><?php echo date('d-m-Y',$client->created); ?></td>
+											<td>
+												<a href="#"><i class='fa fa-edit'></i></a>&nbsp;&nbsp;
+												<a href="<?php echo base_url('index.php').'/admin_client/delete/'.$client->client_id ?>" onclick="areyousure();">
+												<i class='fa fa-trash-o'></i></a>
+											</td>
+					    				</tr>
+				    				<?php } ?>
+				    			</tbody>
+				    		</table>
+			    		</form>
+			    		<?php	$page_links	= $this->pagination->create_links();
+
+							if($page_links != ''):?>
+							<tr><td colspan="5" style="text-align:center"><?php echo $page_links;?></td></tr>
+						<?php endif;?>
 			    	</div>
 			  	</div>
 			</div>
@@ -68,10 +91,9 @@
 <script type="text/javascript">
 	function areyousure()
 	{
-		return confirm('<?php echo lang('confirm_delete_customer');?>');
+		return confirm('Are You Sure');
 	}
 	$(document).ready(function(){
-				
 				$('.user-row').on('click',function(){
 						if($(this).find('.cb1').attr('checked'))
 						{
@@ -83,8 +105,7 @@
 						}
 						
 				});
-
-				$('#selecctall').click(function(event) {  //on click 
+				$('#selecctall').click(function() {  //on click 
 			        if(this.checked) { // check select status
 			            $('.cb1').each(function() { //loop through each checkbox
 			                this.checked = true;  //select all checkboxes with class "cb1"               

@@ -11,5 +11,19 @@ class Client extends CI_Model
 		$result = $this->db->get('clients');
 		return $result->result();
 	}
+
+	function delete_client($id)
+	{
+		$this->db->where('client_id', $id);
+        $result = $this->db->delete('clients');
+        if(!$result)
+        {
+        	return false;
+        }
+        else
+        {
+        	return true;
+        }
+	}
 }
 ?>
