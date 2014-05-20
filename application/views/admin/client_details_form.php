@@ -452,7 +452,7 @@
 						</table>
 					</div>
 					<p class="pull-right">
-						<input type="submit" id="submit" value="Save" class='btn btn-success'>
+						<input type="submit" id="submit" value="Save Changes" class='btn btn-success'>
 					</p>
 				</div>
 		  	</div>
