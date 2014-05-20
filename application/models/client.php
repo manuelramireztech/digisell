@@ -47,5 +47,32 @@ class Client extends CI_Model
         	return false;
         }
 	}
+
+	function recent_licence($id)
+	{
+		$this->db->from('license');
+        $this->db->where('client_id',$id);
+        $this->db->join('licensing_types', 'licensing_types.licensing_id = license.licensing_id');
+        $this->db->order_by('client_id', 'ASC');
+        $this->db->limit(1);
+        $result = $this->db->get();
+        return $result->row();
+	}
+
+	function recent_invoice($id)
+	{
+		$this->db->where('client_id', $id);
+        $result = $this->db->get('invoice');
+        return $result->row();
+	}
+
+	function register_balance($id)
+	{
+		$this->db->where('client_id', $id);
+		$this->db->select_sum('invoice_amount');
+		$query = $this->db->get('invoice')->row();
+		return $query->invoice_amount;
+		
+	}
 }
 ?>

@@ -16,7 +16,7 @@
 		<div class="panel">
 		  	<div class="panel-heading">
 			    <h3 class="panel-title">
-			    	<b>Manage Client</b> <i class='ion-arrow-right-c'></i> <?php echo $client_info->first_name.' '.$client_info->last_name; ?> 
+			    	<b>Manage Client</b>&nbsp; <i class='ion-chevron-right'></i>&nbsp; <?php echo $client_info->first_name.' '.$client_info->last_name; ?> 
 			    	<span class="panel-options">
 						<a href="#" class="panel-minimize">
 							<i class="fa fa-chevron-up"></i>
@@ -33,7 +33,7 @@
 		    			<div class="well">
 		    				<b><?php echo $client_info->first_name.' '.$client_info->last_name; ?></b>
 		    				<?php echo ' [ ID: '.$client_info->client_id.' ]'; ?>
-		    				[ <a href="#">edit</a> ]	<br><br>
+		    				[ <a href="<?php echo base_url('index.php').'/admin_client/edit_details/'.$client_info->client_id; ?>">edit</a> ]	<br><br>
 		    				<span class='text-danger'>Credit card: </span> <a href="#">click to view card on file</a> <br><br>
 		    				<span class='text-danger'>Address:</span>
 		    				<?php echo $client_info->address_1.' , '.$client_info->city.br(1).$client_info->province.' , '.$client_info->state
@@ -42,7 +42,16 @@
 		    				<span class='text-danger'>Email: </span>
 		    				<?php echo $client_info->email.' ['.'<a href="#" data-toggle="modal" data-target="#myModal_email">change</a>'.']' ?>
 		    			</div>
-		    			
+		    			<div class="well">
+		    				<b>Manage Orders:</b><br><br>
+		    				<i class='ion-arrow-right-a'></i> <a href="#">Add a new Order for this client</a><br>
+		    				<i class='ion-arrow-right-a'></i> <a href="#">view all Orders for this client</a>
+		    			</div>
+		    			<div class="well">
+		    				<b>Manage Invoices:</b><br><br>
+		    				<i class='ion-arrow-right-a'></i> <a href="#">Add a new Invoice for this client</a><br>
+		    				<i class='ion-arrow-right-a'></i> <a href="#">view all Invoices for this client</a>
+		    			</div>
 		    		</div>
 		    		<div class="col-md-4">
 		    			<div class="">
@@ -156,6 +165,93 @@
 								</table>
 							</div>
 		    			</div>
+		    		</div>
+		    		<div class="col-md-8">
+		    			<hr>
+					  	<p class="pull-left">Recent Licence Activity</p>
+					 	<input type="submit" value="View All" class="btn btn-default btn-xs pull-right">
+		    			<div class="table-responsive">
+		    				<table class="table table-bordered">
+		    					<thead>
+		    						<tr class="active">
+		    							<td>Order</td>
+		    							<td>Product</td>
+		    							<td>Licence Key</td>
+		    							<td>Status</td>
+		    							<td>Created</td>
+		    						</tr>
+		    					</thead>
+		    					<tbody>
+		    						<tr>
+		    							<td class='active'><?php echo '#'.$licence_info->order_id; ?></td>
+		    							<td><?php echo '#'.$licence_info->product_id; ?></td>
+		    							<td><?php echo '<i class="ion-document-text"></i> '.$licence_info->license_key.br(1).'<i class="ion-arrow-right-a"></i> '.$licence_info->name; ?></td>
+		    							<td><?php echo $licence_info->status; ?></td>
+		    							<td><?php echo date('d-m-Y',$licence_info->created); ?></td>
+		    						</tr>
+		    					</tbody>
+		    				</table>
+		    			</div>	
+						<p class="pull-left">Recent Order Activity</p>
+					 	<input type="submit" value="View All" class="btn btn-default btn-xs pull-right">
+		    			<div class="table-responsive">
+		    				<table class="table table-bordered">
+		    					<thead>
+		    						<tr class="active">
+		    							<td>Order</td>
+		    							<td>Cart</td>
+		    							<td>Ordered</td>
+		    							<td>Created</td>
+		    						</tr>
+		    					</thead>
+		    					<tbody>
+		    						<tr>
+		    							<td class='active'><?php echo '#'.$licence_info->order_id; ?></td>
+		    							<td><?php echo '#'.$licence_info->cart_id; ?></td>
+		    							<td><?php echo '<i class="ion-document-text"></i> '.$licence_info->name; ?></td>
+		    							<td><?php echo date('d-m-Y',$licence_info->created); ?></td>
+		    						</tr>
+		    					</tbody>
+		    				</table>
+		    			</div>
+						<p class="pull-left">Recent Invoice Activity</p>
+					 	<input type="submit" value="View All" class="btn btn-default btn-xs pull-right">
+		    			<div class="table-responsive">
+		    				<table class="table table-bordered">
+		    					<thead>
+		    						<tr class="active">
+		    							<td>Order</td>
+		    							<td>Invoice</td>
+		    							<td>Ordered</td>
+		    							<td>Balance</td>
+		    							<td>Created</td>
+		    						</tr>
+		    					</thead>
+		    					<tbody>
+		    						<tr>
+		    							<td class='active'><?php echo '#'.$licence_info->order_id; ?></td>
+		    							<td><?php echo '#'.$invoice_info->invoice_id; ?></td>
+		    							<td><?php echo '<i class="ion-document-text"></i> '.$licence_info->name; ?></td>
+		    							<td><p class="text-success">$ <?php echo $balance; ?></p></td>
+		    							<td><?php echo date('d-m-Y',$invoice_info->created); ?></td>
+		    						</tr>
+		    					</tbody>
+		    				</table>
+		    			</div>
+						<hr>
+						<p class="pull-left">Client Notes <span class='text-danger'>Visible to the client</span></p>
+						<input type="submit" value="Save Changes" class="btn btn-default btn-xs pull-right">
+						<?php
+						$data	= array('name'=>'client_notes', 'value'=>'', 'class'=>'form-control', 'rows'=>5);
+						echo form_textarea($data);
+						?>
+						<br>
+						<p class="pull-left">Admin Notes <span class='text-danger'>Invisible to the client</span></p>
+						<input type="submit" value="Save Changes" class="btn btn-default btn-xs pull-right">
+						<?php
+						$data	= array('name'=>'admin_notes', 'value'=>'', 'class'=>'form-control', 'rows'=>5);
+						echo form_textarea($data);
+						?>
 		    		</div>
 		    	</div>
 		  	</div>

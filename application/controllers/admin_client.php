@@ -63,7 +63,7 @@ class Admin_client extends CI_Controller {
 		if(!$id)
 		{
 			$cc = $this->input->post('clt');
-			print_r($this->input->post('clt'));
+			// print_r($this->input->post('clt'));
 		
 			if($cc)
 			{
@@ -95,7 +95,16 @@ class Admin_client extends CI_Controller {
 	public function edit($id)
 	{
 		$data['client_info'] = $this->Client->get_client($id);
+		$data['licence_info'] = $this->Client->recent_licence($id);
+		$data['invoice_info'] = $this->Client->recent_invoice($id);
+		$data['balance'] = $this->Client->register_balance($id);
 		$this->load->view('admin/client_form',$data);
+	}
+
+	public function edit_details($id)
+	{
+		$data['client_info'] = $this->Client->get_client($id);
+		$this->load->view('admin/client_details_form',$data);
 	}
 
 	public function change_email($id)
@@ -108,6 +117,8 @@ class Admin_client extends CI_Controller {
 			redirect('admin_client/edit/'.$id);
 		}
 	}
+
+
 
 }
 ?>
