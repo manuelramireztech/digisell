@@ -59,5 +59,69 @@ class Admin_coupon extends CI_Controller {
 		$data['coupons'] = $this->Coupons->get_coupons(10, $page);
 		$this->load->view('admin/coupons',$data);
 	}
+
+	public function delete()
+	{
+		$coupons = $this->input->post('cop');
+		if($coupons)
+		{
+			foreach($coupons as $cop)
+			{
+				$this->Coupons->delete_coupons($cop);
+			}
+			$this->session->set_flashdata('message', 'Coupon(s) deleted');
+			redirect('admin_coupon');
+		}
+		else
+		{
+			//if they do not provide an id send them to the Coupon(s) list page with an error
+			$this->session->set_flashdata('error', 'Coupon(s) not found');
+			redirect('admin_coupon');
+
+		}
+	}
+
+	public function add_coupon($code = 0)
+	{
+		if($code)
+		{
+			$data['coupon'] = $this->Coupons->get_coupon($code);
+			$this->load->view('admin/coupon_form',$data);
+		}
+		else
+		{
+			$this->load->view('admin/coupon_form');
+		}
+	}
+
+	public function add_new($code = 0)
+	{
+		$discount = $this->input->post('discount');
+		$expires_on = $this->input->post('expires_on');
+		$coupon_code = $this->input->post('coupon_code');
+		$coupon_type = $this->input->post('coupon_type');
+		$data = array('discount'=>$discount,'expires_on'=>strtotime($expires_on),'coupon_code'=>$coupon_code,'coupon_type'=>$coupon_type);
+		if($code)
+		{
+			$suc = $this->Coupons->edit($data);
+			if($suc)
+			{
+				$this->session->set_flashdata('message', 'Coupon succesfully edited');
+				redirect('admin_coupon');
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Coupon editing failed');
+				redirect('admin_coupon/add_coupon');
+			}
+
+		}
+		$success = $this->Coupons->save($data);
+		if($success)
+		{
+			$this->session->set_flashdata('message', 'New Coupon Generated');
+			redirect('admin_coupon');
+		}
+	}
 }
 ?>

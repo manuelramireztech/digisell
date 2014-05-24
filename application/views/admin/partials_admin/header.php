@@ -140,7 +140,7 @@
                                     <span class='hidden-minibar'>Billing</span>
                                   </a>
                                 </li>
-                                <li class=''>
+                                <li class='<?php echo ($this->uri->segment(1)=="admin_coupon") ? "active" : "" ; ?>'>
                                   <a href='<?php echo base_url('index.php').'/admin_coupon' ?>' data-original-title='Dashboard'>
                                     <i class='ion-ios7-pricetag-outline'></i>
 

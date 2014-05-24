@@ -1,10 +1,22 @@
 <?php include('partials_admin/header.php'); ?>
 <div class="row">
 	<div class="col-md-12">
+		 	<?php if ($this->session->flashdata('message')):?>
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $this->session->flashdata('message');?>
+                </div>
+           	<?php endif;?>
+           	<?php if ($this->session->flashdata('error')):?>
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $this->session->flashdata('error');?>
+                </div>
+           	<?php endif;?>
 		<div class="panel">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">
-		    	PHP Audit Coupons
+		    	Manage Coupons
 		    	<span class="panel-options">
 					<a href="#" class="panel-minimize">
 						<i class="fa fa-chevron-up"></i>
@@ -25,9 +37,10 @@
 						<?php endif;?>
 			  		</div>
 			  		<div class="col-md-6">
-				  		<a href="#" class="btn btn-success pull-right">Add New Coupon</a>
+				  		<a href='<?php echo base_url('index.php').'/admin_coupon/add_coupon' ?>' class="btn btn-success pull-right">Add New Coupon</a>
 				  	</div>
 			  	</div>
+			  <form action='<?php echo base_url('index.php').'/admin_coupon/delete' ?>' method="post">
 		  		<div class="table-responsive col-md-9">
 		  			<table class="table">
 		  				<thead>
@@ -48,8 +61,8 @@
 			  						<td>
 			  							<?php
 											$data = array(
-																'name'        => 'clt[]',
-																'id'		  => 'clt',
+																'name'        => 'cop[]',
+																'id'		  => 'cop',
 																'value'       => $coupon->coupon_code,
 																'checked'     => false,
 																'class'       => 'cb1',
@@ -66,12 +79,13 @@
 			  						<td>
 			  							<?php echo $coupon->discount.' % '.$coupon->coupon_type; ?>
 			  						</td>
-			  						<td><a href="#" class="btn btn-default">Manage</a></td>
+			  						<td><a href='<?php echo base_url('index.php').'/admin_coupon/add_coupon/'.$coupon->coupon_code ?>' class="btn btn-default">Manage</a></td>
 			  					</tr>
 		  					<?php } ?>
 		  				</tbody>
 		  			</table>
-		  		</div>  
+		  		</div>
+		  	  </form>  
 		  </div>
 		</div>
 	</div>
