@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="col-md-12">
 			<?php if ($this->session->flashdata('message')):?>
-                <div class="alert alert-info">
+                <div class="alert alert-success">
                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                      <?php echo $this->session->flashdata('message');?>
                 </div>
@@ -34,7 +34,7 @@
 		    				<b><?php echo $client_info->first_name.' '.$client_info->last_name; ?></b>
 		    				<?php echo ' [ ID: '.$client_info->client_id.' ]'; ?>
 		    				[ <a href="<?php echo base_url('index.php').'/admin_client/edit_details/'.$client_info->client_id; ?>">edit</a> ]	<br><br>
-		    				<span class='text-danger'>Credit card: </span> <a href="#">click to view card on file</a> <br><br>
+		    				<span class='text-danger'>Credit card: </span> <a href="#" data-toggle="modal" data-target="#myModal_credit">click to view card on file</a> <br><br>
 		    				<span class='text-danger'>Address:</span>
 		    				<?php echo $client_info->address_1.' , '.$client_info->city.br(1).$client_info->province.' , '.$client_info->state
 		    				.br(1).$client_info->country.' ('.$client_info->zip.')'; ?> <br><br>
@@ -62,7 +62,7 @@
 											<td class="active">Total Register Balance:</td>
 											<td width="15%" align="right">
 												<div class="dash-border">
-													<?php echo '0'; ?>
+													<?php echo isset($total) ? $total : '0'; ?>
 												</div>
 											</td>
 										</tr>
@@ -70,7 +70,7 @@
 											<td class="active">Total Invoices Paid:</td>
 											<td width="15%" align="right">
 												<div class="dash-border">
-													<?php echo '0'; ?>
+													<?php echo isset($paid) ? $paid : '0'; ?>
 												</div>
 											</td>
 										</tr>
@@ -78,7 +78,7 @@
 											<td class="active">Total Invoices Due:</td>
 											<td width="15%" align="right">
 												<div class="dash-border">
-													<?php echo '0'; ?>
+													<?php echo isset($due) ? $due : '0'; ?>
 												</div>
 											</td>
 										</tr>
@@ -86,7 +86,7 @@
 											<td class="active">Total Invoices With Credit:</td>
 											<td width="15%" align="right">
 												<div class="dash-border">
-													<?php echo '0'; ?>
+													<?php echo $credit; ?>
 												</div>
 											</td>
 										</tr>
@@ -95,15 +95,15 @@
 								</table>
 								<hr>
 								<?php  
-								$order_active = 0;
-								$order_pending = 0;
-								$order_suspended = 0;
-								$order_cancelled = 0;
-								$order_refunded = 0;
-								$order_fraud = 0;
-								$order_incomplete = 0;
+								$order_active = $active;
+								$order_pending = $pending;
+								$order_suspended = $suspended;
+								$order_cancelled = $cancelled;
+								$order_refunded = $refunded;
+								$order_fraud = $fraud;
+								$order_incomplete = $incomplete;
 								?>
-								<table class="table table-bordered">
+								<table class="table">
 									<tbody>
 										<tr>
 											<td class="active">Total Active Orders:</td>
@@ -168,6 +168,7 @@
 		    		</div>
 		    		<div class="col-md-8">
 		    			<hr>
+		    			<?php if($licence_info) { ?>
 					  	<p class="pull-left">Recent Licence Activity</p>
 					 	<input type="submit" value="View All" class="btn btn-default btn-xs pull-right">
 		    			<div class="table-responsive">
@@ -239,19 +240,24 @@
 		    				</table>
 		    			</div>
 						<hr>
+						<?php } ?>
+						<form action="<?php echo base_url('index.php').'/admin_client/save_client_note/'.$client_info->client_id; ?>" method="post">
 						<p class="pull-left">Client Notes <span class='text-danger'>Visible to the client</span></p>
 						<input type="submit" value="Save Changes" class="btn btn-default btn-xs pull-right">
 						<?php
-						$data	= array('name'=>'client_notes', 'value'=>'', 'class'=>'form-control', 'rows'=>5);
+						$data	= array('name'=>'client_notes', 'value'=>set_value('client_notes', $client_info->staff_notes), 'class'=>'form-control', 'rows'=>5);
 						echo form_textarea($data);
 						?>
+						</form>
 						<br>
+						<form action="<?php echo base_url('index.php').'/admin_client/save_admin_note/'.$client_info->client_id; ?>" method="post">
 						<p class="pull-left">Admin Notes <span class='text-danger'>Invisible to the client</span></p>
 						<input type="submit" value="Save Changes" class="btn btn-default btn-xs pull-right">
 						<?php
-						$data	= array('name'=>'admin_notes', 'value'=>'', 'class'=>'form-control', 'rows'=>5);
+						$data	= array('name'=>'admin_notes', 'value'=>set_value('client_notes', $client_info->notes), 'class'=>'form-control', 'rows'=>5);
 						echo form_textarea($data);
 						?>
+						</form>
 		    		</div>
 		    	</div>
 		  	</div>
@@ -280,9 +286,45 @@
   </div>
 </div>
 </form>
+<form action="" method="post">
+<div class="modal fade" id="myModal_credit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">View/Change credit card</h4>
+      </div>
+      <div class="modal-body">
+        <b>Card Number</b>
+
+        <div class="col-md-10">
+        	<input type="text" name="email_id" id="email_id" class='form-control' placeholder='Credit Card Number'>
+        </div>	
+		<br><br><br><br>
+		<b>Expires</b>
+		<div class="col-md-12">
+			<div class="col-md-5">
+				<input type="text" name="email_id" id="email_id" class='form-control' placeholder='Month'>
+			</div>
+			
+			<div class="col-md-5">
+				<input type="text" name="email_id" id="email_id" class='form-control' placeholder='Year'>
+			</div>
+		</div>
+		<br><br><br><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
 <?php include('partials_admin/footer.php'); ?>
 <script>
 	$(document).ready(function(){
 		$('#myModal_email').modal('hide');
+		$('#myModal_credit').modal('hide');
 	});
 </script>

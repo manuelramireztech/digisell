@@ -23,6 +23,7 @@
 	echo link_tag($link_custom);
 	
 	?>
+  <link href="<?php echo base_url(); ?>css/summernote.css" />
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
             <!--[if lt IE 9]>
@@ -96,17 +97,32 @@
                                     <span class='hidden-minibar'>Dashboard</span>
                                   </a>
                                 </li>
-                                <li class='<?php echo ($this->uri->segment(1)=="admin_client") ? "active" : "" ; ?>'>
-                                  <a href='<?php echo base_url('index.php').'/admin_client' ?>' data-original-title='Dashboard'>
-                                    <i class='icon ion-person-stalker'></i>
-
-                                    <span class='hidden-minibar'>Clients</span>
-                                  </a>
+                                <li class='submenu'>
+                                    <a class='dropdown' onClick='return false;' href='#' data-original-title='Delighted-Gold'>
+                                        <i class='icon ion-person-stalker'></i>
+                                        <span class='hidden-minibar'>Clients
+                                            <i class='fa fa-chevron-right  pull-right'></i>
+                                        </span>
+                                    </a>
+                                    <ul class="animated fadeInDown">
+                                        <li class='<?php echo ($this->uri->segment(1)=="admin_client" && !$client_news) ? "active" : "" ; ?>'>
+                                            <a href='<?php echo base_url('index.php').'/admin_client' ?>' data-original-title='Manage Clients'>
+                                                <i class='fa fa-gear'></i>
+                                                <span class='hidden-minibar'>Manage Clients</span>
+                                            </a>
+                                        </li>
+                                        <li class='<?php echo ($this->uri->segment(2)=="client_area") ? "active" : "" ; ?>'>
+                                            <a href='<?php echo base_url('index.php').'/admin_client/client_area'; ?>' data-original-title='Client Area News'>
+                                                <i class='fa fa-gear'></i>
+                                                <span class='hidden-minibar'>Client Area News</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class=''>
-                                  <a href='admin_dashboard' data-original-title='Dashboard'>
+                                
+                                <li class='<?php echo ($this->uri->segment(1)=="admin_product") ? "active" : "" ; ?>'>
+                                  <a href='<?php echo base_url('index.php').'/admin_product' ?>' data-original-title='Dashboard'>
                                     <i class='icon ion-bag'></i>
-
                                     <span class='hidden-minibar'>Products</span>
                                   </a>
                                 </li>

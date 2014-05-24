@@ -1,5 +1,4 @@
 <?php include('partials_admin/header.php'); ?>
-<form action="<?php echo base_url('index.php').'/admin_client/save/'.$client_info->client_id ?>" id="edit" method="post">
 <div class="row">
 	<div class="col-md-12">
 			<?php if ($this->session->flashdata('message')):?>
@@ -17,8 +16,7 @@
 		<div class="panel">
 		  	<div class="panel-heading">
 			    <h3 class="panel-title">
-			    	<b>Manage Client</b>&nbsp; <i class='ion-chevron-right'></i>&nbsp; <?php echo $client_info->first_name.' '.$client_info->last_name; ?>
-			    	&nbsp;<i class='ion-chevron-right'></i>&nbsp;<span class="text-danger">Edit Client Details</span> 
+			    	Add New Client   
 			    	<span class="panel-options">
 						<a href="#" class="panel-minimize">
 							<i class="fa fa-chevron-up"></i>
@@ -29,40 +27,26 @@
 					</span>
 			    </h3>
 		  	</div>
+		  	<form action="<?php echo base_url('index.php').'/admin_client/save/' ?>" id="edit" method="post">
 		  	<div class="panel-body">
 				<div class="col-md-5">
 					<div class="table-responsive">
 						<table class="table">
 							<tbody>
 								<tr>
-									<td class='active col-md-4'>Last Logged In:</td>
-									<td><?php echo date('D , d M Y',$client_info->last_logged); ?></td>
-								</tr>
-								<tr>
-									<td class='active col-md-4'>Last Logged in From:</td>
-									<td><?php echo '[ '.$client_info->logged_ip.' ]'.br(1).'[ '.$client_info->logged_host.' ]'; ?></td>
-								</tr>
-								<tr>
 									<td class='active col-md-4'>Accessible Profiles:&nbsp;<input type="checkbox" id="selecctall" name="selectall" /></td>
 									<td>
-										<?php 
-											$dat = $client_info->profile_array;
-											$profile_id=unserialize($dat);
-											
-										?>
 										<?php
-											$i=0;
 											foreach ($profiles as $profile) 
 											{
 												$data = array(
 	    														'name'        => 'prf[]',
 	    														'id'		  => 'prf',
 	    														'value'       => $profile->profile_id,
-	    														'checked'     => ($profile_id[$i]==$profile->profile_id) ? true : false,
+	    														'checked'     => false,
 	    														'class'       => 'cb1',
 				    											 );
 												echo form_checkbox($data).$profile->profile_name.br(1);
-												$i=$i+1;
 											}
 										?>
 									</td>
@@ -71,7 +55,7 @@
 									<td class='active col-md-4'>First Name:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'first_name', 'value'=>set_value('first_name', $client_info->first_name), 'class'=>'form-control');
+											$data	= array('name'=>'first_name',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -79,7 +63,7 @@
 									<td class='active col-md-4'>Last Name:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'last_name', 'value'=>set_value('last_name', $client_info->last_name), 'class'=>'form-control');
+											$data	= array('name'=>'last_name',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -87,7 +71,7 @@
 									<td class='active col-md-4'>Organization:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'org', 'value'=>set_value('org', $client_info->org), 'class'=>'form-control');
+											$data	= array('name'=>'org',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -95,7 +79,7 @@
 									<td class='active col-md-4'>Address:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'address_1', 'value'=>set_value('address_1', $client_info->address_1), 'class'=>'form-control');
+											$data	= array('name'=>'address_1',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -103,7 +87,7 @@
 									<td class='active col-md-4'>City:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'city', 'value'=>set_value('city', $client_info->city), 'class'=>'form-control');
+											$data	= array('name'=>'city',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -111,59 +95,59 @@
 									<td class='active col-md-4'>USA State:</td>
 									<td>
 										<select name="state" id="state" class="form-control drp">
-											<option value="" <?php echo set_select('state', '', ($client_info->state == '')); ?> >* No state required</option>
-											<option value="AE" <?php echo set_select('state', 'AE', ($client_info->state == 'AE')); ?> >AE-APO</option>
-											<option value="AL" <?php echo set_select('state', 'AL', ($client_info->state == 'AL')); ?> >Alabama</option>
-											<option value="AK" <?php echo set_select('state', 'AK', ($client_info->state == 'AK')); ?> >Alaska</option>
-											<option value="AZ" <?php echo set_select('state', 'AZ', ($client_info->state == 'AZ')); ?> >Arizona</option>
-											<option value="AR" <?php echo set_select('state', 'AR', ($client_info->state == 'AR')); ?> >Arkansas</option>
-											<option value="CA" <?php echo set_select('state', 'CA', ($client_info->state == 'CA')); ?> >California</option>
-											<option value="CO" <?php echo set_select('state', 'CO', ($client_info->state == 'CO')); ?> >Colorado</option>
-											<option value="CT" <?php echo set_select('state', 'CT', ($client_info->state == 'CT')); ?> >Connecticut</option>
-											<option value="DE" <?php echo set_select('state', 'DE', ($client_info->state == 'DE')); ?> >Delaware</option>
-											<option value="DC" <?php echo set_select('state', 'DC', ($client_info->state == 'DC')); ?> >District of Columbia</option>
-											<option value="FL" <?php echo set_select('state', 'FL', ($client_info->state == 'FL')); ?> >Florida</option>
-											<option value="GA" <?php echo set_select('state', 'GA', ($client_info->state == 'GA')); ?> >Georgia</option>
-											<option value="HI" <?php echo set_select('state', 'HI', ($client_info->state == 'HI')); ?> >Hawaii</option>
-											<option value="ID" <?php echo set_select('state', 'ID', ($client_info->state == 'ID')); ?> >Idaho</option>
-											<option value="IL" <?php echo set_select('state', 'IL', ($client_info->state == 'IL')); ?> >Illinois</option>
-											<option value="IN" <?php echo set_select('state', 'IN', ($client_info->state == 'IN')); ?> >Indiana</option>
-											<option value="IA" <?php echo set_select('state', 'IA', ($client_info->state == 'IA')); ?> >Iowa</option>
-											<option value="KS" <?php echo set_select('state', 'KS', ($client_info->state == 'KS')); ?> >Kansas</option>
-											<option value="KY" <?php echo set_select('state', 'KY', ($client_info->state == 'KY')); ?> >Kentucky</option>
-											<option value="LA" <?php echo set_select('state', 'LA', ($client_info->state == 'LA')); ?> >Louisiana</option>
-											<option value="ME" <?php echo set_select('state', 'ME', ($client_info->state == 'ME')); ?> >Maine</option>
-											<option value="MD" <?php echo set_select('state', 'MD', ($client_info->state == 'MD')); ?> >Maryland</option>
-											<option value="MA" <?php echo set_select('state', 'MA', ($client_info->state == 'MA')); ?> >Massachusetts</option>
-											<option value="MI" <?php echo set_select('state', 'MI', ($client_info->state == 'MI')); ?> >Michigan</option>
-											<option value="MN" <?php echo set_select('state', 'MN', ($client_info->state == 'MN')); ?> >Minnesota</option>
-											<option value="MS" <?php echo set_select('state', 'MS', ($client_info->state == 'MS')); ?> >Mississippi</option>
-											<option value="MO" <?php echo set_select('state', 'MO', ($client_info->state == 'MO')); ?> >Missouri</option>
-											<option value="MT" <?php echo set_select('state', 'MT', ($client_info->state == 'MT')); ?> >Montana</option>
-											<option value="NE" <?php echo set_select('state', 'NE', ($client_info->state == 'NE')); ?> >Nebraska</option>
-											<option value="NV" <?php echo set_select('state', 'NV', ($client_info->state == 'NV')); ?> >Nevada</option>
-											<option value="NH" <?php echo set_select('state', 'NH', ($client_info->state == 'NH')); ?> >New Hampshire</option>
-											<option value="NJ" <?php echo set_select('state', 'NJ', ($client_info->state == 'NJ')); ?> >New Jersey</option>
-											<option value="NM" <?php echo set_select('state', 'NM', ($client_info->state == 'NM')); ?> >New Mexico</option>
-											<option value="NY" <?php echo set_select('state', 'NY', ($client_info->state == 'NY')); ?> >New York</option>
-											<option value="NC" <?php echo set_select('state', 'NC', ($client_info->state == 'NC')); ?> >North Carolina</option>
-											<option value="ND" <?php echo set_select('state', 'ND', ($client_info->state == 'ND')); ?> >North Dakota</option>
-											<option value="OH" <?php echo set_select('state', 'OH', ($client_info->state == 'OH')); ?> >Ohio</option>
-											<option value="OK" <?php echo set_select('state', 'OK', ($client_info->state == 'OK')); ?> >Oklahoma</option>
-											<option value="OR" <?php echo set_select('state', 'OR', ($client_info->state == 'OR')); ?> >Oregon</option>
-											<option value="PA" <?php echo set_select('state', 'PA', ($client_info->state == 'PA')); ?> >Pennsylvania</option>
-											<option value="RI" <?php echo set_select('state', 'RI', ($client_info->state == 'RI')); ?> >Rhode Island</option>
-											<option value="SC" <?php echo set_select('state', 'SC', ($client_info->state == 'SC')); ?> >South Carolina</option>
-											<option value="SD" <?php echo set_select('state', 'SD', ($client_info->state == 'SD')); ?> >South Dakota</option>
-											<option value="TN" <?php echo set_select('state', 'TN', ($client_info->state == 'TN')); ?> >Tennessee</option>
-											<option value="TX" <?php echo set_select('state', 'TX', ($client_info->state == 'TX')); ?> >Texas</option>
-											<option value="UT" <?php echo set_select('state', 'UT', ($client_info->state == 'UT')); ?> >Utah</option>
-											<option value="VT" <?php echo set_select('state', 'VT', ($client_info->state == 'VT')); ?> >Vermont</option>
-											<option value="VA" <?php echo set_select('state', 'VA', ($client_info->state == 'VA')); ?> >Virginia</option>
-											<option value="WA" <?php echo set_select('state', 'WA', ($client_info->state == 'WA')); ?> >Washington</option>
-											<option value="WV" <?php echo set_select('state', 'WV', ($client_info->state == 'WV')); ?> >West Virginia</option>
-											<option value="WI" <?php echo set_select('state', 'WI', ($client_info->state == 'WI')); ?> >Wisconsin</option>
-											<option value="WY" <?php echo set_select('state', 'WY', ($client_info->state == 'WY')); ?> >Wyoming</option>
+											<option value="" >* No state required</option>
+											<option value="AE" >AE-APO</option>
+											<option value="AL" >Alabama</option>
+											<option value="AK" >Alaska</option>
+											<option value="AZ" >Arizona</option>
+											<option value="AR" >Arkansas</option>
+											<option value="CA" >California</option>
+											<option value="CO" >Colorado</option>
+											<option value="CT" >Connecticut</option>
+											<option value="DE" >Delaware</option>
+											<option value="DC" >District of Columbia</option>
+											<option value="FL" >Florida</option>
+											<option value="GA" >Georgia</option>
+											<option value="HI" >Hawaii</option>
+											<option value="ID" >Idaho</option>
+											<option value="IL" >Illinois</option>
+											<option value="IN" >Indiana</option>
+											<option value="IA" >Iowa</option>
+											<option value="KS" >Kansas</option>
+											<option value="KY" >Kentucky</option>
+											<option value="LA" >Louisiana</option>
+											<option value="ME" >Maine</option>
+											<option value="MD" >Maryland</option>
+											<option value="MA" >Massachusetts</option>
+											<option value="MI" >Michigan</option>
+											<option value="MN" >Minnesota</option>
+											<option value="MS" >Mississippi</option>
+											<option value="MO" >Missouri</option>
+											<option value="MT" >Montana</option>
+											<option value="NE" >Nebraska</option>
+											<option value="NV" >Nevada</option>
+											<option value="NH" >New Hampshire</option>
+											<option value="NJ" >New Jersey</option>
+											<option value="NM" >New Mexico</option>
+											<option value="NY" >New York</option>
+											<option value="NC" >North Carolina</option>
+											<option value="ND" >North Dakota</option>
+											<option value="OH" >Ohio</option>
+											<option value="OK" >Oklahoma</option>
+											<option value="OR" >Oregon</option>
+											<option value="PA" >Pennsylvania</option>
+											<option value="RI" >Rhode Island</option>
+											<option value="SC" >South Carolina</option>
+											<option value="SD" >South Dakota</option>
+											<option value="TN" >Tennessee</option>
+											<option value="TX" >Texas</option>
+											<option value="UT" >Utah</option>
+											<option value="VT" >Vermont</option>
+											<option value="VA" >Virginia</option>
+											<option value="WA" >Washington</option>
+											<option value="WV" >West Virginia</option>
+											<option value="WI" >Wisconsin</option>
+											<option value="WY" >Wyoming</option>
 										</select>
 									</td>
 								</tr>
@@ -171,7 +155,7 @@
 									<td class='active col-md-4'>Non USA Province:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'province', 'value'=>set_value('province', $client_info->province), 'class'=>'form-control');
+											$data	= array('name'=>'province',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -179,7 +163,7 @@
 									<td class='active col-md-4'>ZIP / Postal Code:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'zip', 'value'=>set_value('zip', $client_info->zip), 'class'=>'form-control');
+											$data	= array('name'=>'zip',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -434,7 +418,7 @@
 												"XC" => "Canary Islands",
 												"ME" => "Montenegro"
 											);
-						 					echo form_dropdown('country', $country, $client_info->country, 'class="form-control drp"'); 
+						 					echo form_dropdown('country', $country, '', 'class="form-control drp"'); 
 						 
 										?>
 									</td>
@@ -443,7 +427,7 @@
 									<td class="active">Phone:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'phone', 'value'=>set_value('phone', $client_info->phone), 'class'=>'form-control');
+											$data	= array('name'=>'phone',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -451,7 +435,7 @@
 									<td class="active">Fax:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'fax', 'value'=>set_value('fax', $client_info->fax), 'class'=>'form-control');
+											$data	= array('name'=>'fax',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -459,7 +443,7 @@
 									<td class="active">Email:</td>
 									<td>
 										<?php
-											$data	= array('name'=>'email', 'value'=>set_value('email', $client_info->email), 'class'=>'form-control');
+											$data	= array('name'=>'email',  'class'=>'form-control');
 											echo form_input($data); ?>
 									</td>
 								</tr>
@@ -483,7 +467,7 @@
 									<td class="active">Client Notes</td>
 									<td class="active">
 										<?php
-											$data	= array('name'=>'client_notes', 'value'=>set_value('client_notes', $client_info->staff_notes), 'class'=>'form-control', 'rows'=>5);
+											$data	= array('name'=>'client_notes',  'class'=>'form-control', 'rows'=>5);
 											echo form_textarea($data);
 											?>
 									</td>
@@ -492,7 +476,7 @@
 									<td class="active">Admin Notes</td>
 									<td class="active">
 										<?php
-											$data	= array('name'=>'admin_notes', 'value'=>set_value('admin_notes', $client_info->notes), 'class'=>'form-control', 'rows'=>5);
+											$data	= array('name'=>'admin_notes',  'class'=>'form-control', 'rows'=>5);
 											echo form_textarea($data);
 											?>
 									</td>
@@ -514,17 +498,6 @@
 <script type="text/javascript">
 	
 	$(document).ready(function(){
-				$('.user-row').on('click',function(){
-						if($(this).find('.cb1').attr('checked'))
-						{
-							$(this).find('.cb1').removeAttr('checked','checked');
-						}
-						else
-						{
-							$(this).find('.cb1').attr('checked','checked');	
-						}
-						
-				});
 				$('#selecctall').click(function() {  //on click 
 			        if(this.checked) { // check select status
 			            $('.cb1').each(function() { //loop through each checkbox

@@ -39,7 +39,7 @@
 
 	<script src="<?php echo base_url(); ?>js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="<?php echo base_url(); ?>js/jquery.easy-pie-chart.js"></script>
-
+	<script src="<?php echo base_url(); ?>js/summernote.min.js"></script>
 
 	<script src="<?php echo base_url(); ?>js/bootstrap-switch.js"></script>
 	<script src="<?php echo base_url(); ?>js/jquery.address-1.6.min.js"></script>

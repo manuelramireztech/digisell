@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="col-md-12">
 			<?php if ($this->session->flashdata('message')):?>
-                <div class="alert alert-info">
+                <div class="alert alert-success">
                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                      <?php echo $this->session->flashdata('message');?>
                 </div>
@@ -29,11 +29,43 @@
 			  	</div>
 			  	<div class="panel-body">
 			    	<div class="table-responsive">
-						<?php	$page_links	= $this->pagination->create_links();
-
-							if($page_links != ''):?>
-							<tr><td colspan="5" style="text-align:center"><?php echo $page_links;?></td></tr>
-						<?php endif;?>
+						<div class="row">
+							<div class="col-md-6">
+								<?php	
+									$page_links	= $this->pagination->create_links();
+									if($page_links != ''):?>
+									<?php echo $page_links;?>
+								<?php endif;?>
+							</div>
+							<div class="col-md-5">
+								<form action="<?php echo base_url('index.php').'/admin_client/search' ?>" method="post" class="form-inline">
+									<?php $select_client = array(
+																	'first_name'	=>	'Fisrt Name',
+																	'last_name'		=>	'Last Name',
+																	'address_1'		=>	'Address',
+																	'city'			=>	'City',
+																	'state'			=>	'State',
+																	'province'		=>	'Province',
+																	'country'		=>	'Country',
+																	'email'			=>	'E-mail',
+																	'zip'			=>	'Postal Code',
+																	'phone'			=>	'Phone Number',
+																	'fax'			=>	'Fax',
+																); 
+									?>
+									<div class="form-group pull-right">
+										<input type="submit" value="Search" class="btn btn-success">
+									</div>
+									<div class="form-group pull-right">
+										<?php echo form_dropdown('client_select',$select_client, 'all_client','class="form-control drp-s"') ?>
+									</div>
+									<div class="form-group pull-right">
+										<input type="text" name="client_search" id="client_search" class="form-control" placeholder="Search Client">
+									</div>
+								</form>
+							</div>
+							<a href="<?php echo base_url('index.php').'/admin_client/add_client'; ?>" class="btn btn-primary pull-right">Add New Client</a>
+						</div>
 						<form action="<?php echo base_url('index.php').'/admin_client/delete' ?>" method="post">
 				    		<table class="table table-striped" cellpadding="10" cellspacing="5">
 				    			<thead>
@@ -50,8 +82,16 @@
 					    			</tr>
 				    			</thead>
 				    			<tbody>
+				    				<?php if(!$clients) { ?>
+				    				<tr>
+				    					<td>
+				    						<?php echo 'no clients available'; ?>
+				    					</td>
+				    				</tr>
+				    				<?php } ?>
 				    				<?php foreach ($clients as $client) { ?>
-				    					<tr>
+				    					<tr class="user-row">
+
 											<td>
 												<?php
 													$data = array(
@@ -93,6 +133,7 @@
 	{
 		return confirm('Are You Sure');
 	}
+
 	$(document).ready(function(){
 				$('.user-row').on('click',function(){
 						if($(this).find('.cb1').attr('checked'))
