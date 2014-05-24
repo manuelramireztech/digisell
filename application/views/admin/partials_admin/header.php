@@ -122,7 +122,7 @@
                                 
                                 <li class='<?php echo ($this->uri->segment(1)=="admin_product") ? "active" : "" ; ?>'>
                                   <a href='<?php echo base_url('index.php').'/admin_product' ?>' data-original-title='Dashboard'>
-                                    <i class='icon ion-bag'></i>
+                                    <i class='ion-ios7-cart-outline'></i>
                                     <span class='hidden-minibar'>Products</span>
                                   </a>
                                 </li>
@@ -138,6 +138,13 @@
                                     <i class='icon ion-clipboard'></i>
 
                                     <span class='hidden-minibar'>Billing</span>
+                                  </a>
+                                </li>
+                                <li class=''>
+                                  <a href='<?php echo base_url('index.php').'/admin_coupon' ?>' data-original-title='Dashboard'>
+                                    <i class='ion-ios7-pricetag-outline'></i>
+
+                                    <span class='hidden-minibar'>Coupons</span>
                                   </a>
                                 </li>
                                 <li class=''>
