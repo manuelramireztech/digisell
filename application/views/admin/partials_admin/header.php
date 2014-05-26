@@ -126,8 +126,8 @@
                                     <span class='hidden-minibar'>Products</span>
                                   </a>
                                 </li>
-                                <li class=''>
-                                  <a href='admin_dashboard' data-original-title='Dashboard'>
+                                <li class='<?php echo ($this->uri->segment(1)=="admin_license") ? "active" : "" ; ?>'>
+                                  <a href='<?php echo base_url('index.php').'/admin_license' ?>' data-original-title='Dashboard'>
                                     <i class='icon ion-card'></i>
 
                                     <span class='hidden-minibar'>Licensing</span>

@@ -4,7 +4,7 @@
 		<div class="panel">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">
-		    	Manage License
+		    	PHP Audit News
 		    	<span class="panel-options">
 					<a href="#" class="panel-minimize">
 						<i class="fa fa-chevron-up"></i>
@@ -16,7 +16,7 @@
 		    </h3>
 		  </div>
 		  <div class="panel-body">
-
+		    <?php echo $news->news; ?>
 		  </div>
 		</div>
 	</div>
