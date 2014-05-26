@@ -25,6 +25,19 @@ class License extends CI_Model
 		return $result->row();
 	}
 
+	function delete($id)
+	{
+		$this->db->where('license_id',$id);
+		if($this->db->delete('license'))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	function client_info($id)
 	{
 		$this->db->where('client_id',$id);

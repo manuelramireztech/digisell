@@ -60,6 +60,24 @@ class Admin_license extends CI_Controller {
 		$this->load->view('admin/license',$data);
 	}
 
+	public function delete($id)
+	{
+		if($id)
+		{
+			$suc = $this->License->delete($id);
+			if($suc)
+			{
+				$this->session->set_flashdata("message","License deleted successfully");
+				redirect('admin_license');
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata("error","License Not Found");
+			redirect('admin_license');
+		}
+	}
+
 	public function edit($id)
 	{
 		$data['license'] = $this->License->get_license($id);
