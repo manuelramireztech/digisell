@@ -18,6 +18,13 @@ class License extends CI_Model
 		return $result->num_rows();
 	}
 
+	function get_license($id)
+	{
+		$this->db->where('license_id',$id);
+		$result = $this->db->get('license');
+		return $result->row();
+	}
+
 	function client_info($id)
 	{
 		$this->db->where('client_id',$id);

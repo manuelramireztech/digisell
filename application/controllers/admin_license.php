@@ -59,5 +59,11 @@ class Admin_license extends CI_Controller {
 		$data['licenses'] = $this->License->get_all(10, $page);
 		$this->load->view('admin/license',$data);
 	}
+
+	public function edit($id)
+	{
+		$data['license'] = $this->License->get_license($id);
+		$this->load->view('admin/edit_license',$data);
+	}
 }
 ?>

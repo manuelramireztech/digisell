@@ -53,7 +53,7 @@
 								<td><?php echo date('d-m-Y',$license->created); ?></td>
 								<td><?php echo $license->status; ?></td>
 								<td>
-									<a href="#" class='btn btn-default'>Manage</a>
+									<a href='<?php echo base_url('index.php').'/admin_license/edit/'.$license->license_id ?>' class='btn btn-default'>Manage</a>
 								</td>
 							</tr>
 		    			<?php } ?>
