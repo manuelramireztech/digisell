@@ -71,10 +71,18 @@
 					    <label class="col-sm-3 control-label">Coupon Discounts</label>
 					    <div class="col-sm-5">
 					      	<?php
+					      		if($coupon)
+					      		{
+					      			$type = $coupon->coupon_type;
+					      		}
+					      		else
+					      		{
+					      			$type = null;
+					      		}
 								$coupon_type = array(
-									"one_time_fee" => ($coupon->coupon_type=='one_time_fee') ? "* The One Time Fee" : "The One Time Fee",
-									"recurring_fee" => ($coupon->coupon_type=='recurring_fee') ? "* The Recurring Fee" : "The Recurring Fee",
-									"both" => ($coupon->coupon_type=='both') ? "* Both the one time fee and the recurring fee" : "Both the one time fee and the recurring fee"
+									"one_time_fee" => ($type=='one_time_fee') ? "* The One Time Fee" : "The One Time Fee",
+									"recurring_fee" => ($type=='recurring_fee') ? "* The Recurring Fee" : "The Recurring Fee",
+									"both" => ($type=='both') ? "* Both the one time fee and the recurring fee" : "Both the one time fee and the recurring fee"
 								);
 			 					echo form_dropdown('coupon_type', $coupon_type, ($coupon) ? $coupon->coupon_type : '', 'class="form-control drp"'); 
 						  	?>

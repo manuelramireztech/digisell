@@ -25,7 +25,7 @@
 					<?php endif;?>
 		  		</div>
 		  		<div class="col-md-6">
-			  		<a href='<?php echo base_url('index.php').'/admin_coupon/add_coupon' ?>' class="btn btn-success pull-right">Add New Order & License</a>
+			  		<a href='#' class="btn btn-success pull-right">Add New Order & License</a>
 			  	</div>
 		  	</div>
 		    <div class="table-responsive">
