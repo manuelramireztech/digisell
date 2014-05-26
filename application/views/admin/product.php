@@ -1,6 +1,18 @@
 <?php include('partials_admin/header.php'); ?>
 <div class="row">
 	<div class="col-md-12">
+			<?php if ($this->session->flashdata('message')):?>
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $this->session->flashdata('message');?>
+                </div>
+           	<?php endif;?>
+           	<?php if ($this->session->flashdata('error')):?>
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <?php echo $this->session->flashdata('error');?>
+                </div>
+           	<?php endif;?>
 		<div class="panel">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">
@@ -26,10 +38,11 @@
 					<?php endif;?>
 		  		</div>
 		  		<div class="col-md-6">
-			  		<a href="#" class="btn btn-success">Add New Product</a>
+			  		<a href='<?php echo base_url('index.php').'/admin_product/form' ?>' class="btn btn-success pull-right">Add New Product</a>
 			  	</div>
 		  	</div>
-		  	<div class="table-responsive col-md-6">
+		  	<div class="table-responsive col-md-8">
+		  	  <form action='<?php echo base_url('index.php').'/admin_product/delete' ?>' method="post">
 		  		<table class="table">
 		  			<thead>
 		  				<tr class="success">
@@ -38,7 +51,7 @@
 								<button type="submit" class="btn btn-xs btn-danger"><i class="ion-android-close"></i></button>
 		  					</th>
 		  					<th>Product Name</th>
-		  					<th>Options</th>
+		  					<th width="180px">Options</th>
 		  				</tr>
 		  			</thead>
 		  			<tbody>
@@ -57,11 +70,15 @@
 								?>
 		  					</td>
 		  					<td><?php echo $product->product_name; ?></td>
-		  					<td><a href="#" class="btn btn-default">Manage</a></td>
+		  					<td>
+		  						<a href="#" class="btn btn-default">Clone</a>
+		  						<a href="#" class="btn btn-default">Manage</a>
+		  					</td>
 		  				</tr>
 		  				<?php } ?>
 		  			</tbody>
 		  		</table>
+		  	  </form>
 		  	</div>
 		  </div>
 		</div>
@@ -75,17 +92,7 @@
 	}
 
 	$(document).ready(function(){
-				$('.user-row').on('click',function(){
-						if($(this).find('.cb1').attr('checked'))
-						{
-							$(this).find('.cb1').removeAttr('checked','checked');
-						}
-						else
-						{
-							$(this).find('.cb1').attr('checked','checked');	
-						}
-						
-				});
+				
 				$('#selecctall').click(function() {  //on click 
 			        if(this.checked) { // check select status
 			            $('.cb1').each(function() { //loop through each checkbox

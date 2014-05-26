@@ -18,5 +18,24 @@ class Products extends CI_Model
 		$result = $this->db->get('products');
 		return $result->num_rows();
 	}
+
+	function delete_products($id)
+	{
+		$this->db->where('product_id', $id);
+        $result = $this->db->delete('products');
+        if(!$result)
+        {
+        	return false;
+        }
+        else
+        {
+        	return true;
+        }
+	}
+
+	function get_licensing_types()
+	{
+		return $this->db->get('licensing_types')->result();
+	}
 }
 ?>

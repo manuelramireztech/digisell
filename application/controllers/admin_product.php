@@ -59,6 +59,32 @@ class Admin_product extends CI_Controller {
 		$this->load->view('admin/product',$data);
 	}
 
+	public function delete()
+	{
+		$pro = $this->input->post('clt');
+		if($pro)
+		{
+			foreach($pro as $prod)
+			{
+				$this->Products->delete_products($prod);
+			}
+			$this->session->set_flashdata('message', 'Product(s) deleted');
+			redirect('admin_product');
+		}
+		else
+		{
+			//if they do not provide an id send them to the Product(s) list page with an error
+			$this->session->set_flashdata('error', 'Product(s) not found');
+			redirect('admin_product');
+		}
+	}
+
+	public function form()
+	{
+		$data['licensing_types'] = $this->Products->get_licensing_types();
+		$this->load->view('admin/product_form',$data);
+	}
+
 }
 
 ?>

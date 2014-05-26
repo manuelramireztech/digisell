@@ -53,8 +53,7 @@ class Coupons extends CI_Model
 
 	function edit($data)
 	{
-		print_r($data);
-		die();
+		
 		$this->db->where('coupon_code',$data['coupon_code']);
 		$this->db->set('expires_on',$data['expires_on']);
 		$this->db->set('coupon_type',$data['coupon_type']);
