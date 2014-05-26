@@ -49,7 +49,7 @@
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-5">
-			      <button type="submit" class="btn btn-success pull-right">Save</button>
+			      <button type="submit" class="btn btn-success pull-right">Add Product</button>
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -87,6 +87,188 @@
 			  			</table>
 			  		</div>
 			  	</div>
+			  	<div class="row">
+			  		<div class="table-responsive col-md-5">
+			  			<table class="table table-bordered" >
+			  				<thead>
+			  					<tr class="active">
+			  						<th>
+			  							<span class='text-danger'>Downloads</span> &nbsp;Available for this product
+			  						</th>
+			  					</tr>
+			  				</thead>
+			  				<tbody>
+		  						<?php foreach($downloads as $download){ ?>
+									<tr>
+										<td>
+											<?php
+												$data = array(
+																	'name'        => 'dwn[]',
+																	'id'		  => 'dwn',
+																	'value'       => $download->did,
+																	'checked'     => false,
+																	'class'       => 'cb1',
+			    											 );
+												echo form_checkbox($data); 
+											?>	
+				  							<?php echo $download->file_name.nbs(1); ?>
+				  							
+				  						</td>
+				  					</tr>
+			  					<?php } ?>	
+			  				</tbody>
+			  			</table>
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="table-responsive col-md-5">
+			  			<table class="table table-bordered">
+			  				<thead>
+			  					<tr class='active'>
+			  						<th>
+			  							<span class='text-danger'>Updates</span>&nbsp;available for this product
+			  						</th>
+			  					</tr>
+			  				</thead>
+			  				<tbody>
+			  					<tr>
+			  						<td>
+			  							content to be fixed as soon as possible.
+			  						</td>
+			  					</tr>
+			  				</tbody>
+			  			</table>
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="table-responsive col-md-5">
+			  			<table class="table table-bordered">
+			  				<thead>
+			  					<tr class='active'>
+			  						<th>
+			  							<span class='text-danger'>Upgrade Packages</span>&nbsp;available for this product
+			  						</th>
+			  					</tr>
+			  				</thead>
+			  				<tbody>
+			  					<tr>
+			  						<td>
+			  							content to be fixed as soon as possible.
+			  						</td>
+			  					</tr>
+			  				</tbody>
+			  			</table>
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="table-responsive col-md-5">
+			  			<table class="table table-bordered">
+			  				<thead>
+			  					<tr class='active'>
+			  						<th>
+			  							<span class='text-danger'>Support Packages</span>&nbsp;available for this product
+			  						</th>
+			  					</tr>
+			  				</thead>
+			  				<tbody>
+			  					<tr>
+			  						<td>
+			  							content to be fixed as soon as possible.
+			  						</td>
+			  					</tr>
+			  				</tbody>
+			  			</table>
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="table-responsive col-md-5">
+			  			<table class="table table-bordered">
+			  				<thead>
+			  					<tr class='active'>
+			  						<th>
+			  							<span class='text-danger'>Agreements</span>&nbsp;available for this product
+			  						</th>
+			  					</tr>
+			  				</thead>
+			  				<tbody>
+			  					<?php foreach($agreements as $agreement) { ?>
+			  					<tr>
+			  						<td>
+			  							<?php
+											$data = array(
+																'name'        => 'dwn[]',
+																'id'		  => 'dwn',
+																'value'       => $agreement->agreement_id,
+																'checked'     => false,
+																'class'       => 'cb1',
+		    											 );
+											echo form_checkbox($data); 
+										?>
+										<?php echo $agreement->agreement_name; ?>	
+			  						</td>
+			  					</tr>
+			  					<?php } ?>
+			  				</tbody>
+			  			</table>
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="table-responsive col-md-5">
+			  			<table class="table table-bordered">
+			  				<thead>
+			  					<tr class='active'>
+			  						<th>
+			  							<span class='text-danger'>Addons</span>&nbsp;available for this product
+			  						</th>
+			  					</tr>
+			  				</thead>
+			  				<tbody>
+			  					<tr>
+			  						<td>
+			  							content to be fixed as soon as possible.
+			  						</td>
+			  					</tr>
+			  				</tbody>
+			  			</table>
+			  		</div>
+			  	</div>
+			  	<div class="row">
+			  		<div class="table-responsive col-md-5">
+			  			<table class="table table-bordered">
+			  				<thead>
+			  					<tr class='active'>
+			  						<th>
+			  							<span class='text-danger'>Coupon Code discounts</span>&nbsp;available to this product
+			  						</th>
+			  					</tr>
+			  				</thead>
+			  				<tbody>
+			  					<?php foreach($coupons as $coupon) { ?>
+			  					<tr>
+			  						<td>
+			  							<?php
+											$data = array(
+																'name'        => 'dwn[]',
+																'id'		  => 'dwn',
+																'value'       => $coupon->coupon_code,
+																'checked'     => false,
+																'class'       => 'cb1',
+		    											 );
+											echo form_checkbox($data); 
+										?>
+										<?php echo $coupon->coupon_code; ?>	
+			  						</td>
+			  					</tr>
+			  					<?php } ?>
+			  				</tbody>
+			  			</table>
+			  		</div>
+			  	</div>
+			  		<div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-5">
+					      <button type="submit" class="btn btn-success pull-right">Add Product</button>
+					    </div>
+					</div>
 			  </div>
 			</form>
 		  </div>

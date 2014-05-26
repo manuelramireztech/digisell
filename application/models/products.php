@@ -37,5 +37,17 @@ class Products extends CI_Model
 	{
 		return $this->db->get('licensing_types')->result();
 	}
+
+	function get_downloads()
+	{
+		return $this->db->get('downloads')->result();
+	}
+
+	function get_agreements()
+	{
+		return $this->db->get('agreements')->result();
+	}
+
+	
 }
 ?>

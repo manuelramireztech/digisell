@@ -90,7 +90,8 @@ class Admin_coupon extends CI_Controller {
 		}
 		else
 		{
-			$this->load->view('admin/coupon_form');
+			$data['coupon'] = null;
+			$this->load->view('admin/coupon_form',$data);
 		}
 	}
 

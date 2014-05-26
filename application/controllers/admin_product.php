@@ -82,6 +82,9 @@ class Admin_product extends CI_Controller {
 	public function form()
 	{
 		$data['licensing_types'] = $this->Products->get_licensing_types();
+		$data['downloads'] = $this->Products->get_downloads();
+		$data['agreements'] = $this->Products->get_agreements();
+		$data['coupons'] = $this->Coupons->get_coupons();
 		$this->load->view('admin/product_form',$data);
 	}
 
