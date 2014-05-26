@@ -37,7 +37,7 @@
 		    				<th>Client [ ZIP Code ]</th>
 		    				<th>Created</th>
 		    				<th>Status</th>
-		    				<th>Options</th>
+		    				<th width='180px'>Options</th>
 		    			</tr>
 		    		</thead>
 		    		<tbody>
@@ -54,6 +54,7 @@
 								<td><?php echo $license->status; ?></td>
 								<td>
 									<a href='<?php echo base_url('index.php').'/admin_license/edit/'.$license->license_id ?>' class='btn btn-default'>Manage</a>
+									<a href='' class='btn btn-default'>Delete</a>
 								</td>
 							</tr>
 		    			<?php } ?>
