@@ -16,38 +16,70 @@
 		    </h3>
 		  </div>
 		  <div class="panel-body">
-		  	<?php 
-		  		$res = $license->license_array;
-		  		echo $res;
-		  		
-		  		
-		  		var_dump(unserialize($res));
-		  	?>
 		    <form class="form-horizontal" role="form">
-			  <div class="form-group">
-			    <label class="col-sm-2 control-label">License is for product</label>
-			    <div class="col-sm-10">
-			      <i class='fa fa-search drp'></i>&nbsp;
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-			    <div class="col-sm-10">
-			      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-			    </div>
-			  </div>
+				<div class="table-responsive col-md-6">
+					<table class="table">
+				  		<tbody>
+				  			<tr>
+				  				<td class="active">License is for product :</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License Created On :</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License Activated On :</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License Expires On :</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">Licensing Type :</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License is for product</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License is for product</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License is for product</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License is for product</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License is for product</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License is for product</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License is for product</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+				  			<tr>
+				  				<td class="active">License is for product</td>
+				  				<td class='dash-border'></td>
+				  			</tr>
+
+				  		</tbody>
+				  	</table>
+				</div>	  
+			  
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-			      <div class="checkbox">
-			        <label>
-			          <input type="checkbox"> Remember me
-			        </label>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="submit" class="btn btn-default">Sign in</button>
+			      <button type="submit" class="btn btn-success">Save Changes</button>
 			    </div>
 			  </div>
 			</form>
