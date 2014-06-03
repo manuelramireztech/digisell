@@ -284,18 +284,28 @@
 			  							$c=0;
 			  							$copn = $product->coupon_array;
 			  							$copn = unserialize(html_entity_decode($copn));
-			  							foreach($coupons as $coupon)
+			  							foreach($copn as $cop)
 			  							{
+			  								$c++;
+			  							}
+			  							for($i=0; $i<$c; $i++)
+			  							{
+			  								echo $copn[$i].nbs(2);
+			  							}
+			  							echo br(1);
+			  							
+		  								foreach($coupons as $coupon)
+			  							{
+
 			  								$data = array(
 																	'name'        => 'dwn[]',
 																	'id'		  => 'dwn',
 																	'value'       => $coupon->coupon_code,
-																	'checked'     => ($coupon->coupon_code==$copn[$c]) ? true : false,
+																	'checked'     => false,
 																	'class'       => 'cb1',
 			    											 );
 											echo form_checkbox($data);
 											echo $coupon->coupon_code;
-											$c=$c+1;
 			  							}
 			  						}
 			  						else
