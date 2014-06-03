@@ -48,7 +48,6 @@
 										<?php 
 											$dat = $client_info->profile_array;
 											$profile_id=unserialize($dat);
-											
 										?>
 										<?php
 											$i=0;

@@ -56,6 +56,7 @@ class Admin_product extends CI_Controller {
 		$this->pagination->initialize($config);
 
 		$data['products'] = $this->Products->get_products(10, $page);
+		$data['test'] = $this->Products->get_test();
 		$this->load->view('admin/product',$data);
 	}
 
@@ -85,6 +86,17 @@ class Admin_product extends CI_Controller {
 		$data['downloads'] = $this->Products->get_downloads();
 		$data['agreements'] = $this->Products->get_agreements();
 		$data['coupons'] = $this->Coupons->get_coupons();
+		$data['product'] = '';
+		$this->load->view('admin/product_form',$data);
+	}
+
+	public function edit($id)
+	{
+		$data['licensing_types'] = $this->Products->get_licensing_types();
+		$data['downloads'] = $this->Products->get_downloads();
+		$data['agreements'] = $this->Products->get_agreements();
+		$data['coupons'] = $this->Coupons->get_coupons();
+		$data['product'] = $this->Products->get_product($id);
 		$this->load->view('admin/product_form',$data);
 	}
 

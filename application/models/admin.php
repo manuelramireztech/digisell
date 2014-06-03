@@ -6,13 +6,12 @@ class Admin extends CI_Model
 		$this->db->select('*');
 		$this->db->where('email', $uname);
 		$this->db->where('password', md5($password));
-		$data['email'] = $uname;
-		$data['password'] = $password;
+		
 		
 		$result = $this->db->get('admin');
 		if($result->num_rows == 1)
 		{
-			$this->session->set_userdata($data);
+			$this->session->set_userdata('email',$uname);
 			return $result->row();						
 		}
 		else
@@ -50,11 +49,20 @@ class Admin extends CI_Model
 		return $result->num_rows();
 	}
 
-	function total_client()
+	function total_client($s=false,$like=false)
 	{
-		$this->db->select('*');
-		$result = $this->db->get('clients');
-		return $result->num_rows();
+		if($s)
+		{
+			$this->db->like($like, $s);
+			$result = $this->db->get('clients');
+			return $result->num_rows();
+		}
+		else
+		{
+			$this->db->select('*');
+			$result = $this->db->get('clients');
+			return $result->num_rows();
+		}
 	}
 
 	function total_invoice_paid()

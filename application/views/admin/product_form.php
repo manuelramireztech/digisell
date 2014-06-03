@@ -20,36 +20,49 @@
 			  <div class="form-group">
 			    <label class="col-sm-2 control-label">Product Public Status</label>
 			    <div class="col-sm-4">
-			      <?php  
+			      <?php 
+			      	if($product)
+			      	{
+			      		$selected = $product->product_status;
+			      	} 
+			      	else
+			      	{
+			      		$selected = '';
+			      	}
 			      	$status =array(
-			      					'public'	=>	'This is a public viewable product.',
-			      					'private'	=>	'This is a private product'
+			      					'public'	=>	($selected=='public') ? '* This is a public viewable product' : 'This is a public viewable product.',
+			      					'private'	=>	($selected=='private') ? '* This is a private product' : 'This is a private product'
 			      					);
-			      	echo form_dropdown('status', $status, '', 'class="form-control drp"');
+			      	echo form_dropdown('status', $status, $selected, 'class="form-control drp"');
 			      ?>
+
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <label class="col-sm-2 control-label">Product Name</label>
 			    <div class="col-sm-5">
-			      <input type="text"  name="product_name" id="product_name" class="form-control" placeholder="Product Name">
+			      <input type="text"  name="product_name" value='<?php echo ($product) ? set_value('product_name', $product->product_name) : '' ?>' id="product_name" class="form-control" placeholder="Product Name">
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <label class="col-sm-2 control-label">Short Product Summary</label>
 			    <div class="col-sm-5">
-			      <textarea name="short_summary" id="short_summary" class="form-control drp" cols="3" rows="3"></textarea>
+			      <textarea name="short_summary" id="short_summary" class="form-control drp" cols="3" rows="3">
+			      	<?php echo ($product) ? set_value('short_summary', html_entity_decode($product->product_summary)) : '' ?>
+			      </textarea>
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <label class="col-sm-2 control-label">Full Product Description</label>
 			    <div class="col-sm-5">
-			      <textarea name="full_desc" id="full_desc" class="form-control drp" cols="3" rows="6"></textarea>
+			      <textarea name="full_desc" id="full_desc" class="form-control drp" cols="3" rows="6">
+			      	<?php echo ($product) ? set_value('full_desc', html_entity_decode($product->product_description)) : '' ?>
+			      </textarea>
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-5">
-			      <button type="submit" class="btn btn-success pull-right">Add Product</button>
+			      <button type="submit" class="btn btn-success pull-right"><?php echo ($product) ? 'Update' : 'Add Product' ?></button>
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -195,6 +208,26 @@
 			  					<tr>
 			  						<td>
 			  							<?php
+			  							if($product)
+			  							{
+			  								$i=0;
+			  								$agrement = $product->agreement_array;
+			  								$agrement = unserialize(html_entity_decode($agrement));
+			  								foreach($agrement as $agr)
+			  								{
+			  									$data = array(
+																'name'        => 'dwn[]',
+																'id'		  => 'dwn',
+																'value'       => $agreement->agreement_id,
+																'checked'     => ($agreement->agreement_id==$agr) ? true : false,
+																'class'       => 'cb1',
+		    											 );
+												echo form_checkbox($data);
+			  									$i=$i+1;
+			  								}
+										}
+										else
+										{
 											$data = array(
 																'name'        => 'dwn[]',
 																'id'		  => 'dwn',
@@ -202,7 +235,8 @@
 																'checked'     => false,
 																'class'       => 'cb1',
 		    											 );
-											echo form_checkbox($data); 
+												echo form_checkbox($data);
+										}	 
 										?>
 										<?php echo $agreement->agreement_name; ?>	
 			  						</td>
@@ -243,23 +277,50 @@
 			  					</tr>
 			  				</thead>
 			  				<tbody>
-			  					<?php foreach($coupons as $coupon) { ?>
-			  					<tr>
-			  						<td>
-			  							<?php
-											$data = array(
+			  				<tr><td>
+			  					<?php  
+			  						if($product)
+			  						{
+			  							$c=0;
+			  							$copn = $product->coupon_array;
+			  							$copn = unserialize(html_entity_decode($copn));
+			  							foreach($coupons as $coupon)
+			  							{
+			  								$data = array(
+																	'name'        => 'dwn[]',
+																	'id'		  => 'dwn',
+																	'value'       => $coupon->coupon_code,
+																	'checked'     => ($coupon->coupon_code==$copn[$c]) ? true : false,
+																	'class'       => 'cb1',
+			    											 );
+											echo form_checkbox($data);
+											echo $coupon->coupon_code;
+											$c=$c+1;
+			  							}
+			  						}
+			  						else
+			  						{
+			  							$i=0;
+			  							foreach($coupons as $coupon)
+			  							{
+			  								$data = array(
 																'name'        => 'dwn[]',
 																'id'		  => 'dwn',
 																'value'       => $coupon->coupon_code,
 																'checked'     => false,
 																'class'       => 'cb1',
 		    											 );
-											echo form_checkbox($data); 
-										?>
-										<?php echo $coupon->coupon_code; ?>	
-			  						</td>
-			  					</tr>
-			  					<?php } ?>
+											echo form_checkbox($data);
+											echo $coupon->coupon_code.nbs(2);
+											$i++;
+											if($i>2)
+											{
+												echo br(1);
+											}
+			  							}
+			  						}
+			  					?>
+			  					</td></tr>
 			  				</tbody>
 			  			</table>
 			  		</div>

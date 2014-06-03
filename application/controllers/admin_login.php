@@ -33,9 +33,8 @@ class Admin_login extends CI_Controller {
 		$data['uname'] = $this->input->post('username');
 		$data['password'] = $this->input->post('password');
 		$data['user'] = $this->Admin->login($data['uname'],$data['password']);
-		$info['name'] = $data['user']->first_name;
-		$this->session->set_userdata($info);
-	
+		$info = $data['user']->first_name;
+		$this->session->set_userdata('name', $info);
 		if($data['user'])
 		{
 			redirect('admin_dashboard');

@@ -63,8 +63,10 @@ class Admin_client extends CI_Controller {
 
 	public function search($page=0)
 	{
-		$config['base_url']		= base_url('index.php').'/admin_client/index';
-		$config['total_rows']	= $this->Admin->total_client();
+		$search = $this->input->post('client_search');
+		$like = $this->input->post('client_select');
+		$config['base_url']		= base_url('index.php').'/admin_client/search';
+		$config['total_rows']	= $this->Admin->total_client($search,$like);
 		$config['per_page']		= 15;
 		$config['uri_segment']	= 3;
 		$config['first_link']		= 'First';
@@ -94,8 +96,6 @@ class Admin_client extends CI_Controller {
 
 		if($this->input->post('client_search')!='')
 		{
-			$search = $this->input->post('client_search');
-			$like = $this->input->post('client_select');
 			$data['clients'] = $this->Client->search(15, $page, $search, $like);
 			$this->load->view('admin/client',$data);
 		}

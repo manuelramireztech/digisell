@@ -19,6 +19,14 @@ class Products extends CI_Model
 		return $result->num_rows();
 	}
 
+	function get_product($id)
+	{
+		$this->db->select('*');
+		$this->db->where('product_id', $id);
+		$result = $this->db->get('products');
+		return $result->row();
+	}
+
 	function delete_products($id)
 	{
 		$this->db->where('product_id', $id);
@@ -31,6 +39,13 @@ class Products extends CI_Model
         {
         	return true;
         }
+	}
+
+	function get_test()
+	{
+		$this->db->where('product_id', 39);
+		$result = $this->db->get('products');
+		return $result->row();
 	}
 
 	function get_licensing_types()
