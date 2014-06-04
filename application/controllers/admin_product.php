@@ -99,6 +99,22 @@ class Admin_product extends CI_Controller {
 		$data['product'] = $this->Products->get_product($id);
 		$this->load->view('admin/product_form',$data);
 	}
+	public function save($id=0)
+	{
+		$status = $this->input->post('status');
+		$product_name = $this->input->post('product_name');
+		$short_summary = $this->input->post('short_summary');
+		if($id)
+		{
+			echo $status;
+			echo $product_name;
+			echo $short_summary;
+		}
+		else
+		{
+			echo 'bsg';
+		}
+	}
 
 }
 

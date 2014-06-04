@@ -4,7 +4,7 @@
 		<div class="panel">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">
-		    	Manage Products &nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>&nbsp;Add New Product
+		    	Manage Products &nbsp;&nbsp;<i class="fa fa-angle-double-right"></i>&nbsp;<?php echo ($product) ? 'Update' : 'Add New Product' ?>
 		    	<span class="panel-options">
 					<a href="#" class="panel-minimize">
 						<i class="fa fa-chevron-up"></i>
@@ -16,7 +16,7 @@
 		    </h3>
 		  </div>
 		  <div class="panel-body">
-		    <form class="form-horizontal" role="form">
+		    <form action="<?php echo ($product) ? base_url('index.php').'/admin_product/save/'.$product->product_id : base_url('index.php').'/admin_product/save'; ?>" method="post" class="form-horizontal" role="form">
 			  <div class="form-group">
 			    <label class="col-sm-2 control-label">Product Public Status</label>
 			    <div class="col-sm-4">
@@ -48,7 +48,7 @@
 			    <label class="col-sm-2 control-label">Short Product Summary</label>
 			    <div class="col-sm-5">
 			      <textarea name="short_summary" id="short_summary" class="summernote">
-			      	<?php echo ($product) ? set_value('short_summary', html_entity_decode($product->product_summary)) : '' ?>
+			      	<?php echo ($product) ? set_value('short_summary',html_entity_decode($product->product_summary)) : '' ?>
 			      </textarea>
 			    </div>
 			  </div>
@@ -100,7 +100,7 @@
 			  					<?php foreach($licensing_types as $ltype){ ?>
 									<tr>
 										<td>
-											<input type="radio" name="license_type" id="license_type" <?php echo ($pro==$ltype->licensing_id) ? checked : '' ?>>
+											<input type="radio" name="license_type" id="license_type" <?php echo ($pro==$ltype->licensing_id) ? 'checked' : '' ?>>
 											<?php echo $ltype->name; ?>
 										</td>
 										<td align='center'>-</td>
@@ -134,7 +134,7 @@
 		  							foreach($downloads as $download){ ?>
 									<tr>
 										<td>
-											<input type="checkbox" name='dwn[]' id='dwn' value='<?php echo $download->did; ?>' <?php for($i=0; $i<$d; $i++) { echo ($downl[$i]==$download->did) ? checked : ''; } ?>>	
+											<input type="checkbox" name='dwn[]' id='dwn' value='<?php echo $download->did; ?>' <?php for($i=0; $i<$d; $i++) { echo ($downl[$i]==$download->did) ? 'checked' : ''; } ?>>	
 				  							<?php echo $download->file_name.nbs(1); ?>
 				  							
 				  						</td>
@@ -252,7 +252,7 @@
 					  							}
 				  								foreach($agreements as $agreement)
 				  								{ ?>
-				  									<input type="checkbox" name='agr[]' id='agr' value='<?php echo $agreement->agreement_id; ?>' <?php for($i=0; $i<$a; $i++) { echo ($agrement[$i]==$agreement->agreement_id) ? checked : ''; } ?>>
+				  									<input type="checkbox" name='agr[]' id='agr' value='<?php echo $agreement->agreement_id; ?>' <?php for($i=0; $i<$a; $i++) { echo ($agrement[$i]==$agreement->agreement_id) ? 'checked' : ''; } ?>>
 				  									<?php echo $agreement->agreement_name; ?>
 				  								<?php }
 											}
@@ -316,7 +316,7 @@
 		  								foreach($coupons as $coupon)
 			  							{
 			  							?>	
-			  								<input type="checkbox" name='cpn[]' id='cpn' value='<?php echo $coupon->coupon_code ?>' <?php for($i=0; $i<$c; $i++) { echo ($copn[$i]==$coupon->coupon_code) ? checked : ''; } ?>>
+			  								<input type="checkbox" name='cpn[]' id='cpn' value='<?php echo $coupon->coupon_code ?>' <?php for($i=0; $i<$c; $i++) { echo ($copn[$i]==$coupon->coupon_code) ? 'checked' : ''; } ?>>
 			  								<?php echo $coupon->coupon_code ?>
 			  								
 			  							<?php	
@@ -341,7 +341,7 @@
 			  	</div>
 			  		<div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-5">
-					      <button type="submit" class="btn btn-success pull-right">Add Product</button>
+					      <button type="submit" class="btn btn-success pull-right"><?php echo ($product) ? 'Update' : 'Add Product' ?></button>
 					    </div>
 					</div>
 			  </div>
