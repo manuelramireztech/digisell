@@ -258,6 +258,10 @@
 						echo form_textarea($data);
 						?>
 						</form>
+						<?php 
+							$sam = $client_info->credit_card; 
+							var_dump($sam)
+						?>
 		    		</div>
 		    	</div>
 		  	</div>
@@ -296,7 +300,6 @@
       </div>
       <div class="modal-body">
         <b>Card Number</b>
-
         <div class="col-md-10">
         	<input type="text" name="email_id" id="email_id" class='form-control' placeholder='Credit Card Number'>
         </div>	

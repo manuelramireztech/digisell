@@ -101,18 +101,23 @@ class Admin_product extends CI_Controller {
 	}
 	public function save($id=0)
 	{
-		$status = $this->input->post('status');
-		$product_name = $this->input->post('product_name');
-		$short_summary = $this->input->post('short_summary');
+		$data = array(
+			'status'		=>	$this->input->post('status'),
+			'product_name'	=>	$this->input->post('product_name'),
+			'short_summary'	=>	$this->input->post('short_summary'),
+			'full_desc'		=>	$this->input->post('full_desc'),
+			'license_type'	=>	$this->input->post('license_type'),
+			'download_array'=>	serialize($this->input->post('dwn')),
+			'agreement_array'=>	serialize($this->input->post('agr')),
+			'coupon_array'=>	serialize($this->input->post('cpn')),
+			);
 		if($id)
 		{
-			echo $status;
-			echo $product_name;
-			echo $short_summary;
+			
 		}
 		else
 		{
-			echo 'bsg';
+			var_dump($data);
 		}
 	}
 

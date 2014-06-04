@@ -92,7 +92,7 @@
 			  					?>
 			  					<tr>
 			  						<td>
-			  							<input type="radio" name="license_type" id="license_type" checked>
+			  							<input type="radio" value="" name="license_type" id="license_type" checked>
 			  							This Product Has no License
 			  						</td>
 			  						<td align='center'>-</td>
@@ -100,7 +100,7 @@
 			  					<?php foreach($licensing_types as $ltype){ ?>
 									<tr>
 										<td>
-											<input type="radio" name="license_type" id="license_type" <?php echo ($pro==$ltype->licensing_id) ? 'checked' : '' ?>>
+											<input type="radio" name="license_type" value='<?php echo $ltype->licensing_id; ?>' id="license_type" <?php echo ($pro==$ltype->licensing_id) ? 'checked' : '' ?>>
 											<?php echo $ltype->name; ?>
 										</td>
 										<td align='center'>-</td>
