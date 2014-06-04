@@ -147,6 +147,13 @@
                                     <span class='hidden-minibar'>Coupons</span>
                                   </a>
                                 </li>
+                                <li class='<?php echo ($this->uri->segment(1)=="admin_addons") ? "active" : "" ; ?>'>
+                                  <a href='<?php echo base_url('index.php').'/admin_addons' ?>' data-original-title='Dashboard'>
+                                    <i class='ion-ios7-cloud-download-outline'></i>
+
+                                    <span class='hidden-minibar'>Addons</span>
+                                  </a>
+                                </li>
                                 <li class=''>
                                   <a href='admin_dashboard' data-original-title='Dashboard'>
                                     <i class='icon ion-settings'></i>
