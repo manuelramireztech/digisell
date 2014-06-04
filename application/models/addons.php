@@ -17,5 +17,18 @@ class Addons extends CI_Model
 		$result = $this->db->get('product_addons');
 		return $result->num_rows();
 	}
+	function delete($id)
+	{
+		$this->db->where('addon_id', $id);
+        $result = $this->db->delete('product_addons');
+        if(!$result)
+        {
+        	return false;
+        }
+        else
+        {
+        	return true;
+        }
+	}
 }
 ?>

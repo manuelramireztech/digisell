@@ -28,36 +28,9 @@
 		    </h3>
 		  </div>
 		  <div class="panel-body">
-		  <span class='pull-right'><a href="#" class="btn btn-success">Add New</a></span><?php echo br(2) ?>
-		  <?php if($addons): ?>
-		  	<div class="table-responsive">
-			  	<table class="table">
-			  		<thead>
-			  			<tr class="warning">
-			  				<th>Addon Name</th>
-			  				<th width="50%">Addon Description</th>
-			  				<th>Created</th>
-			  				<th>Options</th>
-			  			</tr>
-			  		</thead>
-			  		<tbody>
-			  			<?php foreach($addons as $addon){ ?>
-			  				<tr>
-			  					<td><?php echo $addon->addon_name ?></td>
-			  					<td><?php echo $addon->addon_description ?></td>
-			  					<td><?php echo date('d-m-Y H:i:s',$addon->created) ?></td>
-			  					<td>
-			  						<a href="<?php echo base_url('index.php').'/admin_addons/edit/'.$addon->addon_id ?>" class="btn btn-xs btn-default">Edit</a>
-			  						<a href="<?php echo base_url('index.php').'/admin_addons/delete/'.$addon->addon_id ?>" class="btn btn-xs btn-default">Delete</a>
-			  					</td>
-			  				</tr>
-						<?php } ?>
-			  		</tbody>
-			  	</table>
-			</div>
-		  <?php else: ?>
-			<p class="text-center">No Addons found in the database. Please <a href="#" class='btn btn-xs btn-default'>Click Here</a> to begin</p>
-		  <?php endif; ?>
+		  	<form action="" method="post" class="form-horizontal">
+		  		
+		  	</form>		
 		  </div>
 		</div>
 	</div>

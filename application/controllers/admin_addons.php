@@ -60,5 +60,23 @@ class Admin_addons extends CI_Controller {
 
 		$this->load->view('admin/addons',$data);
 	}
+	public function edit($id)
+	{
+		$this->load->view('admin/addon_form');
+	}
+	public function delete($id)
+	{
+		$delete = $this->Addons->delete($id);
+		if($delete)
+		{
+			$this->session->set_flashdata('message', 'addon deleted successfully');
+			redirect('admin_addons');
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'addon failed to delete/not found');
+			redirect('admin_addons');
+		}
+	}
 }
 ?>
