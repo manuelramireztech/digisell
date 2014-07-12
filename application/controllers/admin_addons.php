@@ -60,9 +60,21 @@ class Admin_addons extends CI_Controller {
 
 		$this->load->view('admin/addons',$data);
 	}
-	public function edit($id)
+	public function form($id=0)
 	{
-		$this->load->view('admin/addon_form');
+		if($id)
+		{
+			$data['addons'] = $this->Addons->get_addon($id);
+			$data['downloads'] = $this->Addons->get_downloads();
+			$this->load->view('admin/addon_form', $data);	
+		}
+		else
+		{
+			$data['addons'] = '';
+			$data['downloads'] = $this->Addons->get_downloads();
+			$this->load->view('admin/addon_form', $data);
+		}
+		
 	}
 	public function delete($id)
 	{

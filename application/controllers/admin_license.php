@@ -83,5 +83,12 @@ class Admin_license extends CI_Controller {
 		$data['license'] = $this->License->get_license($id);
 		$this->load->view('admin/edit_license',$data);
 	}
+
+	public function lic_save($id,$key)
+	{
+		$data['id'] = $id;
+		$data['key'] = $key;
+		$data['quick'] = $this->License->quick_save_key($data);
+	}
 }
 ?>

@@ -28,7 +28,7 @@
 		    </h3>
 		  </div>
 		  <div class="panel-body">
-		  <span class='pull-right'><a href="#" class="btn btn-success">Add New</a></span><?php echo br(2) ?>
+		  <span class='pull-right'><a href="<?php echo base_url('index.php').'/admin_addons/form/' ?>" class="btn btn-success">Add New</a></span><?php echo br(2) ?>
 		  <?php if($addons): ?>
 		  	<div class="table-responsive">
 			  	<table class="table">
@@ -47,7 +47,7 @@
 			  					<td><?php echo $addon->addon_description ?></td>
 			  					<td><?php echo date('d-m-Y H:i:s',$addon->created) ?></td>
 			  					<td>
-			  						<a href="<?php echo base_url('index.php').'/admin_addons/edit/'.$addon->addon_id ?>" class="btn btn-xs btn-default">Edit</a>
+			  						<a href="<?php echo base_url('index.php').'/admin_addons/form/'.$addon->addon_id ?>" class="btn btn-xs btn-default">Edit</a>
 			  						<a href="<?php echo base_url('index.php').'/admin_addons/delete/'.$addon->addon_id ?>" class="btn btn-xs btn-default">Delete</a>
 			  					</td>
 			  				</tr>

@@ -71,20 +71,21 @@
 				  		<tbody>
 				  			<tr>
 				  				<td class='active'>
-				  					Manage License Key <span class='pull-right'><a href="#" class='btn btn-xs btn-default'>Quick Save</a></span><br>
+				  					<form method="post" action="">
+				  					Manage License Key <span class='pull-right'><a href="<?php echo base_url('index.php').'/admin_license/lic_save/'.$license->license_id.'/'.$license->license_key; ?>" class='btn btn-xs btn-default'>Quick Save</a></span><br>
 				  					<textarea name="license_key" id="license_key" cols="2" style="width:100%;margin-top:5px;"><?php echo $license->license_key ?></textarea>
 				  				</td>
 				  			</tr>
 				  			<tr>
 				  				<td class='active'>
 				  					Valid Registered Host(s) <span class='text-danger pull-right'>Use Comma Seperated Format</span><br>
-				  					<textarea name="reg_host" id="reg_host" cols="2" style="width:100%;margin-top:5px;"></textarea>
+				  					<textarea name="reg_host" id="reg_host" cols="2" style="width:100%;margin-top:5px;"><?php echo $license->valid_host ?></textarea>
 				  				</td>
 				  			</tr>
 				  			<tr>
 				  				<td class='active'>
 				  					Valid Registered Mac Addresse(s) <span class='text-danger pull-right'>Use Comma Seperated Format</span><br>
-				  					<textarea name="reg_mac" id="reg_mac" cols="2" style="width:100%;margin-top:5px;"></textarea>
+				  					<textarea name="reg_mac" id="reg_mac" cols="2" style="width:100%;margin-top:5px;"><?php echo $license->valid_mac ?></textarea>
 				  				</td>
 				  			</tr>
 				  			<tr>
@@ -96,7 +97,7 @@
 				  			<tr>
 				  				<td class='active'>
 				  					License Notes <br>
-				  					<textarea name="reg_mac" id="reg_mac" cols="2" style="width:100%;margin-top:5px;"></textarea>
+				  					<textarea name="reg_mac" id="reg_mac" cols="2" style="width:100%;margin-top:5px;"><?php echo $license->notes ?></textarea>
 				  				</td>
 				  			</tr>
 				  		</tbody>

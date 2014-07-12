@@ -313,11 +313,13 @@ class Client extends CI_Model
 					'country'		=>	$country,
 					'phone'			=>	$phone,
 					'fax'			=>	$fax,
+					'anon_key'		=>	'',
+					'credit_card'	=>	'',
 					'email'			=>	$email,
 					'password'		=>	md5($password),
 					'staff_notes'	=>	$client_notes,
 					'notes'			=>	$admin_notes,
-					'created'		=>	$strtotime(date('d-m-Y')),
+					'created'		=>	strtotime(date('d-m-Y')),
 						);
 		if($this->db->insert('clients',$data))
 		{

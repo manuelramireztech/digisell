@@ -79,7 +79,7 @@
 			  						<td>
 			  							<?php echo $coupon->discount.' % '.$coupon->coupon_type; ?>
 			  						</td>
-			  						<td><a href='<?php echo base_url('index.php').'/admin_coupon/add_coupon/'.$coupon->coupon_code ?>' class="btn btn-default">Manage</a></td>
+			  						<td><a href='<?php echo base_url('index.php').'/admin_coupon/add_coupon/'.$coupon->coupon_code ?>' class="btn btn-xs btn-default">Manage</a></td>
 			  					</tr>
 		  					<?php } ?>
 		  				</tbody>

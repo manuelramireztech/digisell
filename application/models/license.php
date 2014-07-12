@@ -51,5 +51,19 @@ class License extends CI_Model
 			return NULL;
 		}
 	}
+
+	function quick_save_key($data)
+	{
+		$this->db->where('license_id', $data['id']);
+		$this->db->set('license_key', $data['key']);
+		if($this->db->update('license', $data))
+		{
+			echo 'done';
+		}
+		else
+		{
+			echo 'not';
+		}
+	}
 }
 ?>

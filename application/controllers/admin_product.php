@@ -87,7 +87,24 @@ class Admin_product extends CI_Controller {
 		$data['agreements'] = $this->Products->get_agreements();
 		$data['coupons'] = $this->Coupons->get_coupons();
 		$data['product'] = '';
+		$data['support_package'] = $this->Products->get_support();
 		$this->load->view('admin/product_form',$data);
+	}
+
+	public function duplicate($id)
+	{
+		$data = $this->Products->get_product($id);
+		$success = $this->Products->copy($data);
+		if($success)
+		{
+			$this->session->set_flashdata('message', 'Cloning of the Product <span class="text-info">'.$data->product_name.'</span> Completed Successfully.');
+			redirect('admin_product');
+		}
+		else
+		{
+			$this->session->set_flashdata('error', 'Cloning Failed.');
+			redirect('admin_product');
+		}
 	}
 
 	public function edit($id)
@@ -99,16 +116,28 @@ class Admin_product extends CI_Controller {
 		$data['product'] = $this->Products->get_product($id);
 		$this->load->view('admin/product_form',$data);
 	}
+
 	public function save($id=0)
 	{
 		$data = array(
-			'status'		=>	$this->input->post('status'),
+			'product_status'		=>	$this->input->post('status'),
+			'pricing_array'		=>	'',
+			'min_purchase'		=>	1,
+			'max_purchase'		=>	20,
+			'license_id'	=>	intval($this->input->post('license_type')),
+			'license_qty'	=>	1,
+			'secret_key'	=>	'',
+			'email_id'	=>	0,
+			'cc_email'	=>	'',
 			'product_name'	=>	$this->input->post('product_name'),
-			'short_summary'	=>	$this->input->post('short_summary'),
-			'full_desc'		=>	$this->input->post('full_desc'),
-			'license_type'	=>	$this->input->post('license_type'),
+			'product_summary'	=>	$this->input->post('short_summary'),
+			'product_description'		=>	$this->input->post('full_desc'),
 			'download_array'=>	serialize($this->input->post('dwn')),
+			'update_array'=>	'',
+			'upgrade_array'=>	'',
+			'support_array'=>	'',
 			'agreement_array'=>	serialize($this->input->post('agr')),
+			'addon_array'=>	'',
 			'coupon_array'=>	serialize($this->input->post('cpn')),
 			);
 		if($id)
@@ -117,7 +146,17 @@ class Admin_product extends CI_Controller {
 		}
 		else
 		{
-			var_dump($data);
+			$success = $this->Products->save($id,$data);
+			if($success)
+			{
+				$this->session->set_flashdata('message', 'product information saved');
+				redirect('admin_product');
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'failed to insert product data');
+				redirect('admin_product');
+			}
 		}
 	}
 

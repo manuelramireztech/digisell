@@ -65,8 +65,8 @@
 								<td><?php echo date('d-m-Y',$license->created); ?></td>
 								<td><?php echo $license->status; ?></td>
 								<td>
-									<a href='<?php echo base_url('index.php').'/admin_license/edit/'.$license->license_id ?>' class='btn btn-default'>Manage</a>
-									<a href='<?php echo base_url('index.php').'/admin_license/delete/'.$license->license_id ?>' class='btn btn-default'>Delete</a>
+									<a href='<?php echo base_url('index.php').'/admin_license/edit/'.$license->license_id ?>' class='btn btn-xs btn-default'>Manage</a>
+									<a href='<?php echo base_url('index.php').'/admin_license/delete/'.$license->license_id ?>' class='btn btn-xs btn-default'>Delete</a>
 								</td>
 							</tr>
 		    			<?php } ?>

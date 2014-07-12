@@ -60,6 +60,61 @@
 			      </textarea>
 			    </div>
 			  </div>
+			  <?php if($product): ?>
+			  <div class="form-group">
+			  	<label class="col-sm-2 control-label">Product Pricing <br><br>
+			  	<small>(Assumes Profile Currency)</small></label>
+			  	<div class="col-sm-6">
+			  		<b class="text-danger">Pricing Options:</b>
+			  		<div class="well">
+			  			<input type="text" class="form-control" placeholder="Pricing Lable for Order system"><br><br>
+
+			  			<input type="text" class="form-control" placeholder="How Many Licenses to issue?"><br>
+			  			Is this a bulk pricing level?
+			  			<select>
+			  				<option value="no">No</option>
+			  				<option value="yes">Yes</option>
+			  			</select><br><br>
+			  			<input type="text" class="form-control" placeholder="Minimum Product Purchase"><br>
+			  			<input type="text" class="form-control" placeholder="Maximum Product Purchase"><br>
+			  			Product Release:
+			  			<select>
+			  				<option value="instant">Instantly release the Product</option>
+			  				<option value="approval">Release the product upon admin Approval</option>
+			  			</select><br><br>
+			  		</div>
+			  		<b class="text-danger">Pricing:</b>
+			  		<div class="well">
+			  			<input type="text" class="form-control" placeholder="One Time Cost"><br>
+			  			<input type="text" class="form-control" placeholder="Recurring Cost"><br>
+			  			<input type="text" class="" placeholder="Recurring Interval">
+			  			<select>
+			  				<option value="days">Day(s)</option>
+			  				<option value="months">Month(s)</option>
+			  				<option value="years">Year(s)</option>
+			  			</select><br><br>
+			  			<input type="text" class="" placeholder="Stop recurring after">Payments (0 or blank == never stops)
+			  		</div>
+			  		<b class="text-danger">Default Support & Upgrades:</b>
+			  		<div class="well">
+			  			Default Upgrade Package: 
+			  			<select>
+			  				<option value="none">None</option>
+			  			</select><br><br>
+			  			Default Support Package: 	
+			  			<select>
+			  				<option value="none">None</option>
+			  				<?php 
+			  					foreach($support_package as $key)
+			  					{
+			  						echo '<option value="'.$key.'">'.$key.'</option>';
+			  					}
+			  				?>
+			  			</select>
+			  		</div>
+			  	</div>
+			  </div>
+			  <?php endif; ?>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-5">
 			      <button type="submit" class="btn btn-success pull-right"><?php echo ($product) ? 'Update' : 'Add Product' ?></button>
@@ -360,6 +415,7 @@
         $('.summernote_full').summernote({
               height: 250,
         });
+        $('#myModal_pricing').modal('hide');
        
   });
 </script>

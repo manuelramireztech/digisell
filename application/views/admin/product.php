@@ -71,8 +71,8 @@
 		  					</td>
 		  					<td><?php echo $product->product_name; ?></td>
 		  					<td>
-		  						<a href="#" class="btn btn-default">Clone</a>
-		  						<a href="<?php echo base_url('index.php').'/admin_product/edit/'.$product->product_id ?>" class="btn btn-default">Manage</a>
+		  						<a href="<?php echo base_url('index.php').'/admin_product/duplicate/'.$product->product_id ?>" class="btn btn-xs btn-default">Clone</a>
+		  						<a href="<?php echo base_url('index.php').'/admin_product/edit/'.$product->product_id ?>" class="btn btn-xs btn-default">Manage</a>
 		  					</td>
 		  				</tr>
 		  				<?php } ?>
@@ -81,10 +81,10 @@
 		  	  </form>
 		  	</div>
 		  </div>
-		  <?php 
-		  		$ser = $test->pricing_array; // assume it is the serialization data from database
-				$arr_ser = unserialize(html_entity_decode($ser));
-				var_dump($arr_ser);
+		 <?php 
+		 	//  $ser = $test->pricing_array; // assume it is the serialization data from database
+			// 	$arr_ser = unserialize(html_entity_decode($ser));
+			// 	var_dump($arr_ser);
 		  	?>
 		</div>
 	</div>
