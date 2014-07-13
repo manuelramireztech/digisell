@@ -224,7 +224,7 @@
 			  			</table>
 			  		</div>
 			  	</div>
-			  	<div class="row">
+			  	<!-- <div class="row">
 			  		<div class="table-responsive col-md-5">
 			  			<table class="table table-bordered">
 			  				<thead>
@@ -283,7 +283,7 @@
 			  				</tbody>
 			  			</table>
 			  		</div>
-			  	</div>
+			  	</div> -->
 			  	<div class="row">
 			  		<div class="table-responsive col-md-5">
 			  			<table class="table table-bordered">
