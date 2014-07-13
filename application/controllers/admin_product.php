@@ -85,6 +85,7 @@ class Admin_product extends CI_Controller {
 		$data['licensing_types'] = $this->Products->get_licensing_types();
 		$data['downloads'] = $this->Products->get_downloads();
 		$data['agreements'] = $this->Products->get_agreements();
+		$data['addons'] = $this->Products->get_addons();
 		$data['coupons'] = $this->Coupons->get_coupons();
 		$data['product'] = '';
 		$data['support_package'] = $this->Products->get_support();
@@ -112,6 +113,7 @@ class Admin_product extends CI_Controller {
 		$data['licensing_types'] = $this->Products->get_licensing_types();
 		$data['downloads'] = $this->Products->get_downloads();
 		$data['agreements'] = $this->Products->get_agreements();
+		$data['addons'] = $this->Products->get_addons();
 		$data['coupons'] = $this->Coupons->get_coupons();
 		$data['product'] = $this->Products->get_product($id);
 		$this->load->view('admin/product_form',$data);
@@ -119,12 +121,59 @@ class Admin_product extends CI_Controller {
 
 	public function save($id=0)
 	{
-		$data = array(
+		#Updating new product 
+		if($id)
+		{
+			$pricing = array(
+							'pricing_label'		=>	$this->input->post('pricing_label'),
+							'license_qty'		=>	intval($this->input->post('license_qty')),
+							'bulk_pricing'		=>	$this->input->post('bulk_pricing'),
+							'min_purchase'		=>	intval($this->input->post('min_purchase')),
+							'max_purchase'		=>	intval($this->input->post('max_purchase')),
+							'release'			=>	$this->input->post('release'),
+							'onetime_cost'		=>	floatval($this->input->post('onetime_cost')),
+							'recurring_cost'	=>	floatval($this->input->post('recurring_cost')),
+							'recurring_interval'	=>	intval($this->input->post('recurring_interval')),
+							'period'				=>	$this->input->post('period'),
+							'stop_recurring'		=>	intval($this->input->post('stop_recurring')),
+				);
+			$pricing_array = serialize($pricing);
+			$data = array(
+			'product_status'		=>	$this->input->post('status'),
+			'pricing_array'		=>	$pricing_array,
+			'min_purchase'		=>	$pricing['min_purchase'],
+			'max_purchase'		=>	$pricing['max_purchase'],
+			'licensing_id'	=>	intval($this->input->post('license_type')),
+			'license_qty'	=>	$pricing['license_qty'],
+			'product_name'	=>	$this->input->post('product_name'),
+			'product_summary'	=>	$this->input->post('short_summary'),
+			'product_description'		=>	$this->input->post('full_desc'),
+			'download_array'=>	serialize($this->input->post('dwn')),
+			'agreement_array'=>	serialize($this->input->post('agr')),
+			'addon_array'=>	serialize($this->input->post('adon')),
+			'coupon_array'=>	serialize($this->input->post('cpn')),
+			);
+			$success = $this->Products->save($id,$data);
+			if($success)
+			{
+				$this->session->set_flashdata('message', 'product information updated');
+				redirect('admin_product');
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'failed to update product information');
+				redirect('admin_product');
+			}
+		}
+		#adding new product
+		else
+		{
+			$data = array(
 			'product_status'		=>	$this->input->post('status'),
 			'pricing_array'		=>	'',
 			'min_purchase'		=>	1,
 			'max_purchase'		=>	20,
-			'license_id'	=>	intval($this->input->post('license_type')),
+			'licensing_id'	=>	intval($this->input->post('license_type')),
 			'license_qty'	=>	1,
 			'secret_key'	=>	'',
 			'email_id'	=>	0,
@@ -137,15 +186,9 @@ class Admin_product extends CI_Controller {
 			'upgrade_array'=>	'',
 			'support_array'=>	'',
 			'agreement_array'=>	serialize($this->input->post('agr')),
-			'addon_array'=>	'',
+			'addon_array'=>	serialize($this->input->post('adon')),
 			'coupon_array'=>	serialize($this->input->post('cpn')),
 			);
-		if($id)
-		{
-			
-		}
-		else
-		{
 			$success = $this->Products->save($id,$data);
 			if($success)
 			{

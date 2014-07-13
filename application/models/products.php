@@ -63,6 +63,11 @@ class Products extends CI_Model
 		return $this->db->get('agreements')->result();
 	}
 
+	function get_addons()
+	{
+		return $this->db->get('product_addons')->result();
+	}
+
 	function get_upgrade()
 	{
 		return $this->db->get('upgrade_package')->result();
@@ -112,7 +117,15 @@ class Products extends CI_Model
 	{
 		if($id)
 		{
-			echo 'old';
+			$this->db->where('product_id', $id);
+			if($this->db->update('products', $data))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
@@ -120,7 +133,7 @@ class Products extends CI_Model
 			$this->db->set('pricing_array',$data['pricing_array']);
 			$this->db->set('min_purchase',$data['min_purchase']);
 			$this->db->set('max_purchase',$data['max_purchase']);
-			$this->db->set('licensing_id',$data['license_id']);
+			$this->db->set('licensing_id',$data['licensing_id']);
 			$this->db->set('license_qty',$data['license_qty']);
 			$this->db->set('secret_key',$data['secret_key']);
 			$this->db->set('email_id',$data['email_id']);

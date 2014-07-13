@@ -16,6 +16,10 @@
 		    </h3>
 		  </div>
 		  <div class="panel-body">
+		  <?php  
+		  	$price = $product->pricing_array;
+		  	$price = unserialize(html_entity_decode($price));
+		  ?>
 		    <form action="<?php echo ($product) ? base_url('index.php').'/admin_product/save/'.$product->product_id : base_url('index.php').'/admin_product/save'; ?>" method="post" class="form-horizontal" role="form">
 			  <div class="form-group">
 			    <label class="col-sm-2 control-label">Product Public Status</label>
@@ -30,7 +34,7 @@
 			      		$selected = '';
 			      	}
 			      	$status =array(
-			      					'public'	=>	($selected=='public') ? '* This is a public viewable product' : 'This is a public viewable product.',
+			      					'public'	=>	($selected=='public') ? '* This is a public viewable product' : 'This is a public viewable product',
 			      					'private'	=>	($selected=='private') ? '* This is a private product' : 'This is a private product'
 			      					);
 			      	echo form_dropdown('status', $status, $selected, 'class="form-control drp"');
@@ -67,50 +71,48 @@
 			  	<div class="col-sm-6">
 			  		<b class="text-danger">Pricing Options:</b>
 			  		<div class="well">
-			  			<input type="text" class="form-control" placeholder="Pricing Lable for Order system"><br><br>
+			  			<input type="text" name="pricing_label" id="pricing_label" value='<?php echo ($product) ? $price['pricing_label'] : '' ?>' class="form-control" placeholder="Pricing Lable for Order system"><br><br>
 
-			  			<input type="text" class="form-control" placeholder="How Many Licenses to issue?"><br>
+			  			<input type="text" name="license_qty" id="license_qty" value='<?php echo ($product) ? $price['license_qty'] : '' ?>' class="form-control" placeholder="How Many Licenses to issue?"><br>
 			  			Is this a bulk pricing level?
-			  			<select>
-			  				<option value="no">No</option>
-			  				<option value="yes">Yes</option>
-			  			</select><br><br>
-			  			<input type="text" class="form-control" placeholder="Minimum Product Purchase"><br>
-			  			<input type="text" class="form-control" placeholder="Maximum Product Purchase"><br>
+			  			<?php
+			  				$check_bulk = $price['bulk_pricing']; 
+			  				$status_bulk =array(
+			      					'no'	=>	($check_bulk=='no') ? '* No' : 'No',
+			      					'yes'	=>	($check_bulk=='yes') ? '* Yes' : 'Yes'
+			      					);
+			      			echo form_dropdown('bulk_pricing', $status_bulk, $check_bulk);
+			  			?>
+			  			<br><br>
+			  			<input type="text" name="min_purchase" id="min_purchase" value='<?php echo ($product) ? $price['min_purchase'] : '' ?>' class="form-control" placeholder="Minimum Product Purchase"><br>
+			  			<input type="text" name="max_purchase" id="max_purchase" value='<?php echo ($product) ? $price['max_purchase'] : '' ?>' class="form-control" placeholder="Maximum Product Purchase"><br>
 			  			Product Release:
-			  			<select>
-			  				<option value="instant">Instantly release the Product</option>
-			  				<option value="approval">Release the product upon admin Approval</option>
-			  			</select><br><br>
+			  			<?php
+			  				$check_release = $price['release']; 
+			  				$status_release =array(
+			      					'instant'	=>	($check_release=='instant') ? '* Instantly release the Product' : 'Instantly release the Product',
+			      					'approval'	=>	($check_release=='approval') ? '* Release the product upon admin Approval' : 'Release the product upon admin Approval'
+			      					);
+			      			echo form_dropdown('release', $status_release, $check_release);
+			  			?>
+			  			<br><br>
 			  		</div>
 			  		<b class="text-danger">Pricing:</b>
 			  		<div class="well">
-			  			<input type="text" class="form-control" placeholder="One Time Cost"><br>
-			  			<input type="text" class="form-control" placeholder="Recurring Cost"><br>
-			  			<input type="text" class="" placeholder="Recurring Interval">
-			  			<select>
-			  				<option value="days">Day(s)</option>
-			  				<option value="months">Month(s)</option>
-			  				<option value="years">Year(s)</option>
-			  			</select><br><br>
-			  			<input type="text" class="" placeholder="Stop recurring after">Payments (0 or blank == never stops)
-			  		</div>
-			  		<b class="text-danger">Default Support & Upgrades:</b>
-			  		<div class="well">
-			  			Default Upgrade Package: 
-			  			<select>
-			  				<option value="none">None</option>
-			  			</select><br><br>
-			  			Default Support Package: 	
-			  			<select>
-			  				<option value="none">None</option>
-			  				<?php 
-			  					foreach($support_package as $key)
-			  					{
-			  						echo '<option value="'.$key.'">'.$key.'</option>';
-			  					}
-			  				?>
-			  			</select>
+			  			<input type="text" name="onetime_cost" id="onetime_cost" value='<?php echo ($product) ? $price['onetime_cost'] : '' ?>' class="form-control" placeholder="One Time Cost"><br>
+			  			<input type="text" name="recurring_cost" id="recurring_cost" value='<?php echo ($product) ? $price['recurring_cost'] : '' ?>' class="form-control" placeholder="Recurring Cost"><br>
+			  			<input type="text" name="recurring_interval" id="recurring_interval" value='<?php echo ($product) ? $price['recurring_interval'] : '' ?>' class="" placeholder="Recurring Interval">
+			  			<?php
+			  				$check_period = $price['period']; 
+			  				$status_period =array(
+			      					'days'	=>	($check_period=='days') ? '* Day(s)' : 'Day(s)',
+			      					'months'	=>	($check_period=='months') ? '* Month(s)' : 'Month(s)',
+			      					'years'	=>	($check_period=='years') ? '* Year(s)' : 'Year(s)'
+			      					);
+			      			echo form_dropdown('period', $status_period, $check_period);
+			  			?>
+			  			<br><br>
+			  			<input type="text" name="stop_recurring" id="stop_recurring" value='<?php echo ($product) ? $price['stop_recurring'] : '' ?>' placeholder="Stop recurring after">Payments (0 or blank == never stops)
 			  		</div>
 			  	</div>
 			  </div>
@@ -339,7 +341,36 @@
 			  				<tbody>
 			  					<tr>
 			  						<td>
-			  							content to be fixed as soon as possible.
+			  							<?php  
+			  								if($product)
+			  								{
+			  									$ad=0;
+			  									$adn = $product->addon_array;
+			  									$adn = unserialize(html_entity_decode($adn));
+			  									foreach($adn as $key)
+			  									{
+			  										$ad++;
+			  									}
+			  									foreach($addons as $addon)
+					  							{
+					  							?>	
+					  								<input type="checkbox" name='adon[]' id='adon' value='<?php echo $addon->addon_id ?>' <?php for($i=0; $i<$ad; $i++) { echo ($adn[$i]==$addon->addon_id) ? 'checked' : ''; } ?>>
+					  								<?php echo $addon->addon_name ?>
+					  							<?php
+					  							}
+			  								}
+			  								else
+			  								{
+			  									$i=0;
+					  							foreach($addons as $addon)
+					  							{
+					  							?>	
+					  								<input type="checkbox" name='adon[]' id='adon' value='<?php echo $addon->addon_id ?>' >
+					  								<?php echo $addon->addon_name ?>
+					  							<?php
+					  							}
+			  								}
+			  							?>
 			  						</td>
 			  					</tr>
 			  				</tbody>
