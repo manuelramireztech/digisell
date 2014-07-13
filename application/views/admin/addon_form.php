@@ -28,7 +28,7 @@
 		    </h3>
 		  </div>
 		  <div class="panel-body">
-		  	<form action="" method="post" class="form-horizontal">
+		  	<form action="<?php echo ($addons) ? base_url('index.php').'/admin_addons/save/'.$addons->addon_id : base_url('index.php').'/admin_addons/save' ?>" method="post" class="form-horizontal">
 		  		<div class="form-group">
 		  			<label class="col-sm-3 control-label">Addon Name</label>
 		  			<div class="col-sm-4">
@@ -129,6 +129,11 @@
 					  			</table>
 					  		</div>
 			  			</div>
+		  			</div>
+		  		</div>
+		  		<div class="form-group">
+		  			<div class="col-sm-offset-3">
+		  				<input type="submit" value="<?php echo ($addons) ? 'Update' : 'Add New' ?>" class="btn btn-success">
 		  			</div>
 		  		</div>
 		  	</form>		

@@ -28,6 +28,32 @@ class Addons extends CI_Model
 	{
 		return $this->db->get('downloads')->result();
 	}
+	function save($id=0, $data)
+	{
+		if($id)
+		{
+			$this->db->where('addon_id', $id);
+			if($this->db->update('product_addons', $data))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}	
+		}
+		else
+		{
+			if($this->db->insert('product_addons', $data))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
 	function delete($id)
 	{
 		$this->db->where('addon_id', $id);

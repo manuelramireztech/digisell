@@ -76,6 +76,49 @@ class Admin_addons extends CI_Controller {
 		}
 		
 	}
+	public function save($id=0)
+	{
+		if($id)
+		{
+			$data = array(
+						'addon_name'		=>	$this->input->post('addon_name'),
+						'addon_description'	=>	$this->input->post('addon_description'),
+						'addon_type'		=>	$this->input->post('addon_type'),
+						'addon_cost'		=>	floatval($this->input->post('addon_cost')),
+						'created'			=>	strtotime(date('d-m-Y')),
+						'download_array'	=>	serialize($this->input->post('dwn')),
+				);
+			$success = $this->Addons->save($id,$data);
+			if($success)
+			{
+				$this->session->set_flashdata('message', 'addon updated successfully');
+				redirect('admin_addons');
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'addon update failed');
+				redirect('admin_addons');
+			}
+		}
+		else
+		{
+			$data = array(
+						'addon_name'		=>	$this->input->post('addon_name'),
+						'addon_description'	=>	$this->input->post('addon_description'),
+						'addon_type'		=>	$this->input->post('addon_type'),
+						'addon_cost'		=>	floatval($this->input->post('addon_cost')),
+						'created'			=>	strtotime(date('d-m-Y')),
+						'download_array'	=>	serialize($this->input->post('dwn')),
+						'download_exempt'	=>	'',
+				);
+			$success = $this->Addons->save($id,$data);
+			if($success)
+			{
+				$this->session->set_flashdata('message', 'addon created successfully');
+				redirect('admin_addons');
+			}
+		}
+	}
 	public function delete($id)
 	{
 		$delete = $this->Addons->delete($id);
