@@ -3,7 +3,7 @@ class Products extends CI_Model
 {
 	function get_products($limit=0, $offset=0)
 	{
-		$this->db->order_by('product_id', 'ASC');
+		$this->db->order_by('product_id', 'DESC');
 		if($limit>0)
         {
             $this->db->limit($limit, $offset);
