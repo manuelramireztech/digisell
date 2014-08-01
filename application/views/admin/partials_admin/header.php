@@ -54,12 +54,12 @@
                           <div class="collapse navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
                               <li>
-                                <form role="search" class="search-form">
+                                <!-- <form role="search" class="search-form">
                                   <div class="form-group">
                                     <input type="text" class="form-control  nav-input-search " placeholder="Search ">
                                     <i class="fa fa-search"></i>
                                   </div>
-                                </form>
+                                </form> -->
                               </li>
                               <li>
                                 <a href='<?php echo site_url('admin_login/logout'); ?>' class="logout">
