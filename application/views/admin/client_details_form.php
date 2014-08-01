@@ -36,7 +36,8 @@
 							<tbody>
 								<tr>
 									<td class='active col-md-4'>Last Logged In:</td>
-									<td><?php echo date('D , d M Y',$client_info->last_logged); ?></td>
+									<?php $date_format = $this->Config->get_data(); ?>
+									<td><?php echo date($date_format->date_format,$client_info->last_logged); ?></td>
 								</tr>
 								<tr>
 									<td class='active col-md-4'>Last Logged in From:</td>

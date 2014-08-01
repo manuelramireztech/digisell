@@ -45,7 +45,8 @@
 			  				<tr>
 			  					<td><?php echo $addon->addon_name ?></td>
 			  					<td><?php echo $addon->addon_description ?></td>
-			  					<td><?php echo date('d-m-Y H:i:s',$addon->created) ?></td>
+			  					<?php $date_format = $this->Config->get_data(); ?>
+			  					<td><?php echo date($date_format->date_format,$addon->created) ?></td>
 			  					<td>
 			  						<a href="<?php echo base_url('index.php').'/admin_addons/form/'.$addon->addon_id ?>" class="btn btn-xs btn-default">Edit</a>
 			  						<a href="<?php echo base_url('index.php').'/admin_addons/delete/'.$addon->addon_id ?>" class="btn btn-xs btn-default">Delete</a>

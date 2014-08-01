@@ -6,7 +6,8 @@
 		    <h3 class="panel-title">
 		    	PHP Audit News
 		    	<div class="pull-right">
-		    		Updated : <?php echo $news->date; ?>
+		    		<?php $date_format = $this->Config->get_data(); ?>
+		    		Updated : <?php echo date($date_format->date_format, $news->date); ?>
 		    	</div>
 				
 		    </h3>

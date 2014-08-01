@@ -73,9 +73,10 @@
                           ?>
                         </td>
                         <td>
+                          <?php $date_format = $this->Config->get_data(); ?>
                           <?php 
                             echo $news->news_title.br(1);
-                            echo '[ created: '.date('d/m/Y',$news->created).' ]';
+                            echo '[ created: '.date($date_format->date_format,$news->created).' ]';
                             $rel = ($news->status==1) ? '<span class="text-success">Yes</span>' : '<span class="text-danger">No</span>';
                             echo '&nbsp; [ published? '.$rel.' ]'; 
                           ?>

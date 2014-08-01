@@ -188,7 +188,8 @@
 		    							<td><?php echo '#'.$licence_info->product_id; ?></td>
 		    							<td><?php echo '<i class="ion-document-text"></i> '.$licence_info->license_key.br(1).'<i class="ion-arrow-right-a"></i> '.$licence_info->name; ?></td>
 		    							<td><?php echo $licence_info->status; ?></td>
-		    							<td><?php echo date('d-m-Y',$licence_info->created); ?></td>
+		    							<?php $date_format = $this->Config->get_data(); ?>
+		    							<td><?php echo date($date_format->date_format,$licence_info->created); ?></td>
 		    						</tr>
 		    					</tbody>
 		    				</table>
@@ -210,7 +211,7 @@
 		    							<td class='active'><?php echo '#'.$licence_info->order_id; ?></td>
 		    							<td><?php echo '#'.$licence_info->cart_id; ?></td>
 		    							<td><?php echo '<i class="ion-document-text"></i> '.$licence_info->name; ?></td>
-		    							<td><?php echo date('d-m-Y',$licence_info->created); ?></td>
+		    							<td><?php echo date($date_format->date_format,$licence_info->created); ?></td>
 		    						</tr>
 		    					</tbody>
 		    				</table>
@@ -234,7 +235,7 @@
 		    							<td><?php echo '#'.$invoice_info->invoice_id; ?></td>
 		    							<td><?php echo '<i class="ion-document-text"></i> '.$licence_info->name; ?></td>
 		    							<td><p class="text-success">$ <?php echo $balance; ?></p></td>
-		    							<td><?php echo date('d-m-Y',$invoice_info->created); ?></td>
+		    							<td><?php echo date($date_format->date_format,$invoice_info->created); ?></td>
 		    						</tr>
 		    					</tbody>
 		    				</table>
@@ -258,10 +259,6 @@
 						echo form_textarea($data);
 						?>
 						</form>
-						<?php 
-							$sam = $client_info->credit_card; 
-							var_dump($sam)
-						?>
 		    		</div>
 		    	</div>
 		  	</div>

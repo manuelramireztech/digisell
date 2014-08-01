@@ -106,7 +106,8 @@
 											</td>
 											<td><?php echo $client->first_name; ?></td>
 											<td><?php echo $client->last_name; ?></td>
-											<td><?php echo date('d-m-Y',$client->created); ?></td>
+											<?php $date_format = $this->Config->get_data(); ?>
+											<td><?php echo date($date_format->date_format,$client->created); ?></td>
 											<td>
 												<a href="<?php echo base_url('index.php').'/admin_client/edit/'.$client->client_id; ?>"><i class='fa fa-edit'></i></a>&nbsp;&nbsp;
 												<a href="<?php echo base_url('index.php').'/admin_client/delete/'.$client->client_id; ?>" onclick="areyousure();">

@@ -62,7 +62,9 @@
 										echo $this->License->client_info($license->client_id);
 									?>
 								</td>
-								<td><?php echo date('d-m-Y',$license->created); ?></td>
+								<td>
+									<?php $date_format = $this->Config->get_data(); ?>
+									<?php echo date($date_format->date_format,$license->created); ?></td>
 								<td><?php echo $license->status; ?></td>
 								<td>
 									<a href='<?php echo base_url('index.php').'/admin_license/edit/'.$license->license_id ?>' class='btn btn-xs btn-default'>Manage</a>

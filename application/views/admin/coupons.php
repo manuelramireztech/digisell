@@ -74,7 +74,8 @@
 			  							<?php echo $coupon->coupon_code; ?>
 			  						</td>
 			  						<td>
-			  							<?php echo date('d-m-Y',$coupon->expires_on); ?>
+			  							<?php $date_format = $this->Config->get_data(); ?>
+			  							<?php echo date($date_format->date_format,$coupon->expires_on); ?>
 			  						</td>
 			  						<td>
 			  							<?php echo $coupon->discount.' % '.$coupon->coupon_type; ?>
