@@ -48,9 +48,17 @@ class Admin_login extends CI_Controller {
 
 	function logout()
 	{
-		$this->session->unset_userdata('email');
-		$this->session->set_flashdata('message', 'Successfully logged out! ');
-		redirect('admin_login');
+		if($this->session->userdata('email'))
+		{
+			$this->session->unset_userdata('email');
+			$this->session->set_flashdata('message', 'Successfully logged out! ');
+			redirect('admin_login');
+		}
+		else
+		{
+			$this->session->set_flashdata('warning', 'Already Logged Out');
+			redirect('admin_login');
+		}
 	}
 }
 

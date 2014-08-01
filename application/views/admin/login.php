@@ -26,6 +26,12 @@
                      <?php echo $this->session->flashdata('error');?>
                 </div>
            <?php endif;?>
+           <?php if ($this->session->flashdata('warning')):?>
+                <div class="alert alert-warning">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                     <?php echo $this->session->flashdata('warning');?>
+                </div>
+           <?php endif;?>
 
 				<div class="form-inputs">
 					<h4>Member Area</h4>
