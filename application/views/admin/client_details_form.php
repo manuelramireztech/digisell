@@ -40,10 +40,6 @@
 									<td><?php echo date($date_format->date_format,$client_info->last_logged); ?></td>
 								</tr>
 								<tr>
-									<td class='active col-md-4'>Last Logged in From:</td>
-									<td><?php echo '[ '.$client_info->logged_ip.' ]'.br(1).'[ '.$client_info->logged_host.' ]'; ?></td>
-								</tr>
-								<tr>
 									<td class='active col-md-4'>Accessible Profiles:&nbsp;<input type="checkbox" id="selecctall" name="selectall" /></td>
 									<td>
 										<?php 

@@ -34,7 +34,6 @@
 		    				<b><?php echo $client_info->first_name.' '.$client_info->last_name; ?></b>
 		    				<?php echo ' [ ID: '.$client_info->client_id.' ]'; ?>
 		    				[ <a href="<?php echo base_url('index.php').'/admin_client/edit_details/'.$client_info->client_id; ?>">edit</a> ]	<br><br>
-		    				<span class='text-danger'>Credit card: </span> <a href="#" data-toggle="modal" data-target="#myModal_credit">click to view card on file</a> <br><br>
 		    				<span class='text-danger'>Address:</span>
 		    				<?php echo $client_info->address_1.' , '.$client_info->city.br(1).$client_info->province.' , '.$client_info->state
 		    				.br(1).$client_info->country.' ('.$client_info->zip.')'; ?> <br><br>
