@@ -8,8 +8,7 @@
 		    	<div class="pull-right">
 		    		<?php $date_format = $this->Config->get_data(); ?>
 		    		Updated : <?php echo date($date_format->date_format, $news->date); ?>
-		    	</div>
-				
+		    	</div>	
 		    </h3>
 		    
 		  </div>

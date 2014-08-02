@@ -39,6 +39,10 @@
                       </script> -->
                     </head>
                     <body>
+                      <?php  
+                        $controller_class = $this->router->fetch_class();
+                        $controller_method = $this->router->fetch_method();
+                      ?>
                      <div class="site-holder">
                       <!-- .navbar -->
                       <nav class="navbar  navbar-default nav-delighted " role="navigation">
@@ -91,7 +95,7 @@
 
                               <!-- Menu -->
                               <ul class="nav  nav-list">
-                                <li class='<?php echo ($this->uri->segment(1)=="admin_dashboard") ? "active" : "" ; ?>'>
+                                <li class='<?php echo ($controller_class=="admin_dashboard") ? "active" : "" ; ?>'>
                                   <a href='<?php echo base_url('index.php').'/admin_dashboard' ?>' data-original-title='Dashboard'>
                                     <i class='icon ion-home'></i>
 
@@ -106,13 +110,13 @@
                                         </span>
                                     </a>
                                     <ul class="animated fadeInDown">
-                                        <li class='<?php echo ($this->uri->segment(1)=="admin_client" && $this->uri->segment(2)=='') ? "active" : "" ; ?>'>
+                                        <li class='<?php echo (($controller_class=='admin_client' && $controller_method=='search') || ($controller_class=='admin_client' && $controller_method=='index') || $controller_method=="add_client" || ($controller_class=="admin_client" && $controller_method=="edit") || $controller_method=="edit_details") ? "active" : "" ; ?>'>
                                             <a href='<?php echo base_url('index.php').'/admin_client' ?>' data-original-title='Manage Clients'>
                                                 <i class='fa fa-gear'></i>
                                                 <span class='hidden-minibar'>Manage Clients</span>
                                             </a>
                                         </li>
-                                        <li class='<?php echo ($this->uri->segment(2)=="client_area") ? "active" : "" ; ?>'>
+                                        <li class='<?php echo ($controller_method=="client_area" || $controller_method=="add_client_area" || $controller_method=="manage_client_area") ? "active" : "" ; ?>'>
                                             <a href='<?php echo base_url('index.php').'/admin_client/client_area'; ?>' data-original-title='Client Area News'>
                                                 <i class='fa fa-gear'></i>
                                                 <span class='hidden-minibar'>Client Area News</span>
@@ -121,13 +125,13 @@
                                     </ul>
                                 </li>
                                 
-                                <li class='<?php echo ($this->uri->segment(1)=="admin_product") ? "active" : "" ; ?>'>
+                                <li class='<?php echo (($controller_class=="admin_product" && $controller_method=="index") || ($controller_class=="admin_product" && $controller_method=="form") || ($controller_class=="admin_product" && $controller_method=="edit")) ? "active" : "" ; ?>'>
                                   <a href='<?php echo base_url('index.php').'/admin_product' ?>' data-original-title='Dashboard'>
                                     <i class='ion-ios7-cart-outline'></i>
                                     <span class='hidden-minibar'>Products</span>
                                   </a>
                                 </li>
-                                <li class='<?php echo ($this->uri->segment(1)=="admin_license") ? "active" : "" ; ?>'>
+                                <li class='<?php echo (($controller_class=="admin_license" && $controller_method=="index") || ($controller_class=="admin_license" && $controller_method=="edit")) ? "active" : "" ; ?>'>
                                   <a href='<?php echo base_url('index.php').'/admin_license' ?>' data-original-title='Dashboard'>
                                     <i class='icon ion-card'></i>
 
@@ -141,21 +145,21 @@
                                     <span class='hidden-minibar'>Billing</span>
                                   </a>
                                 </li>
-                                <li class='<?php echo ($this->uri->segment(1)=="admin_coupon") ? "active" : "" ; ?>'>
+                                <li class='<?php echo (($controller_class=="admin_coupon" && $controller_method=="index") || ($controller_class=="admin_coupon" && $controller_method=="add_coupon")) ? "active" : "" ; ?>'>
                                   <a href='<?php echo base_url('index.php').'/admin_coupon' ?>' data-original-title='Dashboard'>
                                     <i class='ion-ios7-pricetag-outline'></i>
 
                                     <span class='hidden-minibar'>Coupons</span>
                                   </a>
                                 </li>
-                                <li class='<?php echo ($this->uri->segment(1)=="admin_addons") ? "active" : "" ; ?>'>
+                                <li class='<?php echo ($controller_class=="admin_addons") ? "active" : "" ; ?>'>
                                   <a href='<?php echo base_url('index.php').'/admin_addons' ?>' data-original-title='Dashboard'>
                                     <i class='ion-ios7-cloud-download-outline'></i>
 
                                     <span class='hidden-minibar'>Addons</span>
                                   </a>
                                 </li>
-                                <li class='<?php echo ($this->uri->segment(1)=="admin_config") ? "active" : "" ; ?>'>
+                                <li class='<?php echo ($controller_class=="admin_config") ? "active" : "" ; ?>'>
                                   <a href='<?php echo base_url('index.php').'/admin_config' ?>' data-original-title='Dashboard'>
                                     <i class='icon ion-settings'></i>
 
