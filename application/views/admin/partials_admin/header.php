@@ -104,6 +104,28 @@
                                 </li>
                                 <li class='submenu'>
                                     <a class='dropdown' onClick='return false;' href='#' data-original-title='Delighted-Gold'>
+                                        <i class='fa fa-legal'></i>
+                                        <span class='hidden-minibar'>Admins
+                                            <i class='fa fa-chevron-right  pull-right'></i>
+                                        </span>
+                                    </a>
+                                    <ul class="animated fadeInDown">
+                                        <li class='<?php echo (($controller_class=='admin_user' && $controller_method=='index') || ($controller_class=='admin_user' && $controller_method=='user_edit') || ($controller_class=='admin_user' && $controller_method=='search')) ? "active" : "" ; ?>'>
+                                            <a href='<?php echo base_url('index.php').'/admin_user' ?>' data-original-title='Manage Clients'>
+                                                <i class='fa fa-gamepad'></i>
+                                                <span class='hidden-minibar'>Manage Admins</span>
+                                            </a>
+                                        </li>
+                                        <li class='<?php echo (($controller_class=='admin_user' && $controller_method=='user_add')) ? "active" : "" ; ?>'>
+                                            <a href='<?php echo base_url('index.php').'/admin_user/user_add' ?>' data-original-title='Add Clients'>
+                                                <i class='fa fa-plus'></i>
+                                                <span class='hidden-minibar'>Create Admin</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class='submenu'>
+                                    <a class='dropdown' onClick='return false;' href='#' data-original-title='Delighted-Gold'>
                                         <i class='icon ion-person-stalker'></i>
                                         <span class='hidden-minibar'>Clients
                                             <i class='fa fa-chevron-right  pull-right'></i>
@@ -112,13 +134,13 @@
                                     <ul class="animated fadeInDown">
                                         <li class='<?php echo (($controller_class=='admin_client' && $controller_method=='search') || ($controller_class=='admin_client' && $controller_method=='index') || $controller_method=="add_client" || ($controller_class=="admin_client" && $controller_method=="edit") || $controller_method=="edit_details") ? "active" : "" ; ?>'>
                                             <a href='<?php echo base_url('index.php').'/admin_client' ?>' data-original-title='Manage Clients'>
-                                                <i class='fa fa-gear'></i>
+                                                <i class='fa fa-gears'></i>
                                                 <span class='hidden-minibar'>Manage Clients</span>
                                             </a>
                                         </li>
                                         <li class='<?php echo ($controller_method=="client_area" || $controller_method=="add_client_area" || $controller_method=="manage_client_area") ? "active" : "" ; ?>'>
                                             <a href='<?php echo base_url('index.php').'/admin_client/client_area'; ?>' data-original-title='Client Area News'>
-                                                <i class='fa fa-gear'></i>
+                                                <i class='fa fa-envelope'></i>
                                                 <span class='hidden-minibar'>Client Area News</span>
                                             </a>
                                         </li>

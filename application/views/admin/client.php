@@ -110,7 +110,7 @@
 											<td><?php echo date($date_format->date_format,$client->created); ?></td>
 											<td>
 												<a href="<?php echo base_url('index.php').'/admin_client/edit/'.$client->client_id; ?>"><i class='fa fa-edit'></i></a>&nbsp;&nbsp;
-												<a href="<?php echo base_url('index.php').'/admin_client/delete/'.$client->client_id; ?>" onclick="areyousure();">
+												<a href="<?php echo base_url('index.php').'/admin_client/delete/'.$client->client_id; ?>">
 												<i class='fa fa-trash-o'></i></a>
 											</td>
 					    				</tr>
@@ -130,10 +130,7 @@
 </div>
 <?php include('partials_admin/footer.php'); ?>
 <script type="text/javascript">
-	function areyousure()
-	{
-		return confirm('Are You Sure');
-	}
+	
 
 	$(document).ready(function(){
 				$('.user-row').on('click',function(){

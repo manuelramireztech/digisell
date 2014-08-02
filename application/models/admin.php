@@ -42,11 +42,20 @@ class Admin extends CI_Model
 		}
 	}
 
-	function total_admin()
+	function total_admin($s=false,$like=false)
 	{
-		$this->db->select('*');
-		$result = $this->db->get('admin');
-		return $result->num_rows();
+		if($s)
+		{
+			$this->db->select($like, $s);
+			$result = $this->db->get('admin');
+			return $result->num_rows();
+		}
+		else
+		{
+			$this->db->select('*');
+			$result = $this->db->get('admin');
+			return $result->num_rows();
+		}
 	}
 
 	function total_client($s=false,$like=false)
