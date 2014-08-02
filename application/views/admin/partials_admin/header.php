@@ -200,13 +200,10 @@
                       <div class="content  animated fadeInBig">
                         <div class=" breadcrumb-holder">
                           <ul class="breadcrumb">
-                            <li class="active">DashBoard</li>
-                            <li>
-                              <a href="#">Dashboard</a>
+                            <li class="active">
+                              <a href="<?php echo base_url('index.php').'/admin_dashboard' ?>">Dashboard</a>
                             </li>
-                            <li>
-                              <a href="#">Template</a>
-                            </li>
+                            <?php echo breadcrumb_status(); ?>
                           </ul>
                           <a href="#" class="options-toggle">
                             <i class="fa fa-th"></i>

@@ -137,7 +137,7 @@
 								<td class="active">Total Clients In DB:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',$total_clients); ?>
+										<?php echo anchor('admin_client',$total_clients); ?>
 									</div>
 								</td>
 							</tr>
@@ -145,7 +145,7 @@
 								<td class="active">Total Admins In DB:</td>
 								<td width="15%" align="right">
 									<div class="dash-border">
-										<?php echo anchor('#',$total_admins); ?>
+										<?php echo anchor('admin_user',$total_admins); ?>
 									</div>	  
 								</td>
 							</tr>
