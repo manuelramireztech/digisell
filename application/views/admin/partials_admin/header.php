@@ -1,7 +1,8 @@
 <?php echo doctype('html5'); ?>
 <html lang="en">
 <head>
-	<title>Digisell</title>
+  <?php $title = $this->Config->get_data(); ?>
+	<title><?php echo $title->site_name; ?></title>
 	<?php 
 	$link_bootstrap = array(
 		'href' => 'css/bootstrap.css',
@@ -105,7 +106,7 @@
                                         </span>
                                     </a>
                                     <ul class="animated fadeInDown">
-                                        <li class='<?php echo ($this->uri->segment(1)=="admin_client" && !$client_news) ? "active" : "" ; ?>'>
+                                        <li class='<?php echo ($this->uri->segment(1)=="admin_client" && $this->uri->segment(2)=='') ? "active" : "" ; ?>'>
                                             <a href='<?php echo base_url('index.php').'/admin_client' ?>' data-original-title='Manage Clients'>
                                                 <i class='fa fa-gear'></i>
                                                 <span class='hidden-minibar'>Manage Clients</span>
