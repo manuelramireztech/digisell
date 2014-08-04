@@ -19,10 +19,10 @@ class Client_dashboard extends CI_Controller {
 	 */
 	public function index()
 	{
-		// if(!$this->session->userdata('client_login'))
-		// {
-		// 	redirect('client_login');
-		// }
+		if(!$this->session->userdata('client_login'))
+		{
+			redirect('client_login');
+		}
 		$this->load->view('site/dashboard');
 	}
 }

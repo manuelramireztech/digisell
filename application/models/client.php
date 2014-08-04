@@ -11,6 +11,7 @@ class Client extends CI_Model
 		$result = $this->db->get('clients');
 		if($result->num_rows == 1)
 		{
+			$this->last_login($email);
 			$this->session->set_userdata('email',$uname);
 			return $result->row();						
 		}
@@ -18,6 +19,13 @@ class Client extends CI_Model
 		{
 			return false;
 		}
+	}
+
+	function last_login($email)
+	{
+		$this->db->set('last_logged',strtotime(date('d-m-Y')));
+		$this->db->where('email',$email);
+		$this->db->update('clients');
 	}
 
 	function check_duplication($email)
