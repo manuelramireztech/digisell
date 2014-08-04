@@ -37,6 +37,7 @@ class Client_login extends CI_Controller {
 		$data['user'] = $this->Client->login($data['uname'],$data['password']);
 		$info = $data['user']->first_name;
 		$this->session->set_userdata('client_login', $info);
+		$this->session->set_userdata('client_id', $data['user']->client_id);
 		if($data['user'])
 		{
 			redirect('client_dashboard');

@@ -91,7 +91,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="<?php echo base_url('index.php').'/client_profile' ?>">Profile</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>

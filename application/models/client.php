@@ -12,7 +12,7 @@ class Client extends CI_Model
 		if($result->num_rows == 1)
 		{
 			$this->last_login($email);
-			$this->session->set_userdata('email',$uname);
+			$this->session->set_userdata('client_email',$uname);
 			return $result->row();						
 		}
 		else
