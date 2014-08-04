@@ -9,9 +9,13 @@
 <body>
 	<div class="login-page">
 		<div class="header-section">
-			<?php echo heading('Digi Audit',2); ?>
+			<a href="#">DigiSell</a>
+			<ul class="menu">
+				<li><a href="<?php echo base_url(); ?>" class="sign-in">Home</a></li>
+				<li><a href="<?php echo base_url('index.php').'/client_login/register'; ?>" class="sign-in">Register</a></li>
+			</ul>
 		</div><!--end of header -section-->
-		<?php echo form_open('admin_login/login'); ?>
+		<?php echo form_open('client_login/login'); ?>
 		<div class="form-section">
 			<div class="container">
 			<?php if ($this->session->flashdata('message')):?>

@@ -39,30 +39,7 @@
 									<?php $date_format = $this->Config->get_data(); ?>
 									<td><?php echo date($date_format->date_format,$client_info->last_logged); ?></td>
 								</tr>
-								<tr>
-									<td class='active col-md-4'>Accessible Profiles:&nbsp;<input type="checkbox" id="selecctall" name="selectall" /></td>
-									<td>
-										<?php 
-											$dat = $client_info->profile_array;
-											$profile_id=unserialize($dat);
-										?>
-										<?php
-											$i=0;
-											foreach ($profiles as $profile) 
-											{
-												$data = array(
-	    														'name'        => 'prf[]',
-	    														'id'		  => 'prf',
-	    														'value'       => $profile->profile_id,
-	    														'checked'     => ($profile_id[$i]==$profile->profile_id) ? true : false,
-	    														'class'       => 'cb1',
-				    											 );
-												echo form_checkbox($data).$profile->profile_name.br(1);
-												$i=$i+1;
-											}
-										?>
-									</td>
-								</tr>
+								
 								<tr>
 									<td class='active col-md-4'>First Name:</td>
 									<td>

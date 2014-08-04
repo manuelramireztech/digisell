@@ -224,8 +224,7 @@ class Admin_client extends CI_Controller {
 
 	public function add_client()
 	{
-		$data['profiles'] = $this->Client->profiles();
-		$this->load->view('admin/client_add',$data);
+		$this->load->view('admin/client_add');
 	}
 
 	public function save($id = false)

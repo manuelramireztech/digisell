@@ -1,6 +1,72 @@
 <?php
 class Client extends CI_Model
 {
+	function login($email, $password)
+	{
+		$this->db->select('*');
+		$this->db->where('email', $email);
+		$this->db->where('password', md5($password));
+		
+		
+		$result = $this->db->get('clients');
+		if($result->num_rows == 1)
+		{
+			$this->session->set_userdata('email',$uname);
+			return $result->row();						
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function check_duplication($email)
+	{
+		$this->db->where('email',$email);
+		$result = $this->db->get('clients');
+		if($result->num_rows == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	function register($data)
+	{
+		$data = array(
+					'profile_array'		=>	'',
+					'first_name'	=>	$data['first_name'],
+					'last_name'		=>	$data['last_name'],
+					'org'			=>	'',
+					'address_1'		=>	'',
+					'city'			=>	'',
+					'state'			=>	'',
+					'province'		=>	'',
+					'zip'			=>	'',
+					'country'		=>	'',
+					'phone'			=>	'',
+					'fax'			=>	'',
+					'anon_key'		=>	'',
+					'credit_card'	=>	'',
+					'email'			=>	$data['email'],
+					'password'		=>	$data['password'],
+					'staff_notes'	=>	'',
+					'notes'			=>	'',
+					'created'		=>	strtotime(date('d-m-Y')),
+						);
+		if($this->db->insert('clients',$data))
+		{
+			return true;
+		}
+	 	else
+        {
+        	return false;
+        }
+	}
+
 	function get_clients($limit=0, $offset=0)
 	{
 		$this->db->order_by('client_id', 'DESC');
@@ -290,18 +356,10 @@ class Client extends CI_Model
 		return $result->num_rows();
 	}
 
-	function credit_card($id)
-	{
-		$this->db->select('HEX(LEFT(credit_card, 28)) AS partial', FALSE);
-		$this->db->where('client_id', $id);
-		$result = $this->db->get('order');
-		return $result->result();
-	}
-
 	function save($profiles,$first_name,$last_name,$org,$address_1,$city,$state,$province,$zip,$country,$phone,$fax,$email,$password,$client_notes,$admin_notes)
 	{
 		$data = array(
-					'profile_array'		=>	$profiles,
+					'profile_array'		=>	'',
 					'first_name'	=>	$first_name,
 					'last_name'		=>	$last_name,
 					'org'			=>	$org,

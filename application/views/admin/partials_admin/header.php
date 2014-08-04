@@ -132,10 +132,16 @@
                                         </span>
                                     </a>
                                     <ul class="animated fadeInDown">
-                                        <li class='<?php echo (($controller_class=='admin_client' && $controller_method=='search') || ($controller_class=='admin_client' && $controller_method=='index') || $controller_method=="add_client" || ($controller_class=="admin_client" && $controller_method=="edit") || $controller_method=="edit_details") ? "active" : "" ; ?>'>
+                                        <li class='<?php echo (($controller_class=='admin_client' && $controller_method=='search') || ($controller_class=='admin_client' && $controller_method=='index') || ($controller_class=="admin_client" && $controller_method=="edit") || $controller_method=="edit_details") ? "active" : "" ; ?>'>
                                             <a href='<?php echo base_url('index.php').'/admin_client' ?>' data-original-title='Manage Clients'>
                                                 <i class='fa fa-gears'></i>
                                                 <span class='hidden-minibar'>Manage Clients</span>
+                                            </a>
+                                        </li>
+                                        <li class='<?php echo (($controller_class=='admin_client' && $controller_method=='add_client')) ? "active" : "" ; ?>'>
+                                            <a href='<?php echo base_url('index.php').'/admin_client/add_client' ?>' data-original-title='Add Clients'>
+                                                <i class='fa fa-plus'></i>
+                                                <span class='hidden-minibar'>Create Client</span>
                                             </a>
                                         </li>
                                         <li class='<?php echo ($controller_method=="client_area" || $controller_method=="add_client_area" || $controller_method=="manage_client_area") ? "active" : "" ; ?>'>

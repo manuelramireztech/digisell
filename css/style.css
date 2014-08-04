@@ -3341,13 +3341,18 @@ ANIMATIONS
 .login-page .header-section img {
   height: 30px;
 }
+.login-page .header-section a {
+  float: left;
+  text-decoration: none;
+  font-size: 36px;
+}
 .login-page .header-section .menu {
   float: right;
 }
 .login-page .header-section .menu > li {
   list-style: none;
   display: inline-block;
-  line-height: 40px;
+  line-height: 30px;
   padding: 0px 10px;
   font-family: 'Open Sans', sans-serif;
 }

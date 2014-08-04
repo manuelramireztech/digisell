@@ -37,7 +37,7 @@
 									<?php echo $page_links;?>
 								<?php endif;?>
 							</div>
-							<div class="col-md-5">
+							<div class="col-md-6">
 								<form action="<?php echo base_url('index.php').'/admin_client/search' ?>" method="post" class="form-inline">
 									<?php $select_client = array(
 																	'first_name'	=>	'Fisrt Name',
@@ -64,7 +64,6 @@
 									</div>
 								</form>
 							</div>
-							<a href="<?php echo base_url('index.php').'/admin_client/add_client'; ?>" class="btn btn-primary pull-right">Add New Client</a>
 						</div>
 						<form action="<?php echo base_url('index.php').'/admin_client/delete' ?>" method="post">
 				    		<table class="table table-striped" cellpadding="10" cellspacing="5">

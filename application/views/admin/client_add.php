@@ -34,24 +34,6 @@
 						<table class="table">
 							<tbody>
 								<tr>
-									<td class='active col-md-4'>Accessible Profiles:&nbsp;<input type="checkbox" id="selecctall" name="selectall" /></td>
-									<td>
-										<?php
-											foreach ($profiles as $profile) 
-											{
-												$data = array(
-	    														'name'        => 'prf[]',
-	    														'id'		  => 'prf',
-	    														'value'       => $profile->profile_id,
-	    														'checked'     => false,
-	    														'class'       => 'cb1',
-				    											 );
-												echo form_checkbox($data).$profile->profile_name.br(1);
-											}
-										?>
-									</td>
-								</tr>
-								<tr>
 									<td class='active col-md-4'>First Name:</td>
 									<td>
 										<?php

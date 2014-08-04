@@ -1,7 +1,8 @@
 <?php echo doctype('html5'); ?>
 <html lang="en">
 <head>
-	<title>Digisell</title>
+	<?php $title = $this->Config->get_data(); ?>
+  <title><?php echo $title->site_name; ?></title>
 	<?php 
 	$link_bootstrap = array(
 		'href' => 'css/bootstrap.css',
@@ -50,7 +51,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="<?php echo base_url(); ?>">
-            Blog
+            Digisell
           </a>
         </div>
 
@@ -84,9 +85,16 @@
             </form>
           </li>
           <li>
-            <a href="lock.html" class="settings">
-              <i class="fa fa-power-off"></i>
-            </a>
+            <?php  
+              if($this->session->userdata('client_login'))
+              { ?>
+                <a href="<?php echo base_url("index.php")."/client_login/logout" ?>" class="settings"><i class="fa fa-power-off"></i></a>
+            <?php  }
+              else
+              { ?>
+                <a href="<?php echo base_url("index.php")."/client_login" ?>" class="settings">Login</a>
+            <?php  }
+            ?>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
