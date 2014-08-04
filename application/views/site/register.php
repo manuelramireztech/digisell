@@ -15,7 +15,7 @@
         <li><a href="<?php echo base_url('index.php').'/client_login'; ?>" class="sign-in">Login</a></li>
       </ul>
     </div><!--end of header -section-->
-    <?php echo form_open('client_login/registration'); ?>
+    <?php echo form_open('client_login/registration','autocomplete="off"'); ?>
     <div class="form-section">
       <div class="container">
       <?php if ($this->session->flashdata('message')):?>
@@ -48,7 +48,7 @@
             <span class="input-group-addon"><i class="fa fa-user"></i></span>
           </div>
           <div class="input-group">
-            <input type="text" name="email" class="form-control" placeholder="E mail" required>
+            <input type="text" name="email" class="form-control" placeholder="E mail" autocomplete="off" required>
             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
           </div>
           <div class="input-group">

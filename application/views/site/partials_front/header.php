@@ -88,7 +88,16 @@
             <?php  
               if($this->session->userdata('client_login'))
               { ?>
-                <a href="<?php echo base_url("index.php")."/client_login/logout" ?>" class="settings"><i class="fa fa-power-off"></i></a>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo base_url("index.php")."/client_login/logout" ?>">Logout</a></li>
+                  </ul>
+                </li>
             <?php  }
               else
               { ?>

@@ -28,6 +28,10 @@ class Client_login extends CI_Controller {
 
 	function login()
 	{	
+		if($this->session->userdata('client_login'))
+		{
+			redirect('client_dashboard');
+		}
 		$data['uname'] = $this->input->post('username');
 		$data['password'] = $this->input->post('password');
 		$data['user'] = $this->Client->login($data['uname'],$data['password']);
@@ -61,11 +65,19 @@ class Client_login extends CI_Controller {
 
 	function register()
 	{
+		if($this->session->userdata('client_login'))
+		{
+			redirect('client_dashboard');
+		}
 		$this->load->view('site/register');
 	}
 
 	function registration()
 	{
+		if($this->session->userdata('client_login'))
+		{
+			redirect('client_dashboard');
+		}
 		$data['first_name'] = $this->input->post('fname');
 		$data['last_name'] = $this->input->post('lname');
 		$data['email'] = $this->input->post('email');

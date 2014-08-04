@@ -15,7 +15,7 @@
 				<li><a href="<?php echo base_url('index.php').'/client_login/register'; ?>" class="sign-in">Register</a></li>
 			</ul>
 		</div><!--end of header -section-->
-		<?php echo form_open('client_login/login'); ?>
+		<?php echo form_open('client_login/login','autocomplete="off"'); ?>
 		<div class="form-section">
 			<div class="container">
 			<?php if ($this->session->flashdata('message')):?>
