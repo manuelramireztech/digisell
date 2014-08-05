@@ -2,6 +2,10 @@
 
 class Client_login extends CI_Controller {
 
+	public function __construct() {
+        parent::__construct();
+        $this->load->library('email');
+    }
 	/**
 	 * Index Page for this controller.
 	 *
@@ -47,6 +51,56 @@ class Client_login extends CI_Controller {
 			$this->session->set_flashdata('error', 'Failed to Login!'.heading(' Invalid Login data.......',3));
 			redirect('client_login');
 		}
+	}
+
+	function forgot()
+	{
+		$this->load->view('site/forgot');
+	}
+
+	function forgot_send()
+	{
+		$email = $this->input->post('email');
+		$check = $this->Client->check_duplication($email);
+		if($check)
+		{
+			$reset = $this->Client->reset_password($email);
+			$config['protocol']    = 'smtp';
+	        $config['smtp_host']    = 'ssl://smtp.gmail.com';
+	        $config['smtp_port']    = '465';
+	        $config['smtp_timeout'] = '7';
+	        $config['smtp_user']    = 'praveen@bootstrapguru.com';
+	        $config['smtp_pass']    = 'Praveen526#';
+	        $config['charset']    = 'utf-8';
+	        $config['newline']    = "\r\n";
+	        $config['mailtype'] = 'html'; // or html
+	        $config['validation'] = TRUE; // bool whether to validate email or not      
+
+	        $this->email->initialize($config);
+
+	        $this->email->from('praveen@bootstrapguru.com', 'Digisell');
+	        $this->email->to($email); 
+
+	        $this->email->subject('Forgot Password');
+	        $this->email->message($reset);  
+
+	        if($this->email->send())
+	        {
+	        	$this->session->set_flashdata('message','Email Sent, Please Check your email');
+	        	redirect('client_login/forgot');
+	        }
+	        else
+	        {
+	        	$this->session->set_flashdata('error','Sending Email Failed');
+	        	redirect('client_login/forgot');
+	        }
+		}
+		else
+        {
+        	$this->session->set_flashdata('error','User Not Found');
+        	redirect('client_login/forgot');
+        }
+		
 	}
 
 	function logout()

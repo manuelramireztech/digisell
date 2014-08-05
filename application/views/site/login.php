@@ -50,7 +50,7 @@
 
 					<input class="polaris-input" type="checkbox" id="inlineCheckbox1" value="option1"> <span class="check-text">Remember me</span> 
 					<button type="submit" class="btn btn-info pull-right">Sign In</button>
-					<h5><a href="forgot.html" target="_blank">Forgot Your Password ?</a></h5>
+					<h5><a href="<?php echo base_url('index.php').'/client_login/forgot' ?>">Forgot Your Password ?</a></h5>
 				</div>				
 			</div>
 		</div><!--emd of form-section-->

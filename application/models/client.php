@@ -21,6 +21,26 @@ class Client extends CI_Model
 		}
 	}
 
+	function reset_password($email)
+	{
+		//generate random password
+		$better_token = md5(uniqid(rand(), true));
+	    $unique_code = substr($better_token, 16);
+	    $uniqueid = $unique_code;
+		
+		$this->db->set('password',md5($uniqueid));
+		$this->db->where('email',$email);
+		if($this->db->update('clients'))
+		{
+			return '<p>The following <i>PASSWORD</i> helps you to login and change your password</p></br>
+					<b>Your New Password:</b>&nbsp;'.$uniqueid;
+		}
+		else
+		{
+			return 'Problem with the server please try another time.';
+		}
+	}
+
 	function last_login($email)
 	{
 		$this->db->set('last_logged',strtotime(date('d-m-Y')));

@@ -9,7 +9,7 @@
 <body>
 	<div class="login-page">
 		<div class="header-section">
-			<?php echo heading('Digi Audit',2); ?>
+			<?php echo heading('DigiSell',2); ?>
 		</div><!--end of header -section-->
 		<?php echo form_open('admin_login/login'); ?>
 		<div class="form-section">
