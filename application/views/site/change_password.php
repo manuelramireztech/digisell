@@ -1,9 +1,9 @@
 <?php include('partials_front/header.php'); ?>
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-3">
 		
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-6">
 		<?php if ($this->session->flashdata('message')):?>
             <div class="alert alert-success">
                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -54,7 +54,7 @@
 		  </div>
 		</div>
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-3">
 		
 	</div>
 </div>

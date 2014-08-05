@@ -40,8 +40,8 @@
 <body>
 	<div class="site-holder">
 		<!-- .navbar -->
-		<nav class="navbar  navbar-default nav-delighted " role="navigation">
-			<div class="container-fluid">
+		<nav class="navbar  navbar-default nav-delighted" role="navigation">
+			<div class="container-fluid container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -91,7 +91,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="<?php echo base_url('index.php').'/client_profile' ?>">Profile</a></li>
+                    <li><a href="<?php echo base_url('index.php').'/client_profile' ?>">User Profile</a></li>
                     <li><a href="<?php echo base_url('index.php').'/client_profile/change_password/' ?>">Change Password</a></li>
                     <li class="divider"></li>
                     <li><a href="<?php echo base_url("index.php")."/client_login/logout" ?>">Logout</a></li>
@@ -115,7 +115,7 @@
   <!-- .content -->
 <div class="content  animated fadeInBig">
     
-    <div class="main-content">
+    <div class="main-content container">
     
 
 

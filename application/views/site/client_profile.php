@@ -2,8 +2,8 @@
 <div class="row">
   <form action="<?php echo base_url('index.php').'/client_profile/save/'.$client_info->client_id ?>" id="edit" method="post">
 	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
 				<?php if ($this->session->flashdata('message')):?>
 	                <div class="alert alert-success">
 	                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -458,7 +458,7 @@
 			  	</div>
 			</div>
 		</div>
-		<div class="col-md-3"></div>
+		<div class="col-md-1"></div>
 	</div>
 </form>
 </div>
