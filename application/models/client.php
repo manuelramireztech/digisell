@@ -75,6 +75,19 @@ class Client extends CI_Model
         }
 	}
 
+	function save_client_info($id,$data)
+	{
+		$this->db->where('client_id',$id);
+		if($this->db->update('clients',$data))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	function get_clients($limit=0, $offset=0)
 	{
 		$this->db->order_by('client_id', 'DESC');

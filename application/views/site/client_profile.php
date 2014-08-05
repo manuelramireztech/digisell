@@ -1,10 +1,11 @@
 <?php include('partials_front/header.php'); ?>
 <div class="row">
-  <form action="<?php echo base_url('index.php').'/admin_client/save/' ?>" id="edit" method="post">
+  <form action="<?php echo base_url('index.php').'/client_profile/save/'.$client_info->client_id ?>" id="edit" method="post">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
 				<?php if ($this->session->flashdata('message')):?>
-	                <div class="alert alert-info">
+	                <div class="alert alert-success">
 	                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 	                     <?php echo $this->session->flashdata('message');?>
 	                </div>
@@ -15,10 +16,10 @@
 	                     <?php echo $this->session->flashdata('error');?>
 	                </div>
 	           <?php endif;?>
-			<div class="panel col-md-6">
+			<div class="panel col-md-12">
 			  	<div class="panel-heading">
 				    <h3 class="panel-title">
-				    	<b>Manage Client</b>&nbsp; <i class='ion-chevron-right'></i>&nbsp; <?php echo '<span class="text-warning">'.$client_info->first_name.' '.$client_info->last_name.'</span>'; ?>
+				    	<b>Manage Client</b>&nbsp; <i class='ion-chevron-right'></i>&nbsp; <?php echo '<span class="text-info">'.$client_info->first_name.' '.$client_info->last_name.'</span>'; ?>
 				    	
 				    	<span class="panel-options">
 							<a href="#" class="panel-minimize">
@@ -433,23 +434,7 @@
 										<td class="active">Email:</td>
 										<td>
 											<?php
-												$data	= array('name'=>'email', 'value'=>set_value('email', $client_info->email), 'class'=>'form-control');
-												echo form_input($data); ?>
-										</td>
-									</tr>
-									<tr>
-										<td class="active">Password:</td>
-										<td>
-											<?php
-												$data	= array('name'=>'password', 'id'=>'password', 'value'=>'', 'type'=>'password', 'class'=>'form-control');
-												echo form_input($data); ?>
-										</td>
-									</tr>
-									<tr>
-										<td class="active">Confirm Password:</td>
-										<td>
-											<?php
-												$data	= array('name'=>'confirm_password', 'id'=>'confirm_password', 'value'=>'', 'type'=>'password', 'class'=>'form-control');
+												$data	= array('name'=>'email', 'disabled'=>'true', 'value'=>set_value('email', $client_info->email), 'class'=>'form-control');
 												echo form_input($data); ?>
 										</td>
 									</tr>
@@ -462,27 +447,19 @@
 												?>
 										</td>
 									</tr>
-									<tr class="hidden">
-										<td class="active">Admin Notes</td>
-										<td class="active">
-											<?php
-												$data	= array('name'=>'admin_notes', 'value'=>set_value('admin_notes', $client_info->notes), 'class'=>'form-control', 'rows'=>5);
-												echo form_textarea($data);
-												?>
-										</td>
-									</tr>
 								</tbody>
 							</table>
 						</div>
 						
-						<p class="pull-right">
+						<p class="text-center">
 							<input type="submit" id="submit" value="Save Changes" class='btn btn-success'>
 						</p>
 					</div>
 			  	</div>
 			</div>
 		</div>
+		<div class="col-md-3"></div>
 	</div>
 </form>
-<!-- Fixed Panel -->
+</div>
 <?php include('partials_front/footer.php'); ?>
